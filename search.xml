@@ -27,6 +27,31 @@
     </entry>
     
     
+    
+    <entry>
+      <title>Note</title>
+      <link href="/2019/10/14/KMS%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%B0/"/>
+      <url>/2019/10/14/KMS%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="使用KMS激活Office"><a href="#使用KMS激活Office" class="headerlink" title="使用KMS激活Office"></a>使用KMS激活Office</h1><p>KMS技术是通过Key Manager Service服务的激活机制来激活Windows或者office的，能获取正版的产品密钥，<br>不过密钥有有效期，不是永久的，所以等到有效期到了之后需要重新获取密钥。相比网上的一些破解软件来<br>说要好的多。</p><ol><li>打开最新的KMS Tools by Ratiborus,会出现多个应用选项。</li><li>点击”KMSoffline”,进入KMSoffline x64 v2.1.3界面,有Main、Tools andSettings、About四个菜单选项。</li><li>在下方”Product”处，可以选择激活Windows和office,当然office需要自己安装。</li><li>然后点击右下方的”Information”可以查看Windows的版本信息或者office的版本信息，查看是否激活，有效期（）等什么的：<br>例如：下方是Windows的信息<br>== Windows(R), ProfessionalWorkstation edition<br>   Windows(R) Operating System, VOLUME_KMSCLIENT channel<pre><code>SKU ID: 82bbc092-bc50-4e16-8e18-b74fc486aec3</code></pre>  Partial Product Key: 6Q84J<br>  KMS-host Machine: <pre><code>KMS-Server PID: 03612-00206-557-633704-03-2052-17763.0000-1232019</code></pre> Expiration Date/Time: 179.20:24,  until 2020/4/11   //这里显示到2020/04/11过期。<pre><code>Activation interval: 00.02:00   Renewal interval: 16.04:23       License Status: --- LICENSED ------------------------------------------</code></pre></li><li>所以”Product”选择office，查看信息，确定office版本，点击”Install Key”,生成产品密钥，中间的白框框中就会出现提示信息，<br>最后的是密钥，例如：<pre><code>---------------------------------------</code></pre>== Installation GVLK keys Office 19<br>Install License:<br>ProPlus2019VL_KMS_Client_AE-ppd.xrm-ms<br>Install License:<br>ProPlus2019VL_KMS_Client_AE-ul-oob.xrm-ms<br>Install License:<br>ProPlus2019VL_KMS_Client_AE-ul.xrm-ms<br>Install License:<br>ProPlus2019VL_MAK_AE-pl.xrm-ms<br>Install License:<br>ProPlus2019VL_MAK_AE-ppd.xrm-ms<br>Install License:<br>ProPlus2019VL_MAK_AE-ul-oob.xrm-ms<br>Install License:<br>ProPlus2019VL_MAK_AE-ul-phn.xrm-ms<br>Uninstall key: 8MBCX</li></ol><a id="more"></a><p>Office 19, Office19ProPlus2019VL_KMS_Client_AE edition<br>NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP //这个是产品密钥<br>6. 最后将上面的产品密钥复制到左下方的”Own Key”中，点击右下方的”Activate”（激活）就可以激活了，<br>激活成功是这样的：<br>       —————————————<br>== Activating Office 19, Office19ProPlus2019VL_KMS_Client_AE edition</p><p> Setting KMS-Service 10.3.0.20:1688 …<br> KMS-Service 10.3.0.20:1688 successfully installed</p><p> Install KMS-Emulator …<br>              ——-=======——-<br> === Product successfully activated ===<br>              ——-=======——-</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具使用 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> KMS,office </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
   
   
 </search>

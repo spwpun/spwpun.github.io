@@ -4,7 +4,7 @@
 
 
 
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -14,6 +14,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
   <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+  <link rel="manifest" href="/images/manifest.json">
 
 <link rel="stylesheet" href="/css/main.css?v=7.4.1">
 
@@ -29,7 +30,7 @@
     version: '7.4.1',
     exturl: false,
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":true,"show_result":false,"style":null},
+    copycode: {"enable":true,"show_result":true,"style":"default"},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
@@ -47,9 +48,9 @@
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
     },
     sidebarPadding: 40
   };
@@ -62,7 +63,7 @@
 <meta property="og:url" content="https://spwpun.github.io/archives/2049/09/index.html">
 <meta property="og:site_name" content="The silent place">
 <meta property="og:description" content="多分享、多交流，才能不断进步！">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The silent place">
 <meta name="twitter:description" content="多分享、多交流，才能不断进步！">
@@ -80,7 +81,7 @@
   };
 </script>
 
-  <title>归档 | The silent place</title>
+  <title>Archive | The silent place</title>
   
 
 
@@ -134,7 +135,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
+    <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -154,7 +155,7 @@
       
     
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
 
   </li>
       
@@ -165,7 +166,7 @@
       
     
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
 
   </li>
       
@@ -176,7 +177,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
 
   </li>
       
@@ -187,7 +188,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
 
   </li>
       
@@ -198,13 +199,13 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
 
   </li>
       <li class="menu-item menu-item-search">
         <a href="javascript:;" class="popup-trigger">
         
-          <i class="fa fa-search fa-fw"></i>搜索</a>
+          <i class="fa fa-search fa-fw"></i>Search</a>
       </li>
     
   </ul>
@@ -218,7 +219,7 @@
   </span>
   <div class="search-input-container">
     <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="搜索..." spellcheck="false"
+           placeholder="Searching..." spellcheck="false"
            type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
@@ -280,7 +281,7 @@
         
           
         
-        <span class="collection-header">嗯..! 目前共计 2 篇日志。 继续努力。</span>
+        <span class="collection-header">Um..! 3 posts in total. Keep on posting.</span>
       </div>
       
 
@@ -348,10 +349,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          文章目录
+          Table of Contents
         </li>
         <li class="sidebar-nav-overview">
-          站点概览
+          Overview
         </li>
       </ul>
 
@@ -374,8 +375,8 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
-          <span class="site-state-item-name">日志</span>
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">posts</span>
         </a>
       </div>
     
@@ -387,8 +388,8 @@
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">2</span>
-        <span class="site-state-item-name">分类</span>
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span>
         </a>
       </div>
     
@@ -401,7 +402,7 @@
           
         
         <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">标签</span>
+        <span class="site-state-item-name">tags</span>
         </a>
       </div>
     
@@ -433,6 +434,18 @@
   </div>
 
 
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://whale3070.github.io" title="https://whale3070.github.io" rel="noopener" target="_blank">Whale3070</a>
+        </li>
+      
+    </ul>
+  </div>
 
       </div>
 
@@ -450,11 +463,11 @@
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">spwpun</span>
+  <span class="author" itemprop="copyrightHolder">Spwpun</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a></div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
 
         
 

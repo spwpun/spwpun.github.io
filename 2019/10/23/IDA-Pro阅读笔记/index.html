@@ -65,7 +65,7 @@
 <meta property="og:description" content="《IDA Pro权威指南（第二版）》阅读笔记趁着上班没有样本分析的时间把这本书看完吧！记录一些自己印象深刻的知识点。有些自己已经比较熟悉的点不会列出来了。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://spwpun.github.io/2019/10/23/IDA-Pro阅读笔记/20191102094833.png">
-<meta property="og:updated_time" content="2019-11-02T15:32:17.394Z">
+<meta property="og:updated_time" content="2019-11-03T16:08:53.583Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IDA Pro阅读笔记">
 <meta name="twitter:description" content="《IDA Pro权威指南（第二版）》阅读笔记趁着上班没有样本分析的时间把这本书看完吧！记录一些自己印象深刻的知识点。有些自己已经比较熟悉的点不会列出来了。">
@@ -299,7 +299,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-02 23:32:17" itemprop="dateModified" datetime="2019-11-02T23:32:17+08:00">2019-11-02</time>
+                <time title="Modified: 2019-11-04 00:08:53" itemprop="dateModified" datetime="2019-11-04T00:08:53+08:00">2019-11-04</time>
               </span>
             
           
@@ -385,15 +385,16 @@
 </blockquote>
 </li>
 <li><p>关于<strong>基本块</strong>：</p>
-</li>
-</ol>
 <blockquote>
 <p>在计算机程序中，基本块是一条或数条指令的组合，它拥有唯一一个指向块起始位置的入口点和唯一一个指向块结束位置的退出点。<br>一般来说，除最后一条指令外，基本块中的每条指令都将控制权转交给它后面的“继任”指令。同样，除第一条指令外，基本块中的每条指令都从它“前任”指令那里接收控制权。<br>通常，为判定基本块，应忽略函数调用指令并未将控制权转交到当前函数这一事实，除非已知被调用的函数无法正常返回。基本块在行为方面有一个重要的特点，即一旦基本块中的第一条指令开始执行，块中的其他指令都会执行，直到最后一条指令。这个特点会对程序的运行时检测产生重大影响，因为这时不再需要为程序中的每一条指令设置一个断点，或者逐步执行程序，以记录程序执行的每一条指令。相反，你可以为每个基本块的第一条指令设置断点，当这些断点被触发时，相关块中的每一条指令都被标记为“已执行”。Pedram Amini 的PaiMei③框架中的Process Stalker 组件就是以这种方式执行的。</p>
 </blockquote>
-<ol start="3">
-<li><code>F12</code>可以生成一个函数的外部流程图，不过很难看！<code>Ctrl+F12</code>可以生成整个二进制文件函数调用图，也很难看！</li>
-<li>选定一个函数可以生成以其为源头或者目标的交叉引用图，View-&gt;Graphs-&gt;Xrefs from/to.</li>
-<li>图形化的其他工具：<blockquote>
+</li>
+<li><p><code>F12</code>可以生成一个函数的外部流程图，不过很难看！<code>Ctrl+F12</code>可以生成整个二进制文件函数调用图，也很难看！</p>
+</li>
+<li><p>选定一个函数可以生成以其为源头或者目标的交叉引用图，View-&gt;Graphs-&gt;Xrefs from/to.</p>
+</li>
+<li><p>图形化的其他工具：</p>
+<blockquote>
 <p>自IDA 引入集成化反汇编图形模式后，这些困难有一部分得到了解决。但是，IDA 主要是一个反汇编器，生成图形并不是它的主要用途。对专用的图形分析工具感兴趣的读者可以研究专门用于此类目的的应用程序，如<code>BinNavi</code>，这款工具是Halvar Flake 的公司<code>Zynamics</code>开发的。</p>
 </blockquote>
 </li>
@@ -425,11 +426,10 @@
 </li>
 <li>创建ids文件：<blockquote>
 <p>IDA 的idsutils 实用工具用于创建.ids 文件。这些实用工具包括两个库解析器：从Windows DLL 中提取信息的dll2idt 和从ar 库中提取信息的ar2idt.exe。无论使用哪一个解析器，其输出都是一个.idt 文本文件，它每行显示一个导出函数，并将导出函数的序号与函数名称对应起来。</p>
-<p><img src="//spwpun.github.io/2019/10/23/IDA-Pro阅读笔记/20191102094833.png" alt="20191102094833"></p>
 </blockquote>
 </li>
-<li>修改注释，使用loadint实用工具，后续需要花点时间来研究一下怎么创建一个ids文件和til文件。</li>
 </ol>
+<p><img src="//spwpun.github.io/2019/10/23/IDA-Pro阅读笔记/20191102094833.png" alt="20191102094833"><br>3. 修改注释，使用loadint实用工具，后续需要花点时间来研究一下怎么创建一个ids文件和til文件。</p>
 <h5 id="第14章-修补二进制文件及其他IDA的限制"><a href="#第14章-修补二进制文件及其他IDA的限制" class="headerlink" title="第14章 修补二进制文件及其他IDA的限制"></a>第14章 修补二进制文件及其他IDA的限制</h5><blockquote>
 <p>IDA 并不是一个二进制文件编辑器。任何时候，如果你想要使用IDA 修补一个二进制文件，请记住这个事实。但是，它是一款特别有用的工具，可帮助你输入并显示潜在的更改。掌握IDA的全部功能，并结合IDA 通过适当的脚本或外部程序生成的信息，修补二进制文件也会变得简单可行。</p>
 </blockquote>
@@ -469,8 +469,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2049/09/01/Note/" rel="prev" title="Note">
-                  Note <i class="fa fa-chevron-right"></i>
+                <a href="/2019/11/04/Django-Error：no-module-named-sqlite3/" rel="prev" title="Django Error：no module named _sqlite3">
+                  Django Error：no module named _sqlite3 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -539,7 +539,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -552,7 +552,7 @@
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span>
         </a>
       </div>
@@ -565,7 +565,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>

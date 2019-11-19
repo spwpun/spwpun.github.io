@@ -65,7 +65,7 @@
 <meta property="og:description" content="《IDA Pro权威指南（第二版）》阅读笔记趁着上班没有样本分析的时间把这本书看完吧！记录一些自己印象深刻的知识点。有些自己已经比较熟悉的点不会列出来了。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://spwpun.github.io/2019/10/23/IDA-Pro阅读笔记/20191102094833.png">
-<meta property="og:updated_time" content="2019-11-03T16:08:53.583Z">
+<meta property="og:updated_time" content="2019-11-19T10:04:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IDA Pro阅读笔记">
 <meta name="twitter:description" content="《IDA Pro权威指南（第二版）》阅读笔记趁着上班没有样本分析的时间把这本书看完吧！记录一些自己印象深刻的知识点。有些自己已经比较熟悉的点不会列出来了。">
@@ -299,7 +299,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-04 00:08:53" itemprop="dateModified" datetime="2019-11-04T00:08:53+08:00">2019-11-04</time>
+                <time title="Modified: 2019-11-19 18:04:57" itemprop="dateModified" datetime="2019-11-19T18:04:57+08:00">2019-11-19</time>
               </span>
             
           
@@ -434,7 +434,127 @@
 <p>IDA 并不是一个二进制文件编辑器。任何时候，如果你想要使用IDA 修补一个二进制文件，请记住这个事实。但是，它是一款特别有用的工具，可帮助你输入并显示潜在的更改。掌握IDA的全部功能，并结合IDA 通过适当的脚本或外部程序生成的信息，修补二进制文件也会变得简单可行。</p>
 </blockquote>
 <p>IDA 对二进制文件的修改这一方面感觉确实不行，如果要修改二进制文件，还是用专用的二进制编辑器吧，例如010 Editor、Winhex，扯一句，最近发现Winhex的功能真的挺强大的。</p>
-<h4 id="第四部分-扩展IDA的功能"><a href="#第四部分-扩展IDA的功能" class="headerlink" title="第四部分 扩展IDA的功能"></a>第四部分 扩展IDA的功能</h4><h5 id="第15章-编写IDA脚本"><a href="#第15章-编写IDA脚本" class="headerlink" title="第15章  编写IDA脚本"></a>第15章  编写IDA脚本</h5>
+<h4 id="第四部分-扩展IDA的功能"><a href="#第四部分-扩展IDA的功能" class="headerlink" title="第四部分 扩展IDA的功能"></a>第四部分 扩展IDA的功能</h4><h5 id="第15章-编写IDA脚本"><a href="#第15章-编写IDA脚本" class="headerlink" title="第15章  编写IDA脚本"></a>第15章  编写IDA脚本</h5><h6 id="IDC脚本的特性"><a href="#IDC脚本的特性" class="headerlink" title="IDC脚本的特性"></a>IDC脚本的特性</h6><p>IDC语言和C类似，但还是有很多区别的。</p>
+<p>IDC使用关键字<code>auto</code>来声明一个局部变量，使用关键字<code>extern</code>来声明一个全局变量，但声明全局变量时不能为其提供初始值；</p>
+<p>IDC并不支持C风格的数组，对于字符串这类的变量，支持和python一样的分片操作；</p>
+<p>IDC并不严格限制变量的作用域，你可以在变量声明的花括号外面访问变量；</p>
+<p>IDC中的<code>Message</code>函数类似于C中的<code>printf</code>函数；</p>
+<p>IDC仅支持在独立的<code>.idc</code>文件中声明函数，<code>static</code>关键字用于声明用户自定义的函数，在IDC命令对话框中不能定义函数，因为这相当于在函数中定义函数，而IDC不支持嵌套声明；</p>
+<p>IDC也支持类对象，但是不使用public、private类似的访问说明符，所有的成员都是有效公共类，且如果要在类中创建数据成员，只需要一个给类的数据成员的赋值语句就行；</p>
+<p>IDC程序文件的基本结构：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;idc.idc&gt; //useful include directive</span></span></span><br><span class="line"><span class="comment">//declare addtional functions as required</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//do something fun here</span></span><br><span class="line">    AddHotkey(<span class="string">"z"</span>, <span class="string">"func"</span>); <span class="comment">//Now 'z' invokes </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="IDC常用的函数"><a href="#IDC常用的函数" class="headerlink" title="IDC常用的函数"></a>IDC常用的函数</h6><ol>
+<li><p>读取和修改数据的函数</p>
+<p><code>long Byte(long addr)</code>，从虚拟地址addr 处读取一个字节值。</p>
+<p><code>long Word(long addr)</code>，从虚拟地址addr 处读取一个字（2 字节）值。</p>
+<p><code>long Dword(long addr)</code>，从虚拟地址addr 处读取一个双字（4 字节）值。</p>
+<p><code>void PatchByte(long addr, long val)</code>，设置虚拟地址addr 处的一个字节值。</p>
+<p><code>void PatchWord(long addr, long val)</code>，设置虚拟地址addr 处的一个字值。</p>
+<p><code>void PatchDword(long addr, long val)</code>，设置虚拟地址addr 处的一个双字值。</p>
+<p><code>bool isLoaded(long addr)</code>，如果addr 包含有效数据，则返回1，否则返回0。</p>
+</li>
+<li><p>用户交互函数</p>
+<p><code>void Message(string format, ...)</code>，在输出窗口打印一条格式化消息。这个函数类似于C 语言的printf 函数，并接受printf 风格的格式化字符串。</p>
+<p><code>void print(...)</code>，在输出窗口中打印每个参数的字符串表示形式。</p>
+<p><code>void Warning(string format, ...)</code>，在对话框中显示一条格式化消息。</p>
+<p><code>string AskStr(string default, string prompt)</code>，显示一个输入框，要求用户输入一个字符串值。如果操作成功，则返回用户的字符串；如果对话框被取消，则返回0。</p>
+<p><code>string AskFile(long doSave, string mask, string prompt)</code>，显示一个文件选择对话框，以简化选择文件的任务。你可以创建新文件保存数据（doSave=1），或选择现有的文件读取数据（doSave=0）。你可以根据mask（如<em>.</em>或*.idc）过滤显示的文件列表。如果操作成功，则返回选定文件的名称；如果对话框被取消，则返回0。</p>
+<p><code>long AskYN(long default, string prompt)</code>，用一个答案为“是”或“否”的问题提示用户，突出一个默认的答案（1 为是，0 为否，-1 为取消）。返回值是一个表示选定答案的整数。</p>
+<p><code>long ScreenEA()</code>，返回当前光标所在位置的虚拟地址。</p>
+<p><code>bool Jump(long addr)</code>，跳转到反汇编窗口的指定地址。</p>
+</li>
+<li><p>字符串操纵函数</p>
+<ul>
+<li><input disabled type="checkbox"> string form(string format, …)//preIDA5.6，返回一个新字符串，该字符串根据所提供的格式化字符串和值进行格式化。这个函数基本上等同于C 语言的sprintf 函数。</li>
+<li><input disabled type="checkbox"> string sprintf(string format,…)//IDA5.6+，在IDA5.6 中，sprintf 用于替代form（参见上面）。</li>
+<li><input disabled type="checkbox"> long atol(string val)，将十进制值val 转换成对应的整数值。</li>
+<li><input disabled type="checkbox"> long xtol(string val)，将十六进制值val（可选择以0x 开头）转换成对应的整数值。</li>
+<li><input disabled type="checkbox"> string ltoa(long val, long radix)，以指定的radix（2、8、10 或16）返回val 的字符串值。</li>
+<li><input disabled type="checkbox"> long ord(string ch)，返回单字符字符串ch 的ASCII 值。</li>
+<li><input disabled type="checkbox"> long strlen(string str)，返回所提供字符串的长度。</li>
+<li><input disabled type="checkbox"> long strstr(string str, string substr)，返回str 中substr 的索引。如果没有发现子字符串，则返回-1。</li>
+<li><input disabled type="checkbox"> string substr(string str, long start, long end)，返回包含str 中由start 到end-1位置的字符的子字符串。如果使用分片（ IDA5.6 及更高版本）， 此函数等同于str[start:end]。</li>
+</ul>
+</li>
+<li><p>文件输入输出函数</p>
+<ul>
+<li><input disabled type="checkbox"> …这部分有点多了，单独写一篇出来吧，还有后面的IDAPython的相关函数，以便之后写插件的时候用到。</li>
+</ul>
+</li>
+</ol>
+<h6 id="IDAPython编写插件"><a href="#IDAPython编写插件" class="headerlink" title="IDAPython编写插件"></a>IDAPython编写插件</h6><ul>
+<li>编写python脚本需要导入三个核心的模块：idaapi、idautils、idc。</li>
+<li>需要定义一个plugin类作为插件的入口函数，参数idaapi.plugin_t是IDA的插件类，后续会讲到，例如：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">classs PluginName_Plugin_t(idaapi.plugin_t):</span><br><span class="line">	...</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>然后需要注册plugin：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># register IDA plugin</span><br><span class="line">def PLUGIN_ENTRY():</span><br><span class="line">	return PluginName_Plugin_t()</span><br></pre></td></tr></table></figure>
+
+<h5 id="第16章-IDA软件开发工具包"><a href="#第16章-IDA软件开发工具包" class="headerlink" title="第16章 IDA软件开发工具包"></a>第16章 IDA软件开发工具包</h5><p>这一章讲的是IDA的SDK的使用方法，涉及到SDK的安装配置、应用编程接口，总的来说是让你如何系统的去使用IDC编写IDA的插件的这样一个体系结构。</p>
+<p>有用的SDK数据类型：area_t, func_t, segment_t, idc_value_t, idainfo, struc_t, member_t, op_t, insn_t. 这些类型标明了IDA中的各个功能展现的数据形式，也就是可以通过编程将其进行操纵。</p>
+<p>这一章也有一些常用的SDK函数，同上一章一样，我会单独将其列出来，方便以后查找，这一章的这些函数与IDC脚本相比，能够进行更加细化的控制。</p>
+<h5 id="第17章-IDA插件体系结构"><a href="#第17章-IDA插件体系结构" class="headerlink" title="第17章 IDA插件体系结构"></a>第17章 IDA插件体系结构</h5><p>插件是经过编译的、功能更加强大的IDC脚本。</p>
+<ol>
+<li><p>插件的安装：我先挑最简单的来说，安装插件只需要将编译好的插件模块复制到<code>&lt;IDADIR&gt;/plugins</code>目录中即可，不过需要注意的是尽量在完全关闭IDA的情况下进行此操作，因为Windows系统不能覆写一个正在使用的插件，而在IDA打开的时候，你想要的覆写的插件可能设置了PLUGIN_FIX标志且证在运行。</p>
+</li>
+<li><p>编写插件：这里把插件上升为一个模块来解释，IDA模块都是以适用于执行插件的平台的共享库组件实现，而每个模块必须导出某个特定类的一个变量，对插件来说，就是plugin_t，这个类在SDK的loader.hpp文件中定义。【稍微查了一下：hpp = h + cpp, 先简单这么理解吧】<br>plugin_t类中的字段包括：version, flags, init, term, run, comment, help, wanted_name, wanted_hotkey.<br>以上的成员就涵盖了编写一个插件需要做的大致事务，根据名称能简单推断出各个字段的函数，其中term字段是一个函数指针，当插件卸载时，调用相关函数。【term即为terminate的缩写，好像我挺习惯这样记忆的】</p>
+</li>
+<li><p>构建插件：在Windows上，插件是有效的DLL文件（.plw/.p64），在Linux/Mac上，插件则是有效的共享文件对象（.plx/plx64, .pmc/pmc64）。构建插件需要简化版本的生成文件（makefile）和GNU工具，在Windows上使用MinGW。</p>
+</li>
+<li><p>可以在已编译的插件中扩展IDC，但现在还没有办法扩展IDAPython。</p>
+</li>
+<li><p>脚本化插件：创建Python插件的过程非常简单，只需要定义一个名为PLUGIN_ENTRY的函数，该函数返回plugin_t（在模块idaapi中定义）的一个实例。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> idaapi <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">idabook_plugin_t</span><span class="params">(plugin_t)</span>:</span></span><br><span class="line">	flags = <span class="number">0</span></span><br><span class="line">	wanted_name = <span class="string">"IdaBook Python Plugin"</span></span><br><span class="line">    wanted_hotkey = <span class="string">"Alt-8"</span></span><br><span class="line">      comment = <span class="string">"IdaBook Python Plugin"</span></span><br><span class="line">      help = <span class="string">"Something helpful"</span></span><br><span class="line">      </span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">init</span><span class="params">(self)</span>:</span></span><br><span class="line">          msg(<span class="string">"IdaBook Python Plugin init called.\n"</span>)</span><br><span class="line">          <span class="keyword">return</span> PLUGIN_OK</span><br><span class="line">      </span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">term</span><span class="params">(self)</span>:</span></span><br><span class="line">          msg(<span class="string">"IdaBook Plugin term called.\n"</span>)</span><br><span class="line">          </span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self, arg)</span>:</span></span><br><span class="line">          warning(<span class="string">"IdaBook plugin run(%d) called"</span> % arg)</span><br><span class="line">      </span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">PLUGIN_ENTRY</span><span class="params">()</span>:</span></span><br><span class="line">          <span class="keyword">return</span> idabook_plugin_t()</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<p>上面是使用IDAPython写的一个小型插件，下面是使用IDC写的：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;idc.idc&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function">class <span class="title">idabook_plugin_t</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">idabook_plugin_t</span>()&#123;</span><br><span class="line">		<span class="keyword">this</span>.flags = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">this</span>.wanted_name = <span class="string">"IdaBook IDC Plugin"</span>;</span><br><span class="line">		<span class="keyword">this</span>.wanted_hotkey = <span class="string">"Alt-9"</span>;</span><br><span class="line">		<span class="keyword">this</span>.comment = <span class="string">"IdaBook IDC Plugin"</span>;</span><br><span class="line">		<span class="keyword">this</span>.help = <span class="string">"Something helpful"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	init()&#123;</span><br><span class="line">		Message(<span class="string">"IdaBook plugin init called.\n"</span>);</span><br><span class="line">		<span class="keyword">return</span> PLUGIN_OK;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	term()&#123;</span><br><span class="line">		Message(<span class="string">"IdaBook plugin term called.\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	run(arg)&#123;</span><br><span class="line">		Warning(<span class="string">"IdaBook plugin run(%d) called.\n"</span>, arg);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="title">PLUGIN_ENTRY</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">idabook_plugin_t</span>();</span><br><span class="line">&#125;</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<h5 id="第18章-二进制文件与IDA加载器模块"><a href="#第18章-二进制文件与IDA加载器模块" class="headerlink" title="第18章 二进制文件与IDA加载器模块"></a>第18章 二进制文件与IDA加载器模块</h5><p>粗略看了一下，感觉未来一段时间暂时不会接触到，主要是讲如何去构建一个简单的加载器来识别未知的文件类型什么的，想到这，要是以后自己写出某个文件的IDA加载器放在github上，应该能体现我的编码能力吧。</p>
+<h5 id="第19章-IDA处理器模块"><a href="#第19章-IDA处理器模块" class="headerlink" title="第19章 IDA处理器模块"></a>第19章 IDA处理器模块</h5><p>本章介绍IDA处理器模块的构建流程，是IDA模块化中最复杂的，我感觉比较硬核了，未来一段时间自己也不会接触吧，这也是我想买一本这个实体书的原因，万一后面有需要用到可以再来仔细看看。在本章中介绍的是针对Python的编译文件pyc的逆向处理器的构建过程，同上一章有类似之处。</p>
+<h4 id="第五部分"><a href="#第五部分" class="headerlink" title="第五部分"></a>第五部分</h4><p>后面的这两部分打算略过看吧，有些技术深度确实现在看看不懂，就只细看我要去学习的相关章节吧。</p>
+<h5 id="第20章-编译器变体"><a href="#第20章-编译器变体" class="headerlink" title="第20章 编译器变体"></a>第20章 编译器变体</h5><p>源代码相同，但是编译器不同，也就是构建选项不同所带来的二进制代码是截然不同的，这是因为编译器选择了不停的算法来实现各种高级结构。</p>
+<p>这一章中提到了switch代码在Borland编译器和Visual C++下不同的的汇编代码结构，前者将跳转表嵌入进了函数当中，后者将跳转表放在邻近函数位置处，更好的区分了数据和代码，不会给程序的行为造成影响。</p>
+<h5 id="第21章-模糊代码分析"><a href="#第21章-模糊代码分析" class="headerlink" title="第21章 模糊代码分析"></a>第21章 模糊代码分析</h5><p>模糊代码，反逆向分析。模糊是一种是某物变得模糊、混乱，令人困惑、迷惑，以防止他人理解被模糊的项目的行为。这一章介绍了主流的模糊代码技术，是我要阅读的重点。</p>
+<h6 id="1-反静态分析技巧"><a href="#1-反静态分析技巧" class="headerlink" title="1.反静态分析技巧"></a>1.反静态分析技巧</h6><ul>
+<li>call/jmp loc_XXXX + 1:形如这样的汇编代码，执行了一次调用，调用对象就在下一个指令的中间，由于IDA认为这个函数会返回，则继续反汇编接着的地址，然后真正的被调用指令却没有被反汇编。</li>
+<li>xor eax, eax  jz loc_XXXX ：这两句汇编等于无条件跳转jmp，其与loc_XXXX之间的代码从未执行，仅起到迷惑分析人员的作用。</li>
+</ul>
+<p><strong>a. 动态计算目标地址</strong></p>
+<p>这里的动态计算指的是接下来的执行地址在运行时计算得出。</p>
+<ul>
+<li>通过操作寄存器运算，得到真正的执行地址，然后将其赋值给栈顶处，再执行返回执行，就能跳转到执行地址，也就是（push，ret）结合的一种形式，在之前练习pwn的入门题目时遇到过。</li>
+<li>通过FS段存放的异常函数指针链表，设置异常，调用异常处理函数，根据操作系统提供的CONTEXT结构体的参数信息恢复程序执行流程。</li>
+<li>加壳处理，UPX，ASPack，ASProtect，tElock，Burneye，Shiva，VMProtect。</li>
+</ul>
+<p><strong>b. 导入的函数模糊</strong></p>
+<p>这类技巧可以令dumpbin，ldd，objdump等工具失效，无法列出库依赖关系。</p>
+<ul>
+<li><p>使用Loadlibrary和GetProcAddress动态获取函数地址，使用函数。</p>
+</li>
+<li><p>由于每一个Windows程序都会加载kernel32.dll，而上一种方法中的两个函数都处于这个dll中，所以可以通过获取kernel32.dll的导入表，查找相关函数，对比hash值，定位具体的函数入口地址，实现函数功能。【这里参见Skape<a href="http%3A%2F%2Fwww.hick.org%2Fcode%2Fskape%2Fpapers%2Fwin32-shellcode.pdf">的论文</a>“Understanding Windows Shellcode”，这个方法也是在之前我遇到的一个样本中出现的方法，现在看起来真是醍醐灌顶啊。】</p>
+</li>
+</ul>
+<h6 id="2-反动态分析技巧"><a href="#2-反动态分析技巧" class="headerlink" title="2.反动态分析技巧"></a>2.反动态分析技巧</h6><p>这部分同反调试的技术差不多，检测虚拟化、检测调试器、反调试标志的设置，此处略过。</p>
+<h6 id="3-使用IDA对二进制文件进行“静态去模糊”"><a href="#3-使用IDA对二进制文件进行“静态去模糊”" class="headerlink" title="3. 使用IDA对二进制文件进行“静态去模糊”"></a>3. 使用IDA对二进制文件进行“静态去模糊”</h6><p><strong>面向脚本的去模糊</strong></p>
+<p>基于脚本的去模糊方案无法构建“万能式”的解决方案，现有包装器的任何细微变化都会使得脚本失效。脚本的针对性比较强。【这也导致我突然意识到我做的毕设似乎没有那么简单】</p>
+<p><strong>面向模拟的去模糊</strong></p>
+<p>基于模拟执行来实现去模糊，介绍了一个ida的插件<code>x86emu</code>，作为一个IDA的嵌入式x86指令的模拟器，后续对我的帮助也该会挺大的吧。</p>
+<p><strong>基于虚拟机的模糊</strong></p>
+<p>这主要是说VMProtect，感觉到达自己的知识瓶颈，我已经完全无法理解了。</p>
+<blockquote>
+<p>当前，恶意软件大多是模糊程序。因此，如果你希望研究一个恶意软件样本的内部运行机制，几乎可以肯定，你需要完成某种类型的去模糊任务。无论你是采用调试器辅助的动态去模糊方法，还是不想运行可能恶意的代码，而选择使用脚本或模拟对二进制文件进行去模糊处理，你的最终目标都是生成一个可以被完全反汇编、正确分析的去模糊二进制文件。多数情况下，最后的分析都要由IDA 之类的工具来完成。鉴于此（即使用IDA 进行分析），尝试从头至尾使用IDA 似乎有一定的道理。</p>
+</blockquote>
+<hr>
+<p>注：暂时写到这儿吧，后面的部分我感觉我看了收获也不是太多吧，以后接触到再来看吧，觉得入手一本实体书，闲来无事翻一翻！</p>
+
     </div>
 
     
@@ -520,7 +640,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#《IDA-Pro权威指南（第二版）》阅读笔记"><span class="nav-number">1.</span> <span class="nav-text">《IDA Pro权威指南（第二版）》阅读笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一部分-IDA简介"><span class="nav-number">1.1.</span> <span class="nav-text">第一部分 IDA简介</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第1章-反汇编简介"><span class="nav-number">1.1.1.</span> <span class="nav-text">第1章 反汇编简介</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第2章-逆向与反汇编"><span class="nav-number">1.1.2.</span> <span class="nav-text">第2章 逆向与反汇编</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第3章-IDA-Pro背景知识"><span class="nav-number">1.1.3.</span> <span class="nav-text">第3章 IDA Pro背景知识</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二部分-IDA基本用法"><span class="nav-number">1.2.</span> <span class="nav-text">第二部分 IDA基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第4章-IDA入门"><span class="nav-number">1.2.1.</span> <span class="nav-text">第4章 IDA入门</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第5章-IDA数据显示窗口"><span class="nav-number">1.2.2.</span> <span class="nav-text">第5章 IDA数据显示窗口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第6章-反汇编导航"><span class="nav-number">1.2.3.</span> <span class="nav-text">第6章 反汇编导航</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第7章-反汇编操作"><span class="nav-number">1.2.4.</span> <span class="nav-text">第7章 反汇编操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第8章-数据类型与数据结构"><span class="nav-number">1.2.5.</span> <span class="nav-text">第8章 数据类型与数据结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第9章-交叉引用与绘图功能"><span class="nav-number">1.2.6.</span> <span class="nav-text">第9章 交叉引用与绘图功能</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第10章-IDA的多种面孔"><span class="nav-number">1.2.7.</span> <span class="nav-text">第10章 IDA的多种面孔</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三部分-IDA高级应用"><span class="nav-number">1.3.</span> <span class="nav-text">第三部分 IDA高级应用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第11章-定制IDA"><span class="nav-number">1.3.1.</span> <span class="nav-text">第11章 定制IDA</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第12章-使用FLIRT签名来识别库"><span class="nav-number">1.3.2.</span> <span class="nav-text">第12章 使用FLIRT签名来识别库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第13章-扩展IDA的知识"><span class="nav-number">1.3.3.</span> <span class="nav-text">第13章 扩展IDA的知识</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第14章-修补二进制文件及其他IDA的限制"><span class="nav-number">1.3.4.</span> <span class="nav-text">第14章 修补二进制文件及其他IDA的限制</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第四部分-扩展IDA的功能"><span class="nav-number">1.4.</span> <span class="nav-text">第四部分 扩展IDA的功能</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第15章-编写IDA脚本"><span class="nav-number">1.4.1.</span> <span class="nav-text">第15章  编写IDA脚本</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#《IDA-Pro权威指南（第二版）》阅读笔记"><span class="nav-number">1.</span> <span class="nav-text">《IDA Pro权威指南（第二版）》阅读笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一部分-IDA简介"><span class="nav-number">1.1.</span> <span class="nav-text">第一部分 IDA简介</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第1章-反汇编简介"><span class="nav-number">1.1.1.</span> <span class="nav-text">第1章 反汇编简介</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第2章-逆向与反汇编"><span class="nav-number">1.1.2.</span> <span class="nav-text">第2章 逆向与反汇编</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第3章-IDA-Pro背景知识"><span class="nav-number">1.1.3.</span> <span class="nav-text">第3章 IDA Pro背景知识</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二部分-IDA基本用法"><span class="nav-number">1.2.</span> <span class="nav-text">第二部分 IDA基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第4章-IDA入门"><span class="nav-number">1.2.1.</span> <span class="nav-text">第4章 IDA入门</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第5章-IDA数据显示窗口"><span class="nav-number">1.2.2.</span> <span class="nav-text">第5章 IDA数据显示窗口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第6章-反汇编导航"><span class="nav-number">1.2.3.</span> <span class="nav-text">第6章 反汇编导航</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第7章-反汇编操作"><span class="nav-number">1.2.4.</span> <span class="nav-text">第7章 反汇编操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第8章-数据类型与数据结构"><span class="nav-number">1.2.5.</span> <span class="nav-text">第8章 数据类型与数据结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第9章-交叉引用与绘图功能"><span class="nav-number">1.2.6.</span> <span class="nav-text">第9章 交叉引用与绘图功能</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第10章-IDA的多种面孔"><span class="nav-number">1.2.7.</span> <span class="nav-text">第10章 IDA的多种面孔</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三部分-IDA高级应用"><span class="nav-number">1.3.</span> <span class="nav-text">第三部分 IDA高级应用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第11章-定制IDA"><span class="nav-number">1.3.1.</span> <span class="nav-text">第11章 定制IDA</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第12章-使用FLIRT签名来识别库"><span class="nav-number">1.3.2.</span> <span class="nav-text">第12章 使用FLIRT签名来识别库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第13章-扩展IDA的知识"><span class="nav-number">1.3.3.</span> <span class="nav-text">第13章 扩展IDA的知识</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第14章-修补二进制文件及其他IDA的限制"><span class="nav-number">1.3.4.</span> <span class="nav-text">第14章 修补二进制文件及其他IDA的限制</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第四部分-扩展IDA的功能"><span class="nav-number">1.4.</span> <span class="nav-text">第四部分 扩展IDA的功能</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第15章-编写IDA脚本"><span class="nav-number">1.4.1.</span> <span class="nav-text">第15章  编写IDA脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#IDC脚本的特性"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">IDC脚本的特性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#IDC常用的函数"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">IDC常用的函数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#IDAPython编写插件"><span class="nav-number">1.4.1.3.</span> <span class="nav-text">IDAPython编写插件</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第16章-IDA软件开发工具包"><span class="nav-number">1.4.2.</span> <span class="nav-text">第16章 IDA软件开发工具包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第17章-IDA插件体系结构"><span class="nav-number">1.4.3.</span> <span class="nav-text">第17章 IDA插件体系结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第18章-二进制文件与IDA加载器模块"><span class="nav-number">1.4.4.</span> <span class="nav-text">第18章 二进制文件与IDA加载器模块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第19章-IDA处理器模块"><span class="nav-number">1.4.5.</span> <span class="nav-text">第19章 IDA处理器模块</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第五部分"><span class="nav-number">1.5.</span> <span class="nav-text">第五部分</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第20章-编译器变体"><span class="nav-number">1.5.1.</span> <span class="nav-text">第20章 编译器变体</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第21章-模糊代码分析"><span class="nav-number">1.5.2.</span> <span class="nav-text">第21章 模糊代码分析</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-反静态分析技巧"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">1.反静态分析技巧</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-反动态分析技巧"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">2.反动态分析技巧</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-使用IDA对二进制文件进行“静态去模糊”"><span class="nav-number">1.5.2.3.</span> <span class="nav-text">3. 使用IDA对二进制文件进行“静态去模糊”</span></a></li></ol></li></ol></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->

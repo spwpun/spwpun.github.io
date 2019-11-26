@@ -64,12 +64,12 @@
 <meta property="og:site_name" content="The silent place">
 <meta property="og:description" content="a1260fd3e9221d1bc5b9ece6e7a5a98669c79e124453f2ac58625085759ed3bb">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://spwpun.github.io/2019/11/26/APT38样本分析记录-网络通信特征/.%5CAPT38%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90%E8%AE%B0%E5%BD%95-%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E7%89%B9%E5%BE%81%5Cimage-20191122094404772.png">
-<meta property="og:updated_time" content="2019-11-26T04:35:41.454Z">
+<meta property="og:image" content="https://spwpun.github.io/2019/11/26/APT38样本分析记录-网络通信特征/image-20191122094404772.png">
+<meta property="og:updated_time" content="2019-11-26T04:39:58.789Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="APT38样本分析记录--网络通信特征">
 <meta name="twitter:description" content="a1260fd3e9221d1bc5b9ece6e7a5a98669c79e124453f2ac58625085759ed3bb">
-<meta name="twitter:image" content="https://spwpun.github.io/2019/11/26/APT38样本分析记录-网络通信特征/.%5CAPT38%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90%E8%AE%B0%E5%BD%95-%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E7%89%B9%E5%BE%81%5Cimage-20191122094404772.png">
+<meta name="twitter:image" content="https://spwpun.github.io/2019/11/26/APT38样本分析记录-网络通信特征/image-20191122094404772.png">
   <link rel="canonical" href="https://spwpun.github.io/2019/11/26/APT38样本分析记录-网络通信特征/">
 
 
@@ -288,7 +288,7 @@
                 
               
 
-              <time title="Created: 2019-11-26 12:32:19 / Modified: 12:35:41" itemprop="dateCreated datePublished" datetime="2019-11-26T12:32:19+08:00">2019-11-26</time>
+              <time title="Created: 2019-11-26 12:32:19 / Modified: 12:39:58" itemprop="dateCreated datePublished" datetime="2019-11-26T12:32:19+08:00">2019-11-26</time>
             </span>
           
             
@@ -343,7 +343,7 @@
 
       
         <h2 id="a1260fd3e9221d1bc5b9ece6e7a5a98669c79e124453f2ac58625085759ed3bb"><a href="#a1260fd3e9221d1bc5b9ece6e7a5a98669c79e124453f2ac58625085759ed3bb" class="headerlink" title="a1260fd3e9221d1bc5b9ece6e7a5a98669c79e124453f2ac58625085759ed3bb"></a>a1260fd3e9221d1bc5b9ece6e7a5a98669c79e124453f2ac58625085759ed3bb</h2><a id="more"></a><p>通过hash值到微步社区查询报毒情况，只有<code>Baidu-China</code>报了恶意，得不到其他有用的信息，也看不到任何的网络行为，不过看到了一个比较有用的静态信息就是很多加密的指纹：</p>
-<p><img src="//spwpun.github.io/2019/11/26/APT38样本分析记录-网络通信特征/.%5CAPT38%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90%E8%AE%B0%E5%BD%95-%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E7%89%B9%E5%BE%81%5Cimage-20191122094404772.png" alt></p>
+<p><img src="//spwpun.github.io/2019/11/26/APT38样本分析记录-网络通信特征/image-20191122094404772.png" alt></p>
 <p>为了让自己的IDA能够识别这些加密指纹，我安装了Findcrypt插件，该插件需要安装yara-python库，具体的安装方法见其<a href="https://github.com/polymorf/findcrypt-yara" target="_blank" rel="noopener">github地址</a>。</p>
 <p>由于分析只要求分析网络通信特征，其实要不要这个插件作用都不大，后续分析出该样本在登录到目标服务器时会先发送一个登录frame，其中的数据是部分固定的，也就可以提取出来作为通信特征了。该样本需要参数来设置登录的服务器、登录名、密码等信息，所以在沙箱中检测并没有检测出网络行为。</p>
 <h2 id="a3a1a43f0e631c10ab42e5404b61580e760e7d6f849ab8eb5848057a8c60cda2"><a href="#a3a1a43f0e631c10ab42e5404b61580e760e7d6f849ab8eb5848057a8c60cda2" class="headerlink" title="a3a1a43f0e631c10ab42e5404b61580e760e7d6f849ab8eb5848057a8c60cda2"></a>a3a1a43f0e631c10ab42e5404b61580e760e7d6f849ab8eb5848057a8c60cda2</h2><p>同上一个样本功能基本一致，特征数据也一致，只不过程序是以控制台程序的方式编译的，而上一个则是Windows应用程序。两者在连接到-s参数指向的服务器后，都会向其发送以<code>92 10 00 00</code>结尾的<code>login frame</code>数据，这就是其网络通信特征。</p>

@@ -29,6 +29,56 @@
     
     
     <entry>
+      <title>绑定自定义域名以及添加SSL证书</title>
+      <link href="/2019/12/01/%E7%BB%91%E5%AE%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E4%BB%A5%E5%8F%8A%E6%B7%BB%E5%8A%A0SSL%E8%AF%81%E4%B9%A6/"/>
+      <url>/2019/12/01/%E7%BB%91%E5%AE%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E4%BB%A5%E5%8F%8A%E6%B7%BB%E5%8A%A0SSL%E8%AF%81%E4%B9%A6/</url>
+      
+        <content type="html"><![CDATA[<p>现在的这个域名不是太好，也没多久就到期了，大概一月份会重新买个时间长一点的域名。</p><h3 id="添加CNAME文件"><a href="#添加CNAME文件" class="headerlink" title="添加CNAME文件"></a>添加CNAME文件</h3><p>在source目录下添加一个CNAME文件，文件内容为自定义的域名。</p><a id="more"></a><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">"spwpun.site"</span> &gt; CNAME</span><br></pre></td></tr></table></figure><p>然后生成文件，并部署到github上。</p><h3 id="设置github项目"><a href="#设置github项目" class="headerlink" title="设置github项目"></a>设置github项目</h3><p>在github对应的项目的options中设置custom domain：</p><p><img src="//spwpun.github.io/2019/12/01/绑定自定义域名以及添加SSL证书/image-20191201164346031.png" alt="image-20191201164346031"></p><h3 id="配置域名DNS"><a href="#配置域名DNS" class="headerlink" title="配置域名DNS"></a>配置域名DNS</h3><p>然后到你的域名管理里去配置DNS记录，其中A记录是指向主机的，即就是指向IP地址，这里可以先看一下自己的原始github域名对应的IP地址是什么。</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\*****&gt; nslookup spwpun.github.io</span><br><span class="line">服务器:  ********</span><br><span class="line">Address:  **********</span><br><span class="line"></span><br><span class="line">非权威应答:</span><br><span class="line">名称:    spwpun.github.io</span><br><span class="line">Addresses:  <span class="number">185.199</span>.<span class="number">110.153</span></span><br><span class="line">          <span class="number">185.199</span>.<span class="number">108.153</span></span><br><span class="line">          <span class="number">185.199</span>.<span class="number">111.153</span></span><br><span class="line">          <span class="number">185.199</span>.<span class="number">109.153</span></span><br></pre></td></tr></table></figure><p>然后就设置这样四条记录，使得自己的域名指向这些主机：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A @ 185.199.110.153</span><br><span class="line">A @ 185.199.108.153</span><br><span class="line">A @ 185.199.111.153</span><br><span class="line">A @ 185.199.109.153</span><br></pre></td></tr></table></figure><p>然后再创建一条CNAME记录，使得原来的github.io域名指向你自己的域名，即当你以github.io域名访问时，会重定向到自己的域名：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CNAME www spwpun.github.io</span><br></pre></td></tr></table></figure><p><img src="//spwpun.github.io/2019/12/01/绑定自定义域名以及添加SSL证书/image-20191201165928723.png" alt="image-20191201165928723"></p><h3 id="配置HTTPS"><a href="#配置HTTPS" class="headerlink" title="配置HTTPS"></a>配置HTTPS</h3><p>配置好DNS之后，在刚才的github项目的setting-&gt;options中设置强制使用https,等一段时间就可以正常访问网站了。</p><p><img src="//spwpun.github.io/2019/12/01/绑定自定义域名以及添加SSL证书/image-20191201170354303.png" alt="image-20191201170354303"></p><p>配置完有可能你的浏览器访问会报证书不安全，这可能是你的浏览器的缓存的原因，重启一下电脑，清空一下浏览器的缓存应该就好了，证书是由Lets Encrypt签发的，有效期为三个月，github上这样一键配置比在自己的服务器上配置方便很多。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客搭建 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>添加busuanzi配置全站访客统计</title>
+      <link href="/2019/12/01/%E6%B7%BB%E5%8A%A0busuanzi%E9%85%8D%E7%BD%AE%E5%85%A8%E7%AB%99%E8%AE%BF%E5%AE%A2%E7%BB%9F%E8%AE%A1/"/>
+      <url>/2019/12/01/%E6%B7%BB%E5%8A%A0busuanzi%E9%85%8D%E7%BD%AE%E5%85%A8%E7%AB%99%E8%AE%BF%E5%AE%A2%E7%BB%9F%E8%AE%A1/</url>
+      
+        <content type="html"><![CDATA[<p>务实最重要，我只看重功能而已。原本以为很复杂，实则很简单。</p><p>在hexo的themes\next目录下找到_conifg.yml,搜索找到<code>busuanzi_count</code>,将<code>enable</code>属性改为<code>true</code>,因为我的文章的阅读数是由leancloud来计算的，所以这里<code>post_views</code>就设置成了<code>false</code>，至于icon就不管了。重新生成一下文件就可以了，在本地测试时会显示很大的访客数和访问量，部署到网上就是正常的了。</p><a id="more"></a><p><img src="//spwpun.github.io/2019/12/01/添加busuanzi配置全站访客统计/image-20191201162657094.png" alt="image-20191201162657094"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客搭建 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Python-Numpy数值计算基础1</title>
       <link href="/2019/12/01/Python-Numpy%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80/"/>
       <url>/2019/12/01/Python-Numpy%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80/</url>
@@ -230,22 +280,22 @@
     
     
     <entry>
-      <title>Categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>About</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p>Hello,<br>  Visitors!<br>  I’m a undergraduate from China.This is the third process of my blog building, you also could find me on the Internet by typing “spwpun”. That word was designed by the Caser Encryption with my real name.<br>  In this blog, I will write some articles about Information Security，or Cyber Security，especially Malicious Code Analysis and Reverse in CTF. Now I’m just a beginner of this period, but I’m very glad to recivive your proposals about tech-communication.<br>  In later, I would try to write posts in English more. I know my English isn’t very well, so please forgive it.<br>  Your friends!<br>  Spwpun.</p>]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>About</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
+      <title>Categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
-        <content type="html"><![CDATA[<p>Hello,<br>  Visitors!<br>  I’m a undergraduate from China.This is the third process of my blog building, you also could find me on the Internet by typing “spwpun”. That word was designed by the Caser Encryption with my real name.<br>  In this blog, I will write some articles about Information Security，or Cyber Security，especially Malicious Code Analysis and Reverse in CTF. Now I’m just a beginner of this period, but I’m very glad to recivive your proposals about tech-communication.<br>  In later, I would try to write posts in English more. I know my English isn’t very well, so please forgive it.<br>  Your friends!<br>  Spwpun.</p>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     

@@ -56,22 +56,19 @@
   };
 </script>
 
-  <meta name="description" content="Hide&amp;amp;Seek Algorithm通过减少调色板矩阵的颜色数，再复制增加一倍，再通过某种方法嵌入消息，这里是实现了将读入的图片的颜色减至128色，然后复制成为256色，这样数据索引矩阵中的值可以选择两个索引，一个小索引、一个大索引，使其分别代表不同的信息即可，例如0、1。关于调色板矩阵和索引矩阵可以看我上一篇文章。">
-<meta name="keywords" content="Hide&amp;Seek">
+  <meta name="description" content="《机器学习》(周志华)笔记花了大概一个月的时间吧《IDA Pro》看完了，昨天重温了一下笔记，发现还是有很大的作用的，所以机器学习也这样来做。这是一本机器学习比较经典的书，由于开头的绪论作者用一个买西瓜的例子来简单阐述了什么是机器学习，故网上称之为“西瓜书”。同样我打算买一本实体书而且也确实买了。机器学习涉及的数学知识基础可能会成为我学习的阻力，所以我想再在慕课网上通过视频学习的方式来补充一下，预">
+<meta name="keywords" content="Machine Learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hide&amp;Seek Algorithm">
-<meta property="og:url" content="https://spwpun.github.io/2019/04/11/Hide&Seek-Algorithm/index.html">
+<meta property="og:title" content="《机器学习》笔记">
+<meta property="og:url" content="https://spwpun.github.io/2019/12/04/《机器学习》笔记/index.html">
 <meta property="og:site_name" content="The silent place">
-<meta property="og:description" content="Hide&amp;amp;Seek Algorithm通过减少调色板矩阵的颜色数，再复制增加一倍，再通过某种方法嵌入消息，这里是实现了将读入的图片的颜色减至128色，然后复制成为256色，这样数据索引矩阵中的值可以选择两个索引，一个小索引、一个大索引，使其分别代表不同的信息即可，例如0、1。关于调色板矩阵和索引矩阵可以看我上一篇文章。">
+<meta property="og:description" content="《机器学习》(周志华)笔记花了大概一个月的时间吧《IDA Pro》看完了，昨天重温了一下笔记，发现还是有很大的作用的，所以机器学习也这样来做。这是一本机器学习比较经典的书，由于开头的绪论作者用一个买西瓜的例子来简单阐述了什么是机器学习，故网上称之为“西瓜书”。同样我打算买一本实体书而且也确实买了。机器学习涉及的数学知识基础可能会成为我学习的阻力，所以我想再在慕课网上通过视频学习的方式来补充一下，预">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190411153722923.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xwbHA5ODIy,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190411153836836.png">
-<meta property="og:updated_time" content="2019-04-11T03:18:34.000Z">
+<meta property="og:updated_time" content="2019-12-04T00:33:26.656Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hide&amp;Seek Algorithm">
-<meta name="twitter:description" content="Hide&amp;amp;Seek Algorithm通过减少调色板矩阵的颜色数，再复制增加一倍，再通过某种方法嵌入消息，这里是实现了将读入的图片的颜色减至128色，然后复制成为256色，这样数据索引矩阵中的值可以选择两个索引，一个小索引、一个大索引，使其分别代表不同的信息即可，例如0、1。关于调色板矩阵和索引矩阵可以看我上一篇文章。">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190411153722923.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xwbHA5ODIy,size_16,color_FFFFFF,t_70">
-  <link rel="canonical" href="https://spwpun.github.io/2019/04/11/Hide&Seek-Algorithm/">
+<meta name="twitter:title" content="《机器学习》笔记">
+<meta name="twitter:description" content="《机器学习》(周志华)笔记花了大概一个月的时间吧《IDA Pro》看完了，昨天重温了一下笔记，发现还是有很大的作用的，所以机器学习也这样来做。这是一本机器学习比较经典的书，由于开头的绪论作者用一个买西瓜的例子来简单阐述了什么是机器学习，故网上称之为“西瓜书”。同样我打算买一本实体书而且也确实买了。机器学习涉及的数学知识基础可能会成为我学习的阻力，所以我想再在慕课网上通过视频学习的方式来补充一下，预">
+  <link rel="canonical" href="https://spwpun.github.io/2019/12/04/《机器学习》笔记/">
 
 
 <script id="page-configurations">
@@ -85,7 +82,7 @@
   };
 </script>
 
-  <title>Hide&Seek Algorithm | The silent place</title>
+  <title>《机器学习》笔记 | The silent place</title>
   
 
 
@@ -261,7 +258,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/04/11/Hide&Seek-Algorithm/">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/12/04/《机器学习》笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Demen Lee">
@@ -273,7 +270,7 @@
       <meta itemprop="name" content="The silent place">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Hide&Seek Algorithm
+        <h1 class="post-title" itemprop="name headline">《机器学习》笔记
 
           
         </h1>
@@ -289,7 +286,7 @@
                 
               
 
-              <time title="Created: 2019-04-11 11:10:09 / Modified: 11:18:34" itemprop="dateCreated datePublished" datetime="2019-04-11T11:10:09+08:00">2019-04-11</time>
+              <time title="Created: 2019-12-04 08:31:53 / Modified: 08:33:26" itemprop="dateCreated datePublished" datetime="2019-12-04T08:31:53+08:00">2019-12-04</time>
             </span>
           
             
@@ -302,7 +299,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Steganography/" itemprop="url" rel="index"><span itemprop="name">Steganography</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Read-Note/" itemprop="url" rel="index"><span itemprop="name">Read Note</span></a></span>
 
                 
                 
@@ -311,7 +308,7 @@
           
 
           
-            <span id="/2019/04/11/Hide&Seek-Algorithm/" class="post-meta-item leancloud_visitors" data-flag-title="Hide&Seek Algorithm" title="Views">
+            <span id="/2019/12/04/《机器学习》笔记/" class="post-meta-item leancloud_visitors" data-flag-title="《机器学习》笔记" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -329,7 +326,7 @@
       
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2019/04/11/Hide&Seek-Algorithm/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/04/11/Hide&Seek-Algorithm/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/12/04/《机器学习》笔记/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/12/04/《机器学习》笔记/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -343,19 +340,48 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="Hide-amp-Seek-Algorithm"><a href="#Hide-amp-Seek-Algorithm" class="headerlink" title="Hide&amp;Seek Algorithm"></a>Hide&amp;Seek Algorithm</h3><p>通过减少调色板矩阵的颜色数，再复制增加一倍，再通过某种方法嵌入消息，这里是实现了将读入的图片的颜色减至128色，然后复制成为256色，这样数据索引矩阵中的值可以选择两个索引，一个小索引、一个大索引，使其分别代表不同的信息即可，例如0、1。关于调色板矩阵和索引矩阵可以看我上一篇文章。</p><a id="more"></a>
-<h3 id="Code-Design"><a href="#Code-Design" class="headerlink" title="Code Design"></a>Code Design</h3><p>matlab不是我擅长的语言，hh，想想我也没什么擅长的语言！</p>
-<h4 id="隐藏函数"><a href="#隐藏函数" class="headerlink" title="隐藏函数"></a>隐藏函数</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">function [ newdata, newmap ] = MyHideSeek( data, map, msg )</span><br><span class="line">%自我实现的最简单的Hide&amp;Seek算法</span><br><span class="line">%data:原始索引矩阵</span><br><span class="line">%map:原始调色板矩阵</span><br><span class="line">%msg:需要隐藏的消息</span><br><span class="line">newdata = data;</span><br><span class="line">newmap = [map;map];</span><br><span class="line">size_data = prod(size(data));</span><br><span class="line">len_msg = length(msg);%消息的长度</span><br><span class="line">lenstr = de2bi(len_msg, <span class="number">7</span>, <span class="number">2</span>);</span><br><span class="line">msgasc = double(msg);</span><br><span class="line">msgstr = de2bi(msgasc, <span class="number">7</span>, <span class="number">2</span>);</span><br><span class="line">msgstr = msgstr<span class="string">';</span></span><br><span class="line"><span class="string">len_map = length(map); %原始调色板的颜色个数</span></span><br><span class="line"><span class="string">if size_data &lt; 7*(len_msg+1)</span></span><br><span class="line"><span class="string">    error('</span>The message is too long to embed!\n<span class="string">');</span></span><br><span class="line"><span class="string">end</span></span><br><span class="line"><span class="string">%改变索引矩阵的值来隐藏信息</span></span><br><span class="line"><span class="string">%存入长度</span></span><br><span class="line"><span class="string">for i = 1:7</span></span><br><span class="line"><span class="string">    if lenstr(i) == 1       %规定消息为1时使用大的索引</span></span><br><span class="line"><span class="string">        newdata(i) = newdata(i) + len_map;</span></span><br><span class="line"><span class="string">    end</span></span><br><span class="line"><span class="string">end</span></span><br><span class="line"><span class="string">%存入msg</span></span><br><span class="line"><span class="string">for j = 8:7*(len_msg + 1)</span></span><br><span class="line"><span class="string">    if msgstr(j-7) == 1</span></span><br><span class="line"><span class="string">        newdata(j) = newdata(j) +len_map;</span></span><br><span class="line"><span class="string">    end</span></span><br><span class="line"><span class="string">end</span></span><br><span class="line"><span class="string">end</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="提取函数"><a href="#提取函数" class="headerlink" title="提取函数"></a>提取函数</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">msg</span> = <span class="title">MyHideSeekExtract</span>(<span class="params"> newdata, newmap </span>)</span></span><br><span class="line">%MyHideSeek提取函数</span><br><span class="line">%newdata:隐含信息的数据索引矩阵</span><br><span class="line">%newmap:复制后的调色板矩阵</span><br><span class="line">len_map = length(newmap)/<span class="number">2</span>;%原始map的长度</span><br><span class="line">len = zeros(<span class="number">1</span>,<span class="number">7</span>);%用来存放提取出来的消息长度</span><br><span class="line"><span class="keyword">for</span> i = <span class="number">1</span>:<span class="number">7</span></span><br><span class="line">    <span class="keyword">if</span> newdata(i) &gt; len_map</span><br><span class="line">        len(i) = <span class="number">1</span>;</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line">len = bi2de(len);</span><br><span class="line">msg = zeros(<span class="number">7</span>,len);</span><br><span class="line">%提取消息</span><br><span class="line"><span class="keyword">for</span> j = <span class="number">8</span>:<span class="number">7</span>*(len + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">if</span> newdata(j) &gt;len_map</span><br><span class="line">        msg(j<span class="number">-7</span>) = <span class="number">1</span>;</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line">%将消息转为字符串</span><br><span class="line">msgasc = bi2de(msg<span class="string">');</span></span><br><span class="line"><span class="string">msg = char(msgasc);</span></span><br><span class="line"><span class="string">msg = msg'</span>;</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-
-<h4 id="测试脚本"><a href="#测试脚本" class="headerlink" title="测试脚本"></a>测试脚本</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">im = imread(<span class="string">'comic.png'</span>);</span><br><span class="line">[data, map] = rgb2ind(im, <span class="number">128</span>); %将图片的颜色减少至<span class="number">128</span>色，由于数据索引矩阵的数据时uint8所以这里的最大为<span class="number">128</span>色，超过就无法还原了</span><br><span class="line">msg = <span class="string">'flag&#123;This_1s_for_my_Hide_&amp;_Seek.&#125;'</span>;</span><br><span class="line">[newdata, newmap] = MyHideSeek(data, map, msg);</span><br><span class="line">imshow(data, map);title(<span class="string">'Origin'</span>);</span><br><span class="line">figure;imshow(newdata, newmap); title(<span class="string">'Steg'</span>);</span><br><span class="line">flag = MyHideSeekExtract(newdata, newmap);</span><br><span class="line">fprintf(<span class="string">'flag:%s\n'</span>, flag);</span><br></pre></td></tr></table></figure>
-
-<h3 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h3><p>比较前后两张图片，肉眼分别不出差异：<br><img src="https://img-blog.csdnimg.cn/20190411153722923.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xwbHA5ODIy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>查看输出的文本信息：<br><img src="https://img-blog.csdnimg.cn/20190411153836836.png" alt="在这里插入图片描述"></p>
-<hr>
-<p>注：之前一直不清楚hide&amp;seek算法是什么，虽然拍了几张上课的照片，但是不懂，同学的提示让我突然想到了我拍的照片的含义，果然上课不好好听课是不行的，在此向她致谢~<br>hide&amp;seek算法还有其他的编码方式，这只是其中一种最简单的。关键在改变调色板矩阵之后的嵌入方式的选择，这是多样的。</p>
-<p>ex: First posted in <a href="https://blog.csdn.net/lplp9822/article/details/89212456" target="_blank" rel="noopener">CSDN blog</a></p>
-
+        <h3 id="《机器学习》-周志华-笔记"><a href="#《机器学习》-周志华-笔记" class="headerlink" title="《机器学习》(周志华)笔记"></a>《机器学习》(周志华)笔记</h3><p>花了大概一个月的时间吧《IDA Pro》看完了，昨天重温了一下笔记，发现还是有很大的作用的，所以机器学习也这样来做。这是一本机器学习比较经典的书，由于开头的绪论作者用一个买西瓜的例子来简单阐述了什么是机器学习，故网上称之为“西瓜书”。同样我打算买一本实体书而且也确实买了。机器学习涉及的数学知识基础可能会成为我学习的阻力，所以我想再在慕课网上通过视频学习的方式来补充一下，预计会在上面花钱购买一套课程，花钱学习这事儿，本就是应该的。</p><a id="more"></a>
+<p>阅读所记下的笔记可能因人而异，就像在第一章中所提到的NFL原理一样，具体问题需要具体去分析，我也可能只细读我想了解的知识，而对一些历史沿革，数学性强的知识也会略过。</p>
+<h4 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h4><ol>
+<li><p>机器学习是研究关于“学习算法”的学问。</p>
+</li>
+<li><p>关键的术语（由大到小）：数据/数据集—-&gt;示例/样本—-&gt;属性/特征。</p>
+</li>
+<li><p>标记：关于示例结果的信息称为<code>标记</code>；而拥有了标记的示例则称为“样例”。</p>
+</li>
+<li><p>学习任务的类型：</p>
+<table>
+<thead>
+<tr>
+<th>预测的结果</th>
+<th>学习任务类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>已知的离散值</td>
+<td>分类（监督学习）</td>
+</tr>
+<tr>
+<td>未知的离散值</td>
+<td>聚类（无监督学习）</td>
+</tr>
+<tr>
+<td>连续值</td>
+<td>回归</td>
+</tr>
+</tbody></table>
+<p>这里的离散值可以理解为一个确定的类别、标记。</p>
+</li>
+<li><p>学得的模型适用于新样本的能力，称为“泛化”能力。</p>
+</li>
+<li><p>假设空间：把学习过程看作一个在所有假设（hypothesis）组成的空间中进行搜索的过程，搜索的目标是找到与训练集匹配的假设。</p>
+</li>
+<li><p>归纳偏好：在学习过程中对某种类型假设的偏好，称为“归纳偏好”。而归纳偏好的设置和特征/属性选择有关。</p>
+</li>
+<li><p>NFL定理：没有一个学习算法在任何领域总是产生最准确的学习器。脱离具体问题，空泛的谈论“什么学习算法更好”毫无意义，这是一个普适性的原理，在生活和哲学上似乎也是如此。</p>
+</li>
+</ol>
+<h4 id="第二章-模型评估与选择"><a href="#第二章-模型评估与选择" class="headerlink" title="第二章 模型评估与选择"></a>第二章 模型评估与选择</h4>
     </div>
 
     
@@ -370,7 +396,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/Hide-Seek/" rel="tag"># Hide&Seek</a>
+              <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
             
           </div>
         
@@ -380,14 +406,18 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
+                <a href="/2019/12/01/绑定自定义域名以及添加SSL证书/" rel="next" title="绑定自定义域名以及添加SSL证书">
+                  <i class="fa fa-chevron-left"></i> 绑定自定义域名以及添加SSL证书
+                </a>
+              
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/08/23/2019年下半年规划/" rel="prev" title="2019年下半年规划">
-                  2019年下半年规划 <i class="fa fa-chevron-right"></i>
+                <a href="/2049/09/01/Note/" rel="prev" title="Notebook">
+                  Notebook <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -437,7 +467,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hide-amp-Seek-Algorithm"><span class="nav-number">1.</span> <span class="nav-text">Hide&amp;Seek Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Code-Design"><span class="nav-number">2.</span> <span class="nav-text">Code Design</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#隐藏函数"><span class="nav-number">2.1.</span> <span class="nav-text">隐藏函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提取函数"><span class="nav-number">2.2.</span> <span class="nav-text">提取函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试脚本"><span class="nav-number">2.3.</span> <span class="nav-text">测试脚本</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试结果"><span class="nav-number">3.</span> <span class="nav-text">测试结果</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#《机器学习》-周志华-笔记"><span class="nav-number">1.</span> <span class="nav-text">《机器学习》(周志华)笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一章-绪论"><span class="nav-number">1.1.</span> <span class="nav-text">第一章 绪论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二章-模型评估与选择"><span class="nav-number">1.2.</span> <span class="nav-text">第二章 模型评估与选择</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->

@@ -56,18 +56,19 @@
   };
 </script>
 
-  <meta name="description" content="Sharing, Communicating more, then moving on......">
-<meta name="keywords" content="Blog, Cyber Security, Info Sec">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Spwpun&#39;s Blog">
-<meta property="og:url" content="https://spwpun.github.io/categories/工具使用/index.html">
+  <meta name="description" content="婉若游龙这题挺简单的，算法也不难。很快就写出了KeyGen，不过有一点需要注意的事，程序似乎没有控制好缓冲区的长度，导致serial处输入32个任意字符后会直接弹出正确的提示信息，会给新手很迷惑的感觉。">
+<meta name="keywords" content="KCTF,CrackMe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="KCTF-婉若游龙">
+<meta property="og:url" content="https://spwpun.github.io/2019/12/05/KCTF-婉若游龙/index.html">
 <meta property="og:site_name" content="Spwpun&#39;s Blog">
-<meta property="og:description" content="Sharing, Communicating more, then moving on......">
+<meta property="og:description" content="婉若游龙这题挺简单的，算法也不难。很快就写出了KeyGen，不过有一点需要注意的事，程序似乎没有控制好缓冲区的长度，导致serial处输入32个任意字符后会直接弹出正确的提示信息，会给新手很迷惑的感觉。">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-12-05T15:59:41.334Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spwpun&#39;s Blog">
-<meta name="twitter:description" content="Sharing, Communicating more, then moving on......">
-  <link rel="canonical" href="https://spwpun.github.io/categories/工具使用/">
+<meta name="twitter:title" content="KCTF-婉若游龙">
+<meta name="twitter:description" content="婉若游龙这题挺简单的，算法也不难。很快就写出了KeyGen，不过有一点需要注意的事，程序似乎没有控制好缓冲区的长度，导致serial处输入32个任意字符后会直接弹出正确的提示信息，会给新手很迷惑的感觉。">
+  <link rel="canonical" href="https://spwpun.github.io/2019/12/05/KCTF-婉若游龙/">
 
 
 <script id="page-configurations">
@@ -75,13 +76,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>Category: 工具使用 | Spwpun's Blog</title>
+  <title>KCTF-婉若游龙 | Spwpun's Blog</title>
   
 
 
@@ -249,85 +250,163 @@
         <div class="content-wrap">
             
 
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-  
-
           <div id="content" class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">工具使用<small>Category</small>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/12/05/KCTF-婉若游龙/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demen Lee">
+      <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Spwpun's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">KCTF-婉若游龙
+
+          
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-12-05 23:58:12 / Modified: 23:59:41" itemprop="dateCreated datePublished" datetime="2019-12-05T23:58:12+08:00">2019-12-05</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Reverse/" itemprop="url" rel="index"><span itemprop="name">Reverse</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/2019/12/05/KCTF-婉若游龙/" class="post-meta-item leancloud_visitors" data-flag-title="KCTF-婉若游龙" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/12/05/KCTF-婉若游龙/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/12/05/KCTF-婉若游龙/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+        <h3 id="婉若游龙"><a href="#婉若游龙" class="headerlink" title="婉若游龙"></a>婉若游龙</h3><p>这题挺简单的，算法也不难。很快就写出了KeyGen，不过有一点需要注意的事，程序似乎没有控制好缓冲区的长度，导致serial处输入32个任意字符后会直接弹出正确的提示信息，会给新手很迷惑的感觉。</p><a id="more"></a>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>HardCoded硬编码很简单，在IDA中跟一下字符串就可以找到，就是“HardCoded”。然后输入name: <code>CTFHUB</code>.和serial：<code>XXXXXX...</code>。</p>
+<p>对name的处理是每个字符先对<code>0xA</code>取余，然后与在整个字符串中的位置相异或，再加2，最后再对<code>0xA</code>取余得到6个字节的checksum。</p>
+<p>对serial的处理就是对每个字符<code>0xA</code>取余，得到对应的checksum。</p>
+<p>最后两个checksum比较，相同则成功。</p>
+<h4 id="KeyGen"><a href="#KeyGen" class="headerlink" title="KeyGen"></a>KeyGen</h4><p>菜鸡花了点时间写了个脚本，有错误请指出。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python2</span></span><br><span class="line"><span class="comment"># coding: utf-8</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">KCTF-婉若游龙</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">name = <span class="string">"CTFHUB"</span></span><br><span class="line">serial = <span class="string">""</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">serial_proc</span><span class="params">(serial)</span>:</span></span><br><span class="line">    checksum = []</span><br><span class="line">    <span class="keyword">for</span> ch <span class="keyword">in</span> serial:</span><br><span class="line">        checksum.append(str(ord(ch)%<span class="number">10</span>))</span><br><span class="line">    <span class="keyword">return</span> <span class="string">""</span>.join(checksum)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">re_proc_serial</span><span class="params">(checksum, offset)</span>:</span></span><br><span class="line">    serial = <span class="string">""</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> checksum:</span><br><span class="line">        serial += chr(int(i) + offset) <span class="comment"># 这里加offset是为了保证字符可见且正常</span></span><br><span class="line">    <span class="keyword">return</span> serial</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    checksum_name = []</span><br><span class="line">    offsets = [<span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>, <span class="number">60</span>, <span class="number">70</span>, <span class="number">80</span>, <span class="number">90</span>, <span class="number">100</span>, <span class="number">110</span>]</span><br><span class="line">    <span class="keyword">for</span> ch <span class="keyword">in</span> name:</span><br><span class="line">        tmp = (i ^ (ord(ch)%<span class="number">10</span>)) + <span class="number">2</span> <span class="comment"># 先取余，再异或</span></span><br><span class="line">        tmp = tmp % <span class="number">10</span></span><br><span class="line">        checksum_name.append(str(tmp))</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    c = <span class="string">""</span>.join(checksum_name)</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"CTFHUB checksum:"</span> + c</span><br><span class="line">    <span class="keyword">for</span> offset <span class="keyword">in</span> offsets:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"KeyGen Serials:"</span> + re_proc_serial(c, offset)</span><br><span class="line"><span class="string">'''output</span></span><br><span class="line"><span class="string">CTFHUB checksum:974335</span></span><br><span class="line"><span class="string">KeyGen Serials:'%"!!#</span></span><br><span class="line"><span class="string">KeyGen Serials:1/,++-</span></span><br><span class="line"><span class="string">KeyGen Serials:;96557</span></span><br><span class="line"><span class="string">KeyGen Serials:EC@??A</span></span><br><span class="line"><span class="string">KeyGen Serials:OMJIIK</span></span><br><span class="line"><span class="string">KeyGen Serials:YWTSSU</span></span><br><span class="line"><span class="string">KeyGen Serials:ca^]]_</span></span><br><span class="line"><span class="string">KeyGen Serials:mkhggi</span></span><br><span class="line"><span class="string">KeyGen Serials:wurqqs</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
 
-  
-  
 
-  
+    </div>
+
     
-    <div class="collection-year">
-      <h1 class="collection-header">2019</h1>
-    </div>
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-14T20:14:21+08:00"
-              content="2019-10-14">
-          10-14
-        </time>
-      </div>
-
-      <h2 class="post-title">
+    
+    
         
-          <a class="post-title-link" href="/2019/10/14/KMS使用小记/" itemprop="url">
-            <span itemprop="name">使用KMS激活Office</span>
-          </a>
-        
-      </h2>
+      
 
-    </header>
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/KCTF/" rel="tag"># KCTF</a>
+            
+              <a href="/tags/CrackMe/" rel="tag"># CrackMe</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/12/04/《机器学习》笔记/" rel="next" title="《机器学习》笔记">
+                  <i class="fa fa-chevron-left"></i> 《机器学习》笔记
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2049/09/01/Note/" rel="prev" title="Notebook">
+                  Notebook <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
   </article>
+  
+  
+  
 
-
-
-    </div>
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
           
+    
+    <div class="comments" id="comments"></div>
+  
 
         </div>
           
@@ -340,6 +419,11 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -352,6 +436,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#婉若游龙"><span class="nav-number">1.</span> <span class="nav-text">婉若游龙</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分析"><span class="nav-number">1.1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KeyGen"><span class="nav-number">1.2.</span> <span class="nav-text">KeyGen</span></a></li></ol></li></ol></div>
+        
       </div>
       <!--/noindex-->
 

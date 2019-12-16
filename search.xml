@@ -29,6 +29,31 @@
     
     
     <entry>
+      <title>apt29样本分析记录</title>
+      <link href="/2019/12/16/apt29%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90%E8%AE%B0%E5%BD%95/"/>
+      <url>/2019/12/16/apt29%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90%E8%AE%B0%E5%BD%95/</url>
+      
+        <content type="html"><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>凭着记忆和网上公开的资料写下的分析记录，因为是公司的任务，具体的分析文件（样本、.idb…）不能泄露。其实网上大部分都有记录了的，尤其是一些国外的威胁情报网站。</p><a id="more"></a><h4 id="0354FE2800A994CE774F6BBA385BF9F0"><a href="#0354FE2800A994CE774F6BBA385BF9F0" class="headerlink" title="0354FE2800A994CE774F6BBA385BF9F0"></a>0354FE2800A994CE774F6BBA385BF9F0</h4><p>Dll文件，微步查出的恶意评分为60，看到其中一个杀软爆出的为Trojan.Cozer的变种，然后去搜索了一下Cozer是个什么木马，百度太垃圾了，搜不到。谷歌搜索之后，<a href="https://www.symantec.com/security-center/writeup/2015-030500-0430-99" target="_blank" rel="noopener">在赛门铁克的网站上找到了对该木马的描述</a>。</p><blockquote><p> Trojan.Cozer is a Trojan horse that opens a back door on the compromised computer. </p></blockquote><p>最后分析出来其存在以下特征：</p><ul><li><p>由于是Dll文件，所以可能需要其他exe程序来调用。</p></li><li><p>在其DLLMain函数中会解码文件中固定的数据，解码的方式好像都是特定的<code>用字符串的索引值与该索引处的字符的ASC码异或，再与一个特定的值异或</code>，最后得到的都是固定的值，下方给出的IOC信息对应的样本也是一样，固定的数据不同，导致特定的那个异或值也不同。</p></li><li><p>经过解码得到的字符串如下：</p><ul><li><code>Software\Classes\CLSID\{603D3801-BD81-11D0-A3A5-00C04FD706EC}</code></li><li><code>Parameters</code></li></ul><p>上面的两个字符串指向的是注册表中的CLSID处的值，如果电脑中存在此注册表的值，就会执行Parameters处指向的程序，猜测这里应该就是后门程序安装之后设置的注册表的值吧。</p></li></ul><p>下面则是其他的具有相同特征的样本的HASH值：</p><p>D36351AF2453640663BBA20D365E5383 (64bit，Dll)</p><p>913967B243FD49FFAD3DE984642E2EBA </p><p>3C8469D2C5AF6AB277A6BE483A1775F5(64bit，Dll)</p><h4 id="95B3EC0A4E539EFAA1FAA3D4E25D51DE"><a href="#95B3EC0A4E539EFAA1FAA3D4E25D51DE" class="headerlink" title="95B3EC0A4E539EFAA1FAA3D4E25D51DE"></a>95B3EC0A4E539EFAA1FAA3D4E25D51DE</h4><p>这是一个具有迷惑性的样本，执行后会在Temp目录下生成两个exe文件，<code>Monkeys.exe</code>和<code>player.exe</code>其中第一个程序是正常无毒的程序，恶意行为都在<code>player.exe</code>中。</p><p><code>player.exe</code>会在<code>Roaming</code>目录下生成另外一组恶意程序（包含Dll），然后删除自身。</p><p><code>Roaming</code>目录下恶意程序都在<code>ATI_Subsystem</code>目录中，包含<code>amdocl_as32.exe</code>和<code>atiumdag.dll</code>，<code>admhcp32.dll</code>,<code>aticaldd.dll</code>，<code>racss.dat</code>。其中跟踪到的执行恶意连接行为的cmdline为：<code>amdocl_as32.exe  atiumdag.dll,ADL2_ApplicationProfiles_System_Reload_SEH</code>。</p><p>使用<code>SystemTracer</code>监测到有DNS查询记录<code>www.sanjosemaristas[.]com</code>.然后使用PCHunter修改Hosts文件，使得该域名指向另外一台准备好的虚拟机，这样就能进一步跟踪行为。进一步跟踪使用wireshark抓包，发现样本会请求该域名下的<code>app/index.php</code>文件。</p><h4 id="94C9DF2E1357E32D97ADD13FE8A91A89"><a href="#94C9DF2E1357E32D97ADD13FE8A91A89" class="headerlink" title="94C9DF2E1357E32D97ADD13FE8A91A89"></a>94C9DF2E1357E32D97ADD13FE8A91A89</h4><p>该样本是一个32bit的Dll文件，使用IDA打开可以查看编译信息，原始的文件名我忘记叫什么去了，不过和上面那个样本释放出来的Dll文件类似。[待更，有点复杂……]</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 样本分析 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> apt </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>KCTF-婉若游龙</title>
       <link href="/2019/12/05/KCTF-%E5%A9%89%E8%8B%A5%E6%B8%B8%E9%BE%99/"/>
       <url>/2019/12/05/KCTF-%E5%A9%89%E8%8B%A5%E6%B8%B8%E9%BE%99/</url>
@@ -349,9 +374,9 @@
     
     
     <entry>
-      <title>Categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>Tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -360,9 +385,9 @@
     
     
     <entry>
-      <title>Tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>Categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       

@@ -56,22 +56,19 @@
   };
 </script>
 
-  <meta name="description" content="Hide&amp;amp;Seek Algorithm通过减少调色板矩阵的颜色数，再复制增加一倍，再通过某种方法嵌入消息，这里是实现了将读入的图片的颜色减至128色，然后复制成为256色，这样数据索引矩阵中的值可以选择两个索引，一个小索引、一个大索引，使其分别代表不同的信息即可，例如0、1。关于调色板矩阵和索引矩阵可以看我上一篇文章。">
-<meta name="keywords" content="Hide&amp;Seek">
+  <meta name="description" content="前言凭着记忆和网上公开的资料写下的分析记录，因为是公司的任务，具体的分析文件（样本、.idb…）不能泄露。其实网上大部分都有记录了的，尤其是一些国外的威胁情报网站。">
+<meta name="keywords" content="apt">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hide&amp;Seek Algorithm">
-<meta property="og:url" content="https://spwpun.github.io/2019/04/11/Hide&Seek-Algorithm/index.html">
+<meta property="og:title" content="apt29样本分析记录">
+<meta property="og:url" content="https://spwpun.github.io/2019/12/16/apt29样本分析记录/index.html">
 <meta property="og:site_name" content="Spwpun&#39;s Blog">
-<meta property="og:description" content="Hide&amp;amp;Seek Algorithm通过减少调色板矩阵的颜色数，再复制增加一倍，再通过某种方法嵌入消息，这里是实现了将读入的图片的颜色减至128色，然后复制成为256色，这样数据索引矩阵中的值可以选择两个索引，一个小索引、一个大索引，使其分别代表不同的信息即可，例如0、1。关于调色板矩阵和索引矩阵可以看我上一篇文章。">
+<meta property="og:description" content="前言凭着记忆和网上公开的资料写下的分析记录，因为是公司的任务，具体的分析文件（样本、.idb…）不能泄露。其实网上大部分都有记录了的，尤其是一些国外的威胁情报网站。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190411153722923.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xwbHA5ODIy,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190411153836836.png">
-<meta property="og:updated_time" content="2019-04-11T03:18:34.000Z">
+<meta property="og:updated_time" content="2019-12-16T15:17:03.294Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hide&amp;Seek Algorithm">
-<meta name="twitter:description" content="Hide&amp;amp;Seek Algorithm通过减少调色板矩阵的颜色数，再复制增加一倍，再通过某种方法嵌入消息，这里是实现了将读入的图片的颜色减至128色，然后复制成为256色，这样数据索引矩阵中的值可以选择两个索引，一个小索引、一个大索引，使其分别代表不同的信息即可，例如0、1。关于调色板矩阵和索引矩阵可以看我上一篇文章。">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190411153722923.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xwbHA5ODIy,size_16,color_FFFFFF,t_70">
-  <link rel="canonical" href="https://spwpun.github.io/2019/04/11/Hide&Seek-Algorithm/">
+<meta name="twitter:title" content="apt29样本分析记录">
+<meta name="twitter:description" content="前言凭着记忆和网上公开的资料写下的分析记录，因为是公司的任务，具体的分析文件（样本、.idb…）不能泄露。其实网上大部分都有记录了的，尤其是一些国外的威胁情报网站。">
+  <link rel="canonical" href="https://spwpun.github.io/2019/12/16/apt29样本分析记录/">
 
 
 <script id="page-configurations">
@@ -85,7 +82,7 @@
   };
 </script>
 
-  <title>Hide&Seek Algorithm | Spwpun's Blog</title>
+  <title>apt29样本分析记录 | Spwpun's Blog</title>
   
 
 
@@ -261,7 +258,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/04/11/Hide&Seek-Algorithm/">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/12/16/apt29样本分析记录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Demen Lee">
@@ -273,7 +270,7 @@
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Hide&Seek Algorithm
+        <h1 class="post-title" itemprop="name headline">apt29样本分析记录
 
           
         </h1>
@@ -289,7 +286,7 @@
                 
               
 
-              <time title="Created: 2019-04-11 11:10:09 / Modified: 11:18:34" itemprop="dateCreated datePublished" datetime="2019-04-11T11:10:09+08:00">2019-04-11</time>
+              <time title="Created: 2019-12-16 23:13:57 / Modified: 23:17:03" itemprop="dateCreated datePublished" datetime="2019-12-16T23:13:57+08:00">2019-12-16</time>
             </span>
           
             
@@ -302,7 +299,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Steganography/" itemprop="url" rel="index"><span itemprop="name">Steganography</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/样本分析/" itemprop="url" rel="index"><span itemprop="name">样本分析</span></a></span>
 
                 
                 
@@ -311,7 +308,7 @@
           
 
           
-            <span id="/2019/04/11/Hide&Seek-Algorithm/" class="post-meta-item leancloud_visitors" data-flag-title="Hide&Seek Algorithm" title="Views">
+            <span id="/2019/12/16/apt29样本分析记录/" class="post-meta-item leancloud_visitors" data-flag-title="apt29样本分析记录" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -329,7 +326,7 @@
       
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2019/04/11/Hide&Seek-Algorithm/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/04/11/Hide&Seek-Algorithm/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/12/16/apt29样本分析记录/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/12/16/apt29样本分析记录/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -343,18 +340,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="Hide-amp-Seek-Algorithm"><a href="#Hide-amp-Seek-Algorithm" class="headerlink" title="Hide&amp;Seek Algorithm"></a>Hide&amp;Seek Algorithm</h3><p>通过减少调色板矩阵的颜色数，再复制增加一倍，再通过某种方法嵌入消息，这里是实现了将读入的图片的颜色减至128色，然后复制成为256色，这样数据索引矩阵中的值可以选择两个索引，一个小索引、一个大索引，使其分别代表不同的信息即可，例如0、1。关于调色板矩阵和索引矩阵可以看我上一篇文章。</p><a id="more"></a>
-<h3 id="Code-Design"><a href="#Code-Design" class="headerlink" title="Code Design"></a>Code Design</h3><p>matlab不是我擅长的语言，hh，想想我也没什么擅长的语言！</p>
-<h4 id="隐藏函数"><a href="#隐藏函数" class="headerlink" title="隐藏函数"></a>隐藏函数</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">function [ newdata, newmap ] = MyHideSeek( data, map, msg )</span><br><span class="line">%自我实现的最简单的Hide&amp;Seek算法</span><br><span class="line">%data:原始索引矩阵</span><br><span class="line">%map:原始调色板矩阵</span><br><span class="line">%msg:需要隐藏的消息</span><br><span class="line">newdata = data;</span><br><span class="line">newmap = [map;map];</span><br><span class="line">size_data = prod(size(data));</span><br><span class="line">len_msg = length(msg);%消息的长度</span><br><span class="line">lenstr = de2bi(len_msg, <span class="number">7</span>, <span class="number">2</span>);</span><br><span class="line">msgasc = double(msg);</span><br><span class="line">msgstr = de2bi(msgasc, <span class="number">7</span>, <span class="number">2</span>);</span><br><span class="line">msgstr = msgstr<span class="string">';</span></span><br><span class="line"><span class="string">len_map = length(map); %原始调色板的颜色个数</span></span><br><span class="line"><span class="string">if size_data &lt; 7*(len_msg+1)</span></span><br><span class="line"><span class="string">    error('</span>The message is too long to embed!\n<span class="string">');</span></span><br><span class="line"><span class="string">end</span></span><br><span class="line"><span class="string">%改变索引矩阵的值来隐藏信息</span></span><br><span class="line"><span class="string">%存入长度</span></span><br><span class="line"><span class="string">for i = 1:7</span></span><br><span class="line"><span class="string">    if lenstr(i) == 1       %规定消息为1时使用大的索引</span></span><br><span class="line"><span class="string">        newdata(i) = newdata(i) + len_map;</span></span><br><span class="line"><span class="string">    end</span></span><br><span class="line"><span class="string">end</span></span><br><span class="line"><span class="string">%存入msg</span></span><br><span class="line"><span class="string">for j = 8:7*(len_msg + 1)</span></span><br><span class="line"><span class="string">    if msgstr(j-7) == 1</span></span><br><span class="line"><span class="string">        newdata(j) = newdata(j) +len_map;</span></span><br><span class="line"><span class="string">    end</span></span><br><span class="line"><span class="string">end</span></span><br><span class="line"><span class="string">end</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="提取函数"><a href="#提取函数" class="headerlink" title="提取函数"></a>提取函数</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">msg</span> = <span class="title">MyHideSeekExtract</span>(<span class="params"> newdata, newmap </span>)</span></span><br><span class="line">%MyHideSeek提取函数</span><br><span class="line">%newdata:隐含信息的数据索引矩阵</span><br><span class="line">%newmap:复制后的调色板矩阵</span><br><span class="line">len_map = length(newmap)/<span class="number">2</span>;%原始map的长度</span><br><span class="line">len = zeros(<span class="number">1</span>,<span class="number">7</span>);%用来存放提取出来的消息长度</span><br><span class="line"><span class="keyword">for</span> i = <span class="number">1</span>:<span class="number">7</span></span><br><span class="line">    <span class="keyword">if</span> newdata(i) &gt; len_map</span><br><span class="line">        len(i) = <span class="number">1</span>;</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line">len = bi2de(len);</span><br><span class="line">msg = zeros(<span class="number">7</span>,len);</span><br><span class="line">%提取消息</span><br><span class="line"><span class="keyword">for</span> j = <span class="number">8</span>:<span class="number">7</span>*(len + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">if</span> newdata(j) &gt;len_map</span><br><span class="line">        msg(j<span class="number">-7</span>) = <span class="number">1</span>;</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line">%将消息转为字符串</span><br><span class="line">msgasc = bi2de(msg<span class="string">');</span></span><br><span class="line"><span class="string">msg = char(msgasc);</span></span><br><span class="line"><span class="string">msg = msg'</span>;</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-
-<h4 id="测试脚本"><a href="#测试脚本" class="headerlink" title="测试脚本"></a>测试脚本</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">im = imread(<span class="string">'comic.png'</span>);</span><br><span class="line">[data, map] = rgb2ind(im, <span class="number">128</span>); %将图片的颜色减少至<span class="number">128</span>色，由于数据索引矩阵的数据时uint8所以这里的最大为<span class="number">128</span>色，超过就无法还原了</span><br><span class="line">msg = <span class="string">'flag&#123;This_1s_for_my_Hide_&amp;_Seek.&#125;'</span>;</span><br><span class="line">[newdata, newmap] = MyHideSeek(data, map, msg);</span><br><span class="line">imshow(data, map);title(<span class="string">'Origin'</span>);</span><br><span class="line">figure;imshow(newdata, newmap); title(<span class="string">'Steg'</span>);</span><br><span class="line">flag = MyHideSeekExtract(newdata, newmap);</span><br><span class="line">fprintf(<span class="string">'flag:%s\n'</span>, flag);</span><br></pre></td></tr></table></figure>
-
-<h3 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h3><p>比较前后两张图片，肉眼分别不出差异：<br><img src="https://img-blog.csdnimg.cn/20190411153722923.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xwbHA5ODIy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>查看输出的文本信息：<br><img src="https://img-blog.csdnimg.cn/20190411153836836.png" alt="在这里插入图片描述"></p>
-<hr>
-<p>注：之前一直不清楚hide&amp;seek算法是什么，虽然拍了几张上课的照片，但是不懂，同学的提示让我突然想到了我拍的照片的含义，果然上课不好好听课是不行的，在此向她致谢~<br>hide&amp;seek算法还有其他的编码方式，这只是其中一种最简单的。关键在改变调色板矩阵之后的嵌入方式的选择，这是多样的。</p>
-<p>ex: First posted in <a href="https://blog.csdn.net/lplp9822/article/details/89212456" target="_blank" rel="noopener">CSDN blog</a></p>
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>凭着记忆和网上公开的资料写下的分析记录，因为是公司的任务，具体的分析文件（样本、.idb…）不能泄露。其实网上大部分都有记录了的，尤其是一些国外的威胁情报网站。</p><a id="more"></a>
+<h4 id="0354FE2800A994CE774F6BBA385BF9F0"><a href="#0354FE2800A994CE774F6BBA385BF9F0" class="headerlink" title="0354FE2800A994CE774F6BBA385BF9F0"></a>0354FE2800A994CE774F6BBA385BF9F0</h4><p>Dll文件，微步查出的恶意评分为60，看到其中一个杀软爆出的为Trojan.Cozer的变种，然后去搜索了一下Cozer是个什么木马，百度太垃圾了，搜不到。谷歌搜索之后，<a href="https://www.symantec.com/security-center/writeup/2015-030500-0430-99" target="_blank" rel="noopener">在赛门铁克的网站上找到了对该木马的描述</a>。</p>
+<blockquote>
+<p> Trojan.Cozer is a Trojan horse that opens a back door on the compromised computer. </p>
+</blockquote>
+<p>最后分析出来其存在以下特征：</p>
+<ul>
+<li><p>由于是Dll文件，所以可能需要其他exe程序来调用。</p>
+</li>
+<li><p>在其DLLMain函数中会解码文件中固定的数据，解码的方式好像都是特定的<code>用字符串的索引值与该索引处的字符的ASC码异或，再与一个特定的值异或</code>，最后得到的都是固定的值，下方给出的IOC信息对应的样本也是一样，固定的数据不同，导致特定的那个异或值也不同。</p>
+</li>
+<li><p>经过解码得到的字符串如下：</p>
+<ul>
+<li><code>Software\Classes\CLSID\{603D3801-BD81-11D0-A3A5-00C04FD706EC}</code></li>
+<li><code>Parameters</code></li>
+</ul>
+<p>上面的两个字符串指向的是注册表中的CLSID处的值，如果电脑中存在此注册表的值，就会执行Parameters处指向的程序，猜测这里应该就是后门程序安装之后设置的注册表的值吧。</p>
+</li>
+</ul>
+<p>下面则是其他的具有相同特征的样本的HASH值：</p>
+<p>D36351AF2453640663BBA20D365E5383 (64bit，Dll)</p>
+<p>913967B243FD49FFAD3DE984642E2EBA </p>
+<p>3C8469D2C5AF6AB277A6BE483A1775F5(64bit，Dll)</p>
+<h4 id="95B3EC0A4E539EFAA1FAA3D4E25D51DE"><a href="#95B3EC0A4E539EFAA1FAA3D4E25D51DE" class="headerlink" title="95B3EC0A4E539EFAA1FAA3D4E25D51DE"></a>95B3EC0A4E539EFAA1FAA3D4E25D51DE</h4><p>这是一个具有迷惑性的样本，执行后会在Temp目录下生成两个exe文件，<code>Monkeys.exe</code>和<code>player.exe</code>其中第一个程序是正常无毒的程序，恶意行为都在<code>player.exe</code>中。</p>
+<p><code>player.exe</code>会在<code>Roaming</code>目录下生成另外一组恶意程序（包含Dll），然后删除自身。</p>
+<p><code>Roaming</code>目录下恶意程序都在<code>ATI_Subsystem</code>目录中，包含<code>amdocl_as32.exe</code>和<code>atiumdag.dll</code>，<code>admhcp32.dll</code>,<code>aticaldd.dll</code>，<code>racss.dat</code>。其中跟踪到的执行恶意连接行为的cmdline为：<code>amdocl_as32.exe  atiumdag.dll,ADL2_ApplicationProfiles_System_Reload_SEH</code>。</p>
+<p>使用<code>SystemTracer</code>监测到有DNS查询记录<code>www.sanjosemaristas[.]com</code>.然后使用PCHunter修改Hosts文件，使得该域名指向另外一台准备好的虚拟机，这样就能进一步跟踪行为。进一步跟踪使用wireshark抓包，发现样本会请求该域名下的<code>app/index.php</code>文件。</p>
+<h4 id="94C9DF2E1357E32D97ADD13FE8A91A89"><a href="#94C9DF2E1357E32D97ADD13FE8A91A89" class="headerlink" title="94C9DF2E1357E32D97ADD13FE8A91A89"></a>94C9DF2E1357E32D97ADD13FE8A91A89</h4><p>该样本是一个32bit的Dll文件，使用IDA打开可以查看编译信息，原始的文件名我忘记叫什么去了，不过和上面那个样本释放出来的Dll文件类似。[待更，有点复杂……]</p>
 
     </div>
 
@@ -370,7 +383,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/Hide-Seek/" rel="tag"># Hide&Seek</a>
+              <a href="/tags/apt/" rel="tag"># apt</a>
             
           </div>
         
@@ -380,14 +393,18 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
+                <a href="/2019/12/05/KCTF-婉若游龙/" rel="next" title="KCTF-婉若游龙">
+                  <i class="fa fa-chevron-left"></i> KCTF-婉若游龙
+                </a>
+              
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/08/23/2019年下半年规划/" rel="prev" title="2019年下半年规划">
-                  2019年下半年规划 <i class="fa fa-chevron-right"></i>
+                <a href="/2049/09/01/Note/" rel="prev" title="Notebook">
+                  Notebook <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -437,7 +454,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hide-amp-Seek-Algorithm"><span class="nav-number">1.</span> <span class="nav-text">Hide&amp;Seek Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Code-Design"><span class="nav-number">2.</span> <span class="nav-text">Code Design</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#隐藏函数"><span class="nav-number">2.1.</span> <span class="nav-text">隐藏函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提取函数"><span class="nav-number">2.2.</span> <span class="nav-text">提取函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试脚本"><span class="nav-number">2.3.</span> <span class="nav-text">测试脚本</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试结果"><span class="nav-number">3.</span> <span class="nav-text">测试结果</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0354FE2800A994CE774F6BBA385BF9F0"><span class="nav-number">2.</span> <span class="nav-text">0354FE2800A994CE774F6BBA385BF9F0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#95B3EC0A4E539EFAA1FAA3D4E25D51DE"><span class="nav-number">3.</span> <span class="nav-text">95B3EC0A4E539EFAA1FAA3D4E25D51DE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#94C9DF2E1357E32D97ADD13FE8A91A89"><span class="nav-number">4.</span> <span class="nav-text">94C9DF2E1357E32D97ADD13FE8A91A89</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->

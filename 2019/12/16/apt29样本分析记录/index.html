@@ -64,7 +64,7 @@
 <meta property="og:site_name" content="Spwpun&#39;s Blog">
 <meta property="og:description" content="前言凭着记忆和网上公开的资料写下的分析记录，因为是公司的任务，具体的分析文件（样本、.idb…）不能泄露。其实网上大部分都有记录了的，尤其是一些国外的威胁情报网站。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-16T15:17:03.294Z">
+<meta property="og:updated_time" content="2019-12-19T15:00:03.126Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="apt29样本分析记录">
 <meta name="twitter:description" content="前言凭着记忆和网上公开的资料写下的分析记录，因为是公司的任务，具体的分析文件（样本、.idb…）不能泄露。其实网上大部分都有记录了的，尤其是一些国外的威胁情报网站。">
@@ -286,11 +286,19 @@
                 
               
 
-              <time title="Created: 2019-12-16 23:13:57 / Modified: 23:17:03" itemprop="dateCreated datePublished" datetime="2019-12-16T23:13:57+08:00">2019-12-16</time>
+              <time title="Created: 2019-12-16 23:13:57" itemprop="dateCreated datePublished" datetime="2019-12-16T23:13:57+08:00">2019-12-16</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-19 23:00:03" itemprop="dateModified" datetime="2019-12-19T23:00:03+08:00">2019-12-19</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -366,8 +374,13 @@
 <h4 id="95B3EC0A4E539EFAA1FAA3D4E25D51DE"><a href="#95B3EC0A4E539EFAA1FAA3D4E25D51DE" class="headerlink" title="95B3EC0A4E539EFAA1FAA3D4E25D51DE"></a>95B3EC0A4E539EFAA1FAA3D4E25D51DE</h4><p>这是一个具有迷惑性的样本，执行后会在Temp目录下生成两个exe文件，<code>Monkeys.exe</code>和<code>player.exe</code>其中第一个程序是正常无毒的程序，恶意行为都在<code>player.exe</code>中。</p>
 <p><code>player.exe</code>会在<code>Roaming</code>目录下生成另外一组恶意程序（包含Dll），然后删除自身。</p>
 <p><code>Roaming</code>目录下恶意程序都在<code>ATI_Subsystem</code>目录中，包含<code>amdocl_as32.exe</code>和<code>atiumdag.dll</code>，<code>admhcp32.dll</code>,<code>aticaldd.dll</code>，<code>racss.dat</code>。其中跟踪到的执行恶意连接行为的cmdline为：<code>amdocl_as32.exe  atiumdag.dll,ADL2_ApplicationProfiles_System_Reload_SEH</code>。</p>
-<p>使用<code>SystemTracer</code>监测到有DNS查询记录<code>www.sanjosemaristas[.]com</code>.然后使用PCHunter修改Hosts文件，使得该域名指向另外一台准备好的虚拟机，这样就能进一步跟踪行为。进一步跟踪使用wireshark抓包，发现样本会请求该域名下的<code>app/index.php</code>文件。</p>
-<h4 id="94C9DF2E1357E32D97ADD13FE8A91A89"><a href="#94C9DF2E1357E32D97ADD13FE8A91A89" class="headerlink" title="94C9DF2E1357E32D97ADD13FE8A91A89"></a>94C9DF2E1357E32D97ADD13FE8A91A89</h4><p>该样本是一个32bit的Dll文件，使用IDA打开可以查看编译信息，原始的文件名我忘记叫什么去了，不过和上面那个样本释放出来的Dll文件类似。[待更，有点复杂……]</p>
+<p>使用<code>SystemTracer</code>监测到有DNS查询记录<code>www.sanjosemaristas[.]com</code>.然后使用PCHunter修改Hosts文件，使得该域名指向另外一台准备好的虚拟机，这样就能进一步跟踪行为，使用<code>HFS</code>在另外一台虚拟机上面搭建简单的<code>HTTP</code>服务器。就可以进一步跟踪使用wireshark抓包，发现样本会请求该域名下的<code>app/index.php</code>文件。</p>
+<h4 id="94C9DF2E1357E32D97ADD13FE8A91A89"><a href="#94C9DF2E1357E32D97ADD13FE8A91A89" class="headerlink" title="94C9DF2E1357E32D97ADD13FE8A91A89"></a>94C9DF2E1357E32D97ADD13FE8A91A89</h4><p>该样本是一个32bit的Dll文件，使用IDA打开可以查看编译信息，原始的文件名我忘记叫什么去了，不过和上面那个样本释放出来的Dll文件类似。</p>
+<p>该样本有一个导出函数也和上面的Dll的导出函数类似，该样本会通过调用LoadLibrary和GetProcAddress这两个函数来获取网络连接的API的函数地址，然后以指针的形式放在全局数组中，需要时就会通过寄存器赋值的方式调用API实现网络通信。其中存在很多敏感的字符串，全部都是编码过后存放在数据段的，解码的方式同上面几个样本中提到的基本类似，只是简单的异或。样本会新建一个大小为<code>0x11B8</code>的堆，然后用来存放获取到的本地主机的信息，包括系统版本信息、电脑名、用户名、网卡信息等等，不过在这个堆的第4-8个字节处存放的是固定的大小<code>0x11C</code>,在内存中以小端的方式存储就是<code>1C 01 00 00</code>，我查过<code>GetVersion</code>这个函数返回的结构体的大小应该为<code>0x114</code>,这里却很奇怪的固定赋值为<code>0x11C</code>。</p>
+<p>后续对该样本进行调试，发现其网络连接行为同上面的第二类样本一致。</p>
+<h4 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h4><p>TCP connect：<code>http://www.sanjosemaristas[.]com</code></p>
+<p>Http GET: <code>http://www.sanjosemaristas[.]com/app/index.php</code></p>
+<p>其实这个样本还有很多地方值得深思，很多编写的技巧都很巧妙，我也许应该从微步上面把这个样本下载下来好好研究一下。</p>
 
     </div>
 
@@ -454,7 +467,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0354FE2800A994CE774F6BBA385BF9F0"><span class="nav-number">2.</span> <span class="nav-text">0354FE2800A994CE774F6BBA385BF9F0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#95B3EC0A4E539EFAA1FAA3D4E25D51DE"><span class="nav-number">3.</span> <span class="nav-text">95B3EC0A4E539EFAA1FAA3D4E25D51DE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#94C9DF2E1357E32D97ADD13FE8A91A89"><span class="nav-number">4.</span> <span class="nav-text">94C9DF2E1357E32D97ADD13FE8A91A89</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0354FE2800A994CE774F6BBA385BF9F0"><span class="nav-number">2.</span> <span class="nav-text">0354FE2800A994CE774F6BBA385BF9F0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#95B3EC0A4E539EFAA1FAA3D4E25D51DE"><span class="nav-number">3.</span> <span class="nav-text">95B3EC0A4E539EFAA1FAA3D4E25D51DE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#94C9DF2E1357E32D97ADD13FE8A91A89"><span class="nav-number">4.</span> <span class="nav-text">94C9DF2E1357E32D97ADD13FE8A91A89</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IOC"><span class="nav-number">5.</span> <span class="nav-text">IOC</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->

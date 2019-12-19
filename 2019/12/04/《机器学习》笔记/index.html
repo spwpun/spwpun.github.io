@@ -64,10 +64,13 @@
 <meta property="og:site_name" content="Spwpun&#39;s Blog">
 <meta property="og:description" content="《机器学习》(周志华)笔记花了大概一个月的时间吧《IDA Pro》看完了，昨天重温了一下笔记，发现还是有很大的作用的，所以机器学习也这样来做。这是一本机器学习比较经典的书，由于开头的绪论作者用一个买西瓜的例子来简单阐述了什么是机器学习，故网上称之为“西瓜书”。同样我打算买一本实体书而且也确实买了。机器学习涉及的数学知识基础可能会成为我学习的阻力，所以我想再在慕课网上通过视频学习的方式来补充一下，预">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-04T00:33:26.656Z">
+<meta property="og:image" content="https://spwpun.github.io/2019/12/04/《机器学习》笔记/image-20191220002808584.png">
+<meta property="og:image" content="https://spwpun.github.io/2019/12/04/《机器学习》笔记/image-20191220005000173.png">
+<meta property="og:updated_time" content="2019-12-19T16:55:16.641Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《机器学习》笔记">
 <meta name="twitter:description" content="《机器学习》(周志华)笔记花了大概一个月的时间吧《IDA Pro》看完了，昨天重温了一下笔记，发现还是有很大的作用的，所以机器学习也这样来做。这是一本机器学习比较经典的书，由于开头的绪论作者用一个买西瓜的例子来简单阐述了什么是机器学习，故网上称之为“西瓜书”。同样我打算买一本实体书而且也确实买了。机器学习涉及的数学知识基础可能会成为我学习的阻力，所以我想再在慕课网上通过视频学习的方式来补充一下，预">
+<meta name="twitter:image" content="https://spwpun.github.io/2019/12/04/《机器学习》笔记/image-20191220002808584.png">
   <link rel="canonical" href="https://spwpun.github.io/2019/12/04/《机器学习》笔记/">
 
 
@@ -286,11 +289,19 @@
                 
               
 
-              <time title="Created: 2019-12-04 08:31:53 / Modified: 08:33:26" itemprop="dateCreated datePublished" datetime="2019-12-04T08:31:53+08:00">2019-12-04</time>
+              <time title="Created: 2019-12-04 08:31:53" itemprop="dateCreated datePublished" datetime="2019-12-04T08:31:53+08:00">2019-12-04</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-20 00:55:16" itemprop="dateModified" datetime="2019-12-20T00:55:16+08:00">2019-12-20</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -381,7 +392,58 @@
 <li><p>NFL定理：没有一个学习算法在任何领域总是产生最准确的学习器。脱离具体问题，空泛的谈论“什么学习算法更好”毫无意义，这是一个普适性的原理，在生活和哲学上似乎也是如此。</p>
 </li>
 </ol>
-<h4 id="第二章-模型评估与选择"><a href="#第二章-模型评估与选择" class="headerlink" title="第二章 模型评估与选择"></a>第二章 模型评估与选择</h4>
+<h4 id="第二章-模型评估与选择"><a href="#第二章-模型评估与选择" class="headerlink" title="第二章 模型评估与选择"></a>第二章 模型评估与选择</h4><ol>
+<li><p>模型选择：不同的学习算法、不同的参数配置产生不同的学习模型，通过模型选择使得经验误差最小化以求得最优解。</p>
+</li>
+<li><p>将同一个数据集分为训练集和测试集的方法：<strong>留出法</strong>，<strong>交叉验证法</strong>，<strong>自助法</strong>。</p>
+<p>留出法比较简单，就是将这个数据集分为两个互斥的集合，一个用做训练、一个用做测试；</p>
+<p>交叉验证法则稍微有点复杂，它是将这个数据集划分为同样大小的<code>k</code>个互斥子集，每次用<code>k-1</code>个子集的并集作为训练，剩下的那个子集作为测试，从而就可以进行<code>k</code>次训练和测试，最后的结果取均值；交叉验证法的一个特例“留一法”，即数据集D中存在m个样本，而<code>m=k</code>,则相当于只留下了一个样本来做为测试集，这使得训练的结果和整个数据集D训练的结果很相似，但是对于数据集比较大的时候，开销也比较大；</p>
+<p>自助法是采用自助采样的方法将数据集分为训练集和测试集的，其中测试集占比为:<br>$$<br>\lim_{m \to \infty}({\frac{1}{1-m})^m} = \frac{1}{e} = 0.368<br>$$<br>自助法适用在数据集较小、难以划分训练/测试集的情况下。</p>
+</li>
+<li><p>性能度量：</p>
+<p>对于回归任务,称作均方误差，下面是较为一般的描述<code>f</code>为学习器，<code>D</code>为数据集，<code>p(·)</code>为概率密度函数：<br>$$<br>E(f;D) = \int^{D}<em>{x}{(f(x)-y)^2p(x)dx}<br>$$<br>对于分类任务，称作错误率与精度：<br>$$<br>acc(f;D) = \frac{1}{m}\sum^{m}</em>{i=1}\prod(f(x_i)=y_i)<br>$$</p>
+<p>这里先介绍什么是混淆矩阵，下表即为混淆矩阵，TP是预测正确的正例的数目，TN是预测正确的反例的数目，FP、FN则依次是预测失败的正例、反例的数目，所有的加起来就是总的样例数目：</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">预测结果</th>
+<th align="center">预测结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>真实情况</strong></td>
+<td align="center">正例</td>
+<td align="center">反例</td>
+</tr>
+<tr>
+<td align="center">正例</td>
+<td align="center">TP</td>
+<td align="center">FN</td>
+</tr>
+<tr>
+<td align="center">反例</td>
+<td align="center">FP</td>
+<td align="center">TN</td>
+</tr>
+</tbody></table>
+<p>其他任务需求，则可能使用查准率(precision)、查全率（召回recall），依照混淆矩阵：<br>$$<br>P = \frac{TP}{TP+FP},<br>R = \frac{TP}{TP+FN}<br>$$<br>由于查准率和查全率是一对互相矛盾的度量，其一高，另一必低，所以需要找到一个BEP（平衡点）来进行取舍，这是当P=R时的取值，如下图：</p>
+<p><img src="//spwpun.github.io/2019/12/04/《机器学习》笔记/image-20191220002808584.png" alt="image-20191220002808584"></p>
+<p>而BEP毕竟过于简化，更为常用的称为F1 Score：<br>$$<br>F1 = \frac{2 \times P \times R}{P+R}<br>$$</p>
+</li>
+<li><p>后面这部分简略一点，我没打算现在就弄懂：</p>
+<ul>
+<li><p>ROC: 全称为“受试者工作特征（Receiver Operating Characteristic）”曲线，同上面的P-R曲线图类似，不过横轴、纵轴不一样。</p>
+</li>
+<li><p>AUC：Area Under ROC Curve，ROC曲线下的面积，用来衡量学习器的期望性能。</p>
+<p><img src="//spwpun.github.io/2019/12/04/《机器学习》笔记/image-20191220005000173.png" alt="image-20191220005000173"></p>
+</li>
+</ul>
+</li>
+<li><p>代价曲线、k折交叉验证法以及针对回归任务的偏差-方差-协方差分解，现在只需要有个简单的印象即可。</p>
+</li>
+</ol>
+<h4 id="第三章-线性模型"><a href="#第三章-线性模型" class="headerlink" title="第三章 线性模型"></a>第三章 线性模型</h4>
     </div>
 
     
@@ -467,7 +529,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#《机器学习》-周志华-笔记"><span class="nav-number">1.</span> <span class="nav-text">《机器学习》(周志华)笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一章-绪论"><span class="nav-number">1.1.</span> <span class="nav-text">第一章 绪论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二章-模型评估与选择"><span class="nav-number">1.2.</span> <span class="nav-text">第二章 模型评估与选择</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#《机器学习》-周志华-笔记"><span class="nav-number">1.</span> <span class="nav-text">《机器学习》(周志华)笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一章-绪论"><span class="nav-number">1.1.</span> <span class="nav-text">第一章 绪论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二章-模型评估与选择"><span class="nav-number">1.2.</span> <span class="nav-text">第二章 模型评估与选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三章-线性模型"><span class="nav-number">1.3.</span> <span class="nav-text">第三章 线性模型</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->

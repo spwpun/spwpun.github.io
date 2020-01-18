@@ -65,7 +65,7 @@
 <meta property="og:description" content="I spent a long time on this problem, the program enabled PIE, we can disable random_va_space on Linux:">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://spwpun.github.io/2020/01/01/BambooFox-CTF-Move-or-not/flag.png">
-<meta property="og:updated_time" content="2020-01-01T11:49:06.945Z">
+<meta property="og:updated_time" content="2020-01-02T12:23:44.265Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BambooFox CTF-Move or not">
 <meta name="twitter:description" content="I spent a long time on this problem, the program enabled PIE, we can disable random_va_space on Linux:">
@@ -288,11 +288,19 @@
                 
               
 
-              <time title="Created: 2020-01-01 19:24:29 / Modified: 19:49:06" itemprop="dateCreated datePublished" datetime="2020-01-01T19:24:29+08:00">2020-01-01</time>
+              <time title="Created: 2020-01-01 19:24:29" itemprop="dateCreated datePublished" datetime="2020-01-01T19:24:29+08:00">2020-01-01</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-02 20:23:44" itemprop="dateModified" datetime="2020-01-02T20:23:44+08:00">2020-01-02</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -349,6 +357,7 @@
 <p>The other is the Key, this Key needs to be detected by burst on my first mind. But my coding ability is very weak, and I didn’t write it for one night. </p>
 <p>In the end, I know that this Key is used to decode the code of the obfuscated function. It only involves 11 bytes, and it is simply added to the Key to decode. So the size of the key should be only one byte(0x00-0xFF), and then I manually test from 0. After using the wrong key, Segmentation fault error and illegal instruction error will appear. I found that 39 and 43 can avoid the above error, but still I can’t decode the flag.Fortunately, when I tested 50, it happened to be the correct key, and I was able to decode the flag.</p>
 <p><img src="//spwpun.github.io/2020/01/01/BambooFox-CTF-Move-or-not/flag.png" alt="flag"></p>
+<p>More info <a href="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解">at here!</a></p>
 
     </div>
 
@@ -384,8 +393,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2049/09/01/Note/" rel="prev" title="Notebook">
-                  Notebook <i class="fa fa-chevron-right"></i>
+                <a href="/2020/01/02/BambooFox-Move-or-not详解/" rel="prev" title="BambooFox-Move or not详解">
+                  BambooFox-Move or not详解 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -452,7 +461,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

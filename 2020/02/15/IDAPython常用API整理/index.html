@@ -56,18 +56,23 @@
   };
 </script>
 
-  <meta name="description" content="Sharing, Communicating more, then moving on......">
-<meta name="keywords" content="Blog, Cyber Security, Info Sec">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Spwpun&#39;s Blog">
-<meta property="og:url" content="https://spwpun.github.io/archives/2019/10/index.html">
+  <meta name="description" content="IDAPython常用API介绍： 通过一些脚本和《IDA Pro权威指南》，查阅官网的IDAPython API整理">
+<meta name="keywords" content="IDA,IDAPython">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IDAPython常用API整理">
+<meta property="og:url" content="https://spwpun.github.io/2020/02/15/IDAPython常用API整理/index.html">
 <meta property="og:site_name" content="Spwpun&#39;s Blog">
-<meta property="og:description" content="Sharing, Communicating more, then moving on......">
+<meta property="og:description" content="IDAPython常用API介绍： 通过一些脚本和《IDA Pro权威指南》，查阅官网的IDAPython API整理">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://spwpun.github.io/2020/02/15/IDAPython常用API整理/image-20200215165904658.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/02/15/IDAPython常用API整理/image-20200215184320248.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/02/15/IDAPython常用API整理/image-20200215184345189.png">
+<meta property="og:updated_time" content="2020-02-15T11:02:53.222Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spwpun&#39;s Blog">
-<meta name="twitter:description" content="Sharing, Communicating more, then moving on......">
-  <link rel="canonical" href="https://spwpun.github.io/archives/2019/10/">
+<meta name="twitter:title" content="IDAPython常用API整理">
+<meta name="twitter:description" content="IDAPython常用API介绍： 通过一些脚本和《IDA Pro权威指南》，查阅官网的IDAPython API整理">
+<meta name="twitter:image" content="https://spwpun.github.io/2020/02/15/IDAPython常用API整理/image-20200215165904658.png">
+  <link rel="canonical" href="https://spwpun.github.io/2020/02/15/IDAPython常用API整理/">
 
 
 <script id="page-configurations">
@@ -75,13 +80,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
-    isArchive: true
+    isArchive: false
   };
 </script>
 
-  <title>Archive | Spwpun's Blog</title>
+  <title>IDAPython常用API整理 | Spwpun's Blog</title>
   
 
 
@@ -249,149 +254,185 @@
         <div class="content-wrap">
             
 
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-  
-
           <div id="content" class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        
-        
-        
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2020/02/15/IDAPython常用API整理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demen Lee">
+      <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Spwpun's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">IDAPython常用API整理
+
           
-        
-        <span class="collection-header">Um..! 21 posts in total. Keep on posting.</span>
-      </div>
-      
+        </h1>
 
-      
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
 
-  
-  
+              
+                
+              
 
+              <time title="Created: 2020-02-15 18:59:52 / Modified: 19:02:53" itemprop="dateCreated datePublished" datetime="2020-02-15T18:59:52+08:00">2020-02-15</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具使用/" itemprop="url" rel="index"><span itemprop="name">工具使用</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/2020/02/15/IDAPython常用API整理/" class="post-meta-item leancloud_visitors" data-flag-title="IDAPython常用API整理" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
   
+  <span class="post-meta-item">
     
-    <div class="collection-year">
-      <h1 class="collection-header">2019</h1>
-    </div>
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-23T00:47:33+08:00"
-              content="2019-10-23">
-          10-23
-        </time>
-      </div>
-
-      <h2 class="post-title">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
         
-          <a class="post-title-link" href="/2019/10/23/IDA-Pro阅读笔记/" itemprop="url">
-            <span itemprop="name">IDA Pro阅读笔记</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
+      
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/02/15/IDAPython常用API整理/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/02/15/IDAPython常用API整理/" itemprop="commentCount"></span></a>
+  </span>
   
   
 
-  
+        </div>
+      </header>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-18T15:12:38+08:00"
-              content="2019-10-18">
-          10-18
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/18/图片测试/" itemprop="url">
-            <span itemprop="name">图片测试</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-14T20:14:21+08:00"
-              content="2019-10-14">
-          10-14
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/14/KMS使用小记/" itemprop="url">
-            <span itemprop="name">使用KMS激活Office</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
+      
+        <h3 id="IDAPython常用API介绍："><a href="#IDAPython常用API介绍：" class="headerlink" title="IDAPython常用API介绍："></a>IDAPython常用API介绍：</h3><ul>
+<li>通过一些脚本和《IDA Pro权威指南》，查阅官网的IDAPython API整理</li>
+</ul><a id="more"></a>
+<p>idaapi.MinEA()：获取载入程序的最小的有效地址</p>
+<p>idaapi.MaxEA()：获取载入的程序最大的有效地址</p>
+<p>idaapi.get_inf_structure()：获取当前打开的IDA的版本的信息，返回的是一个结构体，貌似是idainfo。</p>
+<p><img src="//spwpun.github.io/2020/02/15/IDAPython常用API整理/image-20200215165904658.png" alt="image-20200215165904658"></p>
+<p>idainfo.is_32bit(), idainfo.is_64bit()：判断IDA是32位的还是64位的，也就是可以通过上面的接口获取再调用，直接<code>import idainfo</code>是没有用的。</p>
+<p>idaapi.Assemble(head, line)：从head地址开始反汇编，寻找直到遇到line这条指令时停止，返回两个变量，一个表示是否成功，另外一个是最后这条line指令的字节表示，例如：<code>ret</code>就会是<code>&#39;\xc3&#39;</code>这一个字节来表示，有些指令可能由多个字节表示。</p>
+<p>idaapi.GetMnem(addr)：获取addr地址处的指令。</p>
+<p>idaapi.MakeCode(addr)：从addr地址开始尝试将数据转换为汇编代码。</p>
+<p>idaapi.next_not_tail(addr)：往下走一个指令，如果不是尾部，则返回下一条指令的起始地址。</p>
+<p>idaapi.GetDisasm(addr)：获取addr地址开始的一条汇编指令。</p>
+<p>idaapi.GetFlags(addr)：获取addr地址处的一系列标志位，可用来判断属于code还是data。</p>
+<p>idaapi.isCode(Flags)：通过Flags判断是否是汇编代码。</p>
+<p>idaapi.MakeUnkn(addr, size)：取消对addr地址处的size大小的定义，暂不清楚该地址是代码还是数据时可以使用。</p>
+<p>idaapi.GetOpnd(addr, index)：取addr地址处的指令的第index个操作数，从零开始，从左开始，依次为intel汇编语法中的目的操作数、源操作数。</p>
+<p>idaapi.get_name_ea(min_ea, name)：从min_ea地址开始，寻找名为name的有效地址，该name可以为函数名、label名。</p>
+<p>idaapi.get_dword(addr)：从addr地址处获取一个dword数据。</p>
+<p>idaapi.MakeDword(addr)：将addr开始的一个DWORD大小的数据定义为双字形式，举一反三，Q代表四字节数据，API形式一致。</p>
+<p>idaapi.Segname(addr)：得到addr地址所处的区段名。</p>
+<p>idaapi.MakeFunction(addr)：将addr地址处定义为一个函数，相当于快捷键<code>P</code>。</p>
+<p>BADADDR: 常量，代表错误的地址。</p>
+<p>idaapi.GetSpd(addr)：获取addr地址处的栈指针SP的值，而在IDA中显示的值则是SP到BP基址针的差值，例如获取到的值为<code>-4</code>,在IDA中显示栈指针的情况时则为4。</p>
+<p><img src="//spwpun.github.io/2020/02/15/IDAPython常用API整理/image-20200215184320248.png" alt="image-20200215184320248"></p>
+<p><img src="//spwpun.github.io/2020/02/15/IDAPython常用API整理/image-20200215184345189.png" alt="image-20200215184345189"></p>
+<p>idaapi.SetSpDiff(addr, diff)：设置addr地址处的Sp指针与Bp指针的差值，在平衡堆栈时需要用到。</p>
+<p>idaapi.next_head(head, BADADDR)：遍历下一条指令，除非遇到BADADDR，返回下一条指令的地址。</p>
+<p>idaapi.ua_mnem(addr)：返回addr地址处的指令类型。</p>
+<p>idaapi.MakeName(addr, ‘’)：给addr地址处一个标记label。</p>
 
     </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/IDA/" rel="tag"># IDA</a>
+            
+              <a href="/tags/IDAPython/" rel="tag"># IDAPython</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/01/02/BambooFox-Move-or-not详解/" rel="next" title="BambooFox-Move or not详解">
+                  <i class="fa fa-chevron-left"></i> BambooFox-Move or not详解
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2049/09/01/Note/" rel="prev" title="Notebook">
+                  Notebook <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
           
+    
+    <div class="comments" id="comments"></div>
+  
 
         </div>
           
@@ -404,6 +445,11 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -416,6 +462,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#IDAPython常用API介绍："><span class="nav-number">1.</span> <span class="nav-text">IDAPython常用API介绍：</span></a></li></ol></div>
+        
       </div>
       <!--/noindex-->
 

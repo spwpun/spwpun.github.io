@@ -56,13 +56,13 @@
   };
 </script>
 
-  <meta name="description" content="PrefixThis article is copied from Kaspersky‘s site, which just for learning. It’s an analysis of the HEUR:Trijan.Win32.CozyDuke.gen and Trojan.Win32.CozyBear.*.">
+  <meta name="description" content="PrefixThis article is copied from Kaspersky‘s site, which just for learning. It’s an analysis of the HEUR:Trojan.Win32.CozyDuke.gen and Trojan.Win32.CozyBear.*.">
 <meta name="keywords" content="apt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="The CozyDuke APT&#39;s analysis">
 <meta property="og:url" content="https://spwpun.github.io/2019/12/20/The-CozyDuke-APT-s-analysis/index.html">
 <meta property="og:site_name" content="Spwpun&#39;s Blog">
-<meta property="og:description" content="PrefixThis article is copied from Kaspersky‘s site, which just for learning. It’s an analysis of the HEUR:Trijan.Win32.CozyDuke.gen and Trojan.Win32.CozyBear.*.">
+<meta property="og:description" content="PrefixThis article is copied from Kaspersky‘s site, which just for learning. It’s an analysis of the HEUR:Trojan.Win32.CozyDuke.gen and Trojan.Win32.CozyBear.*.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2015/04/08061845/monkeys.png">
 <meta property="og:image" content="https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2015/04/08061725/CozyDuke_map.png">
@@ -81,10 +81,10 @@
 <meta property="og:image" content="https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2015/04/08061813/DecryptedBlob.png">
 <meta property="og:image" content="https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2015/04/08061805/onion.png">
 <meta property="og:image" content="https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2015/04/08061800/exports.png">
-<meta property="og:updated_time" content="2019-12-19T17:16:39.691Z">
+<meta property="og:updated_time" content="2020-03-30T01:40:12.893Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The CozyDuke APT&#39;s analysis">
-<meta name="twitter:description" content="PrefixThis article is copied from Kaspersky‘s site, which just for learning. It’s an analysis of the HEUR:Trijan.Win32.CozyDuke.gen and Trojan.Win32.CozyBear.*.">
+<meta name="twitter:description" content="PrefixThis article is copied from Kaspersky‘s site, which just for learning. It’s an analysis of the HEUR:Trojan.Win32.CozyDuke.gen and Trojan.Win32.CozyBear.*.">
 <meta name="twitter:image" content="https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2015/04/08061845/monkeys.png">
   <link rel="canonical" href="https://spwpun.github.io/2019/12/20/The-CozyDuke-APT-s-analysis/">
 
@@ -304,11 +304,19 @@
                 
               
 
-              <time title="Created: 2019-12-20 01:07:21 / Modified: 01:16:39" itemprop="dateCreated datePublished" datetime="2019-12-20T01:07:21+08:00">2019-12-20</time>
+              <time title="Created: 2019-12-20 01:07:21" itemprop="dateCreated datePublished" datetime="2019-12-20T01:07:21+08:00">2019-12-20</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-30 09:40:12" itemprop="dateModified" datetime="2020-03-30T09:40:12+08:00">2020-03-30</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -358,7 +366,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="Prefix"><a href="#Prefix" class="headerlink" title="Prefix"></a>Prefix</h3><p>This article is copied from Kaspersky‘s <a href="https://securelist.com/the-cozyduke-apt/69731/" target="_blank" rel="noopener">site</a>, which just for learning. It’s an analysis of the <code>HEUR:Trijan.Win32.CozyDuke.gen</code> and <code>Trojan.Win32.CozyBear.*</code>.</p><a id="more"></a>
+        <h3 id="Prefix"><a href="#Prefix" class="headerlink" title="Prefix"></a>Prefix</h3><p>This article is copied from Kaspersky‘s <a href="https://securelist.com/the-cozyduke-apt/69731/" target="_blank" rel="noopener">site</a>, which just for learning. It’s an analysis of the <code>HEUR:Trojan.Win32.CozyDuke.gen</code> and <code>Trojan.Win32.CozyBear.*</code>.</p><a id="more"></a>
 <h1 id="The-CozyDuke-APT"><a href="#The-CozyDuke-APT" class="headerlink" title="The CozyDuke APT"></a>The CozyDuke APT</h1><p>By <a href="https://securelist.com/author/kurtb/" target="_blank" rel="noopener">Kurt Baumgartner</a>, <a href="https://securelist.com/author/costin/" target="_blank" rel="noopener">Costin Raiu</a> on April 21, 2015. 8:50 pm</p>
 <p>CozyDuke (aka CozyBear, CozyCar or “Office Monkeys”) is a precise attacker. Kaspersky Lab has observed signs of attacks against government organizations and commercial entities in the US, Germany, South Korea and Uzbekistan. In 2014, targets included the White House and the US Department of State, as believed.</p>
 <p>The operation presents several interesting aspects</p>

@@ -29,6 +29,33 @@
     
     
     <entry>
+      <title>afl testcase zero</title>
+      <link href="/2020/06/17/afl-testcase-zero/"/>
+      <url>/2020/06/17/afl-testcase-zero/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Pre"><a href="#Pre" class="headerlink" title="Pre"></a>Pre</h3><p>使用AFL先跑其自带的测试用例。</p><h3 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h3><p>安装好的AFL目录如下图所示：</p><p><img src="//spwpun.github.io/2020/06/17/afl-testcase-zero/image-20200617155420427.png" alt="image-20200617155420427"></p><p>其中的test-instr.c就是测试所用的示例。</p><a id="more"></a><p>需要将其再编译生成插桩后的二进制文件，新建一个test目录，再在里面新建test_in,test_out两个目录，将测试文件复制到该文件夹中，新建一个简单的makefile文件，如下：</p><p><img src="//spwpun.github.io/2020/06/17/afl-testcase-zero/image-20200617155850996.png" alt="image-20200617155850996"></p><p><img src="//spwpun.github.io/2020/06/17/afl-testcase-zero/image-20200617160014747.png" alt="image-20200617160014747"></p><p>然后make编译就能生成二进制插桩后的文件了，一般出现一个提示”core_pattern“的设置错误，这里的话需要设置一下状态：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo su</span><br><span class="line">$ <span class="built_in">echo</span> core &gt; /proc/sys/kernel/core_pattern</span><br></pre></td></tr></table></figure><p>然后就可以正常跑了，一般执行命令<code>afl-fuzz</code>,可以参阅上一篇文章。</p><p>我从中午一直跑到了晚上，也没有发现crash的情况出现，结果在freebuf的一篇文章看到如果“cycles done”的字段颜色为绿色就代表再跑下去也没什么结果了，afl运行的过程一直是个死循环，所以才会一直在跑。</p><p><img src="//spwpun.github.io/2020/06/17/afl-testcase-zero/image-20200618010657790.png" alt="image-20200618010657790"></p><p>然后我就强行停止了。</p><h3 id="Again"><a href="#Again" class="headerlink" title="Again"></a>Again</h3><p>很奇怪的是这是afl自带的测试用例，按道理不应该跑不出来的。于是我又去找了一下社区内前辈的文章来看，借用了其中的一个示例代码，结果就很快跑出该程序的crash情况了。</p><p><img src="//spwpun.github.io/2020/06/17/afl-testcase-zero/image-20200618012545922.png" alt="image-20200618012545922"></p><p>我特意把两次的输出目录都分开了，两次跑的结果都存在，至于如何分析输出的情况，接下来会继续。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 漏洞挖掘 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Fuzz </tag>
+            
+            <tag> testcase </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>afl readme</title>
       <link href="/2020/06/15/afl-readme/"/>
       <url>/2020/06/15/afl-readme/</url>

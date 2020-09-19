@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="/css/main.css?v=7.4.1">
 
-<link rel="stylesheet" href="https://fonts.cat.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Times New Roman:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Times New Roman:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
 
 
@@ -64,10 +64,12 @@
 <meta property="og:site_name" content="Spwpun&#39;s Blog">
 <meta property="og:description" content="今天重新登上了自己的服务器，发现好多操作的命令都忘了，因此这里需要记录一下，后面也会补充吧。用户相关的命令">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-06-24T13:38:33.931Z">
+<meta property="og:image" content="https://spwpun.github.io/2020/06/24/Linux常用命令（更新）/image-20200920003523225.png">
+<meta property="og:updated_time" content="2020-09-19T16:35:58.902Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux常用命令（更新）">
 <meta name="twitter:description" content="今天重新登上了自己的服务器，发现好多操作的命令都忘了，因此这里需要记录一下，后面也会补充吧。用户相关的命令">
+<meta name="twitter:image" content="https://spwpun.github.io/2020/06/24/Linux常用命令（更新）/image-20200920003523225.png">
   <link rel="canonical" href="https://spwpun.github.io/2020/06/24/Linux常用命令（更新）/">
 
 
@@ -286,11 +288,19 @@
                 
               
 
-              <time title="Created: 2020-06-24 16:21:50 / Modified: 21:38:33" itemprop="dateCreated datePublished" datetime="2020-06-24T16:21:50+08:00">2020-06-24</time>
+              <time title="Created: 2020-06-24 16:21:50" itemprop="dateCreated datePublished" datetime="2020-06-24T16:21:50+08:00">2020-06-24</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-20 00:35:58" itemprop="dateModified" datetime="2020-09-20T00:35:58+08:00">2020-09-20</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -350,6 +360,8 @@
 <p>查看服务开启状态：<code>sudo service --status-all</code>.</p>
 <h3 id="安装v2ray"><a href="#安装v2ray" class="headerlink" title="安装v2ray"></a>安装v2ray</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line"><span class="comment"># Copyright (c) 2018 flyzy小站</span></span><br><span class="line"></span><br><span class="line">red=<span class="string">'\033[0;31m'</span></span><br><span class="line">green=<span class="string">'\033[0;32m'</span></span><br><span class="line">yellow=<span class="string">'\033[0;33m'</span></span><br><span class="line">plain=<span class="string">'\033[0m'</span></span><br><span class="line"></span><br><span class="line">os=<span class="string">'ossystem'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">check_os</span></span>() &#123;</span><br><span class="line">    <span class="keyword">if</span> [[ -f /etc/redhat-release ]]; <span class="keyword">then</span></span><br><span class="line">        os=<span class="string">"centos"</span></span><br><span class="line">    <span class="keyword">elif</span> cat /etc/issue | grep -Eqi <span class="string">"debian"</span>; <span class="keyword">then</span></span><br><span class="line">        os=<span class="string">"debian"</span></span><br><span class="line">    <span class="keyword">elif</span> cat /etc/issue | grep -Eqi <span class="string">"ubuntu"</span>; <span class="keyword">then</span></span><br><span class="line">        os=<span class="string">"ubuntu"</span></span><br><span class="line">    <span class="keyword">elif</span> cat /etc/issue | grep -Eqi <span class="string">"centos|red hat|redhat"</span>; <span class="keyword">then</span></span><br><span class="line">        os=<span class="string">"centos"</span></span><br><span class="line">    <span class="keyword">elif</span> cat /proc/version | grep -Eqi <span class="string">"debian"</span>; <span class="keyword">then</span></span><br><span class="line">        os=<span class="string">"debian"</span></span><br><span class="line">    <span class="keyword">elif</span> cat /proc/version | grep -Eqi <span class="string">"ubuntu"</span>; <span class="keyword">then</span></span><br><span class="line">        os=<span class="string">"ubuntu"</span></span><br><span class="line">    <span class="keyword">elif</span> cat /proc/version | grep -Eqi <span class="string">"centos|red hat|redhat"</span>; <span class="keyword">then</span></span><br><span class="line">        os=<span class="string">"centos"</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">getversion</span></span>()&#123;</span><br><span class="line">    <span class="keyword">if</span> [[ -s /etc/redhat-release ]]; <span class="keyword">then</span></span><br><span class="line">        grep -oE  <span class="string">"[0-9.]+"</span> /etc/redhat-release</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        grep -oE  <span class="string">"[0-9.]+"</span> /etc/issue</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">centosversion</span></span>()&#123;</span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$&#123;os&#125;</span> == <span class="string">'centos'</span> ]</span><br><span class="line">    <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">local</span> code=<span class="variable">$1</span></span><br><span class="line">        <span class="built_in">local</span> version=<span class="string">"<span class="variable">$(getversion)</span>"</span></span><br><span class="line">        <span class="built_in">local</span> main_ver=<span class="variable">$&#123;version%%.*&#125;</span></span><br><span class="line">        <span class="keyword">if</span> [ <span class="string">"<span class="variable">$main_ver</span>"</span> == <span class="string">"<span class="variable">$code</span>"</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">return</span> 0</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">return</span> 1</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">return</span> 1</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">firewall_set</span></span>() &#123;</span><br><span class="line">	<span class="built_in">echo</span> -e <span class="string">"[<span class="variable">$&#123;green&#125;</span>信息<span class="variable">$&#123;plain&#125;</span>] 正在设置防火墙..."</span></span><br><span class="line">	<span class="keyword">if</span> centosversion 6; <span class="keyword">then</span></span><br><span class="line">		/etc/init.d/iptables status &gt; /dev/null 2&gt;&amp;1</span><br><span class="line">		<span class="keyword">if</span> [ $? -eq 0 ]; <span class="keyword">then</span></span><br><span class="line">			chkconfig iptables off</span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"[<span class="variable">$&#123;green&#125;</span>信息<span class="variable">$&#123;plain&#125;</span>] 防火墙已经关闭。"</span></span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"[<span class="variable">$&#123;yellow&#125;</span>警告<span class="variable">$&#123;plain&#125;</span>] 防火墙（iptables）好像已经停止或没有安装，如有需要请手动关闭防火墙。"</span></span><br><span class="line">		<span class="keyword">fi</span></span><br><span class="line">	<span class="keyword">elif</span> centosversion 7; <span class="keyword">then</span></span><br><span class="line">		systemctl status firewalld &gt; /dev/null 2&gt;&amp;1</span><br><span class="line">		<span class="keyword">if</span> [ $? -eq 0 ]; <span class="keyword">then</span></span><br><span class="line">			systemctl stop firewalld.service</span><br><span class="line">			systemctl <span class="built_in">disable</span> firewalld.service</span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"[<span class="variable">$&#123;green&#125;</span>信息<span class="variable">$&#123;plain&#125;</span>] 防火墙已经关闭。"</span></span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">"[<span class="variable">$&#123;yellow&#125;</span>警告<span class="variable">$&#123;plain&#125;</span>] 防火墙（iptables）好像已经停止或没有安装，如有需要请手动关闭防火墙。"</span></span><br><span class="line">		<span class="keyword">fi</span></span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">	<span class="built_in">echo</span> -e <span class="string">"[<span class="variable">$&#123;green&#125;</span>信息<span class="variable">$&#123;plain&#125;</span>] 防火墙设置成功。"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">main</span></span>() &#123;</span><br><span class="line">	check_os</span><br><span class="line">	<span class="keyword">if</span> [ <span class="variable">$&#123;os&#125;</span> == <span class="string">'centos'</span> ]</span><br><span class="line">        <span class="keyword">then</span></span><br><span class="line">                firewall_set</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">	bash &lt;(curl -L -s https://install.direct/go.sh)	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$EUID</span>"</span> -ne 0 ]; <span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> -e <span class="string">"[<span class="variable">$&#123;red&#125;</span>错误<span class="variable">$&#123;plain&#125;</span>] 必需以root身份运行，请使用sudo命令"</span></span><br><span class="line">	<span class="built_in">exit</span> 1;</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">main</span><br></pre></td></tr></table></figure>
 
+<h3 id="改变终端前缀提示"><a href="#改变终端前缀提示" class="headerlink" title="改变终端前缀提示"></a>改变终端前缀提示</h3><p>在<code>~/.bashrc</code>文件中添加<code>export PROMPT_COMMAND=&#39;echo Hello,Spwpun&#39;</code>类似这样的语句，在终端前面就会显示提示信息。</p>
+<p><img src="//spwpun.github.io/2020/06/24/Linux常用命令（更新）/image-20200920003523225.png" alt="image-20200920003523225"></p>
 
     </div>
 
@@ -376,8 +388,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2049/09/01/Note/" rel="prev" title="Notebook">
-                  Notebook <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/19/DASCTF8月赛：magic-number/" rel="prev" title="DASCTF8月赛：magic_number">
+                  DASCTF8月赛：magic_number <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -427,7 +439,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#用户相关的命令"><span class="nav-number">1.</span> <span class="nav-text">用户相关的命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">2.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装v2ray"><span class="nav-number">3.</span> <span class="nav-text">安装v2ray</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#用户相关的命令"><span class="nav-number">1.</span> <span class="nav-text">用户相关的命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">2.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装v2ray"><span class="nav-number">3.</span> <span class="nav-text">安装v2ray</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变终端前缀提示"><span class="nav-number">4.</span> <span class="nav-text">改变终端前缀提示</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -446,7 +458,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -472,7 +484,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>

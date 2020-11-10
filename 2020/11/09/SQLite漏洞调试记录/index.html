@@ -56,18 +56,29 @@
   };
 </script>
 
-  <meta name="description" content="Sharing, Communicating more, then moving on......">
-<meta name="keywords" content="Blog, Cyber Security, Info Sec">
+  <meta name="description" content="1. CVE-2019-19599源码：/ext/misc/zipfile.c，这个文件实现了一个虚拟表来读取和写入归档zip文件。">
+<meta name="keywords" content="SQLite">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQLite漏洞调试记录">
 <meta property="og:url" content="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/index.html">
 <meta property="og:site_name" content="Spwpun&#39;s Blog">
-<meta property="og:description" content="Sharing, Communicating more, then moving on......">
+<meta property="og:description" content="1. CVE-2019-19599源码：/ext/misc/zipfile.c，这个文件实现了一个虚拟表来读取和写入归档zip文件。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-11-09T10:28:51.688Z">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200824011634623.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200824011813218.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200903163744634.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200907083132163.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200907083404723.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200907092046829.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200907115230945.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200907115849015.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200907164940502.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200920004802260.png">
+<meta property="og:updated_time" content="2020-11-10T02:08:23.239Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQLite漏洞调试记录">
-<meta name="twitter:description" content="Sharing, Communicating more, then moving on......">
+<meta name="twitter:description" content="1. CVE-2019-19599源码：/ext/misc/zipfile.c，这个文件实现了一个虚拟表来读取和写入归档zip文件。">
+<meta name="twitter:image" content="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200824011634623.png">
   <link rel="canonical" href="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/">
 
 
@@ -289,6 +300,31 @@
               <time title="Created: 2020-11-09 18:28:51" itemprop="dateCreated datePublished" datetime="2020-11-09T18:28:51+08:00">2020-11-09</time>
             </span>
           
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-10 10:08:23" itemprop="dateModified" datetime="2020-11-10T10:08:23+08:00">2020-11-10</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/漏洞挖掘/" itemprop="url" rel="index"><span itemprop="name">漏洞挖掘</span></a></span>
+
+                
+                
+              
+            </span>
+          
 
           
             <span id="/2020/11/09/SQLite漏洞调试记录/" class="post-meta-item leancloud_visitors" data-flag-title="SQLite漏洞调试记录" title="Views">
@@ -323,7 +359,46 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h2 id="1-CVE-2019-19599"><a href="#1-CVE-2019-19599" class="headerlink" title="1. CVE-2019-19599"></a>1. CVE-2019-19599</h2><p>源码：/ext/misc/zipfile.c，这个文件实现了一个虚拟表来读取和写入归档zip文件。</p><a id="more"></a>
+<p>SQLite有一个表sqlite_master,包含了数据库中所有自建表的信息。</p>
+<p>查看一个表的所有信息：<code>pragma table_info([tablename]);</code></p>
+<h3 id="常见用法："><a href="#常见用法：" class="headerlink" title="常见用法："></a>常见用法：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE VIRTUAL TABLE temp.zip USING zipfile(&apos;test.zip&apos;);</span><br><span class="line">INSERT INTO temp.zip(name, data) VALUES (&apos;dir\x00s1&apos;, NULL);</span><br></pre></td></tr></table></figure>
+
+<p>利用zipfile功能创建了一个虚表<code>temp.zip</code>,然后向其中插入一条数据。其中<code>name, data</code>是虚表中的两个字段，如果<code>data</code>的值为NULL的话，代表插入的数据是一个目录，否则是文件。</p>
+<h3 id="漏洞描述"><a href="#漏洞描述" class="headerlink" title="漏洞描述:"></a>漏洞描述:</h3><p>在涉及文件名中嵌入’\0’字符的情况下，SQLite 3.30.1中的ext/misc/zipfile.c会误处理INSERT INTO的某些用法，从而导致可以由（例如）valgrind检测到内存管理错误。</p>
+<h3 id="调试过程："><a href="#调试过程：" class="headerlink" title="调试过程："></a>调试过程：</h3><p>在一个终端启动sqlite3:</p>
+<p><img src="//spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200824011634623.png" alt="image-20200824011634623" title="启动sqlite3"></p>
+<p>再在另外一个终端查看sqlite3的进程号：48941</p>
+<p><img src="//spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200824011813218.png" alt="image-20200824011813218" title="sqlite进程信息"></p>
+<p>然后使用root权限启动gdb，在编译sqlite的时候加上<code>-g</code>参数就可以在这里使用file命令载入调试符号表，然后再进行<code>attach 48941</code>就可以正常调试了。</p>
+<h3 id="调试分析："><a href="#调试分析：" class="headerlink" title="调试分析："></a>调试分析：</h3><p>当使用gdb进行附加后，原来的sqlite会进入等待状态，这个时候不能进行任何输入。找到漏洞出现的源代码处，下断点<code>break zipfileUpdate</code>，然后<code>continue</code>，就可以在sqlite的终端输入命令了。</p>
+<p>使用<code>next, print, x</code>命令可以灵活查看调试过程中的变量内容，内存信息，使用<code>set</code>可以修改内容，由于<code>\0</code>字符在终端输入的时候会导致SQL语句被截掉一半的情况，所以为了形成描述中的情况，我在调试的过程中找到变量的位置并插入了’\0’字符。</p>
+<p>而在执行zipfileUpdate的时候，对于目录名，会在目录名之后添加一个’/‘字符，而由于’\0’的截断，会导致对目录名字符串长度计数的变量<code>nPath</code>计算出错，原来是单纯的<code>nPath++</code>,这样实际的目录名长度会比nPath要小，漏洞修复后改为strlen函数来计算正确的长度。</p>
+<h2 id="2-CVE-2019-19317"><a href="#2-CVE-2019-19317" class="headerlink" title="2. CVE-2019-19317"></a>2. CVE-2019-19317</h2><h3 id="漏洞描述："><a href="#漏洞描述：" class="headerlink" title="漏洞描述："></a>漏洞描述：</h3><p>在生成列的情况下，SQLite 3.30.1中resolve.c中的lookupName忽略了colUsed位掩码中的位，这使攻击者可以拒绝服务或可能造成未指定的其他影响。</p>
+<h3 id="调试分析：-1"><a href="#调试分析：-1" class="headerlink" title="调试分析："></a>调试分析：</h3><p>调试过程和前一个漏洞一样。</p>
+<p>由于暂时未找到触发漏洞处的代码的testcase，暂时搁置，先看论文中提到的4个Bug案例分析，再回头来看这个漏洞。</p>
+<h2 id="3-case-study-1：A-11-year-Bug"><a href="#3-case-study-1：A-11-year-Bug" class="headerlink" title="3. case study 1：A 11-year Bug"></a>3. case study 1：A 11-year Bug</h2><h3 id="漏洞描述：-1"><a href="#漏洞描述：-1" class="headerlink" title="漏洞描述："></a>漏洞描述：</h3><p>在2009年的check-in中，因为SQL语法中不允许出现GroupBy字句，所以在对IN字句进行优化的函数<code>isCandidateForInOpt</code>中对这一条件进行了断言设置。</p>
+<p><img src="//spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200903163744634.png" alt="image-20200903163744634"></p>
+<p>但是在IN字句中，如果出现NATURAL JOIN连接两个DISTINCT子查询的情况的话，会内部设置GROUP BY这个属性，导致断言失败。</p>
+<h3 id="调试分析：-2"><a href="#调试分析：-2" class="headerlink" title="调试分析："></a>调试分析：</h3><p>上面会内部设置GROUP BY这个属性的话，那么在执行IN字句优化例程函数的时候，<code>p-&gt;pGroupBy</code>应该不为0.但是在调试过程中发现，无论sqlite是在添加了<code>-DNDEBUG</code>参数还是没有添加的情况下，使用论文中提到的PoC来验证均发现没有改变这个属性。</p>
+<p><img src="//spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200907083132163.png" alt="image-20200907083132163" title="Makefile中的Debug参数设置"></p>
+<p>下图为调试过程中的截图：</p>
+<p><img src="//spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200907083404723.png" alt="image-20200907083404723"></p>
+<h2 id="4-case-study-2：Database-leakage"><a href="#4-case-study-2：Database-leakage" class="headerlink" title="4. case study 2：Database leakage"></a>4. case study 2：Database leakage</h2><p>原来这个就是CVE-2019-19959，怪我没有仔细看。</p>
+<p>按照论文中给出的PoC来验证，感觉没有什么异常啊，只是单纯的把经过zipfile函数生成的一个zip用hex的方式显示出来了而已，而且调试过程中并没有走到漏洞的源代码处。</p>
+<p><img src="//spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200907092046829.png" alt="image-20200907092046829" title="CVE-2019-19959 PoC验证"></p>
+<h2 id="5-case-study-3：UAF-from-Assertion"><a href="#5-case-study-3：UAF-from-Assertion" class="headerlink" title="5. case study 3：UAF from Assertion"></a>5. case study 3：UAF from Assertion</h2><p>这个bug获得了CVE编号：CVE-2019-20218。</p>
+<p>使用PoC验证时，sqlite直接爆语法错误。第二条sql语句需要和第三条同时输入，然后再测试第三条SQL语句。</p>
+<p><img src="//spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200907115230945.png" alt="image-20200907115230945" title="CVE-2019-20218 PoC验证"></p>
+<p>由于第二条语句创建的是一个循环视图（创建视图v2的数据来自要创建的视图v2），会导致其pWith指针称为一个悬空指针。</p>
+<p><img src="//spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200907115849015.png" alt="image-20200907115849015" title="悬空指针"></p>
+<p>但是调试到后面，导致程序崩溃的情况是在一个比较函数里面：</p>
+<p><img src="//spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200907164940502.png" alt="image-20200907164940502" title="sqlite3StrICmp函数"></p>
+<p>而且调用这个函数的地方是在这个漏洞修补处的前面，按道理在后面修补，前面同样会出问题的吧，且还没找到关于<code>p-&gt;pWith</code>指针的断言语句。</p>
+<p>而且我在加上<code>-DNDEBUG</code>参数之后再来测试，同样的还是崩溃了。</p>
+<p>后在大佬的指导下，解决了调试不能断在assert函数的地方的问题，需要再设置<code>-DSQLITE_DEBUG</code>这个参数，<code>sqlite3.c</code>中解释了这两个参数必须是相反的，如果注释了<code>-DNDEBUG</code>且没有定义<code>-DSQLITE_DEBUG</code>那么就会再次将<code>-DNDEBUG</code>设为1，所以解决方法就是注释掉<code>-DNDEBUG</code>的同时定义<code>-DSQLITE_DEBUG</code>。</p>
+<p><img src="//spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200920004802260.png" alt="image-20200920004802260"></p>
+
     </div>
 
     
@@ -333,6 +408,15 @@
       
 
       <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/SQLite/" rel="tag"># SQLite</a>
+            
+          </div>
+        
 
         
 
@@ -349,8 +433,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2020/11/09/最近论文阅读笔记/" rel="prev" title="最近论文阅读笔记">
-                  最近论文阅读笔记 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/11/09/CollAFL阅读笔记/" rel="prev" title="CollAFL阅读笔记">
+                  CollAFL阅读笔记 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -400,6 +484,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-CVE-2019-19599"><span class="nav-text">1. CVE-2019-19599</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常见用法："><span class="nav-text">常见用法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#漏洞描述"><span class="nav-text">漏洞描述:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调试过程："><span class="nav-text">调试过程：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调试分析："><span class="nav-text">调试分析：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-CVE-2019-19317"><span class="nav-text">2. CVE-2019-19317</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#漏洞描述："><span class="nav-text">漏洞描述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调试分析：-1"><span class="nav-text">调试分析：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-case-study-1：A-11-year-Bug"><span class="nav-text">3. case study 1：A 11-year Bug</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#漏洞描述：-1"><span class="nav-text">漏洞描述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调试分析：-2"><span class="nav-text">调试分析：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-case-study-2：Database-leakage"><span class="nav-text">4. case study 2：Database leakage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-case-study-3：UAF-from-Assertion"><span class="nav-text">5. case study 3：UAF from Assertion</span></a></li></ol></div>
+        
       </div>
       <!--/noindex-->
 
@@ -417,7 +503,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -443,7 +529,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">32</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>

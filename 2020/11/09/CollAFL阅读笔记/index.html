@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+  <link rel="manifest" href="/images/manifest.json">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Times New Roman:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="CollAFL: Path Sensitive Fuzzing阅读笔记技术问题和挑战AFL采用的基于覆盖的模糊测试，采用粗略的覆盖率信息来实现高效的灰盒测试，将边缘点击计数存储在紧凑的位图中，这样的覆盖范围是不准确和不完整的。导致以下问题：">
+<meta name="keywords" content="Fuzz,CollAFL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CollAFL阅读笔记">
+<meta property="og:url" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/index.html">
+<meta property="og:site_name" content="Spwpun&#39;s Blog">
+<meta property="og:description" content="CollAFL: Path Sensitive Fuzzing阅读笔记技术问题和挑战AFL采用的基于覆盖的模糊测试，采用粗略的覆盖率信息来实现高效的灰盒测试，将边缘点击计数存储在紧凑的位图中，这样的覆盖范围是不准确和不完整的。导致以下问题：">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201005200917986.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201005201803168.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201005203724140.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/C:%5CUsers%5C17360%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201005203659371.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201005204802750.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201005205814002.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201005211105372.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201005211806485.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201006133950479.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201006134928799.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201006173518219.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201006173601510.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201006203322701.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201006204100064.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201006204340304.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201006204850105.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201007111648027.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201007112427549.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201007112749574.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201007113612722.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201007222228432.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201007225243763.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201009085629675.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201009102219647.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201009103135189.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201009104219062.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201009105332088.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201009110717825.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201009111813673.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201009113027060.png">
+<meta property="og:updated_time" content="2020-11-10T01:22:52.976Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CollAFL阅读笔记">
+<meta name="twitter:description" content="CollAFL: Path Sensitive Fuzzing阅读笔记技术问题和挑战AFL采用的基于覆盖的模糊测试，采用粗略的覆盖率信息来实现高效的灰盒测试，将边缘点击计数存储在紧凑的位图中，这样的覆盖范围是不准确和不完整的。导致以下问题：">
+<meta name="twitter:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201005200917986.png">
+  <link rel="canonical" href="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>CollAFL阅读笔记 | Spwpun's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Spwpun's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="fa fa-search fa-fw"></i>Search</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/spwpun" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demen Lee">
+      <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Spwpun's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">CollAFL阅读笔记
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-11-09 18:29:52" itemprop="dateCreated datePublished" datetime="2020-11-09T18:29:52+08:00">2020-11-09</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-10 09:22:52" itemprop="dateModified" datetime="2020-11-10T09:22:52+08:00">2020-11-10</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Read-Note/" itemprop="url" rel="index"><span itemprop="name">Read Note</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/2020/11/09/CollAFL阅读笔记/" class="post-meta-item leancloud_visitors" data-flag-title="CollAFL阅读笔记" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/11/09/CollAFL阅读笔记/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/11/09/CollAFL阅读笔记/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="CollAFL-Path-Sensitive-Fuzzing阅读笔记"><a href="#CollAFL-Path-Sensitive-Fuzzing阅读笔记" class="headerlink" title="CollAFL: Path Sensitive Fuzzing阅读笔记"></a>CollAFL: Path Sensitive Fuzzing阅读笔记</h1><h2 id="技术问题和挑战"><a href="#技术问题和挑战" class="headerlink" title="技术问题和挑战"></a>技术问题和挑战</h2><p>AFL采用的基于覆盖的模糊测试，采用粗略的覆盖率信息来实现高效的灰盒测试，将边缘点击计数存储在紧凑的位图中，这样的覆盖范围是不准确和不完整的。导致以下问题：</p><a id="more"></a>
+<ul>
+<li>path collisions：路径碰撞，无法发现引起new crashes的潜在路径。</li>
+<li>阻止Fuzzer做更好的fuzz 策略。</li>
+</ul>
+<h2 id="提出的解决方案"><a href="#提出的解决方案" class="headerlink" title="提出的解决方案"></a>提出的解决方案</h2><ul>
+<li>CollAFL: a coverage sensitive fuzzing solution.<ul>
+<li>在保证low instrumentation的前提下，提供更精确的覆盖率信息</li>
+<li>利用覆盖率信息实现了三种fuzz策略，更快地发现new path和bug</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><p>现有软件使用的基于覆盖的fuzz技术，用到的code coverage information的fuzzer很少（没有）：</p>
+<ul>
+<li>AFL：edge coverage information</li>
+<li>AFLfast：further edge coverage information</li>
+<li>VUzzer：block coverage information</li>
+</ul>
+<h3 id="覆盖范围不精确会导致什么"><a href="#覆盖范围不精确会导致什么" class="headerlink" title="覆盖范围不精确会导致什么"></a>覆盖范围不精确会导致什么</h3><ul>
+<li>path collision：如果两个不同路径的hash是一致的，则会发生路径碰撞，后测试的那条路径就会被识别先前测试的那条路径中去，后面的这条路径及其相关路径就得不到相对应的测试。</li>
+<li>fuzzing strategy：AFLfast优先选择训练路径低频的seeds，AFLgo优先选择接近于目标的seeds，这两者都需要精确的覆盖信息，不精确的覆盖范围会影响这种选择seeds的策略。</li>
+</ul>
+<h3 id="如何提高覆盖范围的准确性并引导Fuzzer"><a href="#如何提高覆盖范围的准确性并引导Fuzzer" class="headerlink" title="如何提高覆盖范围的准确性并引导Fuzzer"></a>如何提高覆盖范围的准确性并引导Fuzzer</h3><p>edge coverage提供的信息比block coverage要多，所以选择edge coverage来计算。具体如下：</p>
+<ol>
+<li>通过分析目标程序的控制流图得到已知的edges的一个列表；</li>
+<li>为每个basic block分配一个ID，然后再计算所有edges的hash。</li>
+</ol>
+<p>提出了三种新的指导Fuzzer选择seeds的策略：</p>
+<ul>
+<li>memory-access guided</li>
+<li>untouched-branch guided</li>
+<li>and untouched-descendant guided</li>
+</ul>
+<h3 id="Coverage-sensitive-fuzzing的表现"><a href="#Coverage-sensitive-fuzzing的表现" class="headerlink" title="Coverage sensitive fuzzing的表现"></a>Coverage sensitive fuzzing的表现</h3><p>Dataset：LAVA-M</p>
+<p>explore more code，find more unique crahses and security bugs.</p>
+<h2 id="2-背景和相关工作"><a href="#2-背景和相关工作" class="headerlink" title="2. 背景和相关工作"></a>2. 背景和相关工作</h2><h3 id="模糊器经常使用的产生测试用例的方法："><a href="#模糊器经常使用的产生测试用例的方法：" class="headerlink" title="模糊器经常使用的产生测试用例的方法："></a>模糊器经常使用的产生测试用例的方法：</h3><ul>
+<li>grammar-based：基于语法</li>
+<li>mutation-based：基于变异，不依赖于语法，有更好的可扩展性，代码覆盖率比较低。</li>
+</ul>
+<h3 id="覆盖引导的模糊测试："><a href="#覆盖引导的模糊测试：" class="headerlink" title="覆盖引导的模糊测试："></a>覆盖引导的模糊测试：</h3><ul>
+<li>AFL , libFuzzer, honggfuzz and VUzzer </li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>按照某种策略从种子池中选择种子</li>
+<li>对这些种子进行编译得到一批测试用例</li>
+<li>用这些测试用例以高速状态测试应用程序</li>
+<li>监控插桩后的程序，跟踪代码覆盖率和安全问题</li>
+<li>如果检测到了安全问题（crashes、hang out）则报告漏洞</li>
+<li>筛选对代码覆盖率有作用的好的测试用例，把它放入种子池，返回step 1.</li>
+</ol>
+<p>Step3：</p>
+<ul>
+<li>AFL利用Linux提供的fork原理来加速，利用forkserver mode and persistent mode两种模式来减少的fork的载荷。</li>
+<li>AFL支持平行模式（parallel mode），允许多个fuzz实例一起运行。</li>
+</ul>
+<p>Step4:</p>
+<ul>
+<li>静态插桩: AFL 利用GCC和Clang来对源代码进行静态编译</li>
+<li>动态二进制插桩：ALF使用QEMU来对程序进行动态插桩。VUzzer则是PIN；Syzkaller和kAFL使用QEMU来对硬件（例如Intel PT）插桩。</li>
+<li>调试</li>
+<li>系统模拟</li>
+</ul>
+<p>Step5：</p>
+<ul>
+<li>大多使用AddressSanitizer来检测缓冲区溢出错误，也有其他的工具（UBSan、MemorySanitizer、LeakSanitizer、DataFlowSanitizer、ThreadSanitizer、Hex VASan）。</li>
+</ul>
+<h3 id="覆盖率跟踪："><a href="#覆盖率跟踪：" class="headerlink" title="覆盖率跟踪："></a>覆盖率跟踪：</h3><p>edge覆盖率提供的信息要优于block覆盖率。</p>
+<p>AFL采用的是edge覆盖率，但是由于生成hash的Key值的随机性，且如果edge的数量大于64K的话，就会很容易导致hash碰撞，将不同的边误认为同一条边。</p>
+<p>AFL的edge覆盖率并不精确，这很大地限制了AFL的能力。</p>
+<h3 id="种子选择策略："><a href="#种子选择策略：" class="headerlink" title="种子选择策略："></a>种子选择策略：</h3><ul>
+<li>Honggfuzz：按顺序。</li>
+<li>LibFuzzer：优先选择能命中new block的种子。</li>
+<li>VUzzer：优先选择路径较深的种子，很可能可以测试难以到达的路径。</li>
+<li>AFLfast：优先选择出现频率较少的种子，彻底测试cold path。</li>
+</ul>
+<ul>
+<li>QTEP：优先选择覆盖通过静态分析识别的错误代码的种子</li>
+<li>SlowFuzz：优先选择占用更多资源的种子（CPU、内存、energy）</li>
+<li>AFLgo：优先选择更接近于预定目标位置（例如，等待review的新commit）的种子</li>
+</ul>
+<p>本文主要针对利用代码覆盖信息直接指导模糊器去探索未知的路径。</p>
+<h3 id="种子变异策略："><a href="#种子变异策略：" class="headerlink" title="种子变异策略："></a>种子变异策略：</h3><ul>
+<li>AFL、LibFuzzer：使用一组确定性和随机算法来进行种子变异。（种子的来源、在哪里突变、突变有什么价值）</li>
+</ul>
+<p>种子的来源：</p>
+<ul>
+<li>IMF：从正常的应用程序执行中学习系统调用之间的顺序和值依赖关系，然后相应地生成测试用例，从而能够发现许多深层内核bug。</li>
+<li>Skyfire：从丰富的输入中学习一个概率上下文敏感语法来指导testcase生成。</li>
+<li>DIFUZE：利用静态分析在用户空间中组合有效的输入，以测试内核驱动程序。</li>
+<li>AI techniques：RNN、GAN。</li>
+</ul>
+<p>在哪里突变：</p>
+<ul>
+<li>VUzzer：使用控制流和数据流特性来推断要变化的字节(例如，魔术字节)，这对某些类型的数据字段很有用。</li>
+<li>Zhiqiang et.al：提出了一个解决方案来识别敏感字节的变化使用静态数据沿袭分析。</li>
+<li>Mohit Rajpal et.al：提出了一个DNN(深度神经网络)解决方案来断言哪些字节要变异，显示了有希望的改进。</li>
+<li>TaintScope：使用污染分析来识别校验和字节，并在测试期间修复它们。</li>
+</ul>
+<p>突变有什么价值：</p>
+<ul>
+<li>VUzzer：使用动态分析来推断用于突变的interesting values。</li>
+<li>Honggfuzz：在运行时识别感兴趣的值（即cmp指令的操作数），极大地提高了它的路径覆盖率。</li>
+<li>Laf-intel：转换目标应用程序，将长字符或常量比较分解为几个小的比较语句，使fuzzer能够更快地找到匹配的突变和运行新路径。</li>
+</ul>
+<h3 id="本文的重点："><a href="#本文的重点：" class="headerlink" title="本文的重点："></a>本文的重点：</h3><p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201005200917986.png" alt="image-20201005200917986"></p>
+<p>黄色组件为关键部分。首先提高了代码覆盖跟踪的准确性，然后通过替换种子选择策略，利用精确的覆盖信息来引导模糊器。</p>
+<h2 id="3-提高覆盖率的精确性"><a href="#3-提高覆盖率的精确性" class="headerlink" title="3. 提高覆盖率的精确性"></a>3. 提高覆盖率的精确性</h2><h3 id="覆盖粒度："><a href="#覆盖粒度：" class="headerlink" title="覆盖粒度："></a>覆盖粒度：</h3><ul>
+<li>block coverage：在测试期间跟踪每个块的命中计数。但可能会忽略某些路径，如下图：</li>
+</ul>
+<p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201005201803168.png" alt="image-20201005201803168"></p>
+<ul>
+<li>edge coverage：跟踪每条边的命中次数。一个典型的实现就是AFL所使用的实现。仪器开销类似于块覆盖解决方案。但是，它不跟踪边的顺序，也丢失了一些信息。</li>
+<li>path coverage：跟踪边缘的顺序，提供最完整的代码覆盖信息。然而，路径的长度非常长，并且应用程序中的路径数量很大，因此跟踪路径覆盖的运行时开销和内存开销非常高。在实际应用中，跟踪路径覆盖是不可行的。</li>
+</ul>
+<p>因此，边缘覆盖解决方案在效率和覆盖信息之间达到了一定的平衡。然而，即使对于代表性的边缘覆盖解决方案AFL，也存在hash碰撞问题，会导致不准确。CollAFL采用边缘覆盖跟踪方案，解决了碰撞问题。</p>
+<h3 id="hash碰撞的直接解决方案："><a href="#hash碰撞的直接解决方案：" class="headerlink" title="hash碰撞的直接解决方案："></a>hash碰撞的直接解决方案：</h3><p>扩大进行散列的空间。</p>
+<p>但由于性能和随机性的原因，这并不是一个好的解决方案。</p>
+<h3 id="CollAFL的哈希冲突解决方案："><a href="#CollAFL的哈希冲突解决方案：" class="headerlink" title="CollAFL的哈希冲突解决方案："></a>CollAFL的哈希冲突解决方案：</h3><p>具体hash计算算法为公式2：</p>
+<p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201005203724140.png" alt="image-20201005203724140"></p>
+<p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/C:%5CUsers%5C17360%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201005203659371.png" alt="image-20201005203659371"></p>
+<p>其中x,y,z是待确定的参数，对于不同的边，这些参数可能不同。AFL使用的公式1是该算法的一种具体形式，即对所有边/块(x=0,y=1,z=0)。Fmul的计算过程与AFL相同，开销相同。</p>
+<p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201005204802750.png" alt="image-20201005204802750"></p>
+<p>目标是找到每个基本块的参数的解决方案，确保通过公式2计算的所有边的hash值都是不同的。</p>
+<p>具体来说：</p>
+<ol>
+<li><p>如果一个块B只有一个父块A：不需要找到参数&lt;x,y,z&gt;的组合。利用下面的公式3直接指定A-&gt;B这条边的hash值。</p>
+<p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201005205814002.png" alt="image-20201005205814002"></p>
+<p>其中，prev和cur是分配给A和B块的键，而参数c是一个惟一要确定的常量。</p>
+</li>
+<li><p>有多个前例块的hash算法：就使用公式2计算hash值。</p>
+<p>使用贪心算法来解析这些块的参数组合，我们把可以解析的块表示为<em>solvable blocks</em>，把不能解的块表示为<em>unsolvable blocks</em>。对于后者，使用下面的算法进行计算hash：</p>
+<p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201005211105372.png" alt="image-20201005211105372"></p>
+<p>prev和cur是A和B块的键。它建立一个离线哈希表，对所有以不可解块结尾的边使用唯一的哈希，这与其他所有边的哈希不同。在运行时，它查找这个预先计算的哈希表，以获取这些边的哈希值，使用它们的开始和结束块作为键。</p>
+</li>
+<li><p>整体缓解方案：</p>
+<p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201005211806485.png" alt="image-20201005211806485"></p>
+<p>对程序进行预处理，利用前面介绍的算法划分基本块，计算hash值。</p>
+</li>
+<li><p>具体的CalcFmul算法：</p>
+<p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201006133950479.png" alt="image-20201006133950479"></p>
+<p>首先选择一个参数y，然后迭代每个块BB，遍历的所有组合，以找到一个组合，这样以这个块结束的所有边的散列都不同于其他的散列。如果找不到组合，则此块将被归类为不可解，并放入Unsol中。否则，块将被放入Solv，参数组合将被放入Params。一旦处理了所有具有多个先例的基本块，并且Unsol集足够小，我们就找到了这个问题的解决方案。否则，我们将选择另一个参数y（1- log2（MAPSIZE）），继续前面的过程。</p>
+</li>
+<li><p>具体的CalcHash算法：</p>
+<p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201006134928799.png" alt="image-20201006134928799"></p>
+<p>如何为不可解析的多先例块建立哈希表。简而言之，它为以不可解析块结尾的每条边随机挑选未使用的散列，并将其存储在哈希映射<em>HashMap</em>中，它还返回未使用散列的自由散列集<em>FreeHashes</em>。</p>
+</li>
+</ol>
+<h3 id="性能分析："><a href="#性能分析：" class="headerlink" title="性能分析："></a>性能分析：</h3><p>三种算法的开销如下：</p>
+<p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201006173518219.png" alt="image-20201006173518219"></p>
+<p>三种情况的basic blocks数量：</p>
+<p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201006173601510.png" alt="image-20201006173601510"></p>
+<h3 id="实现细节："><a href="#实现细节：" class="headerlink" title="实现细节："></a>实现细节：</h3><ul>
+<li>使用Clang的默认实现来获取后继和前继信息。</li>
+<li>将间接调用展开为一组直接调用和一个间接调用</li>
+<li>目前CollAFL只对含有源代码的程序有用</li>
+</ul>
+<h2 id="4-优先种子选择"><a href="#4-优先种子选择" class="headerlink" title="4. 优先种子选择"></a>4. 优先种子选择</h2><p>本文实现的主要目标：直接将模糊器引导到未探索的路径上。</p>
+<ul>
+<li>突变一个具有很多未探索的相邻分支路径的种子路径</li>
+<li>突变一个具有很多未探索的相邻子节点路径的种子路径</li>
+<li>突变有很多内存访问操作的种子路径</li>
+</ul>
+<h3 id="CollAFL-br："><a href="#CollAFL-br：" class="headerlink" title="CollAFL-br："></a>CollAFL-br：</h3><p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201006203322701.png" alt="image-20201006203322701"></p>
+<p>其中<em>IsUntouched</em>函数当且仅当边<code>&lt;bb,bb_i&gt;</code>没有被任何先前的测试用例覆盖时返回1，否则返回0。计算的权重值是动态变化的，循环中的一个基本块对总权重的贡献更大。</p>
+<h3 id="CollAFL-desc："><a href="#CollAFL-desc：" class="headerlink" title="CollAFL-desc："></a>CollAFL-desc：</h3><p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201006204100064.png" alt="image-20201006204100064"></p>
+<p>其中，<em>NumDesc(bb_i)</em>定义为：</p>
+<p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201006204340304.png" alt="image-20201006204340304"></p>
+<p>类似地，如果testcase多次访问一个基本块，我们将迭代该块多次。</p>
+<h3 id="CollAFL-mem："><a href="#CollAFL-mem：" class="headerlink" title="CollAFL-mem："></a>CollAFL-mem：</h3><p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201006204850105.png" alt="image-20201006204850105"></p>
+<p>其中，函数<em>NumMemInstrumentation(bb)</em> 返回参数基本块中可静态计算的内存访问操作次数。不同于前两个策略，这是可以静态确定的，类似地，如果testcase多次访问一个基本块，我们将迭代该块多次。</p>
+<h3 id="实现细节：-1"><a href="#实现细节：-1" class="headerlink" title="实现细节："></a>实现细节：</h3><p>用上面三种策略替换了AFL的默认种子选择策略，在编译时获得了每个基本块的内存访问操作的数量和子路径的数量。</p>
+<p>在运行时，在种子<em>testcase  T</em>被测试之后，我们将计算它未探索的邻居分支和子代路径，以及代表性地沿着路径的内存访问操作。更具体地说，我们将首先检查testcase的覆盖率位图，并得到这个testcase覆盖的所有边缘和命中计数。因为每条边都有一个不同的哈希，我们可以从每条边的哈希中解码它的开始和结束块。然后，对于每个块，我们将得到它的未探索邻居分支的列表，基于整体覆盖位图。再加上我们已经收集的子路径和内存访问操作的数量，我们就可以相应地计算所有三个策略的权值。</p>
+<h2 id="5-评估"><a href="#5-评估" class="headerlink" title="5. 评估"></a>5. 评估</h2><h3 id="Hash碰撞问题"><a href="#Hash碰撞问题" class="headerlink" title="Hash碰撞问题"></a>Hash碰撞问题</h3><h4 id="1-hash碰撞的普遍性："><a href="#1-hash碰撞的普遍性：" class="headerlink" title="1). hash碰撞的普遍性："></a>1). hash碰撞的普遍性：</h4><p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201007111648027.png" alt="image-20201007111648027"></p>
+<p>libtorrent应用程序中，超过75%的边与其他边发生碰撞，而它有超过260K条边。而AFL提供的bitmap最多能存储65.5K条边，剩下的194.5K (=260K-65.5K)边都必须与其他边碰撞。</p>
+<h4 id="2-通过扩大bitmap来减少hash碰撞的效果："><a href="#2-通过扩大bitmap来减少hash碰撞的效果：" class="headerlink" title="2). 通过扩大bitmap来减少hash碰撞的效果："></a>2). 通过扩大bitmap来减少hash碰撞的效果：</h4><p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201007112427549.png" alt="image-20201007112427549"></p>
+<p>如果我们位图的大小从64 KB扩大到1 MB,  libtorrent的碰撞比率从75%降至10%左右。但是带来的影响是导致Fuzzer的速度下降：</p>
+<p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201007112749574.png" alt="image-20201007112749574"></p>
+<p>当扩大到1 MB的时候，对于不同的程序，AFL的执行速度下降了30%-65%不等。而Fuzzer的执行速度对于Fuzzer来说是至关重要的，所以单纯的扩大bitmap的方法是不可行的。</p>
+<h4 id="3-CollAFL的效果："><a href="#3-CollAFL的效果：" class="headerlink" title="3). CollAFL的效果："></a>3). CollAFL的效果：</h4><p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201007113612722.png" alt="image-20201007113612722"></p>
+<p>使用Fsingle算法插桩的blocks要比使用Fmul的多，而前面提到的Fsingle的开销要比Fmul小，这稍微加快了一点速度。</p>
+<h3 id="代码覆盖率问题"><a href="#代码覆盖率问题" class="headerlink" title="代码覆盖率问题"></a>代码覆盖率问题</h3><h4 id="总体覆盖率改进"><a href="#总体覆盖率改进" class="headerlink" title="总体覆盖率改进"></a>总体覆盖率改进</h4><p>在200小时内探索的路径总数：</p>
+<p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201007222228432.png" alt="image-20201007222228432"></p>
+<p>对比了AFL和CollAFL、CollAFL-mem、CollAFL-desc、CollAFL-br，发现的路径总数依次增长；对比AFLfast，CollAFL-fast平均能发现多于AFlfast 8.45%的路径总数。</p>
+<p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201007225243763.png" alt="image-20201007225243763"></p>
+<p>同上面不一样，在这里,我们使用覆盖位图计算代码覆盖率。结果都表明，CollAFL可以做得更好。</p>
+<h4 id="覆盖率随时间推移的增长情况"><a href="#覆盖率随时间推移的增长情况" class="headerlink" title="覆盖率随时间推移的增长情况"></a>覆盖率随时间推移的增长情况</h4><p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201009085629675.png" alt="image-20201009085629675"></p>
+<p>CollAFL、CollAFL-fast都比AFL、AFLfast增长得快；CollAFL-br增长得比CollAFL快，说明<code>br</code>种子选择策略是最有效的；所有的Fuzzer在一开始都能找到很多path，然后在某个时间节点停了下来。</p>
+<h3 id="Unique-crashes"><a href="#Unique-crashes" class="headerlink" title="Unique crashes"></a>Unique crashes</h3><p>由于fuzz的随机性，即使找到了很多的crashes，也不一定能找到更多的vulnerabilities。</p>
+<p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201009102219647.png" alt="image-20201009102219647"></p>
+<p>以average为baseline（100%）作为比较，在200个小时内使用不同Fuzzer对不同程序进行fuzz发现的unique crashes，CollAFL(具有默认的种子选择策略)在查找唯一崩溃方面优于AFL和AFLfast。加上其余三种优化策略的CollAFL效果更好，简而言之，提出的消除hash碰撞方法效果很好。</p>
+<p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201009103135189.png" alt="image-20201009103135189"></p>
+<p>对于listswf应用程序，AFLfast在一开始比CollAFLfast发现更多unique crashes，但最终被超越。</p>
+<h3 id="漏洞"><a href="#漏洞" class="headerlink" title="漏洞"></a>漏洞</h3><p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201009104219062.png" alt="image-20201009104219062"></p>
+<p>使用<code>afl-collect</code>和<code>AddressSanitizer</code>来去除重复的crashes，<strong>CollAFL并没有使用AddressSanitizer，所以有可能会遗漏不会引起崩溃的漏洞。</strong></p>
+<p>unique crashes：7500</p>
+<p>vulnerabilities：157</p>
+<p>CVE vulnerabilities：95。</p>
+<p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201009105332088.png" alt="image-20201009105332088"></p>
+<h3 id="评估的随机性"><a href="#评估的随机性" class="headerlink" title="评估的随机性"></a>评估的随机性</h3><p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201009110717825.png" alt="image-20201009110717825"></p>
+<p>20次试验中每个模糊器在路径发现上的平均RSD。通常情况路径发现的偏差小于4%，崩溃发现的偏差小于25%，崩溃发现的随机性要比路径发现的随机性要大。</p>
+<p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201009111813673.png" alt="image-20201009111813673"></p>
+<p>对于vulnerabilities发现的偏差，表六为统计结果。例如，CollAFL-desc在20个试验中发现了18个Bug-6。在这18个测试中，最快的一个只花费6个小时来找到这个bug，而最慢的一个花费了超过57个小时来找到它。</p>
+<h3 id="Fuzzer对比"><a href="#Fuzzer对比" class="headerlink" title="Fuzzer对比"></a>Fuzzer对比</h3><p>首先，我们评估了AFL的一个变体，即AFL-pc，它使用Clang提供的trace-pc-guard  instrumentation方法来跟踪块覆盖，而不是边缘覆盖。其次，我们采用了<code>lafl-intel</code>提供的另一种工具解决方案，它将长整数和字符串比较操作划分为较小的操作，并将switch语句拆分为一组if-else语句。然后我们分别将lafl-intel与AFL和CollAFL结合，分别表示为<code>AFL-laf</code>和<code>CollAFL-br-laf</code>。</p>
+<p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201009113027060.png" alt="image-20201009113027060"></p>
+<p>AFL-laf在LAVA数据集上的表现比其他的都好，但是在真实的application中表现不行，这说明LAVA数据集中有大量的长字符/整数比较，但这在真实application中是不会的；CollAFL-br-laf优于AFL-laf，表明该选种策略是有效的。</p>
+<h2 id="6-结论"><a href="#6-结论" class="headerlink" title="6. 结论"></a>6. 结论</h2><p>在本文中，我们研究了覆盖制导模糊雷达中覆盖误差的负面影响。我们提出了一个覆盖敏感的模糊解决方案CollAFL，它解决了最新的模糊AFL中的哈希冲突问题，使边缘覆盖信息更加准确，同时仍然保持低的仪器开销。基于精确的覆盖信息，我们提出了三种新的种子选择策略来驱动模糊器直接到达未探索的路径。实验表明，该方案在路径发现、崩溃发现和漏洞发现方面都是有效和高效的。我们发现了157个新的安全漏洞在24真实世界应用程序中,和95年证实了CVE。</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Fuzz/" rel="tag"># Fuzz</a>
+            
+              <a href="/tags/CollAFL/" rel="tag"># CollAFL</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/11/09/SQLite漏洞调试记录/" rel="next" title="SQLite漏洞调试记录">
+                  <i class="fa fa-chevron-left"></i> SQLite漏洞调试记录
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2020/11/09/BGP协议的几个CVE漏洞简述/" rel="prev" title="BGP协议的几个CVE漏洞简述">
+                  BGP协议的几个CVE漏洞简述 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CollAFL-Path-Sensitive-Fuzzing阅读笔记"><span class="nav-text">CollAFL: Path Sensitive Fuzzing阅读笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#技术问题和挑战"><span class="nav-text">技术问题和挑战</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提出的解决方案"><span class="nav-text">提出的解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Introduction"><span class="nav-text">1. Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#覆盖范围不精确会导致什么"><span class="nav-text">覆盖范围不精确会导致什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何提高覆盖范围的准确性并引导Fuzzer"><span class="nav-text">如何提高覆盖范围的准确性并引导Fuzzer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Coverage-sensitive-fuzzing的表现"><span class="nav-text">Coverage sensitive fuzzing的表现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-背景和相关工作"><span class="nav-text">2. 背景和相关工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模糊器经常使用的产生测试用例的方法："><span class="nav-text">模糊器经常使用的产生测试用例的方法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#覆盖引导的模糊测试："><span class="nav-text">覆盖引导的模糊测试：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#覆盖率跟踪："><span class="nav-text">覆盖率跟踪：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#种子选择策略："><span class="nav-text">种子选择策略：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#种子变异策略："><span class="nav-text">种子变异策略：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本文的重点："><span class="nav-text">本文的重点：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-提高覆盖率的精确性"><span class="nav-text">3. 提高覆盖率的精确性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#覆盖粒度："><span class="nav-text">覆盖粒度：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hash碰撞的直接解决方案："><span class="nav-text">hash碰撞的直接解决方案：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CollAFL的哈希冲突解决方案："><span class="nav-text">CollAFL的哈希冲突解决方案：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能分析："><span class="nav-text">性能分析：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现细节："><span class="nav-text">实现细节：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-优先种子选择"><span class="nav-text">4. 优先种子选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CollAFL-br："><span class="nav-text">CollAFL-br：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CollAFL-desc："><span class="nav-text">CollAFL-desc：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CollAFL-mem："><span class="nav-text">CollAFL-mem：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现细节：-1"><span class="nav-text">实现细节：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-评估"><span class="nav-text">5. 评估</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hash碰撞问题"><span class="nav-text">Hash碰撞问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-hash碰撞的普遍性："><span class="nav-text">1). hash碰撞的普遍性：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-通过扩大bitmap来减少hash碰撞的效果："><span class="nav-text">2). 通过扩大bitmap来减少hash碰撞的效果：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-CollAFL的效果："><span class="nav-text">3). CollAFL的效果：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码覆盖率问题"><span class="nav-text">代码覆盖率问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#总体覆盖率改进"><span class="nav-text">总体覆盖率改进</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#覆盖率随时间推移的增长情况"><span class="nav-text">覆盖率随时间推移的增长情况</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unique-crashes"><span class="nav-text">Unique crashes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#漏洞"><span class="nav-text">漏洞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评估的随机性"><span class="nav-text">评估的随机性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fuzzer对比"><span class="nav-text">Fuzzer对比</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-结论"><span class="nav-text">6. 结论</span></a></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="Demen Lee">
+  <p class="site-author-name" itemprop="name">Demen Lee</p>
+  <div class="site-description" itemprop="description">Sharing, Communicating more, then moving on......</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/spwpun" title="GitHub &rarr; https://github.com/spwpun" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:spwpun@gmail.com" title="E-Mail &rarr; mailto:spwpun@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/u/5536839794" title="Weibo &rarr; https://weibo.com/u/5536839794" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://music.163.com/#/user/home?id=127070793" title="Netease &rarr; https://music.163.com/#/user/home?id=127070793" rel="noopener" target="_blank"><i class="fa fa-fw fa-netease"></i>Netease</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://whale3070.github.io" title="https://whale3070.github.io" rel="noopener" target="_blank">Whale3070</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://eternalhikari.github.io" title="https://eternalhikari.github.io" rel="noopener" target="_blank">Hikari</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-flag-checkered"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Spwpun</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a></div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: true,
+    notify: false,
+    appId: 'O9n8UnYXJ5M4s4QEumwRCwH9-gzGzoHsz',
+    appKey: 'qdSjFo9LUO20Ba6XRPMQGX7v',
+    placeholder: 'Leave something interesting......',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

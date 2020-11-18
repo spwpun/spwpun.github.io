@@ -56,18 +56,18 @@
   };
 </script>
 
-  <meta name="description" content="Sharing, Communicating more, then moving on......">
+  <meta name="description" content="BGP协议的几个CVE漏洞简述1. CVE-2018-5381Quagga的BGP守护进程（version1.2.3之前）在解析BGP的OPEN消息的“Capabilities”时会造成拒绝服务漏洞。漏洞定位于bgp_packet.c:bgp_capability_msg_parse函数，如果一个多协议的“Capabilities”没有一个可识别的AFI/SAFI的话则会进入死循环。">
 <meta name="keywords" content="BGP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BGP协议的几个CVE漏洞简述">
 <meta property="og:url" content="https://spwpun.github.io/2020/11/09/BGP协议的几个CVE漏洞简述/index.html">
 <meta property="og:site_name" content="Spwpun&#39;s Blog">
-<meta property="og:description" content="Sharing, Communicating more, then moving on......">
+<meta property="og:description" content="BGP协议的几个CVE漏洞简述1. CVE-2018-5381Quagga的BGP守护进程（version1.2.3之前）在解析BGP的OPEN消息的“Capabilities”时会造成拒绝服务漏洞。漏洞定位于bgp_packet.c:bgp_capability_msg_parse函数，如果一个多协议的“Capabilities”没有一个可识别的AFI/SAFI的话则会进入死循环。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-11-09T12:16:43.827Z">
+<meta property="og:updated_time" content="2020-11-18T12:50:36.774Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BGP协议的几个CVE漏洞简述">
-<meta name="twitter:description" content="Sharing, Communicating more, then moving on......">
+<meta name="twitter:description" content="BGP协议的几个CVE漏洞简述1. CVE-2018-5381Quagga的BGP守护进程（version1.2.3之前）在解析BGP的OPEN消息的“Capabilities”时会造成拒绝服务漏洞。漏洞定位于bgp_packet.c:bgp_capability_msg_parse函数，如果一个多协议的“Capabilities”没有一个可识别的AFI/SAFI的话则会进入死循环。">
   <link rel="canonical" href="https://spwpun.github.io/2020/11/09/BGP协议的几个CVE漏洞简述/">
 
 
@@ -286,11 +286,19 @@
                 
               
 
-              <time title="Created: 2020-11-09 18:55:17 / Modified: 20:16:43" itemprop="dateCreated datePublished" datetime="2020-11-09T18:55:17+08:00">2020-11-09</time>
+              <time title="Created: 2020-11-09 18:55:17" itemprop="dateCreated datePublished" datetime="2020-11-09T18:55:17+08:00">2020-11-09</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-18 20:50:36" itemprop="dateModified" datetime="2020-11-18T20:50:36+08:00">2020-11-18</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -340,7 +348,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h1 id="BGP协议的几个CVE漏洞简述"><a href="#BGP协议的几个CVE漏洞简述" class="headerlink" title="BGP协议的几个CVE漏洞简述"></a>BGP协议的几个CVE漏洞简述</h1><h2 id="1-CVE-2018-5381"><a href="#1-CVE-2018-5381" class="headerlink" title="1. CVE-2018-5381"></a>1. CVE-2018-5381</h2><p>Quagga的BGP守护进程（version1.2.3之前）在解析BGP的OPEN消息的“Capabilities”时会造成拒绝服务漏洞。漏洞定位于<code>bgp_packet.c:bgp_capability_msg_parse</code>函数，如果一个多协议的“Capabilities”没有一个可识别的<code>AFI/SAFI</code>的话则会进入死循环。</p><a id="more"></a>
+<p>AFI/SAFI: 地址族信息和子地址族信息。</p>
+<h2 id="2-CVE-2018-5378"><a href="#2-CVE-2018-5378" class="headerlink" title="2. CVE-2018-5378"></a>2. CVE-2018-5378</h2><p>如果属性长度无效，则版本1.2.3之前的Quagga BGP守护程序（bgpd）无法正确地对NOTIFY发送给Peers的数据进行边界检查。 来自bgpd进程的任意数据可能会通过网络发送到Peers，并且/或者bgpd可能会崩溃。</p>
+<h2 id="3-CVE-2019-16519"><a href="#3-CVE-2019-16519" class="headerlink" title="3. CVE-2019-16519"></a>3. CVE-2019-16519</h2><p>BIRD Internet路由守护程序1.6.x到1.6.7和2.x到2.0.5都有基于堆栈的缓冲区溢出。 当检查输入消息的有效性时，BGP守护程序对RFC 8203管理性关闭通信消息的支持包括错误的逻辑表达式。 发送具有足够消息长度的关闭通信会导致在处理消息时发生四字节的溢出，其中两个溢出字节是攻击者控制的，两个是固定的。</p>
+<h2 id="4-CVE-2017-15865"><a href="#4-CVE-2017-15865" class="headerlink" title="4. CVE-2017-15865"></a>4. CVE-2017-15865</h2><p>用于Cumulus Linux3.4.3之前和其他产品中的FRR 路由程序bgpd（2.0.2之前，3.0.2之前的3.x）存在一个漏洞，能使远程攻击者能够通过格式错误的BGP UPDATE数据包从连接的对等方获取敏感信息， 由于属性长度（即RN-690（CM-18492））处理不正确，它触发了多达数千个意外字节的传输。</p>
+
     </div>
 
     
@@ -426,6 +439,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BGP协议的几个CVE漏洞简述"><span class="nav-text">BGP协议的几个CVE漏洞简述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-CVE-2018-5381"><span class="nav-text">1. CVE-2018-5381</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-CVE-2018-5378"><span class="nav-text">2. CVE-2018-5378</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-CVE-2019-16519"><span class="nav-text">3. CVE-2019-16519</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-CVE-2017-15865"><span class="nav-text">4. CVE-2017-15865</span></a></li></ol></li></ol></div>
+        
       </div>
       <!--/noindex-->
 
@@ -443,7 +458,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -469,7 +484,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">33</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>

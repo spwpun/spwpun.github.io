@@ -67,7 +67,7 @@
 <meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201005200917986.png">
 <meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201005201803168.png">
 <meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201005203724140.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/C:%5CUsers%5C17360%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201005203659371.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201005203659371.png">
 <meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201005204802750.png">
 <meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201005205814002.png">
 <meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201005211105372.png">
@@ -94,7 +94,7 @@
 <meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201009110717825.png">
 <meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201009111813673.png">
 <meta property="og:image" content="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201009113027060.png">
-<meta property="og:updated_time" content="2020-11-10T01:22:52.976Z">
+<meta property="og:updated_time" content="2020-11-18T13:59:44.629Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CollAFL阅读笔记">
 <meta name="twitter:description" content="CollAFL: Path Sensitive Fuzzing阅读笔记技术问题和挑战AFL采用的基于覆盖的模糊测试，采用粗略的覆盖率信息来实现高效的灰盒测试，将边缘点击计数存储在紧凑的位图中，这样的覆盖范围是不准确和不完整的。导致以下问题：">
@@ -328,7 +328,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-10 09:22:52" itemprop="dateModified" datetime="2020-11-10T09:22:52+08:00">2020-11-10</time>
+                <time title="Modified: 2020-11-18 21:59:44" itemprop="dateModified" datetime="2020-11-18T21:59:44+08:00">2020-11-18</time>
               </span>
             
           
@@ -499,7 +499,7 @@
 <p>但由于性能和随机性的原因，这并不是一个好的解决方案。</p>
 <h3 id="CollAFL的哈希冲突解决方案："><a href="#CollAFL的哈希冲突解决方案：" class="headerlink" title="CollAFL的哈希冲突解决方案："></a>CollAFL的哈希冲突解决方案：</h3><p>具体hash计算算法为公式2：</p>
 <p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201005203724140.png" alt="image-20201005203724140"></p>
-<p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/C:%5CUsers%5C17360%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201005203659371.png" alt="image-20201005203659371"></p>
+<p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201005203659371.png" alt="image-20201005203659371"></p>
 <p>其中x,y,z是待确定的参数，对于不同的边，这些参数可能不同。AFL使用的公式1是该算法的一种具体形式，即对所有边/块(x=0,y=1,z=0)。Fmul的计算过程与AFL相同，开销相同。</p>
 <p><img src="//spwpun.github.io/2020/11/09/CollAFL阅读笔记/image-20201005204802750.png" alt="image-20201005204802750"></p>
 <p>目标是找到每个基本块的参数的解决方案，确保通过公式2计算的所有边的hash值都是不同的。</p>
@@ -693,7 +693,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -719,7 +719,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">33</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>

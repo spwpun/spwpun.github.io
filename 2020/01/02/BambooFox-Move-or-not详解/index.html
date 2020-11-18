@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"spwpun.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="BambooFox-“Move or not”详解1.前言主要想讲讲通过这道题学到的东西，看完这篇文章，你可以：  一般逆向题的静态分析技术； Windows上IDA结合Linux虚拟机远程动态调试技术； Linux上初级expect编程技术 ltrace动态调试技术（更适合这道题）  题目描述：  2.静态分析题目给了一个文件pro,使用file命令查看文件格式： 123spwpun@ubunt">
+  <meta name="description" content="BambooFox CTF的RE题Move or not的详细解答，放在了52pojie上。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BambooFox-Move or not详解">
 <meta property="og:url" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/index.html">
 <meta property="og:site_name" content="Spwpun&#39;s Blog">
-<meta property="og:description" content="BambooFox-“Move or not”详解1.前言主要想讲讲通过这道题学到的东西，看完这篇文章，你可以：  一般逆向题的静态分析技术； Windows上IDA结合Linux虚拟机远程动态调试技术； Linux上初级expect编程技术 ltrace动态调试技术（更适合这道题）  题目描述：  2.静态分析题目给了一个文件pro,使用file命令查看文件格式： 123spwpun@ubunt">
+<meta property="og:description" content="BambooFox CTF的RE题Move or not的详细解答，放在了52pojie上。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102145536953.png">
 <meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102153118458.png">
@@ -47,7 +47,7 @@
 <meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102181832258.png">
 <meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102182217223.png">
 <meta property="article:published_time" content="2020-01-02T12:16:30.000Z">
-<meta property="article:modified_time" content="2020-11-09T10:37:40.259Z">
+<meta property="article:modified_time" content="2020-11-18T17:57:24.565Z">
 <meta property="article:author" content="Demen Lee">
 <meta property="article:tag" content="BambooFox CTF">
 <meta name="twitter:card" content="summary">
@@ -159,6 +159,11 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>Commonweal 404</a>
+
+  </li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
@@ -246,7 +251,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-09 18:37:40" itemprop="dateModified" datetime="2020-11-09T18:37:40+08:00">2020-11-09</time>
+                <time title="Modified: 2020-11-19 01:57:24" itemprop="dateModified" datetime="2020-11-19T01:57:24+08:00">2020-11-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -527,7 +532,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

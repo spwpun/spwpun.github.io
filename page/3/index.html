@@ -1,90 +1,52 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
   <link rel="manifest" href="/images/manifest.json">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+<link rel="stylesheet" href="/css/main.css">
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Times New Roman:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.4.1',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":true,"show_result":true,"style":"mac"},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: 'Copy',
-      copy_success: 'Copied',
-      copy_failure: 'Copy failed'
-    },
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"spwpun.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
   <meta name="description" content="Sharing, Communicating more, then moving on......">
-<meta name="keywords" content="Blog, Cyber Security, Info Sec">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Spwpun&#39;s Blog">
 <meta property="og:url" content="https://spwpun.github.io/page/3/index.html">
 <meta property="og:site_name" content="Spwpun&#39;s Blog">
 <meta property="og:description" content="Sharing, Communicating more, then moving on......">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Demen Lee">
+<meta property="article:tag" content="Blog, Cyber Security, Info Sec">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spwpun&#39;s Blog">
-<meta name="twitter:description" content="Sharing, Communicating more, then moving on......">
-  <link rel="canonical" href="https://spwpun.github.io/page/3/">
+
+<link rel="canonical" href="https://spwpun.github.io/page/3/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
-    isPage: false,
-    isArchive: false
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
   };
 </script>
 
   <title>Spwpun's Blog</title>
   
-
-
 
 
 
@@ -103,7 +65,6 @@
   .use-motion .post-body,
   .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -121,19 +82,8 @@
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Spwpun's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
@@ -141,97 +91,86 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Spwpun's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-      
-      
-      
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-      
-    
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-about">
-      
-    
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-tags">
-      
-    
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-categories">
-      
-    
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-archives">
-      
-    
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
       <li class="menu-item menu-item-search">
-        <a href="javascript:;" class="popup-trigger">
-        
-          <i class="fa fa-search fa-fw"></i>Search</a>
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
       </li>
-    
   </ul>
-
 </nav>
-  <div class="site-search">
+
+
+
+  <div class="search-pop-overlay">
     <div class="popup search-popup">
-    <div class="search-header">
+        <div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+    <input autocomplete="off" autocapitalize="off"
            placeholder="Searching..." spellcheck="false"
-           type="text" id="search-input">
+           type="search" class="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
   </div>
+</div>
+
+    </div>
+  </div>
+
 </div>
     </header>
 
@@ -244,97 +183,79 @@
   <a href="https://github.com/spwpun" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-            
+          
 
-          <div id="content" class="content">
+          <div class="content index posts-expand">
             
-
-  <div class="posts-expand">
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/12/05/KCTF-婉若游龙/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/12/05/KCTF-%E5%A9%89%E8%8B%A5%E6%B8%B8%E9%BE%99/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/12/05/KCTF-婉若游龙/" class="post-title-link" itemprop="url">KCTF-婉若游龙</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/12/05/KCTF-%E5%A9%89%E8%8B%A5%E6%B8%B8%E9%BE%99/" class="post-title-link" itemprop="url">KCTF-婉若游龙</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2019-12-05 23:58:12" itemprop="dateCreated datePublished" datetime="2019-12-05T23:58:12+08:00">2019-12-05</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2019-12-30 10:06:43" itemprop="dateModified" datetime="2019-12-30T10:06:43+08:00">2019-12-30</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Writeups/" itemprop="url" rel="index"><span itemprop="name">Writeups</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Writeups/" itemprop="url" rel="index"><span itemprop="name">Writeups</span></a>
+                </span>
             </span>
-          
 
           
-            <span id="/2019/12/05/KCTF-婉若游龙/" class="post-meta-item leancloud_visitors" data-flag-title="KCTF-婉若游龙" title="Views">
+            <span id="/2019/12/05/KCTF-%E5%A9%89%E8%8B%A5%E6%B8%B8%E9%BE%99/" class="post-meta-item leancloud_visitors" data-flag-title="KCTF-婉若游龙" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2019/12/05/KCTF-婉若游龙/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/12/05/KCTF-婉若游龙/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/12/05/KCTF-%E5%A9%89%E8%8B%A5%E6%B8%B8%E9%BE%99/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/05/KCTF-%E5%A9%89%E8%8B%A5%E6%B8%B8%E9%BE%99/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -349,16 +270,13 @@
 
       
           <h3 id="婉若游龙"><a href="#婉若游龙" class="headerlink" title="婉若游龙"></a>婉若游龙</h3><p>这题挺简单的，算法也不难。很快就写出了KeyGen，不过有一点需要注意的事，程序似乎没有控制好缓冲区的长度，导致serial处输入32个任意字符后会直接弹出正确的提示信息，会给新手很迷惑的感觉。</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/12/05/KCTF-婉若游龙/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>HardCoded硬编码很简单，在IDA中跟一下字符串就可以找到，就是“HardCoded”。然后输入name: <code>CTFHUB</code>.和serial：<code>XXXXXX...</code>。</p>
+<p>对name的处理是每个字符先对<code>0xA</code>取余，然后与在整个字符串中的位置相异或，再加2，最后再对<code>0xA</code>取余得到6个字节的checksum。</p>
+<p>对serial的处理就是对每个字符<code>0xA</code>取余，得到对应的checksum。</p>
+<p>最后两个checksum比较，相同则成功。</p>
+<h4 id="KeyGen"><a href="#KeyGen" class="headerlink" title="KeyGen"></a>KeyGen</h4><p>菜鸡花了点时间写了个脚本，有错误请指出。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python2</span></span><br><span class="line"><span class="comment"># coding: utf-8</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">KCTF-婉若游龙</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">name = <span class="string">&quot;CTFHUB&quot;</span></span><br><span class="line">serial = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">serial_proc</span>(<span class="params">serial</span>):</span></span><br><span class="line">    checksum = []</span><br><span class="line">    <span class="keyword">for</span> ch <span class="keyword">in</span> serial:</span><br><span class="line">        checksum.append(<span class="built_in">str</span>(<span class="built_in">ord</span>(ch)%<span class="number">10</span>))</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;&quot;</span>.join(checksum)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">re_proc_serial</span>(<span class="params">checksum, offset</span>):</span></span><br><span class="line">    serial = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> checksum:</span><br><span class="line">        serial += <span class="built_in">chr</span>(<span class="built_in">int</span>(i) + offset) <span class="comment"># 这里加offset是为了保证字符可见且正常</span></span><br><span class="line">    <span class="keyword">return</span> serial</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    checksum_name = []</span><br><span class="line">    offsets = [<span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>, <span class="number">60</span>, <span class="number">70</span>, <span class="number">80</span>, <span class="number">90</span>, <span class="number">100</span>, <span class="number">110</span>]</span><br><span class="line">    <span class="keyword">for</span> ch <span class="keyword">in</span> name:</span><br><span class="line">        tmp = (i ^ (<span class="built_in">ord</span>(ch)%<span class="number">10</span>)) + <span class="number">2</span> <span class="comment"># 先取余，再异或</span></span><br><span class="line">        tmp = tmp % <span class="number">10</span></span><br><span class="line">        checksum_name.append(<span class="built_in">str</span>(tmp))</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    c = <span class="string">&quot;&quot;</span>.join(checksum_name)</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&quot;CTFHUB checksum:&quot;</span> + c</span><br><span class="line">    <span class="keyword">for</span> offset <span class="keyword">in</span> offsets:</span><br><span class="line">        <span class="built_in">print</span> <span class="string">&quot;KeyGen Serials:&quot;</span> + re_proc_serial(c, offset)</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;output</span></span><br><span class="line"><span class="string">CTFHUB checksum:974335</span></span><br><span class="line"><span class="string">KeyGen Serials:&#x27;%&quot;!!#</span></span><br><span class="line"><span class="string">KeyGen Serials:1/,++-</span></span><br><span class="line"><span class="string">KeyGen Serials:;96557</span></span><br><span class="line"><span class="string">KeyGen Serials:EC@??A</span></span><br><span class="line"><span class="string">KeyGen Serials:OMJIIK</span></span><br><span class="line"><span class="string">KeyGen Serials:YWTSSU</span></span><br><span class="line"><span class="string">KeyGen Serials:ca^]]_</span></span><br><span class="line"><span class="string">KeyGen Serials:mkhggi</span></span><br><span class="line"><span class="string">KeyGen Serials:wurqqs</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -366,97 +284,79 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/12/04/《机器学习》笔记/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/12/04/%E3%80%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/12/04/《机器学习》笔记/" class="post-title-link" itemprop="url">《机器学习》笔记</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/12/04/%E3%80%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">《机器学习》笔记</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2019-12-04 08:31:53" itemprop="dateCreated datePublished" datetime="2019-12-04T08:31:53+08:00">2019-12-04</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2020-11-18 20:52:12" itemprop="dateModified" datetime="2020-11-18T20:52:12+08:00">2020-11-18</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Read-Note/" itemprop="url" rel="index"><span itemprop="name">Read Note</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Read-Note/" itemprop="url" rel="index"><span itemprop="name">Read Note</span></a>
+                </span>
             </span>
-          
 
           
-            <span id="/2019/12/04/《机器学习》笔记/" class="post-meta-item leancloud_visitors" data-flag-title="《机器学习》笔记" title="Views">
+            <span id="/2019/12/04/%E3%80%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/" class="post-meta-item leancloud_visitors" data-flag-title="《机器学习》笔记" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2019/12/04/《机器学习》笔记/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/12/04/《机器学习》笔记/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/12/04/%E3%80%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/04/%E3%80%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -471,16 +371,98 @@
 
       
           <h3 id="《机器学习》-周志华-笔记"><a href="#《机器学习》-周志华-笔记" class="headerlink" title="《机器学习》(周志华)笔记"></a>《机器学习》(周志华)笔记</h3><p>花了大概一个月的时间吧《IDA Pro》看完了，昨天重温了一下笔记，发现还是有很大的作用的，所以机器学习也这样来做。这是一本机器学习比较经典的书，由于开头的绪论作者用一个买西瓜的例子来简单阐述了什么是机器学习，故网上称之为“西瓜书”。同样我打算买一本实体书而且也确实买了。机器学习涉及的数学知识基础可能会成为我学习的阻力，所以我想再在慕课网上通过视频学习的方式来补充一下，预计会在上面花钱购买一套课程，花钱学习这事儿，本就是应该的。</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/12/04/《机器学习》笔记/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<p>阅读所记下的笔记可能因人而异，就像在第一章中所提到的NFL原理一样，具体问题需要具体去分析，我也可能只细读我想了解的知识，而对一些历史沿革，数学性强的知识也会略过。</p>
+<h4 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h4><ol>
+<li><p>机器学习是研究关于“学习算法”的学问。</p>
+</li>
+<li><p>关键的术语（由大到小）：数据/数据集—-&gt;示例/样本—-&gt;属性/特征。</p>
+</li>
+<li><p>标记：关于示例结果的信息称为<code>标记</code>；而拥有了标记的示例则称为“样例”。</p>
+</li>
+<li><p>学习任务的类型：</p>
+<table>
+<thead>
+<tr>
+<th>预测的结果</th>
+<th>学习任务类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>已知的离散值</td>
+<td>分类（监督学习）</td>
+</tr>
+<tr>
+<td>未知的离散值</td>
+<td>聚类（无监督学习）</td>
+</tr>
+<tr>
+<td>连续值</td>
+<td>回归</td>
+</tr>
+</tbody></table>
+<p>这里的离散值可以理解为一个确定的类别、标记。</p>
+</li>
+<li><p>学得的模型适用于新样本的能力，称为“泛化”能力。</p>
+</li>
+<li><p>假设空间：把学习过程看作一个在所有假设（hypothesis）组成的空间中进行搜索的过程，搜索的目标是找到与训练集匹配的假设。</p>
+</li>
+<li><p>归纳偏好：在学习过程中对某种类型假设的偏好，称为“归纳偏好”。而归纳偏好的设置和特征/属性选择有关。</p>
+</li>
+<li><p>NFL定理：没有一个学习算法在任何领域总是产生最准确的学习器。脱离具体问题，空泛的谈论“什么学习算法更好”毫无意义，这是一个普适性的原理，在生活和哲学上似乎也是如此。</p>
+</li>
+</ol>
+<h4 id="第二章-模型评估与选择"><a href="#第二章-模型评估与选择" class="headerlink" title="第二章 模型评估与选择"></a>第二章 模型评估与选择</h4><ol>
+<li><p>模型选择：不同的学习算法、不同的参数配置产生不同的学习模型，通过模型选择使得经验误差最小化以求得最优解。</p>
+</li>
+<li><p>将同一个数据集分为训练集和测试集的方法：<strong>留出法</strong>，<strong>交叉验证法</strong>，<strong>自助法</strong>。</p>
+<p>留出法比较简单，就是将这个数据集分为两个互斥的集合，一个用做训练、一个用做测试；</p>
+<p>交叉验证法则稍微有点复杂，它是将这个数据集划分为同样大小的<code>k</code>个互斥子集，每次用<code>k-1</code>个子集的并集作为训练，剩下的那个子集作为测试，从而就可以进行<code>k</code>次训练和测试，最后的结果取均值；交叉验证法的一个特例“留一法”，即数据集D中存在m个样本，而<code>m=k</code>,则相当于只留下了一个样本来做为测试集，这使得训练的结果和整个数据集D训练的结果很相似，但是对于数据集比较大的时候，开销也比较大；</p>
+<p>自助法是采用自助采样的方法将数据集分为训练集和测试集的，其中测试集占比为:<br>$$<br>\lim_{m \to \infty}({\frac{1}{1-m})^m} = \frac{1}{e} = 0.368<br>$$<br>自助法适用在数据集较小、难以划分训练/测试集的情况下。</p>
+</li>
+<li><p>性能度量：</p>
+<p>对于回归任务,称作均方误差，下面是较为一般的描述<code>f</code>为学习器，<code>D</code>为数据集，<code>p(·)</code>为概率密度函数：<br>$$<br>E(f;D) = \int^{D}<em>{x}{(f(x)-y)^2p(x)dx}<br>$$<br>对于分类任务，称作错误率与精度：<br>$$<br>acc(f;D) = \frac{1}{m}\sum^{m}</em>{i=1}\prod(f(x_i)=y_i)<br>$$</p>
+<p>这里先介绍什么是混淆矩阵，下表即为混淆矩阵，TP是预测正确的正例的数目，TN是预测正确的反例的数目，FP、FN则依次是预测失败的正例、反例的数目，所有的加起来就是总的样例数目：</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">预测结果</th>
+<th align="center">预测结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>真实情况</strong></td>
+<td align="center">正例</td>
+<td align="center">反例</td>
+</tr>
+<tr>
+<td align="center">正例</td>
+<td align="center">TP</td>
+<td align="center">FN</td>
+</tr>
+<tr>
+<td align="center">反例</td>
+<td align="center">FP</td>
+<td align="center">TN</td>
+</tr>
+</tbody></table>
+<p>其他任务需求，则可能使用查准率(precision)、查全率（召回recall），依照混淆矩阵：<br>$$<br>P = \frac{TP}{TP+FP},<br>R = \frac{TP}{TP+FN}<br>$$<br>由于查准率和查全率是一对互相矛盾的度量，其一高，另一必低，所以需要找到一个BEP（平衡点）来进行取舍，这是当P=R时的取值，如下图：</p>
+<p><img src="/2019/12/04/%E3%80%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/image-20191220002808584.png" alt="image-20191220002808584"></p>
+<p>而BEP毕竟过于简化，更为常用的称为F1 Score：<br>$$<br>F1 = \frac{2 \times P \times R}{P+R}<br>$$</p>
+</li>
+<li><p>后面这部分简略一点，我没打算现在就弄懂：</p>
+<ul>
+<li><p>ROC: 全称为“受试者工作特征（Receiver Operating Characteristic）”曲线，同上面的P-R曲线图类似，不过横轴、纵轴不一样。</p>
+</li>
+<li><p>AUC：Area Under ROC Curve，ROC曲线下的面积，用来衡量学习器的期望性能。</p>
+<p><img src="/2019/12/04/%E3%80%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/image-20191220005000173.png" alt="image-20191220005000173"></p>
+</li>
+</ul>
+</li>
+<li><p>代价曲线、k折交叉验证法以及针对回归任务的偏差-方差-协方差分解，现在只需要有个简单的印象即可。</p>
+</li>
+</ol>
+<h4 id="第三章-线性模型"><a href="#第三章-线性模型" class="headerlink" title="第三章 线性模型"></a>第三章 线性模型</h4>
       
     </div>
 
@@ -488,89 +470,73 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/12/01/绑定自定义域名以及添加SSL证书/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/12/01/%E7%BB%91%E5%AE%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E4%BB%A5%E5%8F%8A%E6%B7%BB%E5%8A%A0SSL%E8%AF%81%E4%B9%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/12/01/绑定自定义域名以及添加SSL证书/" class="post-title-link" itemprop="url">绑定自定义域名以及添加SSL证书</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/12/01/%E7%BB%91%E5%AE%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E4%BB%A5%E5%8F%8A%E6%B7%BB%E5%8A%A0SSL%E8%AF%81%E4%B9%A6/" class="post-title-link" itemprop="url">绑定自定义域名以及添加SSL证书</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-
-              
-                
               
 
               <time title="Created: 2019-12-01 16:32:24 / Modified: 17:07:27" itemprop="dateCreated datePublished" datetime="2019-12-01T16:32:24+08:00">2019-12-01</time>
             </span>
-          
-            
-
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/博客搭建/" itemprop="url" rel="index"><span itemprop="name">博客搭建</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">博客搭建</span></a>
+                </span>
             </span>
-          
 
           
-            <span id="/2019/12/01/绑定自定义域名以及添加SSL证书/" class="post-meta-item leancloud_visitors" data-flag-title="绑定自定义域名以及添加SSL证书" title="Views">
+            <span id="/2019/12/01/%E7%BB%91%E5%AE%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E4%BB%A5%E5%8F%8A%E6%B7%BB%E5%8A%A0SSL%E8%AF%81%E4%B9%A6/" class="post-meta-item leancloud_visitors" data-flag-title="绑定自定义域名以及添加SSL证书" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2019/12/01/绑定自定义域名以及添加SSL证书/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/12/01/绑定自定义域名以及添加SSL证书/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/12/01/%E7%BB%91%E5%AE%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E4%BB%A5%E5%8F%8A%E6%B7%BB%E5%8A%A0SSL%E8%AF%81%E4%B9%A6/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/01/%E7%BB%91%E5%AE%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E4%BB%A5%E5%8F%8A%E6%B7%BB%E5%8A%A0SSL%E8%AF%81%E4%B9%A6/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -584,17 +550,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>现在的这个域名不是太好，也没多久就到期了，大概一月份会重新买个时间长一点的域名。</p><h3 id="添加CNAME文件"><a href="#添加CNAME文件" class="headerlink" title="添加CNAME文件"></a>添加CNAME文件</h3><p>在source目录下添加一个CNAME文件，文件内容为自定义的域名。</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/12/01/绑定自定义域名以及添加SSL证书/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+          <p>现在的这个域名不是太好，也没多久就到期了，大概一月份会重新买个时间长一点的域名。</p>
+<h3 id="添加CNAME文件"><a href="#添加CNAME文件" class="headerlink" title="添加CNAME文件"></a>添加CNAME文件</h3><p>在source目录下添加一个CNAME文件，文件内容为自定义的域名。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">&quot;spwpun.site&quot;</span> &gt; CNAME</span><br></pre></td></tr></table></figure>
+
+<p>然后生成文件，并部署到github上。</p>
+<h3 id="设置github项目"><a href="#设置github项目" class="headerlink" title="设置github项目"></a>设置github项目</h3><p>在github对应的项目的options中设置custom domain：</p>
+<p><img src="/2019/12/01/%E7%BB%91%E5%AE%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E4%BB%A5%E5%8F%8A%E6%B7%BB%E5%8A%A0SSL%E8%AF%81%E4%B9%A6/image-20191201164346031.png" alt="image-20191201164346031"></p>
+<h3 id="配置域名DNS"><a href="#配置域名DNS" class="headerlink" title="配置域名DNS"></a>配置域名DNS</h3><p>然后到你的域名管理里去配置DNS记录，其中A记录是指向主机的，即就是指向IP地址，这里可以先看一下自己的原始github域名对应的IP地址是什么。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\Users\*****&gt; nslookup spwpun.github.io</span><br><span class="line">服务器:  ********</span><br><span class="line">Address:  **********</span><br><span class="line"></span><br><span class="line">非权威应答:</span><br><span class="line">名称:    spwpun.github.io</span><br><span class="line">Addresses:  <span class="number">185.199</span>.<span class="number">110.153</span></span><br><span class="line">          <span class="number">185.199</span>.<span class="number">108.153</span></span><br><span class="line">          <span class="number">185.199</span>.<span class="number">111.153</span></span><br><span class="line">          <span class="number">185.199</span>.<span class="number">109.153</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>然后就设置这样四条记录，使得自己的域名指向这些主机：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A @ 185.199.110.153</span><br><span class="line">A @ 185.199.108.153</span><br><span class="line">A @ 185.199.111.153</span><br><span class="line">A @ 185.199.109.153</span><br></pre></td></tr></table></figure>
+
+<p>然后再创建一条CNAME记录，使得原来的github.io域名指向你自己的域名，即当你以github.io域名访问时，会重定向到自己的域名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CNAME www spwpun.github.io</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/12/01/%E7%BB%91%E5%AE%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E4%BB%A5%E5%8F%8A%E6%B7%BB%E5%8A%A0SSL%E8%AF%81%E4%B9%A6/image-20191201165928723.png" alt="image-20191201165928723"></p>
+<h3 id="配置HTTPS"><a href="#配置HTTPS" class="headerlink" title="配置HTTPS"></a>配置HTTPS</h3><p>配置好DNS之后，在刚才的github项目的setting-&gt;options中设置强制使用https,等一段时间就可以正常访问网站了。</p>
+<p><img src="/2019/12/01/%E7%BB%91%E5%AE%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E4%BB%A5%E5%8F%8A%E6%B7%BB%E5%8A%A0SSL%E8%AF%81%E4%B9%A6/image-20191201170354303.png" alt="image-20191201170354303"></p>
+<p>配置完有可能你的浏览器访问会报证书不安全，这可能是你的浏览器的缓存的原因，重启一下电脑，清空一下浏览器的缓存应该就好了，证书是由Lets Encrypt签发的，有效期为三个月，github上这样一键配置比在自己的服务器上配置方便很多。</p>
+
       
     </div>
 
@@ -602,89 +578,73 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/12/01/添加busuanzi配置全站访客统计/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/12/01/%E6%B7%BB%E5%8A%A0busuanzi%E9%85%8D%E7%BD%AE%E5%85%A8%E7%AB%99%E8%AE%BF%E5%AE%A2%E7%BB%9F%E8%AE%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/12/01/添加busuanzi配置全站访客统计/" class="post-title-link" itemprop="url">添加busuanzi配置全站访客统计</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/12/01/%E6%B7%BB%E5%8A%A0busuanzi%E9%85%8D%E7%BD%AE%E5%85%A8%E7%AB%99%E8%AE%BF%E5%AE%A2%E7%BB%9F%E8%AE%A1/" class="post-title-link" itemprop="url">添加busuanzi配置全站访客统计</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-
-              
-                
               
 
               <time title="Created: 2019-12-01 16:14:48 / Modified: 16:30:49" itemprop="dateCreated datePublished" datetime="2019-12-01T16:14:48+08:00">2019-12-01</time>
             </span>
-          
-            
-
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/博客搭建/" itemprop="url" rel="index"><span itemprop="name">博客搭建</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">博客搭建</span></a>
+                </span>
             </span>
-          
 
           
-            <span id="/2019/12/01/添加busuanzi配置全站访客统计/" class="post-meta-item leancloud_visitors" data-flag-title="添加busuanzi配置全站访客统计" title="Views">
+            <span id="/2019/12/01/%E6%B7%BB%E5%8A%A0busuanzi%E9%85%8D%E7%BD%AE%E5%85%A8%E7%AB%99%E8%AE%BF%E5%AE%A2%E7%BB%9F%E8%AE%A1/" class="post-meta-item leancloud_visitors" data-flag-title="添加busuanzi配置全站访客统计" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2019/12/01/添加busuanzi配置全站访客统计/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/12/01/添加busuanzi配置全站访客统计/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/12/01/%E6%B7%BB%E5%8A%A0busuanzi%E9%85%8D%E7%BD%AE%E5%85%A8%E7%AB%99%E8%AE%BF%E5%AE%A2%E7%BB%9F%E8%AE%A1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/01/%E6%B7%BB%E5%8A%A0busuanzi%E9%85%8D%E7%BD%AE%E5%85%A8%E7%AB%99%E8%AE%BF%E5%AE%A2%E7%BB%9F%E8%AE%A1/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -698,17 +658,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>务实最重要，我只看重功能而已。原本以为很复杂，实则很简单。</p><p>在hexo的themes\next目录下找到_conifg.yml,搜索找到<code>busuanzi_count</code>,将<code>enable</code>属性改为<code>true</code>,因为我的文章的阅读数是由leancloud来计算的，所以这里<code>post_views</code>就设置成了<code>false</code>，至于icon就不管了。重新生成一下文件就可以了，在本地测试时会显示很大的访客数和访问量，部署到网上就是正常的了。</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/12/01/添加busuanzi配置全站访客统计/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+          <p>务实最重要，我只看重功能而已。原本以为很复杂，实则很简单。</p>
+<p>在hexo的themes\next目录下找到_conifg.yml,搜索找到<code>busuanzi_count</code>,将<code>enable</code>属性改为<code>true</code>,因为我的文章的阅读数是由leancloud来计算的，所以这里<code>post_views</code>就设置成了<code>false</code>，至于icon就不管了。重新生成一下文件就可以了，在本地测试时会显示很大的访客数和访问量，部署到网上就是正常的了。</p>
+<p><img src="/2019/12/01/%E6%B7%BB%E5%8A%A0busuanzi%E9%85%8D%E7%BD%AE%E5%85%A8%E7%AB%99%E8%AE%BF%E5%AE%A2%E7%BB%9F%E8%AE%A1/image-20191201162657094.png" alt="image-20191201162657094"></p>
+
       
     </div>
 
@@ -716,89 +669,73 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/12/01/Python-Numpy数值计算基础/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/12/01/Python-Numpy%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/12/01/Python-Numpy数值计算基础/" class="post-title-link" itemprop="url">Python-Numpy数值计算基础1</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/12/01/Python-Numpy%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">Python-Numpy数值计算基础1</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-
-              
-                
               
 
               <time title="Created: 2019-12-01 01:15:50 / Modified: 03:05:12" itemprop="dateCreated datePublished" datetime="2019-12-01T01:15:50+08:00">2019-12-01</time>
             </span>
-          
-            
-
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a>
+                </span>
             </span>
-          
 
           
-            <span id="/2019/12/01/Python-Numpy数值计算基础/" class="post-meta-item leancloud_visitors" data-flag-title="Python-Numpy数值计算基础1" title="Views">
+            <span id="/2019/12/01/Python-Numpy%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80/" class="post-meta-item leancloud_visitors" data-flag-title="Python-Numpy数值计算基础1" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2019/12/01/Python-Numpy数值计算基础/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/12/01/Python-Numpy数值计算基础/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/12/01/Python-Numpy%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/01/Python-Numpy%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -813,16 +750,181 @@
 
       
           <p>Numpy库是面向数值计算的库，针对Python内建的数组类型做了扩充，支持更高维度的数组和矩阵运算，以及更丰富的数学函数。同时Numpy也被作为Pandas、matplotlib等库的核心计算库，安装这些库时，需要安装Numpy作为依赖。</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/12/01/Python-Numpy数值计算基础/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<h3 id="数值类型及多维数组"><a href="#数值类型及多维数组" class="headerlink" title="数值类型及多维数组"></a>数值类型及多维数组</h3><p>NumPy支持比Python本身更为丰富的数值类型，细分如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">bool</td>
+<td align="center">布尔类型，1 个字节，值为 True 或 False。</td>
+</tr>
+<tr>
+<td align="center">int</td>
+<td align="center">整数类型，通常为 int64 或 int32 。</td>
+</tr>
+<tr>
+<td align="center">intc</td>
+<td align="center">与 C 里的 int 相同，通常为 int32 或 int64。</td>
+</tr>
+<tr>
+<td align="center">intp</td>
+<td align="center">用于索引，通常为 int32 或 int64。</td>
+</tr>
+<tr>
+<td align="center">int8</td>
+<td align="center">字节（从 -128 到 127）</td>
+</tr>
+<tr>
+<td align="center">int16</td>
+<td align="center">整数（从 -32768 到 32767）</td>
+</tr>
+<tr>
+<td align="center">int32</td>
+<td align="center">整数（从 -2147483648 到 2147483647）</td>
+</tr>
+<tr>
+<td align="center">int64</td>
+<td align="center">整数（从 -9223372036854775808 到 9223372036854775807）</td>
+</tr>
+<tr>
+<td align="center">uint8</td>
+<td align="center">无符号整数（从 0 到 255）</td>
+</tr>
+<tr>
+<td align="center">uint16</td>
+<td align="center">无符号整数（从 0 到 65535）</td>
+</tr>
+<tr>
+<td align="center">uint32</td>
+<td align="center">无符号整数（从 0 到 4294967295）</td>
+</tr>
+<tr>
+<td align="center">uint64</td>
+<td align="center">无符号整数（从 0 到 18446744073709551615）</td>
+</tr>
+<tr>
+<td align="center">float</td>
+<td align="center">float64 的简写。</td>
+</tr>
+<tr>
+<td align="center">float16</td>
+<td align="center">半精度浮点，5 位指数，10 位尾数</td>
+</tr>
+<tr>
+<td align="center">float32</td>
+<td align="center">单精度浮点，8 位指数，23 位尾数</td>
+</tr>
+<tr>
+<td align="center">float64</td>
+<td align="center">双精度浮点，11 位指数，52 位尾数</td>
+</tr>
+<tr>
+<td align="center">complex</td>
+<td align="center">complex128 的简写。</td>
+</tr>
+<tr>
+<td align="center">complex64</td>
+<td align="center">复数，由两个 32 位浮点表示。</td>
+</tr>
+<tr>
+<td align="center">complex128</td>
+<td align="center">复数，由两个 64 位浮点表示。</td>
+</tr>
+</tbody></table>
+<p>上述类型的转换可以使用<code>astype</code>函数来转换。</p>
+<p>例:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.array([<span class="number">1.1</span>, <span class="number">2.2</span>, <span class="number">3.3</span>], dtype = np.float64)</span><br><span class="line"><span class="comment"># the origin type of a is float64</span></span><br><span class="line">a.astype(<span class="built_in">int</span>) <span class="comment"># Convert the type to int64</span></span><br></pre></td></tr></table></figure>
+
+<p>NumPy 最核心且最重要的一个特性就是 <code>ndarray</code> 多维数组对象，它区别于 Python 的标准类，拥有对高维数组的处理能力，这也是数值计算过程中缺一不可的重要特性。</p>
+<p>NumPy 中，<code>ndarray</code> 类具有六个参数，它们分别为：</p>
+<ul>
+<li><code>shape</code>：数组的形状。</li>
+<li><code>dtype</code>：数据类型。</li>
+<li><code>buffer</code>：对象暴露缓冲区接口。</li>
+<li><code>offset</code>：数组数据的偏移量。</li>
+<li><code>strides</code>：数据步长。</li>
+<li><code>order</code>：<code>&#123;&#39;C&#39;，&#39;F&#39;&#125;</code>，以行或列为主排列顺序。</li>
+</ul>
+<p>下面，我们来了解创建 NumPy 多维数组的一些方法。在 NumPy 中，我们主要通过以下 5 种途径创建数组，它们分别是：</p>
+<ul>
+<li>从 Python 数组结构列表，元组等转换。</li>
+<li>使用 <code>np.arange</code>、<code>np.ones</code>、<code>np.zeros</code> 等 NumPy 原生方法。</li>
+<li>从存储空间读取数组。</li>
+<li>通过使用字符串或缓冲区从原始字节创建数组。</li>
+<li>使用特殊函数，如 <code>random</code>。</li>
+</ul>
+<h4 id="arange-方法创建"><a href="#arange-方法创建" class="headerlink" title="arange 方法创建"></a><code>arange</code> 方法创建</h4><p>除了直接使用 array 方法创建 <code>ndarray</code>，在 NumPy 中还有一些方法可以创建一些有规律性的多维数。首先，我们来看一看 <code>arange()</code>。<code>arange()</code> 的功能是在给定区间内创建一系列均匀间隔的值。方法如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numpy.arange(start, stop, step, dtype=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+
+<p>你需要先设置值所在的区间 <code>[开始， 停止)</code>，这是一个半开半闭区间。然后，在设置 <code>step</code> 步长用于设置值之间的间隔。最后的可选参数 <code>dtype</code>可以设置返回<code>ndarray</code> 的值类型。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在区间 [3, 7) 中以 0.5 为步长新建数组</span></span><br><span class="line">np.arange(<span class="number">3</span>, <span class="number">7</span>, <span class="number">0.5</span>, dtype=<span class="string">&#x27;float32&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="linspace-方法创建"><a href="#linspace-方法创建" class="headerlink" title="linspace 方法创建"></a><code>linspace</code> 方法创建</h4><p><code>linspace</code>方法也可以像<code>arange</code>方法一样，创建数值有规律的数组。<code>linspace</code> 用于在指定的区间内返回间隔均匀的值。其方法如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numpy.linspace(start, stop, num=<span class="number">50</span>, endpoint=<span class="literal">True</span>, retstep=<span class="literal">False</span>, dtype=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>start</code>：序列的起始值。</li>
+<li><code>stop</code>：序列的结束值。</li>
+<li><code>num</code>：生成的样本数。默认值为50。</li>
+<li><code>endpoint</code>：布尔值，如果为真，则最后一个样本包含在序列内。</li>
+<li><code>retstep</code>：布尔值，如果为真，返回间距。</li>
+<li><code>dtype</code>：数组的类型。</li>
+</ul>
+<h4 id="eye-方法创建"><a href="#eye-方法创建" class="headerlink" title="eye 方法创建"></a><code>eye</code> 方法创建</h4><p><code>numpy.eye</code> 用于创建一个二维数组，其特点是<code>k</code> 对角线上的值为 <code>1</code>，其余值全部为<code>0</code>。方法如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numpy.eye(N, M=<span class="literal">None</span>, k=<span class="number">0</span>, dtype=&lt;<span class="built_in">type</span> <span class="string">&#x27;float&#x27;</span>&gt;)</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li><code>N</code>：输出数组的行数。</li>
+<li><code>M</code>：输出数组的列数。</li>
+<li><code>k</code>：对角线索引：0（默认）是指主对角线，正值是指上对角线，负值是指下对角线。</li>
+</ul>
+<h4 id="从已知数据创建"><a href="#从已知数据创建" class="headerlink" title="从已知数据创建"></a>从已知数据创建</h4><p>我们还可以从已知数据文件、函数中创建 <code>ndarray</code>。NumPy 提供了下面 <code>5</code> 个方法：</p>
+<ul>
+<li><code>frombuffer（buffer）</code>：将缓冲区转换为 <code>1</code> 维数组。</li>
+<li><code>fromfile（file，dtype，count，sep）</code>：从文本或二进制文件中构建多维数组。</li>
+<li><code>fromfunction（function，shape）</code>：通过函数返回值来创建多维数组。</li>
+<li><code>fromiter（iterable，dtype，count）</code>：从可迭代对象创建 <code>1</code> 维数组。</li>
+<li><code>fromstring（string，dtype，count，sep）</code>：从字符串中创建 <code>1</code> 维数组。</li>
+</ul>
+<h4 id="ndarray-数组属性"><a href="#ndarray-数组属性" class="headerlink" title="ndarray 数组属性"></a><code>ndarray</code> 数组属性</h4><p>首先，我们创建一个 <code>ndarray</code> 数组，首先，新建 <code>a</code> 并随意设定为一个 2 维数组。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]])</span><br><span class="line">a  <span class="comment"># 查看 a 的值</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>ndarray.T</code> 用于数组的转置，与 <code>.transpose()</code> 相同。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.T</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>ndarray.dtype</code> 用来输出数组包含元素的数据类型。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.dtype</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>ndarray.imag</code> 用来输出数组包含元素的虚部。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.imag</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>ndarray.real</code>用来输出数组包含元素的实部。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.real</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>ndarray.size</code>用来输出数组中的总包含元素数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.size</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>ndarray.itemsize</code>输出一个数组元素的字节数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.itemsize</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>ndarray.nbytes</code>用来输出数组的元素总字节数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.nbytes</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>ndarray.ndim</code>用来输出数组尺寸。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.ndim</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>ndarray.shape</code>用来输出数组维数组。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.shape</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>ndarray.strides</code>用来遍历数组时，输出每个维度中步进的字节数组。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.strides</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
       
     </div>
 
@@ -830,97 +932,79 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/11/26/APT38样本分析记录-网络通信特征/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/11/26/APT38%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90%E8%AE%B0%E5%BD%95-%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E7%89%B9%E5%BE%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/11/26/APT38样本分析记录-网络通信特征/" class="post-title-link" itemprop="url">APT38样本分析记录--网络通信特征</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/11/26/APT38%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90%E8%AE%B0%E5%BD%95-%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E7%89%B9%E5%BE%81/" class="post-title-link" itemprop="url">APT38样本分析记录--网络通信特征</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2019-11-26 12:32:19" itemprop="dateCreated datePublished" datetime="2019-11-26T12:32:19+08:00">2019-11-26</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2020-09-20 00:39:02" itemprop="dateModified" datetime="2020-09-20T00:39:02+08:00">2020-09-20</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/样本分析/" itemprop="url" rel="index"><span itemprop="name">样本分析</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">样本分析</span></a>
+                </span>
             </span>
-          
 
           
-            <span id="/2019/11/26/APT38样本分析记录-网络通信特征/" class="post-meta-item leancloud_visitors" data-flag-title="APT38样本分析记录--网络通信特征" title="Views">
+            <span id="/2019/11/26/APT38%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90%E8%AE%B0%E5%BD%95-%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E7%89%B9%E5%BE%81/" class="post-meta-item leancloud_visitors" data-flag-title="APT38样本分析记录--网络通信特征" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2019/11/26/APT38样本分析记录-网络通信特征/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/11/26/APT38样本分析记录-网络通信特征/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/11/26/APT38%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90%E8%AE%B0%E5%BD%95-%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E7%89%B9%E5%BE%81/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/11/26/APT38%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90%E8%AE%B0%E5%BD%95-%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E7%89%B9%E5%BE%81/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -934,17 +1018,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="a1260fd3e9221d1bc5b9ece6e7a5a98669c79e124453f2ac58625085759ed3bb"><a href="#a1260fd3e9221d1bc5b9ece6e7a5a98669c79e124453f2ac58625085759ed3bb" class="headerlink" title="a1260fd3e9221d1bc5b9ece6e7a5a98669c79e124453f2ac58625085759ed3bb"></a>a1260fd3e9221d1bc5b9ece6e7a5a98669c79e124453f2ac58625085759ed3bb</h2>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/11/26/APT38样本分析记录-网络通信特征/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+          <h2 id="a1260fd3e9221d1bc5b9ece6e7a5a98669c79e124453f2ac58625085759ed3bb"><a href="#a1260fd3e9221d1bc5b9ece6e7a5a98669c79e124453f2ac58625085759ed3bb" class="headerlink" title="a1260fd3e9221d1bc5b9ece6e7a5a98669c79e124453f2ac58625085759ed3bb"></a>a1260fd3e9221d1bc5b9ece6e7a5a98669c79e124453f2ac58625085759ed3bb</h2><p>通过hash值到微步社区查询报毒情况，只有<code>Baidu-China</code>报了恶意，得不到其他有用的信息，也看不到任何的网络行为，不过看到了一个比较有用的静态信息就是很多加密的指纹：</p>
+<p><img src="/2019/11/26/APT38%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90%E8%AE%B0%E5%BD%95-%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E7%89%B9%E5%BE%81/image-20191122094404772.png"></p>
+<p>为了让自己的IDA能够识别这些加密指纹，我安装了Findcrypt插件，该插件需要安装yara-python库，具体的安装方法见其<a target="_blank" rel="noopener" href="https://github.com/polymorf/findcrypt-yara">github地址</a>。</p>
+<p>由于分析只要求分析网络通信特征，其实要不要这个插件作用都不大，后续分析出该样本在登录到目标服务器时会先发送一个登录frame，其中的数据是部分固定的，也就可以提取出来作为通信特征了。该样本需要参数来设置登录的服务器、登录名、密码等信息，所以在沙箱中检测并没有检测出网络行为。</p>
+<h2 id="a3a1a43f0e631c10ab42e5404b61580e760e7d6f849ab8eb5848057a8c60cda2"><a href="#a3a1a43f0e631c10ab42e5404b61580e760e7d6f849ab8eb5848057a8c60cda2" class="headerlink" title="a3a1a43f0e631c10ab42e5404b61580e760e7d6f849ab8eb5848057a8c60cda2"></a>a3a1a43f0e631c10ab42e5404b61580e760e7d6f849ab8eb5848057a8c60cda2</h2><p>同上一个样本功能基本一致，特征数据也一致，只不过程序是以控制台程序的方式编译的，而上一个则是Windows应用程序。两者在连接到-s参数指向的服务器后，都会向其发送以<code>92 10 00 00</code>结尾的<code>login frame</code>数据，这就是其网络通信特征。</p>
+<h2 id="515fdca93acf6a8d23b4fe67d51d4cab5cda6ddbc3d508dd63b61c432d169ca7"><a href="#515fdca93acf6a8d23b4fe67d51d4cab5cda6ddbc3d508dd63b61c432d169ca7" class="headerlink" title="515fdca93acf6a8d23b4fe67d51d4cab5cda6ddbc3d508dd63b61c432d169ca7"></a>515fdca93acf6a8d23b4fe67d51d4cab5cda6ddbc3d508dd63b61c432d169ca7</h2><p>被upx加壳了，脱壳后的SHA-256为：<code>9049c508327ed3ab72df33328145eb226e53805d90dd74c353067f5b167747f3</code>,在微步上检测恶意程度更为明显。且通过CCF的PE文件比较发现这个样本和第一个样本基本一致，除了因为文件名导致的部分不同以外，其他区段完全相同。</p>
+<h2 id="22d244fe63f27279db4b082afe296cd931cf377e3b9501fc8ffc372cb31f076a"><a href="#22d244fe63f27279db4b082afe296cd931cf377e3b9501fc8ffc372cb31f076a" class="headerlink" title="22d244fe63f27279db4b082afe296cd931cf377e3b9501fc8ffc372cb31f076a"></a>22d244fe63f27279db4b082afe296cd931cf377e3b9501fc8ffc372cb31f076a</h2><p>这个样本貌似是脱完壳，未重建PE文件的输入表的Dump文件，但仍然可以通过IDA看出其基本逻辑。其功能同以上分析的样本基本一致。特征数据也一致。</p>
+<h2 id="7efe8a7ad9c6a6146bddd5aef9ceba477ca6973203a41f4b7f823095a90cb10f"><a href="#7efe8a7ad9c6a6146bddd5aef9ceba477ca6973203a41f4b7f823095a90cb10f" class="headerlink" title="7efe8a7ad9c6a6146bddd5aef9ceba477ca6973203a41f4b7f823095a90cb10f"></a>7efe8a7ad9c6a6146bddd5aef9ceba477ca6973203a41f4b7f823095a90cb10f</h2><p>样本的功能还是和上面的几个样本一致。特征数据也一致，既然这样，那就来分析分析其他的特征吧，网络通信特征就和send函数有关，因为样本使用的网络通信方式都是Socket编程。对send函数查看交叉引用，目前仍未发现特殊的数据，使用CONNECT的HTTP请求方式建立代理连接。应该就这样吧，明天再整理一下吧！</p>
+<h2 id="整理总结"><a href="#整理总结" class="headerlink" title="整理总结"></a>整理总结</h2><p>这几个样本都是同一类型的，目的都是为了连接到远程服务器，根据微步检测的部分结果，推测应该是作为一个类似<code>nc</code>的黑客工具来使用的。</p>
+<p>主要参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-s&#x2F;--server IP:Port 登录的服务器IP及端口</span><br><span class="line">-d&#x2F;--destination IP:Port 目的服务器IP及端口（作用不太清楚）</span><br><span class="line">-u&#x2F;--username  用户名</span><br><span class="line">-pw&#x2F;--password 密码</span><br></pre></td></tr></table></figure>
+
+
+
+<p>其网络通信特征为：在设置<code>-s</code>参数后，运行程序会连接到目标主机，然后在通信的过程中数据包的包头会包含一段特殊数据，其中前16个字节为“aaaabbbbccccdddd”，然后是4字节的数据包类型，接着是4字节未使用的数据字段，加上4字节的rand函数生成的随机种子，再加上4字节的尾部大小（分析时均为0x4），最后是尾部的4字节固定数据（“0x00001092”）。</p>
+
       
     </div>
 
@@ -952,89 +1041,73 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/11/04/Django-Error：no-module-named-sqlite3/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/11/04/Django-Error%EF%BC%9Ano-module-named-sqlite3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/11/04/Django-Error：no-module-named-sqlite3/" class="post-title-link" itemprop="url">Django Error：no module named _sqlite3</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/11/04/Django-Error%EF%BC%9Ano-module-named-sqlite3/" class="post-title-link" itemprop="url">Django Error：no module named _sqlite3</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-
-              
-                
               
 
               <time title="Created: 2019-11-04 00:14:24 / Modified: 00:16:15" itemprop="dateCreated datePublished" datetime="2019-11-04T00:14:24+08:00">2019-11-04</time>
             </span>
-          
-            
-
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
             </span>
-          
 
           
-            <span id="/2019/11/04/Django-Error：no-module-named-sqlite3/" class="post-meta-item leancloud_visitors" data-flag-title="Django Error：no module named _sqlite3" title="Views">
+            <span id="/2019/11/04/Django-Error%EF%BC%9Ano-module-named-sqlite3/" class="post-meta-item leancloud_visitors" data-flag-title="Django Error：no module named _sqlite3" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2019/11/04/Django-Error：no-module-named-sqlite3/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/11/04/Django-Error：no-module-named-sqlite3/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/11/04/Django-Error%EF%BC%9Ano-module-named-sqlite3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/11/04/Django-Error%EF%BC%9Ano-module-named-sqlite3/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -1050,19 +1123,12 @@
       
           <ul>
 <li>简述：在配置服务器端的Django代码文件时，有一步需要将项目的静态文件收集到根目录下的static目录下，需要执行下面的这个命令：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py collectstatic</span><br></pre></td></tr></table></figure>
-
-</li>
+有可能会出现这个错误。解决方法如下：</li>
+<li>退出虚拟环境，如果用的是virtualenv的话：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deactivate</span><br></pre></td></tr></table></figure></li>
+<li>安装sqlite-devel，依据自己的系统选择：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ yum install sqlite-devel       #centos</span><br><span class="line">$ apt-get install sqlite-devel   #debian  </span><br></pre></td></tr></table></figure></li>
+<li>然后重新编译自己的python环境，进入到自己的python安装包中，之前写过如何安装python的一片文章，就是将安装过程重新走一遍：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br><span class="line">make </span><br><span class="line">make install    <span class="comment">#这一步可能要用到管理员权限，sudo</span></span><br></pre></td></tr></table></figure></li>
 </ul>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/11/04/Django-Error：no-module-named-sqlite3/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+
       
     </div>
 
@@ -1070,97 +1136,79 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/10/23/IDA-Pro阅读笔记/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/10/23/IDA-Pro%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/23/IDA-Pro阅读笔记/" class="post-title-link" itemprop="url">IDA Pro阅读笔记</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/10/23/IDA-Pro%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">IDA Pro阅读笔记</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2019-10-23 00:47:33" itemprop="dateCreated datePublished" datetime="2019-10-23T00:47:33+08:00">2019-10-23</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2019-12-06 00:00:10" itemprop="dateModified" datetime="2019-12-06T00:00:10+08:00">2019-12-06</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Read-Note/" itemprop="url" rel="index"><span itemprop="name">Read Note</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Read-Note/" itemprop="url" rel="index"><span itemprop="name">Read Note</span></a>
+                </span>
             </span>
-          
 
           
-            <span id="/2019/10/23/IDA-Pro阅读笔记/" class="post-meta-item leancloud_visitors" data-flag-title="IDA Pro阅读笔记" title="Views">
+            <span id="/2019/10/23/IDA-Pro%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" class="post-meta-item leancloud_visitors" data-flag-title="IDA Pro阅读笔记" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2019/10/23/IDA-Pro阅读笔记/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/10/23/IDA-Pro阅读笔记/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/10/23/IDA-Pro%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/23/IDA-Pro%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -1175,16 +1223,226 @@
 
       
           <h3 id="《IDA-Pro权威指南（第二版）》阅读笔记"><a href="#《IDA-Pro权威指南（第二版）》阅读笔记" class="headerlink" title="《IDA Pro权威指南（第二版）》阅读笔记"></a>《IDA Pro权威指南（第二版）》阅读笔记</h3><p>趁着上班没有样本分析的时间把这本书看完吧！记录一些自己印象深刻的知识点。有些自己已经比较熟悉的点不会列出来了。</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/10/23/IDA-Pro阅读笔记/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<h4 id="第一部分-IDA简介"><a href="#第一部分-IDA简介" class="headerlink" title="第一部分 IDA简介"></a>第一部分 IDA简介</h4><h5 id="第1章-反汇编简介"><a href="#第1章-反汇编简介" class="headerlink" title="第1章 反汇编简介"></a>第1章 反汇编简介</h5><ol>
+<li>模糊测试：模糊测试是一种发现漏洞的技术，它为程序输入大量不常见的输入，希望其中某些输入能对程序造成可被检测、分许，最终被利用的错误。</li>
+<li>x86汇编语言的两种语法：Intel、AT&amp;T，gdb使用AT&amp;T语法，MASM、TASM、NASM使用Intel语法。</li>
+<li>反汇编的算法有线性扫描、递归下降两种。</li>
+</ol>
+<h5 id="第2章-逆向与反汇编"><a href="#第2章-逆向与反汇编" class="headerlink" title="第2章 逆向与反汇编"></a>第2章 逆向与反汇编</h5><p>这一工具主要介绍了一些小工具。</p>
+<ol>
+<li><p>nm：摘要工具，用来列举目标文件的符号。</p>
+</li>
+<li><p>ldd：摘要工具，用来列举可执行文件所需的动态库，这才想起来之前做Pwn的时候，看到有别人用这个命令查看可执行文件的依赖库。</p>
+</li>
+</ol>
+<h5 id="第3章-IDA-Pro背景知识"><a href="#第3章-IDA-Pro背景知识" class="headerlink" title="第3章 IDA Pro背景知识"></a>第3章 IDA Pro背景知识</h5><p>这一章主要讲了IDA的开发历史及其反盗版的一些措施，大致介绍了本书的一些关键性内容，其中讲插件的章节是在第17章，这是后面我要详细看的地方。</p>
+<h4 id="第二部分-IDA基本用法"><a href="#第二部分-IDA基本用法" class="headerlink" title="第二部分 IDA基本用法"></a>第二部分 IDA基本用法</h4><h5 id="第4章-IDA入门"><a href="#第4章-IDA入门" class="headerlink" title="第4章 IDA入门"></a>第4章 IDA入门</h5><p>介绍了IDA使用的一些小技巧，并没有值得我记录的，要说我积累出来的就是<code>Esc</code>和<code>Ctrl+W</code>的使用了，还有<code>Space</code>,<code>Tab</code>,<code>N</code>,<code>Y</code>,<code>A</code>这些快捷键的使用，得益于参加的之前的实验室的项目。</p>
+<ol>
+<li>当你不小心拖动了一些窗口后，发现想移动却移动不回去了，使用Windows &gt; Reset Desktop可以恢复原始的布局。</li>
+</ol>
+<h5 id="第5章-IDA数据显示窗口"><a href="#第5章-IDA数据显示窗口" class="headerlink" title="第5章 IDA数据显示窗口"></a>第5章 IDA数据显示窗口</h5><p>介绍了IDA的一些常见的显示窗口，我算是比较熟悉了，这里就不记录了。<br>经常用到的有反汇编窗口、16进制窗口、字符串窗口、导入窗口、导出窗口、伪代码窗口。</p>
+<h5 id="第6章-反汇编导航"><a href="#第6章-反汇编导航" class="headerlink" title="第6章 反汇编导航"></a>第6章 反汇编导航</h5><ol>
+<li>对栈帧有了比较新的认识：<blockquote>
+<p>编译器通过栈帧（也叫做激活记录）使得对函数参数和局部变量进行分配和释放的过程对程<br>序员透明。在将控制权转交给函数之前，编译器会插入代码，将函数参数放入栈帧内，并分配足<br>够的内存，以保存函数的局部变量。鉴于栈帧的结构，该函数的返回地址也存储在新的栈帧内。<br>使用栈帧使得递归成为可能，因为每个递归函数调用都有它自己的栈帧，这恰好将当前调用与前<br>一次调用分隔开来。</p>
+</blockquote>
+</li>
+<li>对fastcall的新认识：<blockquote>
+<p>fastcall约定是stdcall约定的一个变体，它向CPU寄存器（而非程序栈）最多传递两个参数。<br>Microsoft Visual C/C++ 和GNU gcc/g++（3.4及更低版本）编译器能够识别函数声明中的fastcall<br>修饰符。如果指定使用fastcall约定，则传递给函数的前两个参数将分别位于ECX和EDX寄存器<br>中。剩余的其他参数则以类似于stdcall约定的方式从右到左放入栈上。同样与stdcall约定类似<br>的是，在返回其调用方时，fastcall函数负责从栈中删除参数。下面的声明中即使用了fastcall<br>修饰符：</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> fastcall <span class="title">demo_fastcall</span><span class="params">(<span class="keyword">int</span> w, <span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> z)</span></span>;</span><br><span class="line">; demo_fastcall(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>); <span class="comment">//programmmer calls demo_fastcall</span></span><br><span class="line">	push <span class="number">4</span></span><br><span class="line">	push <span class="number">3</span></span><br><span class="line">	mov edx, <span class="number">2</span></span><br><span class="line">	mov ecx, <span class="number">1</span></span><br><span class="line">	call demo_fastcall</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h5 id="第7章-反汇编操作"><a href="#第7章-反汇编操作" class="headerlink" title="第7章 反汇编操作"></a>第7章 反汇编操作</h5><p>也是自己比较熟悉的地方吧，数据的转换，数组的设置，函数的操作，类型的设置，在自己实习的时候做样本分析时都体验过了，那个远控木马至今印象深刻。</p>
+<h5 id="第8章-数据类型与数据结构"><a href="#第8章-数据类型与数据结构" class="headerlink" title="第8章 数据类型与数据结构"></a>第8章 数据类型与数据结构</h5><ol>
+<li>关于数组的成员的访问，本章中列出了三种类型的数组：全局变量的数组、栈生成的数组以及堆生成的数组。前两种数组的访问方式基本一致，都是直接获取数组变量的地址来进行赋值，而堆生成的数组由于是由<code>malloc</code>或者<code>new</code>等方法动态得到的，在IDA中静态分析时并不能得到其真正的地址，所以需要通过寄存器先获取其基址，再根据偏移访问其成员，这和结构体的访问类似。</li>
+<li>同样也有对结构体的访问，也包括三中类型：全局的、栈分配的、堆分配的。如果一个结构体在堆中分配，那么对编译器来说，引用该结构体的唯一线索就是指向该结构体起始地址的指针。而另外两种在编译时是能够计算出其固定地址的。</li>
+<li>解析头文件：要解析头文件，可以使用File&gt;Load File&gt;Parse C Header File（文件&gt;加载文件&gt;解析C 头<br>文件）选择你想要解析的头文件。</li>
+<li>遇到虚函数的问题：虚函数是用于实现多态行为的，虚函数的地址在编译时不能确定，只能在即将调用进行时确定（通过虚函数表）。<blockquote>
+<p>且C++中程序会以ecx作为this指针的载体传递给虚成员函数。</p>
+</blockquote>
+</li>
+</ol>
+<h5 id="第9章-交叉引用与绘图功能"><a href="#第9章-交叉引用与绘图功能" class="headerlink" title="第9章 交叉引用与绘图功能"></a>第9章 交叉引用与绘图功能</h5><ol>
+<li><p>三种代码交叉引用：读取交叉引用、写入交叉引用、偏移交叉引用。</p>
+<blockquote>
+<p>一般而言，以一个程序指令字节为目标的写入交叉引用表示这是一段自修改代码，这种代码通常被视为无效代码，在恶意软件使用的“去模糊例程”（de-obfuscation routine）中经常可以发现这类代码。<br>偏移量交叉引用表示的是引用的是某个位置的地址，并非内容。</p>
+</blockquote>
+</li>
+<li><p>关于<strong>基本块</strong>：</p>
+<blockquote>
+<p>在计算机程序中，基本块是一条或数条指令的组合，它拥有唯一一个指向块起始位置的入口点和唯一一个指向块结束位置的退出点。<br>一般来说，除最后一条指令外，基本块中的每条指令都将控制权转交给它后面的“继任”指令。同样，除第一条指令外，基本块中的每条指令都从它“前任”指令那里接收控制权。<br>通常，为判定基本块，应忽略函数调用指令并未将控制权转交到当前函数这一事实，除非已知被调用的函数无法正常返回。基本块在行为方面有一个重要的特点，即一旦基本块中的第一条指令开始执行，块中的其他指令都会执行，直到最后一条指令。这个特点会对程序的运行时检测产生重大影响，因为这时不再需要为程序中的每一条指令设置一个断点，或者逐步执行程序，以记录程序执行的每一条指令。相反，你可以为每个基本块的第一条指令设置断点，当这些断点被触发时，相关块中的每一条指令都被标记为“已执行”。Pedram Amini 的PaiMei③框架中的Process Stalker 组件就是以这种方式执行的。</p>
+</blockquote>
+</li>
+<li><p><code>F12</code>可以生成一个函数的外部流程图，不过很难看！<code>Ctrl+F12</code>可以生成整个二进制文件函数调用图，也很难看！</p>
+</li>
+<li><p>选定一个函数可以生成以其为源头或者目标的交叉引用图，View-&gt;Graphs-&gt;Xrefs from/to.</p>
+</li>
+<li><p>图形化的其他工具：</p>
+<blockquote>
+<p>自IDA 引入集成化反汇编图形模式后，这些困难有一部分得到了解决。但是，IDA 主要是一个反汇编器，生成图形并不是它的主要用途。对专用的图形分析工具感兴趣的读者可以研究专门用于此类目的的应用程序，如<code>BinNavi</code>，这款工具是Halvar Flake 的公司<code>Zynamics</code>开发的。</p>
+</blockquote>
+</li>
+</ol>
+<h5 id="第10章-IDA的多种面孔"><a href="#第10章-IDA的多种面孔" class="headerlink" title="第10章 IDA的多种面孔"></a>第10章 IDA的多种面孔</h5><p>介绍了IDA的控制台模式，在各种平台上的不同面孔，目前我只需关注Windows上的IDA控制台版本（idaw.exe），其实没什么好说的，书中的实际应用也还没有接触过。<br>另外还提了一下IDA的批量模式，批量模式是为了自动处理任务，这似乎和我后面打算做的插件有点关系，先在这儿提一下吧，有具体的参数说明。</p>
+<blockquote>
+<p>使用批量模式的主要目的是启动IDA，使它运行一段特定的IDC 脚本，并在该脚本完成后立即终止。</p>
+</blockquote>
+<h4 id="第三部分-IDA高级应用"><a href="#第三部分-IDA高级应用" class="headerlink" title="第三部分 IDA高级应用"></a>第三部分 IDA高级应用</h4><h5 id="第11章-定制IDA"><a href="#第11章-定制IDA" class="headerlink" title="第11章 定制IDA"></a>第11章 定制IDA</h5><p>ida目录下的cfg目录中的<code>ida.cfg, idagui.cfg, idatui.cfg</code>是IDA的设置文件，另外也可以新建一个<code>idauser.cfg</code>来重写其中的设置，这样便于在不同的ida中使用。<br>idagui.cfg是图形界面的配置，idatui.cfg是控制台模式的配置。</p>
+<h5 id="第12章-使用FLIRT签名来识别库"><a href="#第12章-使用FLIRT签名来识别库" class="headerlink" title="第12章 使用FLIRT签名来识别库"></a>第12章 使用FLIRT签名来识别库</h5><p>FLIRT签名技术是用来识别可执行文件中的一些静态库的函数的，这样可以使逆向分析人员专注于程序本身的代码的分析。</p>
+<ol>
+<li><p>关于<code>Main</code>和<code>_start</code>:</p>
+<blockquote>
+<p>程序的入口点是即将执行的第一条指令的地址。因此，许多熟练的C 程序员错误地认为这就是main 函数的地址，但事实并非如此。程序的文件类型，而不是创建程序所使用的语言，决定了向这个程序提交命令行参数的方式。为了使加载器加载命令行参数的方式与程序预期接收参数的方式（例如，通过向main 提交参数）保持一致，程序必须在将控制权转交给main 之前执行一段初始化代码。IDA 将这段初始化代码作为程序的入口点，并将其标记为_start。<br>这段初始化代码还负责必须在main 运行之前完成的初始化任务。在C++程序中，这段代码负责确保在执行main 之前调用全局声明对象的构造函数。同样，为了在程序真正终止前调用所有全局对象的析构函数，必须插入在main 之后执行的清理代码（cleanup code）。</p>
+</blockquote>
+</li>
+<li><p>如何生成签名文件：</p>
+<blockquote>
+<p>创建签名文件的基本过程听起来并不复杂，可以归结为4 个看似简单的步骤。<br>a. 获得一个你希望为其创建签名文件的静态库。<br>b. 利用其中一个FLAIR 解析器为该库创建一个模式文件。<br>c. 运行sigmake.exe 来处理生成的模式文件，并生成一个签名文件。<br>d. 将新的签名文件复制到<code>&lt;IDADIR&gt;/sig</code> 目录中，安装这个文件。</p>
+</blockquote>
+</li>
+</ol>
+<p>在之前的CTF经历中遇到过需要自己制作sig文件的题目，但是当时自己并没有仔细看，现在大概应该懂了。</p>
+<h5 id="第13章-扩展IDA的知识"><a href="#第13章-扩展IDA的知识" class="headerlink" title="第13章 扩展IDA的知识"></a>第13章 扩展IDA的知识</h5><p>这一章主要是介绍til和ids的扩展功能，其主要作用就是让用户可以自定义设置自己的函数声明相关配置文件，这样在IDA自动分析的过程中就会识别出对应的函数的调用约定、参数类型、数量等。以后遇到具体的应用的时候可以再来重新仔细的看一遍。</p>
+<ol>
+<li>库函数中函数序号：<blockquote>
+<p>序号是与每个导出函数有关的整数索引。使用序号可通过整数查询表迅速定位一个函数。若通过将函数名称与字符串进行比较来定位函数，则很缓慢。</p>
+</blockquote>
+</li>
+<li>创建ids文件：<blockquote>
+<p>IDA 的idsutils 实用工具用于创建.ids 文件。这些实用工具包括两个库解析器：从Windows DLL 中提取信息的dll2idt 和从ar 库中提取信息的ar2idt.exe。无论使用哪一个解析器，其输出都是一个.idt 文本文件，它每行显示一个导出函数，并将导出函数的序号与函数名称对应起来。</p>
+</blockquote>
+</li>
+</ol>
+<p><img src="/2019/10/23/IDA-Pro%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/20191102094833.png" alt="20191102094833"><br>3. 修改注释，使用loadint实用工具，后续需要花点时间来研究一下怎么创建一个ids文件和til文件。</p>
+<h5 id="第14章-修补二进制文件及其他IDA的限制"><a href="#第14章-修补二进制文件及其他IDA的限制" class="headerlink" title="第14章 修补二进制文件及其他IDA的限制"></a>第14章 修补二进制文件及其他IDA的限制</h5><blockquote>
+<p>IDA 并不是一个二进制文件编辑器。任何时候，如果你想要使用IDA 修补一个二进制文件，请记住这个事实。但是，它是一款特别有用的工具，可帮助你输入并显示潜在的更改。掌握IDA的全部功能，并结合IDA 通过适当的脚本或外部程序生成的信息，修补二进制文件也会变得简单可行。</p>
+</blockquote>
+<p>IDA 对二进制文件的修改这一方面感觉确实不行，如果要修改二进制文件，还是用专用的二进制编辑器吧，例如010 Editor、Winhex，扯一句，最近发现Winhex的功能真的挺强大的。</p>
+<h4 id="第四部分-扩展IDA的功能"><a href="#第四部分-扩展IDA的功能" class="headerlink" title="第四部分 扩展IDA的功能"></a>第四部分 扩展IDA的功能</h4><h5 id="第15章-编写IDA脚本"><a href="#第15章-编写IDA脚本" class="headerlink" title="第15章  编写IDA脚本"></a>第15章  编写IDA脚本</h5><h6 id="IDC脚本的特性"><a href="#IDC脚本的特性" class="headerlink" title="IDC脚本的特性"></a>IDC脚本的特性</h6><p>IDC语言和C类似，但还是有很多区别的。</p>
+<p>IDC使用关键字<code>auto</code>来声明一个局部变量，使用关键字<code>extern</code>来声明一个全局变量，但声明全局变量时不能为其提供初始值；</p>
+<p>IDC并不支持C风格的数组，对于字符串这类的变量，支持和python一样的分片操作；</p>
+<p>IDC并不严格限制变量的作用域，你可以在变量声明的花括号外面访问变量；</p>
+<p>IDC中的<code>Message</code>函数类似于C中的<code>printf</code>函数；</p>
+<p>IDC仅支持在独立的<code>.idc</code>文件中声明函数，<code>static</code>关键字用于声明用户自定义的函数，在IDC命令对话框中不能定义函数，因为这相当于在函数中定义函数，而IDC不支持嵌套声明；</p>
+<p>IDC也支持类对象，但是不使用public、private类似的访问说明符，所有的成员都是有效公共类，且如果要在类中创建数据成员，只需要一个给类的数据成员的赋值语句就行；</p>
+<p>IDC程序文件的基本结构：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;idc.idc&gt; //useful include directive</span></span></span><br><span class="line"><span class="comment">//declare addtional functions as required</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//do something fun here</span></span><br><span class="line">    AddHotkey(<span class="string">&quot;z&quot;</span>, <span class="string">&quot;func&quot;</span>); <span class="comment">//Now &#x27;z&#x27; invokes </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="IDC常用的函数"><a href="#IDC常用的函数" class="headerlink" title="IDC常用的函数"></a>IDC常用的函数</h6><ol>
+<li><p>读取和修改数据的函数</p>
+<p><code>long Byte(long addr)</code>，从虚拟地址addr 处读取一个字节值。</p>
+<p><code>long Word(long addr)</code>，从虚拟地址addr 处读取一个字（2 字节）值。</p>
+<p><code>long Dword(long addr)</code>，从虚拟地址addr 处读取一个双字（4 字节）值。</p>
+<p><code>void PatchByte(long addr, long val)</code>，设置虚拟地址addr 处的一个字节值。</p>
+<p><code>void PatchWord(long addr, long val)</code>，设置虚拟地址addr 处的一个字值。</p>
+<p><code>void PatchDword(long addr, long val)</code>，设置虚拟地址addr 处的一个双字值。</p>
+<p><code>bool isLoaded(long addr)</code>，如果addr 包含有效数据，则返回1，否则返回0。</p>
+</li>
+<li><p>用户交互函数</p>
+<p><code>void Message(string format, ...)</code>，在输出窗口打印一条格式化消息。这个函数类似于C 语言的printf 函数，并接受printf 风格的格式化字符串。</p>
+<p><code>void print(...)</code>，在输出窗口中打印每个参数的字符串表示形式。</p>
+<p><code>void Warning(string format, ...)</code>，在对话框中显示一条格式化消息。</p>
+<p><code>string AskStr(string default, string prompt)</code>，显示一个输入框，要求用户输入一个字符串值。如果操作成功，则返回用户的字符串；如果对话框被取消，则返回0。</p>
+<p><code>string AskFile(long doSave, string mask, string prompt)</code>，显示一个文件选择对话框，以简化选择文件的任务。你可以创建新文件保存数据（doSave=1），或选择现有的文件读取数据（doSave=0）。你可以根据mask（如*.<em>或</em>.idc）过滤显示的文件列表。如果操作成功，则返回选定文件的名称；如果对话框被取消，则返回0。</p>
+<p><code>long AskYN(long default, string prompt)</code>，用一个答案为“是”或“否”的问题提示用户，突出一个默认的答案（1 为是，0 为否，-1 为取消）。返回值是一个表示选定答案的整数。</p>
+<p><code>long ScreenEA()</code>，返回当前光标所在位置的虚拟地址。</p>
+<p><code>bool Jump(long addr)</code>，跳转到反汇编窗口的指定地址。</p>
+</li>
+<li><p>字符串操纵函数</p>
+<ul>
+<li><input disabled type="checkbox"> string form(string format, …)//preIDA5.6，返回一个新字符串，该字符串根据所提供的格式化字符串和值进行格式化。这个函数基本上等同于C 语言的sprintf 函数。</li>
+<li><input disabled type="checkbox"> string sprintf(string format,…)//IDA5.6+，在IDA5.6 中，sprintf 用于替代form（参见上面）。</li>
+<li><input disabled type="checkbox"> long atol(string val)，将十进制值val 转换成对应的整数值。</li>
+<li><input disabled type="checkbox"> long xtol(string val)，将十六进制值val（可选择以0x 开头）转换成对应的整数值。</li>
+<li><input disabled type="checkbox"> string ltoa(long val, long radix)，以指定的radix（2、8、10 或16）返回val 的字符串值。</li>
+<li><input disabled type="checkbox"> long ord(string ch)，返回单字符字符串ch 的ASCII 值。</li>
+<li><input disabled type="checkbox"> long strlen(string str)，返回所提供字符串的长度。</li>
+<li><input disabled type="checkbox"> long strstr(string str, string substr)，返回str 中substr 的索引。如果没有发现子字符串，则返回-1。</li>
+<li><input disabled type="checkbox"> string substr(string str, long start, long end)，返回包含str 中由start 到end-1位置的字符的子字符串。如果使用分片（ IDA5.6 及更高版本）， 此函数等同于str[start:end]。</li>
+</ul>
+</li>
+<li><p>文件输入输出函数</p>
+<ul>
+<li><input disabled type="checkbox"> …这部分有点多了，单独写一篇出来吧，还有后面的IDAPython的相关函数，以便之后写插件的时候用到。</li>
+</ul>
+</li>
+</ol>
+<h6 id="IDAPython编写插件"><a href="#IDAPython编写插件" class="headerlink" title="IDAPython编写插件"></a>IDAPython编写插件</h6><ul>
+<li>编写python脚本需要导入三个核心的模块：idaapi、idautils、idc。</li>
+<li>需要定义一个plugin类作为插件的入口函数，参数idaapi.plugin_t是IDA的插件类，后续会讲到，例如：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">classs PluginName_Plugin_t(idaapi.plugin_t):</span><br><span class="line">	...</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>然后需要注册plugin：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># register IDA plugin</span><br><span class="line">def PLUGIN_ENTRY():</span><br><span class="line">	return PluginName_Plugin_t()</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="第16章-IDA软件开发工具包"><a href="#第16章-IDA软件开发工具包" class="headerlink" title="第16章 IDA软件开发工具包"></a>第16章 IDA软件开发工具包</h5><p>这一章讲的是IDA的SDK的使用方法，涉及到SDK的安装配置、应用编程接口，总的来说是让你如何系统的去使用IDC编写IDA的插件的这样一个体系结构。</p>
+<p>有用的SDK数据类型：area_t, func_t, segment_t, idc_value_t, idainfo, struc_t, member_t, op_t, insn_t. 这些类型标明了IDA中的各个功能展现的数据形式，也就是可以通过编程将其进行操纵。</p>
+<p>这一章也有一些常用的SDK函数，同上一章一样，我会单独将其列出来，方便以后查找，这一章的这些函数与IDC脚本相比，能够进行更加细化的控制。</p>
+<h5 id="第17章-IDA插件体系结构"><a href="#第17章-IDA插件体系结构" class="headerlink" title="第17章 IDA插件体系结构"></a>第17章 IDA插件体系结构</h5><p>插件是经过编译的、功能更加强大的IDC脚本。</p>
+<ol>
+<li><p>插件的安装：我先挑最简单的来说，安装插件只需要将编译好的插件模块复制到<code>&lt;IDADIR&gt;/plugins</code>目录中即可，不过需要注意的是尽量在完全关闭IDA的情况下进行此操作，因为Windows系统不能覆写一个正在使用的插件，而在IDA打开的时候，你想要的覆写的插件可能设置了PLUGIN_FIX标志且证在运行。</p>
+</li>
+<li><p>编写插件：这里把插件上升为一个模块来解释，IDA模块都是以适用于执行插件的平台的共享库组件实现，而每个模块必须导出某个特定类的一个变量，对插件来说，就是plugin_t，这个类在SDK的loader.hpp文件中定义。【稍微查了一下：hpp = h + cpp, 先简单这么理解吧】<br>plugin_t类中的字段包括：version, flags, init, term, run, comment, help, wanted_name, wanted_hotkey.<br>以上的成员就涵盖了编写一个插件需要做的大致事务，根据名称能简单推断出各个字段的函数，其中term字段是一个函数指针，当插件卸载时，调用相关函数。【term即为terminate的缩写，好像我挺习惯这样记忆的】</p>
+</li>
+<li><p>构建插件：在Windows上，插件是有效的DLL文件（.plw/.p64），在Linux/Mac上，插件则是有效的共享文件对象（.plx/plx64, .pmc/pmc64）。构建插件需要简化版本的生成文件（makefile）和GNU工具，在Windows上使用MinGW。</p>
+</li>
+<li><p>可以在已编译的插件中扩展IDC，但现在还没有办法扩展IDAPython。</p>
+</li>
+<li><p>脚本化插件：创建Python插件的过程非常简单，只需要定义一个名为PLUGIN_ENTRY的函数，该函数返回plugin_t（在模块idaapi中定义）的一个实例。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> idaapi <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">idabook_plugin_t</span>(<span class="params">plugin_t</span>):</span></span><br><span class="line">	flags = <span class="number">0</span></span><br><span class="line">	wanted_name = <span class="string">&quot;IdaBook Python Plugin&quot;</span></span><br><span class="line">    wanted_hotkey = <span class="string">&quot;Alt-8&quot;</span></span><br><span class="line">      comment = <span class="string">&quot;IdaBook Python Plugin&quot;</span></span><br><span class="line">      <span class="built_in">help</span> = <span class="string">&quot;Something helpful&quot;</span></span><br><span class="line">      </span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">init</span>(<span class="params">self</span>):</span></span><br><span class="line">          msg(<span class="string">&quot;IdaBook Python Plugin init called.\n&quot;</span>)</span><br><span class="line">          <span class="keyword">return</span> PLUGIN_OK</span><br><span class="line">      </span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">term</span>(<span class="params">self</span>):</span></span><br><span class="line">          msg(<span class="string">&quot;IdaBook Plugin term called.\n&quot;</span>)</span><br><span class="line">          </span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">run</span>(<span class="params">self, arg</span>):</span></span><br><span class="line">          warning(<span class="string">&quot;IdaBook plugin run(%d) called&quot;</span> % arg)</span><br><span class="line">      </span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">PLUGIN_ENTRY</span>():</span></span><br><span class="line">          <span class="keyword">return</span> idabook_plugin_t()</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<p>上面是使用IDAPython写的一个小型插件，下面是使用IDC写的：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;idc.idc&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function">class <span class="title">idabook_plugin_t</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">idabook_plugin_t</span>()&#123;</span><br><span class="line">		<span class="keyword">this</span>.flags = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">this</span>.wanted_name = <span class="string">&quot;IdaBook IDC Plugin&quot;</span>;</span><br><span class="line">		<span class="keyword">this</span>.wanted_hotkey = <span class="string">&quot;Alt-9&quot;</span>;</span><br><span class="line">		<span class="keyword">this</span>.comment = <span class="string">&quot;IdaBook IDC Plugin&quot;</span>;</span><br><span class="line">		<span class="keyword">this</span>.help = <span class="string">&quot;Something helpful&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	init()&#123;</span><br><span class="line">		Message(<span class="string">&quot;IdaBook plugin init called.\n&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> PLUGIN_OK;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	term()&#123;</span><br><span class="line">		Message(<span class="string">&quot;IdaBook plugin term called.\n&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	run(arg)&#123;</span><br><span class="line">		Warning(<span class="string">&quot;IdaBook plugin run(%d) called.\n&quot;</span>, arg);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="title">PLUGIN_ENTRY</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">idabook_plugin_t</span>();</span><br><span class="line">&#125;</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="第18章-二进制文件与IDA加载器模块"><a href="#第18章-二进制文件与IDA加载器模块" class="headerlink" title="第18章 二进制文件与IDA加载器模块"></a>第18章 二进制文件与IDA加载器模块</h5><p>粗略看了一下，感觉未来一段时间暂时不会接触到，主要是讲如何去构建一个简单的加载器来识别未知的文件类型什么的，想到这，要是以后自己写出某个文件的IDA加载器放在github上，应该能体现我的编码能力吧。</p>
+<h5 id="第19章-IDA处理器模块"><a href="#第19章-IDA处理器模块" class="headerlink" title="第19章 IDA处理器模块"></a>第19章 IDA处理器模块</h5><p>本章介绍IDA处理器模块的构建流程，是IDA模块化中最复杂的，我感觉比较硬核了，未来一段时间自己也不会接触吧，这也是我想买一本这个实体书的原因，万一后面有需要用到可以再来仔细看看。在本章中介绍的是针对Python的编译文件pyc的逆向处理器的构建过程，同上一章有类似之处。</p>
+<h4 id="第五部分"><a href="#第五部分" class="headerlink" title="第五部分"></a>第五部分</h4><p>后面的这两部分打算略过看吧，有些技术深度确实现在看看不懂，就只细看我要去学习的相关章节吧。</p>
+<h5 id="第20章-编译器变体"><a href="#第20章-编译器变体" class="headerlink" title="第20章 编译器变体"></a>第20章 编译器变体</h5><p>源代码相同，但是编译器不同，也就是构建选项不同所带来的二进制代码是截然不同的，这是因为编译器选择了不停的算法来实现各种高级结构。</p>
+<p>这一章中提到了switch代码在Borland编译器和Visual C++下不同的的汇编代码结构，前者将跳转表嵌入进了函数当中，后者将跳转表放在邻近函数位置处，更好的区分了数据和代码，不会给程序的行为造成影响。</p>
+<h5 id="第21章-模糊代码分析"><a href="#第21章-模糊代码分析" class="headerlink" title="第21章 模糊代码分析"></a>第21章 模糊代码分析</h5><p>模糊代码，反逆向分析。模糊是一种是某物变得模糊、混乱，令人困惑、迷惑，以防止他人理解被模糊的项目的行为。这一章介绍了主流的模糊代码技术，是我要阅读的重点。</p>
+<h6 id="1-反静态分析技巧"><a href="#1-反静态分析技巧" class="headerlink" title="1.反静态分析技巧"></a>1.反静态分析技巧</h6><ul>
+<li>call/jmp loc_XXXX + 1:形如这样的汇编代码，执行了一次调用，调用对象就在下一个指令的中间，由于IDA认为这个函数会返回，则继续反汇编接着的地址，然后真正的被调用指令却没有被反汇编。</li>
+<li>xor eax, eax  jz loc_XXXX ：这两句汇编等于无条件跳转jmp，其与loc_XXXX之间的代码从未执行，仅起到迷惑分析人员的作用。</li>
+</ul>
+<p><strong>a. 动态计算目标地址</strong></p>
+<p>这里的动态计算指的是接下来的执行地址在运行时计算得出。</p>
+<ul>
+<li>通过操作寄存器运算，得到真正的执行地址，然后将其赋值给栈顶处，再执行返回执行，就能跳转到执行地址，也就是（push，ret）结合的一种形式，在之前练习pwn的入门题目时遇到过。</li>
+<li>通过FS段存放的异常函数指针链表，设置异常，调用异常处理函数，根据操作系统提供的CONTEXT结构体的参数信息恢复程序执行流程。</li>
+<li>加壳处理，UPX，ASPack，ASProtect，tElock，Burneye，Shiva，VMProtect。</li>
+</ul>
+<p><strong>b. 导入的函数模糊</strong></p>
+<p>这类技巧可以令dumpbin，ldd，objdump等工具失效，无法列出库依赖关系。</p>
+<ul>
+<li><p>使用Loadlibrary和GetProcAddress动态获取函数地址，使用函数。</p>
+</li>
+<li><p>由于每一个Windows程序都会加载kernel32.dll，而上一种方法中的两个函数都处于这个dll中，所以可以通过获取kernel32.dll的导入表，查找相关函数，对比hash值，定位具体的函数入口地址，实现函数功能。【这里参见Skape<a target="_blank" rel="noopener" href="http://www.hick.org/code/skape/papers/win32-shellcode.pdf">的论文</a>“Understanding Windows Shellcode”，这个方法也是在之前我遇到的一个样本中出现的方法，现在看起来真是醍醐灌顶啊。】</p>
+</li>
+</ul>
+<h6 id="2-反动态分析技巧"><a href="#2-反动态分析技巧" class="headerlink" title="2.反动态分析技巧"></a>2.反动态分析技巧</h6><p>这部分同反调试的技术差不多，检测虚拟化、检测调试器、反调试标志的设置，此处略过。</p>
+<h6 id="3-使用IDA对二进制文件进行“静态去模糊”"><a href="#3-使用IDA对二进制文件进行“静态去模糊”" class="headerlink" title="3. 使用IDA对二进制文件进行“静态去模糊”"></a>3. 使用IDA对二进制文件进行“静态去模糊”</h6><p><strong>面向脚本的去模糊</strong></p>
+<p>基于脚本的去模糊方案无法构建“万能式”的解决方案，现有包装器的任何细微变化都会使得脚本失效。脚本的针对性比较强。【这也导致我突然意识到我做的毕设似乎没有那么简单】</p>
+<p><strong>面向模拟的去模糊</strong></p>
+<p>基于模拟执行来实现去模糊，介绍了一个ida的插件<code>x86emu</code>，作为一个IDA的嵌入式x86指令的模拟器，后续对我的帮助也该会挺大的吧。</p>
+<p><strong>基于虚拟机的模糊</strong></p>
+<p>这主要是说VMProtect，感觉到达自己的知识瓶颈，我已经完全无法理解了。</p>
+<blockquote>
+<p>当前，恶意软件大多是模糊程序。因此，如果你希望研究一个恶意软件样本的内部运行机制，几乎可以肯定，你需要完成某种类型的去模糊任务。无论你是采用调试器辅助的动态去模糊方法，还是不想运行可能恶意的代码，而选择使用脚本或模拟对二进制文件进行去模糊处理，你的最终目标都是生成一个可以被完全反汇编、正确分析的去模糊二进制文件。多数情况下，最后的分析都要由IDA 之类的工具来完成。鉴于此（即使用IDA 进行分析），尝试从头至尾使用IDA 似乎有一定的道理。</p>
+</blockquote>
+<hr>
+<p>注：暂时写到这儿吧，后面的部分我感觉我看了收获也不是太多吧，以后接触到再来看吧，觉得入手一本实体书，闲来无事翻一翻！</p>
+
       
     </div>
 
@@ -1192,89 +1450,73 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/10/18/图片测试/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/10/18/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/18/图片测试/" class="post-title-link" itemprop="url">图片测试</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/10/18/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/" class="post-title-link" itemprop="url">图片测试</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-
-              
-                
               
 
               <time title="Created: 2019-10-18 15:12:38 / Modified: 16:43:10" itemprop="dateCreated datePublished" datetime="2019-10-18T15:12:38+08:00">2019-10-18</time>
             </span>
-          
-            
-
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/博客搭建/" itemprop="url" rel="index"><span itemprop="name">博客搭建</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">博客搭建</span></a>
+                </span>
             </span>
-          
 
           
-            <span id="/2019/10/18/图片测试/" class="post-meta-item leancloud_visitors" data-flag-title="图片测试" title="Views">
+            <span id="/2019/10/18/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/" class="post-meta-item leancloud_visitors" data-flag-title="图片测试" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2019/10/18/图片测试/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/10/18/图片测试/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/10/18/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/18/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -1288,17 +1530,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="设置-config-yml"><a href="#设置-config-yml" class="headerlink" title="设置_config.yml"></a>设置<code>_config.yml</code></h3><p>将<code>post_asset_folder</code>设置为<code>true</code>.</p><p><img src="//spwpun.github.io/2019/10/18/图片测试/config.png" alt="config"></p><h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p><code>npm install hexo-asset-image --save</code></p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/10/18/图片测试/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+          <h3 id="设置-config-yml"><a href="#设置-config-yml" class="headerlink" title="设置_config.yml"></a>设置<code>_config.yml</code></h3><p>将<code>post_asset_folder</code>设置为<code>true</code>.</p>
+<p><img src="/2019/10/18/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/config.png" alt="config"></p>
+<h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p><code>npm install hexo-asset-image --save</code></p>
+<p><img src="/2019/10/18/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/1571383044609.png" alt="1571383044609"></p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>新建文章，添加图片到对应的文件夹下，使用<code>markdown</code>格式添加图片到文章中：</p>
+<p><img src="/2019/10/18/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/1571383180135.png" alt="1571383180135"></p>
+<h3 id="图片URL问题"><a href="#图片URL问题" class="headerlink" title="图片URL问题"></a>图片URL问题</h3><p>在文章中的图片链接为相对路径，即<code>Title/pic.jpg</code>类似的，但是插件的脚本文件有点问题，在CSDN上找到了一位大佬修改后的脚本，贴在下面：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> cheerio = <span class="built_in">require</span>(<span class="string">&#x27;cheerio&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// http://stackoverflow.com/questions/14480345/how-to-get-the-nth-occurrence-in-a-string</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPosition</span>(<span class="params">str, m, i</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> str.split(m, i).join(m).length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> version = <span class="built_in">String</span>(hexo.version).split(<span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">hexo.extend.filter.register(<span class="string">&#x27;after_post_render&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> config = hexo.config;</span><br><span class="line">  <span class="function"><span class="title">if</span>(<span class="params">config.post_asset_folder</span>)</span>&#123;</span><br><span class="line">    	<span class="keyword">var</span> link = data.permalink;</span><br><span class="line">	<span class="keyword">if</span>(version.length &gt; <span class="number">0</span> &amp;&amp; <span class="built_in">Number</span>(version[<span class="number">0</span>]) == <span class="number">3</span>)</span><br><span class="line">	   <span class="keyword">var</span> beginPos = getPosition(link, <span class="string">&#x27;/&#x27;</span>, <span class="number">1</span>) + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	   <span class="keyword">var</span> beginPos = getPosition(link, <span class="string">&#x27;/&#x27;</span>, <span class="number">3</span>) + <span class="number">1</span>;</span><br><span class="line">	<span class="comment">// In hexo 3.1.1, the permalink of &quot;about&quot; page is like &quot;.../about/index.html&quot;.</span></span><br><span class="line">	<span class="keyword">var</span> endPos = link.lastIndexOf(<span class="string">&#x27;/&#x27;</span>) + <span class="number">1</span>;</span><br><span class="line">    link = link.substring(beginPos, endPos);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> toprocess = [<span class="string">&#x27;excerpt&#x27;</span>, <span class="string">&#x27;more&#x27;</span>, <span class="string">&#x27;content&#x27;</span>];</span><br><span class="line">    <span class="function"><span class="title">for</span>(<span class="params"><span class="keyword">var</span> i = <span class="number">0</span>; i &lt; toprocess.length; i++</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">var</span> key = toprocess[i];</span><br><span class="line"> </span><br><span class="line">      <span class="keyword">var</span> $ = cheerio.load(data[key], &#123;</span><br><span class="line">        ignoreWhitespace: <span class="literal">false</span>,</span><br><span class="line">        xmlMode: <span class="literal">false</span>,</span><br><span class="line">        lowerCaseTags: <span class="literal">false</span>,</span><br><span class="line">        decodeEntities: <span class="literal">false</span></span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      $(<span class="string">&#x27;img&#x27;</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">if</span> ($(<span class="built_in">this</span>).attr(<span class="string">&#x27;src&#x27;</span>))&#123;</span><br><span class="line">			<span class="comment">// For windows style path, we replace &#x27;\&#x27; to &#x27;/&#x27;.</span></span><br><span class="line">			<span class="keyword">var</span> src = $(<span class="built_in">this</span>).attr(<span class="string">&#x27;src&#x27;</span>).replace(<span class="string">&#x27;\\&#x27;</span>, <span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">			<span class="keyword">if</span>(!<span class="regexp">/http[s]*.*|\/\/.*/</span>.test(src) &amp;&amp;</span><br><span class="line">			   !<span class="regexp">/^\s*\//</span>.test(src)) &#123;</span><br><span class="line">			  <span class="comment">// For &quot;about&quot; page, the first part of &quot;src&quot; can&#x27;t be removed.</span></span><br><span class="line">			  <span class="comment">// In addition, to support multi-level local directory.</span></span><br><span class="line">			  <span class="keyword">var</span> linkArray = link.split(<span class="string">&#x27;/&#x27;</span>).filter(<span class="function"><span class="keyword">function</span>(<span class="params">elem</span>)</span>&#123;</span><br><span class="line">				<span class="keyword">return</span> elem != <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">			  &#125;);</span><br><span class="line">			  <span class="keyword">var</span> srcArray = src.split(<span class="string">&#x27;/&#x27;</span>).filter(<span class="function"><span class="keyword">function</span>(<span class="params">elem</span>)</span>&#123;</span><br><span class="line">				<span class="keyword">return</span> elem != <span class="string">&#x27;&#x27;</span> &amp;&amp; elem != <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">			  &#125;);</span><br><span class="line">			  <span class="keyword">if</span>(srcArray.length &gt; <span class="number">1</span>)</span><br><span class="line">				srcArray.shift();</span><br><span class="line">			  src = srcArray.join(<span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">			  $(<span class="built_in">this</span>).attr(<span class="string">&#x27;src&#x27;</span>, config.root + link + src);</span><br><span class="line">			  <span class="built_in">console</span>.info&amp;&amp;<span class="built_in">console</span>.info(<span class="string">&quot;update link as:--&gt;&quot;</span>+config.root + link + src);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.info&amp;&amp;<span class="built_in">console</span>.info(<span class="string">&quot;no src attr, skipped...&quot;</span>);</span><br><span class="line">			<span class="built_in">console</span>.info&amp;&amp;<span class="built_in">console</span>.info($(<span class="built_in">this</span>));</span><br><span class="line">		&#125;</span><br><span class="line">      &#125;);</span><br><span class="line">      data[key] = $.html();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>大佬的原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/xjm850552586/article/details/84101345">https://blog.csdn.net/xjm850552586/article/details/84101345</a></p>
+
       
     </div>
 
@@ -1306,97 +1547,79 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/10/14/KMS使用小记/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/10/14/KMS%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/14/KMS使用小记/" class="post-title-link" itemprop="url">使用KMS激活Office</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2019/10/14/KMS%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%B0/" class="post-title-link" itemprop="url">使用KMS激活Office</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2019-10-14 20:14:21" itemprop="dateCreated datePublished" datetime="2019-10-14T20:14:21+08:00">2019-10-14</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2019-10-23 00:52:40" itemprop="dateModified" datetime="2019-10-23T00:52:40+08:00">2019-10-23</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具使用/" itemprop="url" rel="index"><span itemprop="name">工具使用</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">工具使用</span></a>
+                </span>
             </span>
-          
 
           
-            <span id="/2019/10/14/KMS使用小记/" class="post-meta-item leancloud_visitors" data-flag-title="使用KMS激活Office" title="Views">
+            <span id="/2019/10/14/KMS%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%B0/" class="post-meta-item leancloud_visitors" data-flag-title="使用KMS激活Office" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2019/10/14/KMS使用小记/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/10/14/KMS使用小记/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/10/14/KMS%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/14/KMS%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%B0/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -1411,16 +1634,21 @@
 
       
           <p>KMS技术是通过Key Manager Service服务的激活机制来激活Windows或者office的，能获取正版的产品密钥，不过密钥有有效期，不是永久的，所以等到有效期到了之后需要重新获取密钥。相比网上的一些破解软件来说要好的多。</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/10/14/KMS使用小记/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<h4 id="打开最新的KMS-Tools-by-Ratiborus-会出现多个应用选项。"><a href="#打开最新的KMS-Tools-by-Ratiborus-会出现多个应用选项。" class="headerlink" title="打开最新的KMS Tools by Ratiborus,会出现多个应用选项。"></a>打开最新的KMS Tools by Ratiborus,会出现多个应用选项。</h4><p><img src="https://img-blog.csdnimg.cn/20191014203629977.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xwbHA5ODIy,size_16,color_FFFFFF,t_70" alt="KMS 界面"></p>
+<h4 id="点击”KMSoffline”-进入KMSoffline-x64-v2-1-3界面-有Main、Tools-andSettings、About四个菜单选项。"><a href="#点击”KMSoffline”-进入KMSoffline-x64-v2-1-3界面-有Main、Tools-andSettings、About四个菜单选项。" class="headerlink" title="点击”KMSoffline”,进入KMSoffline x64 v2.1.3界面,有Main、Tools andSettings、About四个菜单选项。"></a>点击”KMSoffline”,进入KMSoffline x64 v2.1.3界面,有Main、Tools andSettings、About四个菜单选项。</h4><p><img src="https://img-blog.csdnimg.cn/20191014203712167.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xwbHA5ODIy,size_16,color_FFFFFF,t_70" alt="KMSOffice"></p>
+<h4 id="在下方”Product”处，可以选择激活Windows和office-当然office需要自己安装。"><a href="#在下方”Product”处，可以选择激活Windows和office-当然office需要自己安装。" class="headerlink" title="在下方”Product”处，可以选择激活Windows和office,当然office需要自己安装。"></a>在下方”Product”处，可以选择激活Windows和office,当然office需要自己安装。</h4><p><img src="https://img-blog.csdnimg.cn/20191014203751419.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xwbHA5ODIy,size_16,color_FFFFFF,t_70" alt="选择Product"></p>
+<h4 id="然后点击右下方的”Information”可以查看Windows的版本信息或者office的版本信息，查看是否激活，有效期（）等什么的："><a href="#然后点击右下方的”Information”可以查看Windows的版本信息或者office的版本信息，查看是否激活，有效期（）等什么的：" class="headerlink" title="然后点击右下方的”Information”可以查看Windows的版本信息或者office的版本信息，查看是否激活，有效期（）等什么的："></a>然后点击右下方的”Information”可以查看Windows的版本信息或者office的版本信息，查看是否激活，有效期（）等什么的：</h4><p><img src="https://img-blog.csdnimg.cn/2019101420382834.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xwbHA5ODIy,size_16,color_FFFFFF,t_70" alt="查询信息"><br>   例如：下方是Windows的信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">  &#x3D;&#x3D; Windows(R), ProfessionalWorkstation edition</span><br><span class="line">     Windows(R) Operating System, VOLUME_KMSCLIENT channel</span><br><span class="line">                          SKU ID: 82bbc092-bc50-4e16-8e18-b74fc486aec3</span><br><span class="line">    Partial Product Key: 6Q84J</span><br><span class="line">    KMS-host Machine: </span><br><span class="line">          KMS-Server PID: 03612-00206-557-633704-03-2052-17763.0000-1232019</span><br><span class="line">Expiration Date&#x2F;Time: 179.20:24,  until 2020&#x2F;4&#x2F;11   &#x2F;&#x2F;这里显示到2020&#x2F;04&#x2F;11过期。</span><br><span class="line">      Activation interval: 00.02:00</span><br><span class="line">         Renewal interval: 16.04:23</span><br><span class="line">             License Status: --- LICENSED ---</span><br><span class="line">      ---------------------------------------</span><br></pre></td></tr></table></figure>
+
+<h4 id="所以”Product”选择office，查看信息，确定office版本，点击”Install-Key”-生成产品密钥，中间的白框框中就会出现提示信息，"><a href="#所以”Product”选择office，查看信息，确定office版本，点击”Install-Key”-生成产品密钥，中间的白框框中就会出现提示信息，" class="headerlink" title="所以”Product”选择office，查看信息，确定office版本，点击”Install Key”,生成产品密钥，中间的白框框中就会出现提示信息，"></a>所以”Product”选择office，查看信息，确定office版本，点击”Install Key”,生成产品密钥，中间的白框框中就会出现提示信息，</h4><p><img src="https://img-blog.csdnimg.cn/20191014203917105.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xwbHA5ODIy,size_16,color_FFFFFF,t_70" alt="Install Key"><br>最后的是密钥，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">       ---------------------------------------</span><br><span class="line"> &#x3D;&#x3D; Installation GVLK keys Office 19</span><br><span class="line">Install License:</span><br><span class="line">ProPlus2019VL_KMS_Client_AE-ppd.xrm-ms</span><br><span class="line">Install License:</span><br><span class="line">ProPlus2019VL_KMS_Client_AE-ul-oob.xrm-ms</span><br><span class="line">Install License:</span><br><span class="line">ProPlus2019VL_KMS_Client_AE-ul.xrm-ms</span><br><span class="line">Install License:</span><br><span class="line">ProPlus2019VL_MAK_AE-pl.xrm-ms</span><br><span class="line">Install License:</span><br><span class="line">ProPlus2019VL_MAK_AE-ppd.xrm-ms</span><br><span class="line">Install License:</span><br><span class="line">ProPlus2019VL_MAK_AE-ul-oob.xrm-ms</span><br><span class="line">Install License:</span><br><span class="line">ProPlus2019VL_MAK_AE-ul-phn.xrm-ms</span><br><span class="line">Uninstall key: 8MBCX</span><br><span class="line"></span><br><span class="line">Office 19, Office19ProPlus2019VL_KMS_Client_AE edition</span><br><span class="line">NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP &#x2F;&#x2F;这个是产品密钥</span><br></pre></td></tr></table></figure>
+
+<h4 id="最后将上面的产品密钥复制到左下方的”Own-Key”中，点击右下方的”Activate”（激活）就可以激活了，"><a href="#最后将上面的产品密钥复制到左下方的”Own-Key”中，点击右下方的”Activate”（激活）就可以激活了，" class="headerlink" title="最后将上面的产品密钥复制到左下方的”Own Key”中，点击右下方的”Activate”（激活）就可以激活了，"></a>最后将上面的产品密钥复制到左下方的”Own Key”中，点击右下方的”Activate”（激活）就可以激活了，</h4><p>激活成功是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">       ---------------------------------------</span><br><span class="line">&#x3D;&#x3D; Activating Office 19, Office19ProPlus2019VL_KMS_Client_AE edition</span><br><span class="line"></span><br><span class="line"> Setting KMS-Service 10.3.0.20:1688 ...</span><br><span class="line"> KMS-Service 10.3.0.20:1688 successfully installed</span><br><span class="line"></span><br><span class="line"> Install KMS-Emulator ...</span><br><span class="line">              -------&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;-------</span><br><span class="line"> &#x3D;&#x3D;&#x3D; Product successfully activated &#x3D;&#x3D;&#x3D;</span><br><span class="line">              -------&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;-------</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>一个俄罗斯人写的，<a target="_blank" rel="noopener" href="https://filecr.com/windows/ratiborus-kms-tools/">KMS Tools by Ratiborus</a></p>
+
       
     </div>
 
@@ -1428,16 +1656,13 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-  </div>
 
   
   <nav class="pagination">
@@ -1448,6 +1673,28 @@
 
           </div>
           
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -1477,113 +1724,61 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/images/avatar.gif"
-      alt="Demen Lee">
+    <img class="site-author-image" itemprop="image" alt="Demen Lee"
+      src="/images/avatar.gif">
   <p class="site-author-name" itemprop="name">Demen Lee</p>
   <div class="site-description" itemprop="description">Sharing, Communicating more, then moving on......</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
           <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
         <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">categories</span>
-        </a>
+        <span class="site-state-item-name">categories</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
         <span class="site-state-item-count">33</span>
-        <span class="site-state-item-name">tags</span>
-        </a>
+        <span class="site-state-item-name">tags</span></a>
       </div>
-    
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/spwpun" title="GitHub &rarr; https://github.com/spwpun" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/spwpun" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;spwpun" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="mailto:spwpun@gmail.com" title="E-Mail &rarr; mailto:spwpun@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="mailto:spwpun@gmail.com" title="E-Mail → mailto:spwpun@gmail.com" rel="noopener" target="_blank"><i class="fab fa-envelope fa-fw"></i>E-Mail</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://weibo.com/u/5536839794" title="Weibo &rarr; https://weibo.com/u/5536839794" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <a href="https://weibo.com/u/5536839794" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5536839794" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://music.163.com/#/user/home?id=127070793" title="Netease &rarr; https://music.163.com/#/user/home?id=127070793" rel="noopener" target="_blank"><i class="fa fa-fw fa-netease"></i>Netease</a>
+        <a href="https://music.163.com/#/user/home?id=127070793" title="Netease → https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;127070793" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Netease</a>
       </span>
-    
   </div>
 
 
   <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title">
-      <i class="fa fa-fw fa-link"></i>
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
       Links
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://whale3070.github.io" title="https://whale3070.github.io" rel="noopener" target="_blank">Whale3070</a>
+          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io" rel="noopener" target="_blank">Whale3070</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://eternalhikari.github.io" title="https://eternalhikari.github.io" rel="noopener" target="_blank">Hikari</a>
+          <a href="https://eternalhikari.github.io/" title="https:&#x2F;&#x2F;eternalhikari.github.io" rel="noopener" target="_blank">Hikari</a>
         </li>
-      
     </ul>
   </div>
 
@@ -1597,17 +1792,23 @@
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-flag-checkered"></i>
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="flag-checkered"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Spwpun</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a></div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
 
         
 <div class="busuanzi-count">
@@ -1620,9 +1821,7 @@
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-  
     <span class="post-meta-divider">|</span>
-  
     <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
@@ -1631,7 +1830,6 @@
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
-  
 </div>
 
 
@@ -1641,51 +1839,47 @@
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
 
   
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/next-boot.js?v=7.4.1"></script>
+<script src="/js/utils.js"></script>
 
-
-
-  
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/pisces.js"></script>
 
 
-
-
-
-
-  <script src="/js/local-search.js?v=7.4.1"></script>
-
-
-
-
-
-
-
-
-
-
+<script src="/js/next-boot.js"></script>
 
 
 
 
   
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 
@@ -1693,29 +1887,31 @@
 
 
 <script>
-NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: true,
-    notify: false,
-    appId: 'O9n8UnYXJ5M4s4QEumwRCwH9-gzGzoHsz',
-    appKey: 'qdSjFo9LUO20Ba6XRPMQGX7v',
-    placeholder: 'Leave something interesting......',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: true,
-    lang: '' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : false,
+      appId      : 'O9n8UnYXJ5M4s4QEumwRCwH9-gzGzoHsz',
+      appKey     : 'qdSjFo9LUO20Ba6XRPMQGX7v',
+      placeholder: "Leave something interesting......",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
 </script>
 
 </body>

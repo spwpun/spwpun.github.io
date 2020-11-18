@@ -1,94 +1,57 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
   <link rel="manifest" href="/images/manifest.json">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+<link rel="stylesheet" href="/css/main.css">
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Times New Roman:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.4.1',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":true,"show_result":true,"style":"mac"},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: 'Copy',
-      copy_success: 'Copied',
-      copy_failure: 'Copy failed'
-    },
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"spwpun.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
   <meta name="description" content="《机器学习》(周志华)笔记花了大概一个月的时间吧《IDA Pro》看完了，昨天重温了一下笔记，发现还是有很大的作用的，所以机器学习也这样来做。这是一本机器学习比较经典的书，由于开头的绪论作者用一个买西瓜的例子来简单阐述了什么是机器学习，故网上称之为“西瓜书”。同样我打算买一本实体书而且也确实买了。机器学习涉及的数学知识基础可能会成为我学习的阻力，所以我想再在慕课网上通过视频学习的方式来补充一下，预">
-<meta name="keywords" content="Machine Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《机器学习》笔记">
-<meta property="og:url" content="https://spwpun.github.io/2019/12/04/《机器学习》笔记/index.html">
+<meta property="og:url" content="https://spwpun.github.io/2019/12/04/%E3%80%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Spwpun&#39;s Blog">
 <meta property="og:description" content="《机器学习》(周志华)笔记花了大概一个月的时间吧《IDA Pro》看完了，昨天重温了一下笔记，发现还是有很大的作用的，所以机器学习也这样来做。这是一本机器学习比较经典的书，由于开头的绪论作者用一个买西瓜的例子来简单阐述了什么是机器学习，故网上称之为“西瓜书”。同样我打算买一本实体书而且也确实买了。机器学习涉及的数学知识基础可能会成为我学习的阻力，所以我想再在慕课网上通过视频学习的方式来补充一下，预">
-<meta property="og:locale" content="en">
-<meta property="og:image" content="https://spwpun.github.io/2019/12/04/《机器学习》笔记/image-20191220002808584.png">
-<meta property="og:image" content="https://spwpun.github.io/2019/12/04/《机器学习》笔记/image-20191220005000173.png">
-<meta property="og:updated_time" content="2020-11-18T12:52:12.310Z">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://spwpun.github.io/2019/12/04/%E3%80%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/image-20191220002808584.png">
+<meta property="og:image" content="https://spwpun.github.io/2019/12/04/%E3%80%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/image-20191220005000173.png">
+<meta property="article:published_time" content="2019-12-04T00:31:53.000Z">
+<meta property="article:modified_time" content="2020-11-18T12:52:12.310Z">
+<meta property="article:author" content="Demen Lee">
+<meta property="article:tag" content="Machine Learning">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《机器学习》笔记">
-<meta name="twitter:description" content="《机器学习》(周志华)笔记花了大概一个月的时间吧《IDA Pro》看完了，昨天重温了一下笔记，发现还是有很大的作用的，所以机器学习也这样来做。这是一本机器学习比较经典的书，由于开头的绪论作者用一个买西瓜的例子来简单阐述了什么是机器学习，故网上称之为“西瓜书”。同样我打算买一本实体书而且也确实买了。机器学习涉及的数学知识基础可能会成为我学习的阻力，所以我想再在慕课网上通过视频学习的方式来补充一下，预">
-<meta name="twitter:image" content="https://spwpun.github.io/2019/12/04/《机器学习》笔记/image-20191220002808584.png">
-  <link rel="canonical" href="https://spwpun.github.io/2019/12/04/《机器学习》笔记/">
+<meta name="twitter:image" content="https://spwpun.github.io/2019/12/04/%E3%80%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/image-20191220002808584.png">
+
+<link rel="canonical" href="https://spwpun.github.io/2019/12/04/%E3%80%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
   };
 </script>
 
   <title>《机器学习》笔记 | Spwpun's Blog</title>
   
-
-
 
 
 
@@ -107,7 +70,6 @@
   .use-motion .post-body,
   .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -125,19 +87,8 @@
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Spwpun's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
@@ -145,97 +96,86 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Spwpun's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-      
-      
-      
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-      
-    
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-about">
-      
-    
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-tags">
-      
-    
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-categories">
-      
-    
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-archives">
-      
-    
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
       <li class="menu-item menu-item-search">
-        <a href="javascript:;" class="popup-trigger">
-        
-          <i class="fa fa-search fa-fw"></i>Search</a>
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
       </li>
-    
   </ul>
-
 </nav>
-  <div class="site-search">
+
+
+
+  <div class="search-pop-overlay">
     <div class="popup search-popup">
-    <div class="search-header">
+        <div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+    <input autocomplete="off" autocapitalize="off"
            placeholder="Searching..." spellcheck="false"
-           type="text" id="search-input">
+           type="search" class="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
   </div>
+</div>
+
+    </div>
+  </div>
+
 </div>
     </header>
 
@@ -248,96 +188,86 @@
   <a href="https://github.com/spwpun" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
             
 
-          <div id="content" class="content">
-            
-
-  <div class="posts-expand">
-      
+    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/12/04/《机器学习》笔记/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/12/04/%E3%80%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">《机器学习》笔记
-
-          
+        <h1 class="post-title" itemprop="name headline">
+          《机器学习》笔记
         </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2019-12-04 08:31:53" itemprop="dateCreated datePublished" datetime="2019-12-04T08:31:53+08:00">2019-12-04</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2020-11-18 20:52:12" itemprop="dateModified" datetime="2020-11-18T20:52:12+08:00">2020-11-18</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Read-Note/" itemprop="url" rel="index"><span itemprop="name">Read Note</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Read-Note/" itemprop="url" rel="index"><span itemprop="name">Read Note</span></a>
+                </span>
             </span>
-          
 
           
-            <span id="/2019/12/04/《机器学习》笔记/" class="post-meta-item leancloud_visitors" data-flag-title="《机器学习》笔记" title="Views">
+            <span id="/2019/12/04/%E3%80%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/" class="post-meta-item leancloud_visitors" data-flag-title="《机器学习》笔记" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2019/12/04/《机器学习》笔记/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/12/04/《机器学习》笔记/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/12/04/%E3%80%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/04/%E3%80%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -351,7 +281,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="《机器学习》-周志华-笔记"><a href="#《机器学习》-周志华-笔记" class="headerlink" title="《机器学习》(周志华)笔记"></a>《机器学习》(周志华)笔记</h3><p>花了大概一个月的时间吧《IDA Pro》看完了，昨天重温了一下笔记，发现还是有很大的作用的，所以机器学习也这样来做。这是一本机器学习比较经典的书，由于开头的绪论作者用一个买西瓜的例子来简单阐述了什么是机器学习，故网上称之为“西瓜书”。同样我打算买一本实体书而且也确实买了。机器学习涉及的数学知识基础可能会成为我学习的阻力，所以我想再在慕课网上通过视频学习的方式来补充一下，预计会在上面花钱购买一套课程，花钱学习这事儿，本就是应该的。</p><a id="more"></a>
+        <h3 id="《机器学习》-周志华-笔记"><a href="#《机器学习》-周志华-笔记" class="headerlink" title="《机器学习》(周志华)笔记"></a>《机器学习》(周志华)笔记</h3><p>花了大概一个月的时间吧《IDA Pro》看完了，昨天重温了一下笔记，发现还是有很大的作用的，所以机器学习也这样来做。这是一本机器学习比较经典的书，由于开头的绪论作者用一个买西瓜的例子来简单阐述了什么是机器学习，故网上称之为“西瓜书”。同样我打算买一本实体书而且也确实买了。机器学习涉及的数学知识基础可能会成为我学习的阻力，所以我想再在慕课网上通过视频学习的方式来补充一下，预计会在上面花钱购买一套课程，花钱学习这事儿，本就是应该的。</p>
 <p>阅读所记下的笔记可能因人而异，就像在第一章中所提到的NFL原理一样，具体问题需要具体去分析，我也可能只细读我想了解的知识，而对一些历史沿革，数学性强的知识也会略过。</p>
 <h4 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h4><ol>
 <li><p>机器学习是研究关于“学习算法”的学问。</p>
@@ -428,7 +358,7 @@
 </tr>
 </tbody></table>
 <p>其他任务需求，则可能使用查准率(precision)、查全率（召回recall），依照混淆矩阵：<br>$$<br>P = \frac{TP}{TP+FP},<br>R = \frac{TP}{TP+FN}<br>$$<br>由于查准率和查全率是一对互相矛盾的度量，其一高，另一必低，所以需要找到一个BEP（平衡点）来进行取舍，这是当P=R时的取值，如下图：</p>
-<p><img src="//spwpun.github.io/2019/12/04/《机器学习》笔记/image-20191220002808584.png" alt="image-20191220002808584"></p>
+<p><img src="/2019/12/04/%E3%80%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/image-20191220002808584.png" alt="image-20191220002808584"></p>
 <p>而BEP毕竟过于简化，更为常用的称为F1 Score：<br>$$<br>F1 = \frac{2 \times P \times R}{P+R}<br>$$</p>
 </li>
 <li><p>后面这部分简略一点，我没打算现在就弄懂：</p>
@@ -436,7 +366,7 @@
 <li><p>ROC: 全称为“受试者工作特征（Receiver Operating Characteristic）”曲线，同上面的P-R曲线图类似，不过横轴、纵轴不一样。</p>
 </li>
 <li><p>AUC：Area Under ROC Curve，ROC曲线下的面积，用来衡量学习器的期望性能。</p>
-<p><img src="//spwpun.github.io/2019/12/04/《机器学习》笔记/image-20191220005000173.png" alt="image-20191220005000173"></p>
+<p><img src="/2019/12/04/%E3%80%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/image-20191220005000173.png" alt="image-20191220005000173"></p>
 </li>
 </ul>
 </li>
@@ -449,42 +379,26 @@
     
     
     
-        
-      
 
       <footer class="post-footer">
-          
-            
-          
           <div class="post-tags">
-            
               <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
-            
           </div>
-        
 
         
 
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-              
-                <a href="/2019/12/01/绑定自定义域名以及添加SSL证书/" rel="next" title="绑定自定义域名以及添加SSL证书">
-                  <i class="fa fa-chevron-left"></i> 绑定自定义域名以及添加SSL证书
-                </a>
-              
-            </div>
 
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/12/05/KCTF-婉若游龙/" rel="prev" title="KCTF-婉若游龙">
-                  KCTF-婉若游龙 <i class="fa fa-chevron-right"></i>
-                </a>
-              
-            </div>
-          </div>
         
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/12/01/%E7%BB%91%E5%AE%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E4%BB%A5%E5%8F%8A%E6%B7%BB%E5%8A%A0SSL%E8%AF%81%E4%B9%A6/" rel="prev" title="绑定自定义域名以及添加SSL证书">
+      <i class="fa fa-chevron-left"></i> 绑定自定义域名以及添加SSL证书
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/12/05/KCTF-%E5%A9%89%E8%8B%A5%E6%B8%B8%E9%BE%99/" rel="next" title="KCTF-婉若游龙">
+      KCTF-婉若游龙 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -492,14 +406,33 @@
   
   
 
-  </div>
 
 
           </div>
           
-    
-    <div class="comments" id="comments"></div>
-  
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -512,11 +445,6 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
-        
-        
-        
-        
-      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -529,120 +457,67 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#《机器学习》-周志华-笔记"><span class="nav-text">《机器学习》(周志华)笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一章-绪论"><span class="nav-text">第一章 绪论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二章-模型评估与选择"><span class="nav-text">第二章 模型评估与选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三章-线性模型"><span class="nav-text">第三章 线性模型</span></a></li></ol></li></ol></div>
-        
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E3%80%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B-%E5%91%A8%E5%BF%97%E5%8D%8E-%E7%AC%94%E8%AE%B0"><span class="nav-text">《机器学习》(周志华)笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BB%AA%E8%AE%BA"><span class="nav-text">第一章 绪论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9"><span class="nav-text">第二章 模型评估与选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B"><span class="nav-text">第三章 线性模型</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/images/avatar.gif"
-      alt="Demen Lee">
+    <img class="site-author-image" itemprop="image" alt="Demen Lee"
+      src="/images/avatar.gif">
   <p class="site-author-name" itemprop="name">Demen Lee</p>
   <div class="site-description" itemprop="description">Sharing, Communicating more, then moving on......</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
           <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
         <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">categories</span>
-        </a>
+        <span class="site-state-item-name">categories</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
         <span class="site-state-item-count">33</span>
-        <span class="site-state-item-name">tags</span>
-        </a>
+        <span class="site-state-item-name">tags</span></a>
       </div>
-    
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/spwpun" title="GitHub &rarr; https://github.com/spwpun" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/spwpun" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;spwpun" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="mailto:spwpun@gmail.com" title="E-Mail &rarr; mailto:spwpun@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="mailto:spwpun@gmail.com" title="E-Mail → mailto:spwpun@gmail.com" rel="noopener" target="_blank"><i class="fab fa-envelope fa-fw"></i>E-Mail</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://weibo.com/u/5536839794" title="Weibo &rarr; https://weibo.com/u/5536839794" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <a href="https://weibo.com/u/5536839794" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5536839794" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://music.163.com/#/user/home?id=127070793" title="Netease &rarr; https://music.163.com/#/user/home?id=127070793" rel="noopener" target="_blank"><i class="fa fa-fw fa-netease"></i>Netease</a>
+        <a href="https://music.163.com/#/user/home?id=127070793" title="Netease → https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;127070793" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Netease</a>
       </span>
-    
   </div>
 
 
   <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title">
-      <i class="fa fa-fw fa-link"></i>
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
       Links
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://whale3070.github.io" title="https://whale3070.github.io" rel="noopener" target="_blank">Whale3070</a>
+          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io" rel="noopener" target="_blank">Whale3070</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://eternalhikari.github.io" title="https://eternalhikari.github.io" rel="noopener" target="_blank">Hikari</a>
+          <a href="https://eternalhikari.github.io/" title="https:&#x2F;&#x2F;eternalhikari.github.io" rel="noopener" target="_blank">Hikari</a>
         </li>
-      
     </ul>
   </div>
 
@@ -656,17 +531,23 @@
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-flag-checkered"></i>
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="flag-checkered"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Spwpun</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a></div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
 
         
 <div class="busuanzi-count">
@@ -679,9 +560,7 @@
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-  
     <span class="post-meta-divider">|</span>
-  
     <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
@@ -690,7 +569,6 @@
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
-  
 </div>
 
 
@@ -700,51 +578,47 @@
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
 
   
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/next-boot.js?v=7.4.1"></script>
+<script src="/js/utils.js"></script>
 
-
-
-  
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/pisces.js"></script>
 
 
-
-
-
-
-  <script src="/js/local-search.js?v=7.4.1"></script>
-
-
-
-
-
-
-
-
-
-
+<script src="/js/next-boot.js"></script>
 
 
 
 
   
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 
@@ -752,29 +626,31 @@
 
 
 <script>
-NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: true,
-    notify: false,
-    appId: 'O9n8UnYXJ5M4s4QEumwRCwH9-gzGzoHsz',
-    appKey: 'qdSjFo9LUO20Ba6XRPMQGX7v',
-    placeholder: 'Leave something interesting......',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: true,
-    lang: '' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : false,
+      appId      : 'O9n8UnYXJ5M4s4QEumwRCwH9-gzGzoHsz',
+      appKey     : 'qdSjFo9LUO20Ba6XRPMQGX7v',
+      placeholder: "Leave something interesting......",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
 </script>
 
 </body>

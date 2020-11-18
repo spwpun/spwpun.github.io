@@ -1,110 +1,73 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
   <link rel="manifest" href="/images/manifest.json">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+<link rel="stylesheet" href="/css/main.css">
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Times New Roman:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.4.1',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":true,"show_result":true,"style":"mac"},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: 'Copy',
-      copy_success: 'Copied',
-      copy_failure: 'Copy failed'
-    },
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"spwpun.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
-  <meta name="description" content="BambooFox-“Move or not”详解1.前言主要想讲讲通过这道题学到的东西，看完这篇文章，你可以：">
-<meta name="keywords" content="BambooFox CTF">
+  <meta name="description" content="BambooFox-“Move or not”详解1.前言主要想讲讲通过这道题学到的东西，看完这篇文章，你可以：  一般逆向题的静态分析技术； Windows上IDA结合Linux虚拟机远程动态调试技术； Linux上初级expect编程技术 ltrace动态调试技术（更适合这道题）  题目描述：  2.静态分析题目给了一个文件pro,使用file命令查看文件格式： 123spwpun@ubunt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BambooFox-Move or not详解">
-<meta property="og:url" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/index.html">
+<meta property="og:url" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/index.html">
 <meta property="og:site_name" content="Spwpun&#39;s Blog">
-<meta property="og:description" content="BambooFox-“Move or not”详解1.前言主要想讲讲通过这道题学到的东西，看完这篇文章，你可以：">
-<meta property="og:locale" content="en">
-<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102145536953.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102153118458.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102160016312.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102160212026.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102161021326.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102161415095.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102161638027.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102161904643.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102162357326.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102162509413.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102162544765.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102162815144.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102164719204.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102170301204.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102172808761.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102172944597.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102181832258.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102182217223.png">
-<meta property="og:updated_time" content="2020-11-09T10:37:40.259Z">
+<meta property="og:description" content="BambooFox-“Move or not”详解1.前言主要想讲讲通过这道题学到的东西，看完这篇文章，你可以：  一般逆向题的静态分析技术； Windows上IDA结合Linux虚拟机远程动态调试技术； Linux上初级expect编程技术 ltrace动态调试技术（更适合这道题）  题目描述：  2.静态分析题目给了一个文件pro,使用file命令查看文件格式： 123spwpun@ubunt">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102145536953.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102153118458.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102160016312.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102160212026.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102161021326.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102161415095.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102161638027.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102161904643.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102162357326.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102162509413.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102162544765.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102162815144.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102164719204.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102170301204.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102172808761.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102172944597.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102181832258.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102182217223.png">
+<meta property="article:published_time" content="2020-01-02T12:16:30.000Z">
+<meta property="article:modified_time" content="2020-11-09T10:37:40.259Z">
+<meta property="article:author" content="Demen Lee">
+<meta property="article:tag" content="BambooFox CTF">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BambooFox-Move or not详解">
-<meta name="twitter:description" content="BambooFox-“Move or not”详解1.前言主要想讲讲通过这道题学到的东西，看完这篇文章，你可以：">
-<meta name="twitter:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102145536953.png">
-  <link rel="canonical" href="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/">
+<meta name="twitter:image" content="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102145536953.png">
+
+<link rel="canonical" href="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
   };
 </script>
 
   <title>BambooFox-Move or not详解 | Spwpun's Blog</title>
   
-
-
 
 
 
@@ -123,7 +86,6 @@
   .use-motion .post-body,
   .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -141,19 +103,8 @@
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Spwpun's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
@@ -161,97 +112,86 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Spwpun's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-      
-      
-      
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-      
-    
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-about">
-      
-    
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-tags">
-      
-    
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-categories">
-      
-    
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-archives">
-      
-    
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
       <li class="menu-item menu-item-search">
-        <a href="javascript:;" class="popup-trigger">
-        
-          <i class="fa fa-search fa-fw"></i>Search</a>
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
       </li>
-    
   </ul>
-
 </nav>
-  <div class="site-search">
+
+
+
+  <div class="search-pop-overlay">
     <div class="popup search-popup">
-    <div class="search-header">
+        <div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+    <input autocomplete="off" autocapitalize="off"
            placeholder="Searching..." spellcheck="false"
-           type="text" id="search-input">
+           type="search" class="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
   </div>
+</div>
+
+    </div>
+  </div>
+
 </div>
     </header>
 
@@ -264,96 +204,86 @@
   <a href="https://github.com/spwpun" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
             
 
-          <div id="content" class="content">
-            
-
-  <div class="posts-expand">
-      
+    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">BambooFox-Move or not详解
-
-          
+        <h1 class="post-title" itemprop="name headline">
+          BambooFox-Move or not详解
         </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2020-01-02 20:16:30" itemprop="dateCreated datePublished" datetime="2020-01-02T20:16:30+08:00">2020-01-02</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2020-11-09 18:37:40" itemprop="dateModified" datetime="2020-11-09T18:37:40+08:00">2020-11-09</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Writeups/" itemprop="url" rel="index"><span itemprop="name">Writeups</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Writeups/" itemprop="url" rel="index"><span itemprop="name">Writeups</span></a>
+                </span>
             </span>
-          
 
           
-            <span id="/2020/01/02/BambooFox-Move-or-not详解/" class="post-meta-item leancloud_visitors" data-flag-title="BambooFox-Move or not详解" title="Views">
+            <span id="/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/" class="post-meta-item leancloud_visitors" data-flag-title="BambooFox-Move or not详解" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2020/01/02/BambooFox-Move-or-not详解/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/01/02/BambooFox-Move-or-not详解/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -367,7 +297,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="BambooFox-“Move-or-not”详解"><a href="#BambooFox-“Move-or-not”详解" class="headerlink" title="BambooFox-“Move or not”详解"></a>BambooFox-“Move or not”详解</h3><h4 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h4><p>主要想讲讲通过这道题学到的东西，看完这篇文章，你可以：</p><a id="more"></a>
+        <h3 id="BambooFox-“Move-or-not”详解"><a href="#BambooFox-“Move-or-not”详解" class="headerlink" title="BambooFox-“Move or not”详解"></a>BambooFox-“Move or not”详解</h3><h4 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h4><p>主要想讲讲通过这道题学到的东西，看完这篇文章，你可以：</p>
 <ul>
 <li>一般逆向题的静态分析技术；</li>
 <li>Windows上IDA结合Linux虚拟机远程动态调试技术；</li>
@@ -375,15 +305,15 @@
 <li><code>ltrace</code>动态调试技术（更适合这道题）</li>
 </ul>
 <p>题目描述：</p>
-<p><img src="//spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102145536953.png" alt="des"></p>
+<p><img src="/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102145536953.png" alt="des"></p>
 <h4 id="2-静态分析"><a href="#2-静态分析" class="headerlink" title="2.静态分析"></a>2.静态分析</h4><p>题目给了一个文件<code>pro</code>,使用<code>file</code>命令查看文件格式：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spwpun@ubuntu:~/Documents/20200102$ file pro</span><br><span class="line">pro: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/l, <span class="keyword">for</span> GNU/Linux 3.2.0, BuildID[sha1]=7bfce31b622a4e5bd9db43154888a3e1891ccac9, stripped</span><br><span class="line">spwpun@ubuntu:~/Documents/20200102$</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spwpun@ubuntu:~/Documents/20200102$ file pro</span><br><span class="line">pro: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/l, <span class="keyword">for</span> GNU/Linux 3.2.0, BuildID[sha1]=7bfce31b622a4e5bd9db43154888a3e1891ccac9, stripped</span><br><span class="line">spwpun@ubuntu:~/Documents/20200102$ </span><br></pre></td></tr></table></figure>
 
 <p>是一个ELF64位文件，在Linux虚拟机下执行该文件，首先需要输入password，随便输入之后验证错误就结束了：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">spwpun@ubuntu:~/Documents/20200102$ ./pro</span><br><span class="line">First give me your password: 2312</span><br><span class="line">You don<span class="string">'t know static analysis !</span></span><br><span class="line"><span class="string">spwpun@ubuntu:~/Documents/20200102$</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">spwpun@ubuntu:~/Documents/20200102$ ./pro</span><br><span class="line">First give me your password: 2312</span><br><span class="line">You don<span class="string">&#x27;t know static analysis !</span></span><br><span class="line"><span class="string">spwpun@ubuntu:~/Documents/20200102$ </span></span><br></pre></td></tr></table></figure>
 
 <p>提示需要静态分析，使用IDA64位打开，程序没有混淆，在反编译后的main函数中很容易就能看清楚程序的逻辑：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">__int64 __<span class="function">fastcall <span class="title">main</span><span class="params">(__int64 a1, <span class="keyword">char</span> **a2, <span class="keyword">char</span> **a3)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> v4; <span class="comment">// [rsp+8h] [rbp-38h]</span></span><br><span class="line">  <span class="keyword">int</span> i; <span class="comment">// [rsp+Ch] [rbp-34h]</span></span><br><span class="line">  <span class="keyword">char</span> s2; <span class="comment">// [rsp+10h] [rbp-30h]</span></span><br><span class="line">  <span class="keyword">unsigned</span> __int64 v7; <span class="comment">// [rsp+38h] [rbp-8h]</span></span><br><span class="line"></span><br><span class="line">  v7 = __readfsqword(<span class="number">0x28</span>u);</span><br><span class="line">  i = <span class="number">0</span>;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"First give me your password: "</span>, a2, a3);</span><br><span class="line">  __isoc99_scanf(<span class="string">"%d"</span>, &amp;v4);</span><br><span class="line">  <span class="keyword">if</span> ( v4 != <span class="number">98416</span> )</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"You don't know static analysis !"</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"Second give me your key: "</span>);</span><br><span class="line">  __isoc99_scanf(<span class="string">"%d"</span>, &amp;v4);</span><br><span class="line">  v4 -= <span class="number">49</span>;</span><br><span class="line">  <span class="keyword">for</span> ( i = <span class="number">0</span>; i &lt;= <span class="number">11</span>; ++i )</span><br><span class="line">    *((_BYTE *)&amp;loc_201020 + i) += v4;</span><br><span class="line">  ((<span class="keyword">void</span> (__fastcall *)(<span class="keyword">char</span> *))loc_201020)(s1);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"Then Verify your flag: "</span>);</span><br><span class="line">  __isoc99_scanf(<span class="string">"%s"</span>, &amp;s2);</span><br><span class="line">  <span class="keyword">if</span> ( !<span class="built_in">strcmp</span>(s1, &amp;s2) )</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"You are right. Congratulations !!"</span>);</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"You don't know dynamic analysis !"</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0L</span>L;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">__int64 __fastcall <span class="title">main</span><span class="params">(__int64 a1, <span class="keyword">char</span> **a2, <span class="keyword">char</span> **a3)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> v4; <span class="comment">// [rsp+8h] [rbp-38h]</span></span><br><span class="line">  <span class="keyword">int</span> i; <span class="comment">// [rsp+Ch] [rbp-34h]</span></span><br><span class="line">  <span class="keyword">char</span> s2; <span class="comment">// [rsp+10h] [rbp-30h]</span></span><br><span class="line">  <span class="keyword">unsigned</span> __int64 v7; <span class="comment">// [rsp+38h] [rbp-8h]</span></span><br><span class="line"></span><br><span class="line">  v7 = __readfsqword(<span class="number">0x28</span>u);</span><br><span class="line">  i = <span class="number">0</span>;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;First give me your password: &quot;</span>, a2, a3);</span><br><span class="line">  __isoc99_scanf(<span class="string">&quot;%d&quot;</span>, &amp;v4);</span><br><span class="line">  <span class="keyword">if</span> ( v4 != <span class="number">98416</span> )</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;You don&#x27;t know static analysis !&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Second give me your key: &quot;</span>);</span><br><span class="line">  __isoc99_scanf(<span class="string">&quot;%d&quot;</span>, &amp;v4);</span><br><span class="line">  v4 -= <span class="number">49</span>;</span><br><span class="line">  <span class="keyword">for</span> ( i = <span class="number">0</span>; i &lt;= <span class="number">11</span>; ++i )</span><br><span class="line">    *((_BYTE *)&amp;loc_201020 + i) += v4;</span><br><span class="line">  ((<span class="keyword">void</span> (__fastcall *)(<span class="keyword">char</span> *))loc_201020)(s1);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Then Verify your flag: &quot;</span>);</span><br><span class="line">  __isoc99_scanf(<span class="string">&quot;%s&quot;</span>, &amp;s2);</span><br><span class="line">  <span class="keyword">if</span> ( !<span class="built_in">strcmp</span>(s1, &amp;s2) )</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;You are right. Congratulations !!&quot;</span>);</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;You don&#x27;t know dynamic analysis !&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0L</span>L;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>总的来说，程序的逻辑如下：</p>
 <ol>
@@ -397,42 +327,42 @@
 </ol>
 <p>从上面的反编译伪代码中可以很容易知道password的值为<code>98416</code>,  但是<code>key</code>的值却不知道。貌似<code>key</code>是为了解码出正确的函数，然后利用该函数再解码真正的flag：<code>s1</code>，下面我使用动态调试来验证一下。</p>
 <h4 id="3-动态调试"><a href="#3-动态调试" class="headerlink" title="3.动态调试"></a>3.动态调试</h4><h5 id="gdb"><a href="#gdb" class="headerlink" title="gdb"></a>gdb</h5><p>首先在IDA中查看<code>main</code>函数的地址，下图中为<code>0x00000000000007FA</code>：</p>
-<p><img src="//spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102153118458.png" alt="image-20200102153118458"></p>
+<p><img src="/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102153118458.png" alt="image-20200102153118458"></p>
 <p>看上去这个地址是有点奇怪，暂时不管，先用gdb试试。</p>
 <p>使用gdb启动该程序，设置断点，然后执行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">spwpun@ubuntu:~/Documents/20200102$ gdb ./pro</span><br><span class="line">GNU gdb (Ubuntu 8.1-0ubuntu3) 8.1.0.20180409-git</span><br><span class="line">Copyright (C) 2018 Free Software Foundation, Inc.</span><br><span class="line">License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;</span><br><span class="line">This is free software: you are free to change and redistribute it.</span><br><span class="line">There is NO WARRANTY, to the extent permitted by law.  Type <span class="string">"show copying"</span></span><br><span class="line">and <span class="string">"show warranty"</span> <span class="keyword">for</span> details.</span><br><span class="line">This GDB was configured as <span class="string">"x86_64-linux-gnu"</span>.</span><br><span class="line">Type <span class="string">"show configuration"</span> <span class="keyword">for</span> configuration details.</span><br><span class="line">For bug reporting instructions, please see:</span><br><span class="line">&lt;http://www.gnu.org/software/gdb/bugs/&gt;.</span><br><span class="line">Find the GDB manual and other documentation resources online at:</span><br><span class="line">&lt;http://www.gnu.org/software/gdb/documentation/&gt;.</span><br><span class="line">For <span class="built_in">help</span>, <span class="built_in">type</span> <span class="string">"help"</span>.</span><br><span class="line">Type <span class="string">"apropos word"</span> to search <span class="keyword">for</span> commands related to <span class="string">"word"</span>...</span><br><span class="line">Reading symbols from ./pro...(no debugging symbols found)...<span class="keyword">done</span>.</span><br><span class="line">gdb-peda$ b *0x7fa</span><br><span class="line">Breakpoint 1 at 0x7fa</span><br><span class="line">gdb-peda$ r</span><br><span class="line">Starting program: /home/spwpun/Documents/20200102/pro </span><br><span class="line">Warning:</span><br><span class="line">Cannot insert breakpoint 1.</span><br><span class="line">Cannot access memory at address 0x7fa</span><br><span class="line"></span><br><span class="line">gdb-peda$</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">spwpun@ubuntu:~/Documents/20200102$ gdb ./pro</span><br><span class="line">GNU gdb (Ubuntu 8.1-0ubuntu3) 8.1.0.20180409-git</span><br><span class="line">Copyright (C) 2018 Free Software Foundation, Inc.</span><br><span class="line">License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;</span><br><span class="line">This is free software: you are free to change and redistribute it.</span><br><span class="line">There is NO WARRANTY, to the extent permitted by law.  Type <span class="string">&quot;show copying&quot;</span></span><br><span class="line">and <span class="string">&quot;show warranty&quot;</span> <span class="keyword">for</span> details.</span><br><span class="line">This GDB was configured as <span class="string">&quot;x86_64-linux-gnu&quot;</span>.</span><br><span class="line">Type <span class="string">&quot;show configuration&quot;</span> <span class="keyword">for</span> configuration details.</span><br><span class="line">For bug reporting instructions, please see:</span><br><span class="line">&lt;http://www.gnu.org/software/gdb/bugs/&gt;.</span><br><span class="line">Find the GDB manual and other documentation resources online at:</span><br><span class="line">&lt;http://www.gnu.org/software/gdb/documentation/&gt;.</span><br><span class="line">For <span class="built_in">help</span>, <span class="built_in">type</span> <span class="string">&quot;help&quot;</span>.</span><br><span class="line">Type <span class="string">&quot;apropos word&quot;</span> to search <span class="keyword">for</span> commands related to <span class="string">&quot;word&quot;</span>...</span><br><span class="line">Reading symbols from ./pro...(no debugging symbols found)...<span class="keyword">done</span>.</span><br><span class="line">gdb-peda$ b *0x7fa</span><br><span class="line">Breakpoint 1 at 0x7fa</span><br><span class="line">gdb-peda$ r</span><br><span class="line">Starting program: /home/spwpun/Documents/20200102/pro </span><br><span class="line">Warning:</span><br><span class="line">Cannot insert breakpoint 1.</span><br><span class="line">Cannot access memory at address 0x7fa</span><br><span class="line"></span><br><span class="line">gdb-peda$ </span><br></pre></td></tr></table></figure>
 
 <p>上面的代码中提示不能设置断点，因为内存地址不可用。原来是地址随机化保护，以为是逆向题就没在意这个，使用<code>checksec</code>命令查看：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">gdb-peda$ checksec pro</span><br><span class="line">CANARY    : ENABLED</span><br><span class="line">FORTIFY   : disabled</span><br><span class="line">NX        : disabled</span><br><span class="line">PIE       : ENABLED</span><br><span class="line">RELRO     : FULL</span><br><span class="line">gdb-peda$</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">gdb-peda$ checksec pro</span><br><span class="line">CANARY    : ENABLED</span><br><span class="line">FORTIFY   : disabled</span><br><span class="line">NX        : disabled</span><br><span class="line">PIE       : ENABLED</span><br><span class="line">RELRO     : FULL</span><br><span class="line">gdb-peda$ </span><br></pre></td></tr></table></figure>
 
 <p>果然开启了PIE。不设断点，直接执行，输入password和key之后，程序会报段错误：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">gdb-peda$ r</span><br><span class="line">Starting program: /home/spwpun/Documents/20200102/pro </span><br><span class="line">First give me your password: 98416</span><br><span class="line">Second give me your key: 31</span><br><span class="line"></span><br><span class="line">Program received signal SIGSEGV, Segmentation fault.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[----------------------------------registers-----------------------------------]</span><br><span class="line">RAX: 0x0 </span><br><span class="line">RBX: 0x0 </span><br><span class="line">RCX: 0x70 (<span class="string">'p'</span>)</span><br><span class="line">RDX: 0x555555755020 --&gt; 0x6deeb47035141c6d </span><br><span class="line">RSI: 0x1 </span><br><span class="line">RDI: 0x555555755100 (<span class="string">"iAxU.|&amp;30\f) (Heh2G:bdyRF;\nOYn=l%"</span>)</span><br><span class="line">RBP: 0x7fffffffdd50 --&gt; 0x555555554960 (push   r15)</span><br><span class="line">RSP: 0x7fffffffdd08 --&gt; 0x5555555548e2 (lea    rdi,[rip+0x162]        <span class="comment"># 0x555555554a4b)</span></span><br><span class="line">RIP: 0x555555755020 --&gt; 0x6deeb47035141c6d </span><br><span class="line">R8 : 0x0 </span><br><span class="line">R9 : 0x0 </span><br><span class="line">R10: 0x7ffff7b82cc0 --&gt; 0x2000200020002 </span><br><span class="line">R11: 0x555555554a08 --&gt; 0x0 </span><br><span class="line">R12: 0x5555555546f0 (xor    ebp,ebp)</span><br><span class="line">R13: 0x7fffffffde30 --&gt; 0x1 </span><br><span class="line">R14: 0x0 </span><br><span class="line">R15: 0x0</span><br><span class="line">EFLAGS: 0x10202 (carry parity adjust zero sign <span class="built_in">trap</span> INTERRUPT direction overflow)</span><br><span class="line">[-------------------------------------code-------------------------------------]</span><br><span class="line">   0x55555575501a:	add    BYTE PTR [rax],al</span><br><span class="line">   0x55555575501c:	add    BYTE PTR [rax],al</span><br><span class="line">   0x55555575501e:	add    BYTE PTR [rax],al</span><br><span class="line">=&gt; 0x555555755020:	ins    DWORD PTR es:[rdi],dx</span><br><span class="line">   0x555555755021:	sbb    al,0x14</span><br><span class="line">   0x555555755023:	xor    eax,0x6deeb470</span><br><span class="line">   0x555555755028:	hlt    </span><br><span class="line">   0x555555755029:	or     eax,0x1c77035</span><br><span class="line">[------------------------------------stack-------------------------------------]</span><br><span class="line">0000| 0x7fffffffdd08 --&gt; 0x5555555548e2 (lea    rdi,[rip+0x162]        <span class="comment"># 0x555555554a4b)</span></span><br><span class="line">0008| 0x7fffffffdd10 --&gt; 0x1 </span><br><span class="line">0016| 0x7fffffffdd18 --&gt; 0xcffffffee </span><br><span class="line">0024| 0x7fffffffdd20 --&gt; 0x7ffff7de59a0 (&lt;_dl_fini&gt;:	push   rbp)</span><br><span class="line">0032| 0x7fffffffdd28 --&gt; 0x0 </span><br><span class="line">0040| 0x7fffffffdd30 --&gt; 0x555555554960 (push   r15)</span><br><span class="line">0048| 0x7fffffffdd38 --&gt; 0x5555555546f0 (xor    ebp,ebp)</span><br><span class="line">0056| 0x7fffffffdd40 --&gt; 0x7fffffffde30 --&gt; 0x1 </span><br><span class="line">[------------------------------------------------------------------------------]</span><br><span class="line">Legend: code, data, rodata, value</span><br><span class="line">Stopped reason: SIGSEGV</span><br><span class="line">0x0000555555755020 <span class="keyword">in</span> ?? ()</span><br><span class="line">gdb-peda$</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">gdb-peda$ r</span><br><span class="line">Starting program: /home/spwpun/Documents/20200102/pro </span><br><span class="line">First give me your password: 98416</span><br><span class="line">Second give me your key: 31</span><br><span class="line"></span><br><span class="line">Program received signal SIGSEGV, Segmentation fault.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[----------------------------------registers-----------------------------------]</span><br><span class="line">RAX: 0x0 </span><br><span class="line">RBX: 0x0 </span><br><span class="line">RCX: 0x70 (<span class="string">&#x27;p&#x27;</span>)</span><br><span class="line">RDX: 0x555555755020 --&gt; 0x6deeb47035141c6d </span><br><span class="line">RSI: 0x1 </span><br><span class="line">RDI: 0x555555755100 (<span class="string">&quot;iAxU.|&amp;30\f) (Heh2G:bdyRF;\nOYn=l%&quot;</span>)</span><br><span class="line">RBP: 0x7fffffffdd50 --&gt; 0x555555554960 (push   r15)</span><br><span class="line">RSP: 0x7fffffffdd08 --&gt; 0x5555555548e2 (lea    rdi,[rip+0x162]        <span class="comment"># 0x555555554a4b)</span></span><br><span class="line">RIP: 0x555555755020 --&gt; 0x6deeb47035141c6d </span><br><span class="line">R8 : 0x0 </span><br><span class="line">R9 : 0x0 </span><br><span class="line">R10: 0x7ffff7b82cc0 --&gt; 0x2000200020002 </span><br><span class="line">R11: 0x555555554a08 --&gt; 0x0 </span><br><span class="line">R12: 0x5555555546f0 (xor    ebp,ebp)</span><br><span class="line">R13: 0x7fffffffde30 --&gt; 0x1 </span><br><span class="line">R14: 0x0 </span><br><span class="line">R15: 0x0</span><br><span class="line">EFLAGS: 0x10202 (carry parity adjust zero sign <span class="built_in">trap</span> INTERRUPT direction overflow)</span><br><span class="line">[-------------------------------------code-------------------------------------]</span><br><span class="line">   0x55555575501a:	add    BYTE PTR [rax],al</span><br><span class="line">   0x55555575501c:	add    BYTE PTR [rax],al</span><br><span class="line">   0x55555575501e:	add    BYTE PTR [rax],al</span><br><span class="line">=&gt; 0x555555755020:	ins    DWORD PTR es:[rdi],dx</span><br><span class="line">   0x555555755021:	sbb    al,0x14</span><br><span class="line">   0x555555755023:	xor    eax,0x6deeb470</span><br><span class="line">   0x555555755028:	hlt    </span><br><span class="line">   0x555555755029:	or     eax,0x1c77035</span><br><span class="line">[------------------------------------stack-------------------------------------]</span><br><span class="line">0000| 0x7fffffffdd08 --&gt; 0x5555555548e2 (lea    rdi,[rip+0x162]        <span class="comment"># 0x555555554a4b)</span></span><br><span class="line">0008| 0x7fffffffdd10 --&gt; 0x1 </span><br><span class="line">0016| 0x7fffffffdd18 --&gt; 0xcffffffee </span><br><span class="line">0024| 0x7fffffffdd20 --&gt; 0x7ffff7de59a0 (&lt;_dl_fini&gt;:	push   rbp)</span><br><span class="line">0032| 0x7fffffffdd28 --&gt; 0x0 </span><br><span class="line">0040| 0x7fffffffdd30 --&gt; 0x555555554960 (push   r15)</span><br><span class="line">0048| 0x7fffffffdd38 --&gt; 0x5555555546f0 (xor    ebp,ebp)</span><br><span class="line">0056| 0x7fffffffdd40 --&gt; 0x7fffffffde30 --&gt; 0x1 </span><br><span class="line">[------------------------------------------------------------------------------]</span><br><span class="line">Legend: code, data, rodata, value</span><br><span class="line">Stopped reason: SIGSEGV</span><br><span class="line">0x0000555555755020 <span class="keyword">in</span> ?? ()</span><br><span class="line">gdb-peda$ </span><br></pre></td></tr></table></figure>
 
 <p>且根据gdb的<code>gdb-peda</code>插件，可以看到，执行的地址(<code>0x0000555555755020</code>)确实和IDA中显示的不一样，不过有一个地方需要注意，地址的后3位数是一样的。</p>
 <p>gdb我现在用得还不是太熟，还是习惯OD之类的图形化调试工具，知道IDA有一个功能可以远程调试Linux上的程序，之前也没试过，就趁这次学习记录一下吧。</p>
 <h5 id="IDA远程调试Linux程序"><a href="#IDA远程调试Linux程序" class="headerlink" title="IDA远程调试Linux程序"></a>IDA远程调试Linux程序</h5><p>首先将Windows上IDA安装目录下的调试程序复制到虚拟机中：</p>
-<p><img src="//spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102160016312.png" alt="image-20200102160016312"></p>
-<p><img src="//spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102160212026.png" alt="image-20200102160212026"></p>
+<p><img src="/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102160016312.png" alt="image-20200102160016312"></p>
+<p><img src="/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102160212026.png" alt="image-20200102160212026"></p>
 <p>查看Linux虚拟机的IP，并运行该程序：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">spwpun@ubuntu:~/Documents/20200102$ ifconfig</span><br><span class="line">ens33: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 192.168.119.132  netmask 255.255.255.0  broadcast 192.168.119.255</span><br><span class="line">        inet6 fe80::9d14:35b9:dc2a:66c6  prefixlen 64  scopeid 0x20&lt;link&gt;</span><br><span class="line">        ether 00:0c:29:fe:9a:13  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 49088  bytes 61213168 (61.2 MB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 13714  bytes 1047395 (1.0 MB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line">lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536</span><br><span class="line">        inet 127.0.0.1  netmask 255.0.0.0</span><br><span class="line">        inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;</span><br><span class="line">        loop  txqueuelen 1000  (Local Loopback)</span><br><span class="line">        RX packets 678  bytes 60507 (60.5 KB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 678  bytes 60507 (60.5 KB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">spwpun@ubuntu:~/Documents/20200102$ ./linux_server64 </span><br><span class="line">IDA Linux 64-bit remote debug server(ST) v1.22. Hex-Rays (c) 2004-2017</span><br><span class="line">Listening on 0.0.0.0:23946...</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">spwpun@ubuntu:~/Documents/20200102$ ifconfig</span><br><span class="line">ens33: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 192.168.119.132  netmask 255.255.255.0  broadcast 192.168.119.255</span><br><span class="line">        inet6 fe80::9d14:35b9:dc2a:66c6  prefixlen 64  scopeid 0x20&lt;link&gt;</span><br><span class="line">        ether 00:0c:29:fe:9a:13  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 49088  bytes 61213168 (61.2 MB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 13714  bytes 1047395 (1.0 MB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line">lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536</span><br><span class="line">        inet 127.0.0.1  netmask 255.0.0.0</span><br><span class="line">        inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;</span><br><span class="line">        loop  txqueuelen 1000  (Local Loopback)</span><br><span class="line">        RX packets 678  bytes 60507 (60.5 KB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 678  bytes 60507 (60.5 KB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">spwpun@ubuntu:~/Documents/20200102$ ./linux_server64 </span><br><span class="line">IDA Linux 64-bit remote debug server(ST) v1.22. Hex-Rays (c) 2004-2017</span><br><span class="line">Listening on 0.0.0.0:23946...</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>然后到IDA中设置调试器信息，Debugger&gt;Select debugger&gt;Remote Linux Debugger:</p>
-<p><img src="//spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102161021326.png" alt="image-20200102161021326"></p>
+<p><img src="/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102161021326.png" alt="image-20200102161021326"></p>
 <p>确定之后，再设置进程信息，Debugger&gt;Process options:</p>
-<p><img src="//spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102161415095.png" alt="image-20200102161415095"></p>
+<p><img src="/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102161415095.png" alt="image-20200102161415095"></p>
 <p>文件路径要设置为Linux上的路径，IP为虚拟机的IP，端口就用默认的就行。</p>
 <p>确定之后，点击上方的绿色三角按钮或者按下<code>F9</code>启动调试：</p>
-<p><img src="//spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102161638027.png" alt="image-20200102161638027"></p>
+<p><img src="/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102161638027.png" alt="image-20200102161638027"></p>
 <p>弹出下面的警告，大意就是小心代码执行所带来的的危害，确定就行，不是恶意软件：</p>
-<p><img src="//spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102161904643.png" alt="image-20200102161904643"></p>
+<p><img src="/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102161904643.png" alt="image-20200102161904643"></p>
 <p>由于我没有设置任何断点，所以程序还是没能按照我想的情况走下去，在Linux上提示输入Password了，但是IDA中的寄存器却什么信息也没有：</p>
-<p><img src="//spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102162357326.png" alt="image-20200102162357326"></p>
+<p><img src="/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102162357326.png" alt="image-20200102162357326"></p>
 <p>这时结束掉进程，在<code>main</code>函数设置断点：</p>
-<p><img src="//spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102162509413.png" alt="image-20200102162509413"></p>
-<p><img src="//spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102162544765.png" alt="image-20200102162544765"></p>
+<p><img src="/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102162509413.png" alt="image-20200102162509413"></p>
+<p><img src="/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102162544765.png" alt="image-20200102162544765"></p>
 <p>这时我们也可以看到，指令前面的地址是真实的内存地址了。</p>
 <p>继续执行，程序断在了刚才的地方：</p>
-<p><img src="//spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102162815144.png" alt="image-20200102162815144"></p>
+<p><img src="/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102162815144.png" alt="image-20200102162815144"></p>
 <p>先来简单看一下调试界面，左上方是汇编代码的窗口，左下方是内存区域的数据显示，右上方是三个小窗口（寄存器、已加载模块、线程），右下方是堆栈窗口。基本布局和OD中的一样，习惯了OD，这样看起来特别舒服。</p>
 <p>基本的调试快捷键如下：</p>
 <ul>
@@ -443,12 +373,12 @@
 <li>F2：设置断点</li>
 </ul>
 <p>回到刚才说的，要验证Key对loc_201020区域的作用，在这里这片区域的地址和刚才是是不一样的，来看一下反编译的伪码：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"Second give me your key: "</span>, &amp;v4);</span><br><span class="line">__isoc99_scanf(<span class="string">"%d"</span>, &amp;v4);</span><br><span class="line">v4 -= <span class="number">49</span>;</span><br><span class="line"><span class="keyword">for</span> ( i = <span class="number">0</span>; i &lt;= <span class="number">11</span>; ++i )</span><br><span class="line">    *((_BYTE *)&amp;loc_56290DD48020 + i) += v4;</span><br><span class="line">((<span class="keyword">void</span> (__fastcall *)(<span class="keyword">char</span> *, <span class="keyword">int</span> *))loc_56290DD48020)(s1, &amp;v4);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"Then Verify your flag: "</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;Second give me your key: &quot;</span>, &amp;v4);</span><br><span class="line">__isoc99_scanf(<span class="string">&quot;%d&quot;</span>, &amp;v4);</span><br><span class="line">v4 -= <span class="number">49</span>;</span><br><span class="line"><span class="keyword">for</span> ( i = <span class="number">0</span>; i &lt;= <span class="number">11</span>; ++i )</span><br><span class="line">    *((_BYTE *)&amp;loc_56290DD48020 + i) += v4;</span><br><span class="line">((<span class="keyword">void</span> (__fastcall *)(<span class="keyword">char</span> *, <span class="keyword">int</span> *))loc_56290DD48020)(s1, &amp;v4);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;Then Verify your flag: &quot;</span>);</span><br></pre></td></tr></table></figure>
 
 <p>在“输入Key之后调用<code>scanf</code>函数”处设置断点：</p>
-<p><img src="//spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102164719204.png" alt="image-20200102164719204"></p>
+<p><img src="/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102164719204.png" alt="image-20200102164719204"></p>
 <p>然后执行，转到Linux上输入password之后，断在了此处：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">spwpun@ubuntu:~/Documents/20200102$ ./linux_server64 </span><br><span class="line">IDA Linux 64-bit remote debug server(ST) v1.22. Hex-Rays (c) 2004-2017</span><br><span class="line">Listening on 0.0.0.0:23946...</span><br><span class="line">=========================================================</span><br><span class="line">[1] Accepting connection from 192.168.119.1...</span><br><span class="line">First give me your password: 98416</span><br><span class="line">Second give me your key: [1] Closing connection from 192.168.119.1...</span><br><span class="line">=========================================================</span><br><span class="line">[2] Accepting connection from 192.168.119.1...</span><br><span class="line">First give me your password: 98416</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">spwpun@ubuntu:~/Documents/20200102$ ./linux_server64 </span><br><span class="line">IDA Linux 64-bit remote debug server(ST) v1.22. Hex-Rays (c) 2004-2017</span><br><span class="line">Listening on 0.0.0.0:23946...</span><br><span class="line">=========================================================</span><br><span class="line">[1] Accepting connection from 192.168.119.1...</span><br><span class="line">First give me your password: 98416</span><br><span class="line">Second give me your key: [1] Closing connection from 192.168.119.1...</span><br><span class="line">=========================================================</span><br><span class="line">[2] Accepting connection from 192.168.119.1...</span><br><span class="line">First give me your password: 98416</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>仔细分析：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.text:000056290DB47872 lea     rax, [rbp+var_38]</span><br><span class="line">.text:000056290DB47876 mov     rsi, rax		   ;传参&amp;var_38，var_38就是伪码中的v4</span><br><span class="line">.text:000056290DB47879 lea     rdi, aD         ; &quot;%d&quot;</span><br><span class="line">.text:000056290DB47880 mov     eax, 0</span><br><span class="line">.text:000056290DB47885 call    ___isoc99_scanf</span><br><span class="line">.text:000056290DB4788A mov     eax, [rbp+var_38] ;将获取到的key赋值给eax</span><br><span class="line">.text:000056290DB4788D sub     eax, 49			 ;然后再减去49</span><br><span class="line">.text:000056290DB47890 mov     [rbp+var_38], eax ;再重新赋值给var_38</span><br></pre></td></tr></table></figure>
@@ -457,7 +387,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">=========================================================</span><br><span class="line">[2] Accepting connection from 192.168.119.1...</span><br><span class="line">First give me your password: 98416</span><br><span class="line">Second give me your key: 78</span><br></pre></td></tr></table></figure>
 
 <p>返回IDA，随后进入修改数据的<code>for</code>循环：</p>
-<p><img src="//spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102170301204.png" alt="image-20200102170301204"></p>
+<p><img src="/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102170301204.png" alt="image-20200102170301204"></p>
 <p>详细分析一下循环中的汇编代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.text:000056290DB4789C loc_56290DB4789C:</span><br><span class="line">.text:000056290DB4789C mov     eax, [rbp+var_34]      ;var_34在循环开始前设置为0，是索引</span><br><span class="line">.text:000056290DB4789F movsxd  rdx, eax</span><br><span class="line">.text:000056290DB478A2 lea     rax, loc_56290DD48020  ;需要修改的数据的基地址</span><br><span class="line">.text:000056290DB478A9 movzx   eax, byte ptr [rdx+rax];根据索引找到的本次循环需要修改的数据data[i]</span><br><span class="line">.text:000056290DB478AD mov     edx, [rbp+var_38]      ;key</span><br><span class="line">.text:000056290DB478B0 lea     ecx, [rax+rdx]         ;相加的结果放到ecx中</span><br><span class="line">.text:000056290DB478B3 mov     eax, [rbp+var_34]      ;索引i</span><br><span class="line">.text:000056290DB478B6 movsxd  rdx, eax        </span><br><span class="line">.text:000056290DB478B9 lea     rax, loc_56290DD48020  ;数据的基地址</span><br><span class="line">.text:000056290DB478C0 mov     [rdx+rax], cl          ;最后存放的数据只存放了CL寄存器中的，也就是只取最低的字节</span><br><span class="line">.text:000056290DB478C3 add     [rbp+var_34], 1        ;i+1</span><br></pre></td></tr></table></figure>
 
@@ -466,25 +396,25 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.text:000056290DB478CD lea     rdx, loc_56290DD48020</span><br><span class="line">.text:000056290DB478D4 lea     rdi, s1         ; &quot;iAxU.|&amp;30&quot;</span><br><span class="line">.text:000056290DB478DB mov     eax, 0</span><br><span class="line">.text:000056290DB478E0 call    rdx ; loc_56290DD48020</span><br><span class="line">.text:000056290DB478E2 lea     rdi, aThenVerifyYour ; &quot;Then Verify your flag: &quot;</span><br><span class="line">.text:000056290DB478E9 mov     eax, 0</span><br><span class="line">.text:000056290DB478EE call    _printf</span><br></pre></td></tr></table></figure>
 
 <p>跟踪进去看了之后，确实是将修改后的数据当做代码来执行：</p>
-<p><img src="//spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102172808761.png" alt="image-20200102172808761"></p>
+<p><img src="/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102172808761.png" alt="image-20200102172808761"></p>
 <p>但是由于key不正确，所以解码出来的汇编代码是会出大问题的，继续执行了几步之后程序就崩溃了：</p>
-<p><img src="//spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102172944597.png" alt="image-20200102172944597"></p>
+<p><img src="/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102172944597.png" alt="image-20200102172944597"></p>
 <p>而根据上面的汇编代码，如果解码之后的代码能够正常执行的话，应该会继续提示让输入flag验证，根据这个思路，我们可以写一段简单的代码来爆破可能的key，这里我用到的是<code>expect</code>。</p>
 <h4 id="4-expect编程"><a href="#4-expect编程" class="headerlink" title="4.expect编程"></a>4.expect编程</h4><p><code>expect</code>是一个用来实现自动化交互功能的软件套件，基于<code>tcl</code>包。安装命令可以使用下面的，这里我已经安装过了：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">spwpun@ubuntu:~/Documents/20200102$ sudo apt install tcl expect</span><br><span class="line">[sudo] password <span class="keyword">for</span> spwpun: </span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree       </span><br><span class="line">Reading state information... Done</span><br><span class="line">expect is already the newest version (5.45.4-1).</span><br><span class="line">tcl is already the newest version (8.6.0+9).</span><br><span class="line">0 upgraded, 0 newly installed, 0 to remove and 130 not upgraded.</span><br><span class="line">spwpun@ubuntu:~/Documents/20200102$</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">spwpun@ubuntu:~/Documents/20200102$ sudo apt install tcl expect</span><br><span class="line">[sudo] password <span class="keyword">for</span> spwpun: </span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree       </span><br><span class="line">Reading state information... Done</span><br><span class="line">expect is already the newest version (5.45.4-1).</span><br><span class="line">tcl is already the newest version (8.6.0+9).</span><br><span class="line">0 upgraded, 0 newly installed, 0 to remove and 130 not upgraded.</span><br><span class="line">spwpun@ubuntu:~/Documents/20200102$ </span><br></pre></td></tr></table></figure>
 
 <p>我的基本思路是运行题目给出的<code>pro</code>程序，使用expect自动填入password和key，通过一个循环控制key的值来测试，如果接收到”Then Verify your flag: “，就说明key解码后的代码是可以正常执行的，最后输出所有的key。代码很简单，简单借鉴一下网上的一些基础脚本就可以写出来：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/expect            </span></span><br><span class="line"><span class="comment"># For bamboofoxctf-Move or not</span></span><br><span class="line"><span class="comment"># filename:crack.sh</span></span><br><span class="line"><span class="built_in">set</span> time 30</span><br><span class="line"><span class="built_in">set</span> keys <span class="string">""</span></span><br><span class="line"><span class="keyword">for</span> &#123;<span class="built_in">set</span> key 0&#125; &#123;<span class="variable">$key</span>&lt;=255&#125; &#123;incr key&#125; &#123;     <span class="comment">#incr在这里是增加1</span></span><br><span class="line">	spawn ./pro								 <span class="comment">#spawn是另起一个子进程</span></span><br><span class="line">	expect <span class="string">"*password: "</span> &#123;send <span class="string">"98416\r"</span>&#125;    <span class="comment">#如果收到子进程的结果为*password: ,则发送98416\r,这里可以使用正则来匹配，发送的数据最后要加一个换行符</span></span><br><span class="line">	expect <span class="string">"*key: "</span> &#123;send <span class="string">"<span class="variable">$key</span>\r"</span>&#125;</span><br><span class="line">	expect <span class="string">"*flag: "</span> &#123;</span><br><span class="line">		send <span class="string">"Test_flag\r"</span></span><br><span class="line">		<span class="built_in">set</span> keys <span class="string">"<span class="variable">$keys</span> <span class="variable">$key</span>"</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">puts <span class="string">"All keys: <span class="variable">$keys</span>\r"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/expect            </span></span><br><span class="line"><span class="comment"># For bamboofoxctf-Move or not</span></span><br><span class="line"><span class="comment"># filename:crack.sh</span></span><br><span class="line"><span class="built_in">set</span> time 30</span><br><span class="line"><span class="built_in">set</span> keys <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> &#123;<span class="built_in">set</span> key 0&#125; &#123;<span class="variable">$key</span>&lt;=255&#125; &#123;incr key&#125; &#123;     <span class="comment">#incr在这里是增加1</span></span><br><span class="line">	spawn ./pro								 <span class="comment">#spawn是另起一个子进程</span></span><br><span class="line">	expect <span class="string">&quot;*password: &quot;</span> &#123;send <span class="string">&quot;98416\r&quot;</span>&#125;    <span class="comment">#如果收到子进程的结果为*password: ,则发送98416\r,这里可以使用正则来匹配，发送的数据最后要加一个换行符</span></span><br><span class="line">	expect <span class="string">&quot;*key: &quot;</span> &#123;send <span class="string">&quot;<span class="variable">$key</span>\r&quot;</span>&#125;</span><br><span class="line">	expect <span class="string">&quot;*flag: &quot;</span> &#123;</span><br><span class="line">		send <span class="string">&quot;Test_flag\r&quot;</span></span><br><span class="line">		<span class="built_in">set</span> keys <span class="string">&quot;<span class="variable">$keys</span> <span class="variable">$key</span>&quot;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">puts <span class="string">&quot;All keys: <span class="variable">$keys</span>\r&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>执行结果：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">spwpun@ubuntu:~/Documents/20200102$ ./crack.sh </span><br><span class="line">spawn ./pro</span><br><span class="line">First give me your password: 98416</span><br><span class="line">Second give me your key: 0</span><br><span class="line">spawn ./pro</span><br><span class="line">......</span><br><span class="line">First give me your password: 98416</span><br><span class="line">Second give me your key: 254</span><br><span class="line">spawn ./pro</span><br><span class="line">First give me your password: 98416</span><br><span class="line">Second give me your key: 255</span><br><span class="line">All keys:  39 43 48 50 114 117 206</span><br><span class="line">spwpun@ubuntu:~/Documents/20200102$</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">spwpun@ubuntu:~/Documents/20200102$ ./crack.sh </span><br><span class="line">spawn ./pro</span><br><span class="line">First give me your password: 98416</span><br><span class="line">Second give me your key: 0</span><br><span class="line">spawn ./pro</span><br><span class="line">......</span><br><span class="line">First give me your password: 98416</span><br><span class="line">Second give me your key: 254</span><br><span class="line">spawn ./pro</span><br><span class="line">First give me your password: 98416</span><br><span class="line">Second give me your key: 255</span><br><span class="line">All keys:  39 43 48 50 114 117 206</span><br><span class="line">spwpun@ubuntu:~/Documents/20200102$ </span><br></pre></td></tr></table></figure>
 
 <p>到此知道了所有可能的key，就可以使用IDA动态调试一波，最后在测试50的时候顺利在比对字符串的时候拿到了flag，其中正确解码后的汇编代码如下：</p>
-<p><img src="//spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102181832258.png" alt="image-20200102181832258"></p>
+<p><img src="/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102181832258.png" alt="image-20200102181832258"></p>
 <p>rdi是传入变量s1的地址，可以看到，依次对s1的数据进行sub操作，得到正确的flag，strcmp函数比较时可以清楚看到正确的flag：</p>
-<p><img src="//spwpun.github.io/2020/01/02/BambooFox-Move-or-not详解/image-20200102182217223.png" alt="image-20200102182217223"></p>
+<p><img src="/2020/01/02/BambooFox-Move-or-not%E8%AF%A6%E8%A7%A3/image-20200102182217223.png" alt="image-20200102182217223"></p>
 <h4 id="5-ltrace动态调试"><a href="#5-ltrace动态调试" class="headerlink" title="5.ltrace动态调试"></a>5.ltrace动态调试</h4><p>ltrace可以跟踪程序执行时库函数的调用（包括参数），所以也会跟踪strcmp函数的调用，在上面得到所有的keys之后，可以使用它来测试，测试的过程如下，很轻松就得到了flag：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">spwpun@ubuntu:~/Documents/20200102$ ltrace ./pro</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"First give me your password: "</span>)          = 29</span><br><span class="line">__isoc99_scanf(0x5563a643ea06, 0x7fffd7e61358, 0, 0First give me your password: 98416</span><br><span class="line">) = 1</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"Second give me your key: "</span>)              = 25</span><br><span class="line">__isoc99_scanf(0x5563a643ea06, 0x7fffd7e61358, 0, 0Second give me your key: 50</span><br><span class="line">) = 1</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"Then Verify your flag: "</span>)                = 23</span><br><span class="line">__isoc99_scanf(0x5563a643ea63, 0x7fffd7e61360, 0, 0Then Verify your flag: aaa</span><br><span class="line">) = 1</span><br><span class="line">strcmp(<span class="string">"BambooFox&#123;dyn4mic_1s_4ls0_gr34t&#125;"</span>..., <span class="string">"aaa"</span>) = -31</span><br><span class="line">puts(<span class="string">"You don't know dynamic analysis "</span>...You don<span class="string">'t know dynamic analysis !</span></span><br><span class="line"><span class="string">)      = 34</span></span><br><span class="line"><span class="string">+++ exited (status 0) +++</span></span><br><span class="line"><span class="string">spwpun@ubuntu:~/Documents/20200102$</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">spwpun@ubuntu:~/Documents/20200102$ ltrace ./pro</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;First give me your password: &quot;</span>)          = 29</span><br><span class="line">__isoc99_scanf(0x5563a643ea06, 0x7fffd7e61358, 0, 0First give me your password: 98416</span><br><span class="line">) = 1</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;Second give me your key: &quot;</span>)              = 25</span><br><span class="line">__isoc99_scanf(0x5563a643ea06, 0x7fffd7e61358, 0, 0Second give me your key: 50</span><br><span class="line">) = 1</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;Then Verify your flag: &quot;</span>)                = 23</span><br><span class="line">__isoc99_scanf(0x5563a643ea63, 0x7fffd7e61360, 0, 0Then Verify your flag: aaa</span><br><span class="line">) = 1</span><br><span class="line">strcmp(<span class="string">&quot;BambooFox&#123;dyn4mic_1s_4ls0_gr34t&#125;&quot;</span>..., <span class="string">&quot;aaa&quot;</span>) = -31</span><br><span class="line">puts(<span class="string">&quot;You don&#x27;t know dynamic analysis &quot;</span>...You don<span class="string">&#x27;t know dynamic analysis !</span></span><br><span class="line"><span class="string">)      = 34</span></span><br><span class="line"><span class="string">+++ exited (status 0) +++</span></span><br><span class="line"><span class="string">spwpun@ubuntu:~/Documents/20200102$</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>flag: BambooFox{dyn4mic_1s_4ls0_gr34t}</li>
@@ -497,42 +427,26 @@
     
     
     
-        
-      
 
       <footer class="post-footer">
-          
-            
-          
           <div class="post-tags">
-            
               <a href="/tags/BambooFox-CTF/" rel="tag"># BambooFox CTF</a>
-            
           </div>
-        
 
         
 
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-              
-                <a href="/2020/01/01/BambooFox-CTF-Move-or-not/" rel="next" title="BambooFox CTF-Move or not">
-                  <i class="fa fa-chevron-left"></i> BambooFox CTF-Move or not
-                </a>
-              
-            </div>
 
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2020/02/15/IDAPython常用API整理/" rel="prev" title="IDAPython常用API整理">
-                  IDAPython常用API整理 <i class="fa fa-chevron-right"></i>
-                </a>
-              
-            </div>
-          </div>
         
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/01/BambooFox-CTF-Move-or-not/" rel="prev" title="BambooFox CTF-Move or not">
+      <i class="fa fa-chevron-left"></i> BambooFox CTF-Move or not
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/15/IDAPython%E5%B8%B8%E7%94%A8API%E6%95%B4%E7%90%86/" rel="next" title="IDAPython常用API整理">
+      IDAPython常用API整理 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -540,14 +454,33 @@
   
   
 
-  </div>
 
 
           </div>
           
-    
-    <div class="comments" id="comments"></div>
-  
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -560,11 +493,6 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
-        
-        
-        
-        
-      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -577,120 +505,67 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#BambooFox-“Move-or-not”详解"><span class="nav-text">BambooFox-“Move or not”详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-前言"><span class="nav-text">1.前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-静态分析"><span class="nav-text">2.静态分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-动态调试"><span class="nav-text">3.动态调试</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#gdb"><span class="nav-text">gdb</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#IDA远程调试Linux程序"><span class="nav-text">IDA远程调试Linux程序</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-expect编程"><span class="nav-text">4.expect编程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-ltrace动态调试"><span class="nav-text">5.ltrace动态调试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-总结"><span class="nav-text">6.总结</span></a></li></ol></li></ol></div>
-        
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#BambooFox-%E2%80%9CMove-or-not%E2%80%9D%E8%AF%A6%E8%A7%A3"><span class="nav-text">BambooFox-“Move or not”详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%89%8D%E8%A8%80"><span class="nav-text">1.前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E9%9D%99%E6%80%81%E5%88%86%E6%9E%90"><span class="nav-text">2.静态分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95"><span class="nav-text">3.动态调试</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#gdb"><span class="nav-text">gdb</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#IDA%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95Linux%E7%A8%8B%E5%BA%8F"><span class="nav-text">IDA远程调试Linux程序</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-expect%E7%BC%96%E7%A8%8B"><span class="nav-text">4.expect编程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-ltrace%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95"><span class="nav-text">5.ltrace动态调试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E6%80%BB%E7%BB%93"><span class="nav-text">6.总结</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/images/avatar.gif"
-      alt="Demen Lee">
+    <img class="site-author-image" itemprop="image" alt="Demen Lee"
+      src="/images/avatar.gif">
   <p class="site-author-name" itemprop="name">Demen Lee</p>
   <div class="site-description" itemprop="description">Sharing, Communicating more, then moving on......</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
           <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
         <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">categories</span>
-        </a>
+        <span class="site-state-item-name">categories</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
         <span class="site-state-item-count">33</span>
-        <span class="site-state-item-name">tags</span>
-        </a>
+        <span class="site-state-item-name">tags</span></a>
       </div>
-    
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/spwpun" title="GitHub &rarr; https://github.com/spwpun" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/spwpun" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;spwpun" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="mailto:spwpun@gmail.com" title="E-Mail &rarr; mailto:spwpun@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="mailto:spwpun@gmail.com" title="E-Mail → mailto:spwpun@gmail.com" rel="noopener" target="_blank"><i class="fab fa-envelope fa-fw"></i>E-Mail</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://weibo.com/u/5536839794" title="Weibo &rarr; https://weibo.com/u/5536839794" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <a href="https://weibo.com/u/5536839794" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5536839794" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://music.163.com/#/user/home?id=127070793" title="Netease &rarr; https://music.163.com/#/user/home?id=127070793" rel="noopener" target="_blank"><i class="fa fa-fw fa-netease"></i>Netease</a>
+        <a href="https://music.163.com/#/user/home?id=127070793" title="Netease → https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;127070793" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Netease</a>
       </span>
-    
   </div>
 
 
   <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title">
-      <i class="fa fa-fw fa-link"></i>
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
       Links
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://whale3070.github.io" title="https://whale3070.github.io" rel="noopener" target="_blank">Whale3070</a>
+          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io" rel="noopener" target="_blank">Whale3070</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://eternalhikari.github.io" title="https://eternalhikari.github.io" rel="noopener" target="_blank">Hikari</a>
+          <a href="https://eternalhikari.github.io/" title="https:&#x2F;&#x2F;eternalhikari.github.io" rel="noopener" target="_blank">Hikari</a>
         </li>
-      
     </ul>
   </div>
 
@@ -704,17 +579,23 @@
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-flag-checkered"></i>
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="flag-checkered"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Spwpun</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a></div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
 
         
 <div class="busuanzi-count">
@@ -727,9 +608,7 @@
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-  
     <span class="post-meta-divider">|</span>
-  
     <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
@@ -738,7 +617,6 @@
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
-  
 </div>
 
 
@@ -748,51 +626,47 @@
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
 
   
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/next-boot.js?v=7.4.1"></script>
+<script src="/js/utils.js"></script>
 
-
-
-  
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/pisces.js"></script>
 
 
-
-
-
-
-  <script src="/js/local-search.js?v=7.4.1"></script>
-
-
-
-
-
-
-
-
-
-
+<script src="/js/next-boot.js"></script>
 
 
 
 
   
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 
@@ -800,29 +674,31 @@
 
 
 <script>
-NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: true,
-    notify: false,
-    appId: 'O9n8UnYXJ5M4s4QEumwRCwH9-gzGzoHsz',
-    appKey: 'qdSjFo9LUO20Ba6XRPMQGX7v',
-    placeholder: 'Leave something interesting......',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: true,
-    lang: '' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : false,
+      appId      : 'O9n8UnYXJ5M4s4QEumwRCwH9-gzGzoHsz',
+      appKey     : 'qdSjFo9LUO20Ba6XRPMQGX7v',
+      placeholder: "Leave something interesting......",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
 </script>
 
 </body>

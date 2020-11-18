@@ -1,93 +1,56 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
   <link rel="manifest" href="/images/manifest.json">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+<link rel="stylesheet" href="/css/main.css">
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Times New Roman:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.4.1',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":true,"show_result":true,"style":"mac"},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: 'Copy',
-      copy_success: 'Copied',
-      copy_failure: 'Copy failed'
-    },
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"spwpun.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
-  <meta name="description" content="《IDA Pro权威指南（第二版）》阅读笔记趁着上班没有样本分析的时间把这本书看完吧！记录一些自己印象深刻的知识点。有些自己已经比较熟悉的点不会列出来了。">
-<meta name="keywords" content="IDA">
+  <meta name="description" content="《IDA Pro权威指南（第二版）》阅读笔记趁着上班没有样本分析的时间把这本书看完吧！记录一些自己印象深刻的知识点。有些自己已经比较熟悉的点不会列出来了。 第一部分 IDA简介第1章 反汇编简介 模糊测试：模糊测试是一种发现漏洞的技术，它为程序输入大量不常见的输入，希望其中某些输入能对程序造成可被检测、分许，最终被利用的错误。 x86汇编语言的两种语法：Intel、AT&amp;T，gdb使用AT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IDA Pro阅读笔记">
-<meta property="og:url" content="https://spwpun.github.io/2019/10/23/IDA-Pro阅读笔记/index.html">
+<meta property="og:url" content="https://spwpun.github.io/2019/10/23/IDA-Pro%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Spwpun&#39;s Blog">
-<meta property="og:description" content="《IDA Pro权威指南（第二版）》阅读笔记趁着上班没有样本分析的时间把这本书看完吧！记录一些自己印象深刻的知识点。有些自己已经比较熟悉的点不会列出来了。">
-<meta property="og:locale" content="en">
-<meta property="og:image" content="https://spwpun.github.io/2019/10/23/IDA-Pro阅读笔记/20191102094833.png">
-<meta property="og:updated_time" content="2019-12-05T16:00:10.345Z">
+<meta property="og:description" content="《IDA Pro权威指南（第二版）》阅读笔记趁着上班没有样本分析的时间把这本书看完吧！记录一些自己印象深刻的知识点。有些自己已经比较熟悉的点不会列出来了。 第一部分 IDA简介第1章 反汇编简介 模糊测试：模糊测试是一种发现漏洞的技术，它为程序输入大量不常见的输入，希望其中某些输入能对程序造成可被检测、分许，最终被利用的错误。 x86汇编语言的两种语法：Intel、AT&amp;T，gdb使用AT">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://spwpun.github.io/2019/10/23/IDA-Pro%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/20191102094833.png">
+<meta property="article:published_time" content="2019-10-22T16:47:33.000Z">
+<meta property="article:modified_time" content="2019-12-05T16:00:10.345Z">
+<meta property="article:author" content="Demen Lee">
+<meta property="article:tag" content="IDA">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IDA Pro阅读笔记">
-<meta name="twitter:description" content="《IDA Pro权威指南（第二版）》阅读笔记趁着上班没有样本分析的时间把这本书看完吧！记录一些自己印象深刻的知识点。有些自己已经比较熟悉的点不会列出来了。">
-<meta name="twitter:image" content="https://spwpun.github.io/2019/10/23/IDA-Pro阅读笔记/20191102094833.png">
-  <link rel="canonical" href="https://spwpun.github.io/2019/10/23/IDA-Pro阅读笔记/">
+<meta name="twitter:image" content="https://spwpun.github.io/2019/10/23/IDA-Pro%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/20191102094833.png">
+
+<link rel="canonical" href="https://spwpun.github.io/2019/10/23/IDA-Pro%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
   };
 </script>
 
   <title>IDA Pro阅读笔记 | Spwpun's Blog</title>
   
-
-
 
 
 
@@ -106,7 +69,6 @@
   .use-motion .post-body,
   .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -124,19 +86,8 @@
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Spwpun's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
@@ -144,97 +95,86 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Spwpun's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-      
-      
-      
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-      
-    
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-about">
-      
-    
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-tags">
-      
-    
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-categories">
-      
-    
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-archives">
-      
-    
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
       <li class="menu-item menu-item-search">
-        <a href="javascript:;" class="popup-trigger">
-        
-          <i class="fa fa-search fa-fw"></i>Search</a>
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
       </li>
-    
   </ul>
-
 </nav>
-  <div class="site-search">
+
+
+
+  <div class="search-pop-overlay">
     <div class="popup search-popup">
-    <div class="search-header">
+        <div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+    <input autocomplete="off" autocapitalize="off"
            placeholder="Searching..." spellcheck="false"
-           type="text" id="search-input">
+           type="search" class="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
   </div>
+</div>
+
+    </div>
+  </div>
+
 </div>
     </header>
 
@@ -247,96 +187,86 @@
   <a href="https://github.com/spwpun" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
             
 
-          <div id="content" class="content">
-            
-
-  <div class="posts-expand">
-      
+    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/10/23/IDA-Pro阅读笔记/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2019/10/23/IDA-Pro%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">IDA Pro阅读笔记
-
-          
+        <h1 class="post-title" itemprop="name headline">
+          IDA Pro阅读笔记
         </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2019-10-23 00:47:33" itemprop="dateCreated datePublished" datetime="2019-10-23T00:47:33+08:00">2019-10-23</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2019-12-06 00:00:10" itemprop="dateModified" datetime="2019-12-06T00:00:10+08:00">2019-12-06</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Read-Note/" itemprop="url" rel="index"><span itemprop="name">Read Note</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Read-Note/" itemprop="url" rel="index"><span itemprop="name">Read Note</span></a>
+                </span>
             </span>
-          
 
           
-            <span id="/2019/10/23/IDA-Pro阅读笔记/" class="post-meta-item leancloud_visitors" data-flag-title="IDA Pro阅读笔记" title="Views">
+            <span id="/2019/10/23/IDA-Pro%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" class="post-meta-item leancloud_visitors" data-flag-title="IDA Pro阅读笔记" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2019/10/23/IDA-Pro阅读笔记/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/10/23/IDA-Pro阅读笔记/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/10/23/IDA-Pro%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/23/IDA-Pro%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -350,7 +280,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="《IDA-Pro权威指南（第二版）》阅读笔记"><a href="#《IDA-Pro权威指南（第二版）》阅读笔记" class="headerlink" title="《IDA Pro权威指南（第二版）》阅读笔记"></a>《IDA Pro权威指南（第二版）》阅读笔记</h3><p>趁着上班没有样本分析的时间把这本书看完吧！记录一些自己印象深刻的知识点。有些自己已经比较熟悉的点不会列出来了。</p><a id="more"></a>
+        <h3 id="《IDA-Pro权威指南（第二版）》阅读笔记"><a href="#《IDA-Pro权威指南（第二版）》阅读笔记" class="headerlink" title="《IDA Pro权威指南（第二版）》阅读笔记"></a>《IDA Pro权威指南（第二版）》阅读笔记</h3><p>趁着上班没有样本分析的时间把这本书看完吧！记录一些自己印象深刻的知识点。有些自己已经比较熟悉的点不会列出来了。</p>
 <h4 id="第一部分-IDA简介"><a href="#第一部分-IDA简介" class="headerlink" title="第一部分 IDA简介"></a>第一部分 IDA简介</h4><h5 id="第1章-反汇编简介"><a href="#第1章-反汇编简介" class="headerlink" title="第1章 反汇编简介"></a>第1章 反汇编简介</h5><ol>
 <li>模糊测试：模糊测试是一种发现漏洞的技术，它为程序输入大量不常见的输入，希望其中某些输入能对程序造成可被检测、分许，最终被利用的错误。</li>
 <li>x86汇编语言的两种语法：Intel、AT&amp;T，gdb使用AT&amp;T语法，MASM、TASM、NASM使用Intel语法。</li>
@@ -442,7 +372,7 @@
 </blockquote>
 </li>
 </ol>
-<p><img src="//spwpun.github.io/2019/10/23/IDA-Pro阅读笔记/20191102094833.png" alt="20191102094833"><br>3. 修改注释，使用loadint实用工具，后续需要花点时间来研究一下怎么创建一个ids文件和til文件。</p>
+<p><img src="/2019/10/23/IDA-Pro%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/20191102094833.png" alt="20191102094833"><br>3. 修改注释，使用loadint实用工具，后续需要花点时间来研究一下怎么创建一个ids文件和til文件。</p>
 <h5 id="第14章-修补二进制文件及其他IDA的限制"><a href="#第14章-修补二进制文件及其他IDA的限制" class="headerlink" title="第14章 修补二进制文件及其他IDA的限制"></a>第14章 修补二进制文件及其他IDA的限制</h5><blockquote>
 <p>IDA 并不是一个二进制文件编辑器。任何时候，如果你想要使用IDA 修补一个二进制文件，请记住这个事实。但是，它是一款特别有用的工具，可帮助你输入并显示潜在的更改。掌握IDA的全部功能，并结合IDA 通过适当的脚本或外部程序生成的信息，修补二进制文件也会变得简单可行。</p>
 </blockquote>
@@ -455,7 +385,7 @@
 <p>IDC仅支持在独立的<code>.idc</code>文件中声明函数，<code>static</code>关键字用于声明用户自定义的函数，在IDC命令对话框中不能定义函数，因为这相当于在函数中定义函数，而IDC不支持嵌套声明；</p>
 <p>IDC也支持类对象，但是不使用public、private类似的访问说明符，所有的成员都是有效公共类，且如果要在类中创建数据成员，只需要一个给类的数据成员的赋值语句就行；</p>
 <p>IDC程序文件的基本结构：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;idc.idc&gt; //useful include directive</span></span></span><br><span class="line"><span class="comment">//declare addtional functions as required</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//do something fun here</span></span><br><span class="line">    AddHotkey(<span class="string">"z"</span>, <span class="string">"func"</span>); <span class="comment">//Now 'z' invokes </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;idc.idc&gt; //useful include directive</span></span></span><br><span class="line"><span class="comment">//declare addtional functions as required</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//do something fun here</span></span><br><span class="line">    AddHotkey(<span class="string">&quot;z&quot;</span>, <span class="string">&quot;func&quot;</span>); <span class="comment">//Now &#x27;z&#x27; invokes </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h6 id="IDC常用的函数"><a href="#IDC常用的函数" class="headerlink" title="IDC常用的函数"></a>IDC常用的函数</h6><ol>
 <li><p>读取和修改数据的函数</p>
@@ -472,7 +402,7 @@
 <p><code>void print(...)</code>，在输出窗口中打印每个参数的字符串表示形式。</p>
 <p><code>void Warning(string format, ...)</code>，在对话框中显示一条格式化消息。</p>
 <p><code>string AskStr(string default, string prompt)</code>，显示一个输入框，要求用户输入一个字符串值。如果操作成功，则返回用户的字符串；如果对话框被取消，则返回0。</p>
-<p><code>string AskFile(long doSave, string mask, string prompt)</code>，显示一个文件选择对话框，以简化选择文件的任务。你可以创建新文件保存数据（doSave=1），或选择现有的文件读取数据（doSave=0）。你可以根据mask（如<em>.</em>或*.idc）过滤显示的文件列表。如果操作成功，则返回选定文件的名称；如果对话框被取消，则返回0。</p>
+<p><code>string AskFile(long doSave, string mask, string prompt)</code>，显示一个文件选择对话框，以简化选择文件的任务。你可以创建新文件保存数据（doSave=1），或选择现有的文件读取数据（doSave=0）。你可以根据mask（如*.<em>或</em>.idc）过滤显示的文件列表。如果操作成功，则返回选定文件的名称；如果对话框被取消，则返回0。</p>
 <p><code>long AskYN(long default, string prompt)</code>，用一个答案为“是”或“否”的问题提示用户，突出一个默认的答案（1 为是，0 为否，-1 为取消）。返回值是一个表示选定答案的整数。</p>
 <p><code>long ScreenEA()</code>，返回当前光标所在位置的虚拟地址。</p>
 <p><code>bool Jump(long addr)</code>，跳转到反汇编窗口的指定地址。</p>
@@ -507,6 +437,8 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># register IDA plugin</span><br><span class="line">def PLUGIN_ENTRY():</span><br><span class="line">	return PluginName_Plugin_t()</span><br></pre></td></tr></table></figure>
 
+
+
 <h5 id="第16章-IDA软件开发工具包"><a href="#第16章-IDA软件开发工具包" class="headerlink" title="第16章 IDA软件开发工具包"></a>第16章 IDA软件开发工具包</h5><p>这一章讲的是IDA的SDK的使用方法，涉及到SDK的安装配置、应用编程接口，总的来说是让你如何系统的去使用IDC编写IDA的插件的这样一个体系结构。</p>
 <p>有用的SDK数据类型：area_t, func_t, segment_t, idc_value_t, idainfo, struc_t, member_t, op_t, insn_t. 这些类型标明了IDA中的各个功能展现的数据形式，也就是可以通过编程将其进行操纵。</p>
 <p>这一章也有一些常用的SDK函数，同上一章一样，我会单独将其列出来，方便以后查找，这一章的这些函数与IDC脚本相比，能够进行更加细化的控制。</p>
@@ -521,14 +453,15 @@
 <li><p>可以在已编译的插件中扩展IDC，但现在还没有办法扩展IDAPython。</p>
 </li>
 <li><p>脚本化插件：创建Python插件的过程非常简单，只需要定义一个名为PLUGIN_ENTRY的函数，该函数返回plugin_t（在模块idaapi中定义）的一个实例。</p>
- <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> idaapi <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">idabook_plugin_t</span><span class="params">(plugin_t)</span>:</span></span><br><span class="line">	flags = <span class="number">0</span></span><br><span class="line">	wanted_name = <span class="string">"IdaBook Python Plugin"</span></span><br><span class="line">    wanted_hotkey = <span class="string">"Alt-8"</span></span><br><span class="line">      comment = <span class="string">"IdaBook Python Plugin"</span></span><br><span class="line">      help = <span class="string">"Something helpful"</span></span><br><span class="line">      </span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">init</span><span class="params">(self)</span>:</span></span><br><span class="line">          msg(<span class="string">"IdaBook Python Plugin init called.\n"</span>)</span><br><span class="line">          <span class="keyword">return</span> PLUGIN_OK</span><br><span class="line">      </span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">term</span><span class="params">(self)</span>:</span></span><br><span class="line">          msg(<span class="string">"IdaBook Plugin term called.\n"</span>)</span><br><span class="line">          </span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self, arg)</span>:</span></span><br><span class="line">          warning(<span class="string">"IdaBook plugin run(%d) called"</span> % arg)</span><br><span class="line">      </span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">PLUGIN_ENTRY</span><span class="params">()</span>:</span></span><br><span class="line">          <span class="keyword">return</span> idabook_plugin_t()</span><br></pre></td></tr></table></figure>
-
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> idaapi <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">idabook_plugin_t</span>(<span class="params">plugin_t</span>):</span></span><br><span class="line">	flags = <span class="number">0</span></span><br><span class="line">	wanted_name = <span class="string">&quot;IdaBook Python Plugin&quot;</span></span><br><span class="line">    wanted_hotkey = <span class="string">&quot;Alt-8&quot;</span></span><br><span class="line">      comment = <span class="string">&quot;IdaBook Python Plugin&quot;</span></span><br><span class="line">      <span class="built_in">help</span> = <span class="string">&quot;Something helpful&quot;</span></span><br><span class="line">      </span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">init</span>(<span class="params">self</span>):</span></span><br><span class="line">          msg(<span class="string">&quot;IdaBook Python Plugin init called.\n&quot;</span>)</span><br><span class="line">          <span class="keyword">return</span> PLUGIN_OK</span><br><span class="line">      </span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">term</span>(<span class="params">self</span>):</span></span><br><span class="line">          msg(<span class="string">&quot;IdaBook Plugin term called.\n&quot;</span>)</span><br><span class="line">          </span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">run</span>(<span class="params">self, arg</span>):</span></span><br><span class="line">          warning(<span class="string">&quot;IdaBook plugin run(%d) called&quot;</span> % arg)</span><br><span class="line">      </span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">PLUGIN_ENTRY</span>():</span></span><br><span class="line">          <span class="keyword">return</span> idabook_plugin_t()</span><br></pre></td></tr></table></figure>
 
 
 </li>
 </ol>
 <p>上面是使用IDAPython写的一个小型插件，下面是使用IDC写的：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;idc.idc&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function">class <span class="title">idabook_plugin_t</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">idabook_plugin_t</span>()&#123;</span><br><span class="line">		<span class="keyword">this</span>.flags = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">this</span>.wanted_name = <span class="string">"IdaBook IDC Plugin"</span>;</span><br><span class="line">		<span class="keyword">this</span>.wanted_hotkey = <span class="string">"Alt-9"</span>;</span><br><span class="line">		<span class="keyword">this</span>.comment = <span class="string">"IdaBook IDC Plugin"</span>;</span><br><span class="line">		<span class="keyword">this</span>.help = <span class="string">"Something helpful"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	init()&#123;</span><br><span class="line">		Message(<span class="string">"IdaBook plugin init called.\n"</span>);</span><br><span class="line">		<span class="keyword">return</span> PLUGIN_OK;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	term()&#123;</span><br><span class="line">		Message(<span class="string">"IdaBook plugin term called.\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	run(arg)&#123;</span><br><span class="line">		Warning(<span class="string">"IdaBook plugin run(%d) called.\n"</span>, arg);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="title">PLUGIN_ENTRY</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">idabook_plugin_t</span>();</span><br><span class="line">&#125;</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;idc.idc&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function">class <span class="title">idabook_plugin_t</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">idabook_plugin_t</span>()&#123;</span><br><span class="line">		<span class="keyword">this</span>.flags = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">this</span>.wanted_name = <span class="string">&quot;IdaBook IDC Plugin&quot;</span>;</span><br><span class="line">		<span class="keyword">this</span>.wanted_hotkey = <span class="string">&quot;Alt-9&quot;</span>;</span><br><span class="line">		<span class="keyword">this</span>.comment = <span class="string">&quot;IdaBook IDC Plugin&quot;</span>;</span><br><span class="line">		<span class="keyword">this</span>.help = <span class="string">&quot;Something helpful&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	init()&#123;</span><br><span class="line">		Message(<span class="string">&quot;IdaBook plugin init called.\n&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> PLUGIN_OK;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	term()&#123;</span><br><span class="line">		Message(<span class="string">&quot;IdaBook plugin term called.\n&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	run(arg)&#123;</span><br><span class="line">		Warning(<span class="string">&quot;IdaBook plugin run(%d) called.\n&quot;</span>, arg);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="title">PLUGIN_ENTRY</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">idabook_plugin_t</span>();</span><br><span class="line">&#125;</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+
 
 <h5 id="第18章-二进制文件与IDA加载器模块"><a href="#第18章-二进制文件与IDA加载器模块" class="headerlink" title="第18章 二进制文件与IDA加载器模块"></a>第18章 二进制文件与IDA加载器模块</h5><p>粗略看了一下，感觉未来一段时间暂时不会接触到，主要是讲如何去构建一个简单的加载器来识别未知的文件类型什么的，想到这，要是以后自己写出某个文件的IDA加载器放在github上，应该能体现我的编码能力吧。</p>
 <h5 id="第19章-IDA处理器模块"><a href="#第19章-IDA处理器模块" class="headerlink" title="第19章 IDA处理器模块"></a>第19章 IDA处理器模块</h5><p>本章介绍IDA处理器模块的构建流程，是IDA模块化中最复杂的，我感觉比较硬核了，未来一段时间自己也不会接触吧，这也是我想买一本这个实体书的原因，万一后面有需要用到可以再来仔细看看。在本章中介绍的是针对Python的编译文件pyc的逆向处理器的构建过程，同上一章有类似之处。</p>
@@ -552,7 +485,7 @@
 <ul>
 <li><p>使用Loadlibrary和GetProcAddress动态获取函数地址，使用函数。</p>
 </li>
-<li><p>由于每一个Windows程序都会加载kernel32.dll，而上一种方法中的两个函数都处于这个dll中，所以可以通过获取kernel32.dll的导入表，查找相关函数，对比hash值，定位具体的函数入口地址，实现函数功能。【这里参见Skape<a href="http%3A%2F%2Fwww.hick.org%2Fcode%2Fskape%2Fpapers%2Fwin32-shellcode.pdf">的论文</a>“Understanding Windows Shellcode”，这个方法也是在之前我遇到的一个样本中出现的方法，现在看起来真是醍醐灌顶啊。】</p>
+<li><p>由于每一个Windows程序都会加载kernel32.dll，而上一种方法中的两个函数都处于这个dll中，所以可以通过获取kernel32.dll的导入表，查找相关函数，对比hash值，定位具体的函数入口地址，实现函数功能。【这里参见Skape<a target="_blank" rel="noopener" href="http://www.hick.org/code/skape/papers/win32-shellcode.pdf">的论文</a>“Understanding Windows Shellcode”，这个方法也是在之前我遇到的一个样本中出现的方法，现在看起来真是醍醐灌顶啊。】</p>
 </li>
 </ul>
 <h6 id="2-反动态分析技巧"><a href="#2-反动态分析技巧" class="headerlink" title="2.反动态分析技巧"></a>2.反动态分析技巧</h6><p>这部分同反调试的技术差不多，检测虚拟化、检测调试器、反调试标志的设置，此处略过。</p>
@@ -573,42 +506,26 @@
     
     
     
-        
-      
 
       <footer class="post-footer">
-          
-            
-          
           <div class="post-tags">
-            
               <a href="/tags/IDA/" rel="tag"># IDA</a>
-            
           </div>
-        
 
         
 
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-              
-                <a href="/2019/10/18/图片测试/" rel="next" title="图片测试">
-                  <i class="fa fa-chevron-left"></i> 图片测试
-                </a>
-              
-            </div>
 
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/11/04/Django-Error：no-module-named-sqlite3/" rel="prev" title="Django Error：no module named _sqlite3">
-                  Django Error：no module named _sqlite3 <i class="fa fa-chevron-right"></i>
-                </a>
-              
-            </div>
-          </div>
         
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/10/18/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/" rel="prev" title="图片测试">
+      <i class="fa fa-chevron-left"></i> 图片测试
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/11/04/Django-Error%EF%BC%9Ano-module-named-sqlite3/" rel="next" title="Django Error：no module named _sqlite3">
+      Django Error：no module named _sqlite3 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -616,14 +533,33 @@
   
   
 
-  </div>
 
 
           </div>
           
-    
-    <div class="comments" id="comments"></div>
-  
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -636,11 +572,6 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
-        
-        
-        
-        
-      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -653,120 +584,67 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#《IDA-Pro权威指南（第二版）》阅读笔记"><span class="nav-text">《IDA Pro权威指南（第二版）》阅读笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一部分-IDA简介"><span class="nav-text">第一部分 IDA简介</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第1章-反汇编简介"><span class="nav-text">第1章 反汇编简介</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第2章-逆向与反汇编"><span class="nav-text">第2章 逆向与反汇编</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第3章-IDA-Pro背景知识"><span class="nav-text">第3章 IDA Pro背景知识</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二部分-IDA基本用法"><span class="nav-text">第二部分 IDA基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第4章-IDA入门"><span class="nav-text">第4章 IDA入门</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第5章-IDA数据显示窗口"><span class="nav-text">第5章 IDA数据显示窗口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第6章-反汇编导航"><span class="nav-text">第6章 反汇编导航</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第7章-反汇编操作"><span class="nav-text">第7章 反汇编操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第8章-数据类型与数据结构"><span class="nav-text">第8章 数据类型与数据结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第9章-交叉引用与绘图功能"><span class="nav-text">第9章 交叉引用与绘图功能</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第10章-IDA的多种面孔"><span class="nav-text">第10章 IDA的多种面孔</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三部分-IDA高级应用"><span class="nav-text">第三部分 IDA高级应用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第11章-定制IDA"><span class="nav-text">第11章 定制IDA</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第12章-使用FLIRT签名来识别库"><span class="nav-text">第12章 使用FLIRT签名来识别库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第13章-扩展IDA的知识"><span class="nav-text">第13章 扩展IDA的知识</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第14章-修补二进制文件及其他IDA的限制"><span class="nav-text">第14章 修补二进制文件及其他IDA的限制</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第四部分-扩展IDA的功能"><span class="nav-text">第四部分 扩展IDA的功能</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第15章-编写IDA脚本"><span class="nav-text">第15章  编写IDA脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#IDC脚本的特性"><span class="nav-text">IDC脚本的特性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#IDC常用的函数"><span class="nav-text">IDC常用的函数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#IDAPython编写插件"><span class="nav-text">IDAPython编写插件</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第16章-IDA软件开发工具包"><span class="nav-text">第16章 IDA软件开发工具包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第17章-IDA插件体系结构"><span class="nav-text">第17章 IDA插件体系结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第18章-二进制文件与IDA加载器模块"><span class="nav-text">第18章 二进制文件与IDA加载器模块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第19章-IDA处理器模块"><span class="nav-text">第19章 IDA处理器模块</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第五部分"><span class="nav-text">第五部分</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第20章-编译器变体"><span class="nav-text">第20章 编译器变体</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第21章-模糊代码分析"><span class="nav-text">第21章 模糊代码分析</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-反静态分析技巧"><span class="nav-text">1.反静态分析技巧</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-反动态分析技巧"><span class="nav-text">2.反动态分析技巧</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-使用IDA对二进制文件进行“静态去模糊”"><span class="nav-text">3. 使用IDA对二进制文件进行“静态去模糊”</span></a></li></ol></li></ol></li></ol></li></ol></div>
-        
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E3%80%8AIDA-Pro%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0"><span class="nav-text">《IDA Pro权威指南（第二版）》阅读笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86-IDA%E7%AE%80%E4%BB%8B"><span class="nav-text">第一部分 IDA简介</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC1%E7%AB%A0-%E5%8F%8D%E6%B1%87%E7%BC%96%E7%AE%80%E4%BB%8B"><span class="nav-text">第1章 反汇编简介</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-%E9%80%86%E5%90%91%E4%B8%8E%E5%8F%8D%E6%B1%87%E7%BC%96"><span class="nav-text">第2章 逆向与反汇编</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC3%E7%AB%A0-IDA-Pro%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86"><span class="nav-text">第3章 IDA Pro背景知识</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86-IDA%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="nav-text">第二部分 IDA基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC4%E7%AB%A0-IDA%E5%85%A5%E9%97%A8"><span class="nav-text">第4章 IDA入门</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC5%E7%AB%A0-IDA%E6%95%B0%E6%8D%AE%E6%98%BE%E7%A4%BA%E7%AA%97%E5%8F%A3"><span class="nav-text">第5章 IDA数据显示窗口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC6%E7%AB%A0-%E5%8F%8D%E6%B1%87%E7%BC%96%E5%AF%BC%E8%88%AA"><span class="nav-text">第6章 反汇编导航</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC7%E7%AB%A0-%E5%8F%8D%E6%B1%87%E7%BC%96%E6%93%8D%E4%BD%9C"><span class="nav-text">第7章 反汇编操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC8%E7%AB%A0-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-text">第8章 数据类型与数据结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC9%E7%AB%A0-%E4%BA%A4%E5%8F%89%E5%BC%95%E7%94%A8%E4%B8%8E%E7%BB%98%E5%9B%BE%E5%8A%9F%E8%83%BD"><span class="nav-text">第9章 交叉引用与绘图功能</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC10%E7%AB%A0-IDA%E7%9A%84%E5%A4%9A%E7%A7%8D%E9%9D%A2%E5%AD%94"><span class="nav-text">第10章 IDA的多种面孔</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86-IDA%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8"><span class="nav-text">第三部分 IDA高级应用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC11%E7%AB%A0-%E5%AE%9A%E5%88%B6IDA"><span class="nav-text">第11章 定制IDA</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC12%E7%AB%A0-%E4%BD%BF%E7%94%A8FLIRT%E7%AD%BE%E5%90%8D%E6%9D%A5%E8%AF%86%E5%88%AB%E5%BA%93"><span class="nav-text">第12章 使用FLIRT签名来识别库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC13%E7%AB%A0-%E6%89%A9%E5%B1%95IDA%E7%9A%84%E7%9F%A5%E8%AF%86"><span class="nav-text">第13章 扩展IDA的知识</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC14%E7%AB%A0-%E4%BF%AE%E8%A1%A5%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E5%8F%8A%E5%85%B6%E4%BB%96IDA%E7%9A%84%E9%99%90%E5%88%B6"><span class="nav-text">第14章 修补二进制文件及其他IDA的限制</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E9%83%A8%E5%88%86-%E6%89%A9%E5%B1%95IDA%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="nav-text">第四部分 扩展IDA的功能</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC15%E7%AB%A0-%E7%BC%96%E5%86%99IDA%E8%84%9A%E6%9C%AC"><span class="nav-text">第15章  编写IDA脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#IDC%E8%84%9A%E6%9C%AC%E7%9A%84%E7%89%B9%E6%80%A7"><span class="nav-text">IDC脚本的特性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#IDC%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-text">IDC常用的函数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#IDAPython%E7%BC%96%E5%86%99%E6%8F%92%E4%BB%B6"><span class="nav-text">IDAPython编写插件</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC16%E7%AB%A0-IDA%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E5%8C%85"><span class="nav-text">第16章 IDA软件开发工具包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC17%E7%AB%A0-IDA%E6%8F%92%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-text">第17章 IDA插件体系结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC18%E7%AB%A0-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E4%B8%8EIDA%E5%8A%A0%E8%BD%BD%E5%99%A8%E6%A8%A1%E5%9D%97"><span class="nav-text">第18章 二进制文件与IDA加载器模块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC19%E7%AB%A0-IDA%E5%A4%84%E7%90%86%E5%99%A8%E6%A8%A1%E5%9D%97"><span class="nav-text">第19章 IDA处理器模块</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E9%83%A8%E5%88%86"><span class="nav-text">第五部分</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC20%E7%AB%A0-%E7%BC%96%E8%AF%91%E5%99%A8%E5%8F%98%E4%BD%93"><span class="nav-text">第20章 编译器变体</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC21%E7%AB%A0-%E6%A8%A1%E7%B3%8A%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90"><span class="nav-text">第21章 模糊代码分析</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-%E5%8F%8D%E9%9D%99%E6%80%81%E5%88%86%E6%9E%90%E6%8A%80%E5%B7%A7"><span class="nav-text">1.反静态分析技巧</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-%E5%8F%8D%E5%8A%A8%E6%80%81%E5%88%86%E6%9E%90%E6%8A%80%E5%B7%A7"><span class="nav-text">2.反动态分析技巧</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-%E4%BD%BF%E7%94%A8IDA%E5%AF%B9%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E8%BF%9B%E8%A1%8C%E2%80%9C%E9%9D%99%E6%80%81%E5%8E%BB%E6%A8%A1%E7%B3%8A%E2%80%9D"><span class="nav-text">3. 使用IDA对二进制文件进行“静态去模糊”</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/images/avatar.gif"
-      alt="Demen Lee">
+    <img class="site-author-image" itemprop="image" alt="Demen Lee"
+      src="/images/avatar.gif">
   <p class="site-author-name" itemprop="name">Demen Lee</p>
   <div class="site-description" itemprop="description">Sharing, Communicating more, then moving on......</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
           <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
         <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">categories</span>
-        </a>
+        <span class="site-state-item-name">categories</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
         <span class="site-state-item-count">33</span>
-        <span class="site-state-item-name">tags</span>
-        </a>
+        <span class="site-state-item-name">tags</span></a>
       </div>
-    
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/spwpun" title="GitHub &rarr; https://github.com/spwpun" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/spwpun" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;spwpun" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="mailto:spwpun@gmail.com" title="E-Mail &rarr; mailto:spwpun@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="mailto:spwpun@gmail.com" title="E-Mail → mailto:spwpun@gmail.com" rel="noopener" target="_blank"><i class="fab fa-envelope fa-fw"></i>E-Mail</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://weibo.com/u/5536839794" title="Weibo &rarr; https://weibo.com/u/5536839794" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <a href="https://weibo.com/u/5536839794" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5536839794" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://music.163.com/#/user/home?id=127070793" title="Netease &rarr; https://music.163.com/#/user/home?id=127070793" rel="noopener" target="_blank"><i class="fa fa-fw fa-netease"></i>Netease</a>
+        <a href="https://music.163.com/#/user/home?id=127070793" title="Netease → https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;127070793" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Netease</a>
       </span>
-    
   </div>
 
 
   <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title">
-      <i class="fa fa-fw fa-link"></i>
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
       Links
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://whale3070.github.io" title="https://whale3070.github.io" rel="noopener" target="_blank">Whale3070</a>
+          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io" rel="noopener" target="_blank">Whale3070</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://eternalhikari.github.io" title="https://eternalhikari.github.io" rel="noopener" target="_blank">Hikari</a>
+          <a href="https://eternalhikari.github.io/" title="https:&#x2F;&#x2F;eternalhikari.github.io" rel="noopener" target="_blank">Hikari</a>
         </li>
-      
     </ul>
   </div>
 
@@ -780,17 +658,23 @@
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-flag-checkered"></i>
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="flag-checkered"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Spwpun</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a></div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
 
         
 <div class="busuanzi-count">
@@ -803,9 +687,7 @@
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-  
     <span class="post-meta-divider">|</span>
-  
     <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
@@ -814,7 +696,6 @@
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
-  
 </div>
 
 
@@ -824,51 +705,47 @@
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
 
   
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/next-boot.js?v=7.4.1"></script>
+<script src="/js/utils.js"></script>
 
-
-
-  
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/pisces.js"></script>
 
 
-
-
-
-
-  <script src="/js/local-search.js?v=7.4.1"></script>
-
-
-
-
-
-
-
-
-
-
+<script src="/js/next-boot.js"></script>
 
 
 
 
   
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 
@@ -876,29 +753,31 @@
 
 
 <script>
-NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: true,
-    notify: false,
-    appId: 'O9n8UnYXJ5M4s4QEumwRCwH9-gzGzoHsz',
-    appKey: 'qdSjFo9LUO20Ba6XRPMQGX7v',
-    placeholder: 'Leave something interesting......',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: true,
-    lang: '' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : false,
+      appId      : 'O9n8UnYXJ5M4s4QEumwRCwH9-gzGzoHsz',
+      appKey     : 'qdSjFo9LUO20Ba6XRPMQGX7v',
+      placeholder: "Leave something interesting......",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
 </script>
 
 </body>

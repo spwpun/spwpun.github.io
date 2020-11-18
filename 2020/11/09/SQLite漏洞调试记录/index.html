@@ -1,102 +1,65 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
   <link rel="manifest" href="/images/manifest.json">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+<link rel="stylesheet" href="/css/main.css">
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Times New Roman:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.4.1',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":true,"show_result":true,"style":"mac"},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: 'Copy',
-      copy_success: 'Copied',
-      copy_failure: 'Copy failed'
-    },
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"spwpun.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
-  <meta name="description" content="1. CVE-2019-19599源码：/ext/misc/zipfile.c，这个文件实现了一个虚拟表来读取和写入归档zip文件。">
-<meta name="keywords" content="SQLite">
+  <meta name="description" content="1. CVE-2019-19599源码：&#x2F;ext&#x2F;misc&#x2F;zipfile.c，这个文件实现了一个虚拟表来读取和写入归档zip文件。 SQLite有一个表sqlite_master,包含了数据库中所有自建表的信息。 查看一个表的所有信息：pragma table_info([tablename]); 常见用法：12CREATE VIRTUAL TABLE temp.zip USING zipfil">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQLite漏洞调试记录">
-<meta property="og:url" content="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/index.html">
+<meta property="og:url" content="https://spwpun.github.io/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="Spwpun&#39;s Blog">
-<meta property="og:description" content="1. CVE-2019-19599源码：/ext/misc/zipfile.c，这个文件实现了一个虚拟表来读取和写入归档zip文件。">
-<meta property="og:locale" content="en">
-<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200824011634623.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200824011813218.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200903163744634.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200907083132163.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200907083404723.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200907092046829.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200907115230945.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200907115849015.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200907164940502.png">
-<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200920004802260.png">
-<meta property="og:updated_time" content="2020-11-10T02:08:23.239Z">
+<meta property="og:description" content="1. CVE-2019-19599源码：&#x2F;ext&#x2F;misc&#x2F;zipfile.c，这个文件实现了一个虚拟表来读取和写入归档zip文件。 SQLite有一个表sqlite_master,包含了数据库中所有自建表的信息。 查看一个表的所有信息：pragma table_info([tablename]); 常见用法：12CREATE VIRTUAL TABLE temp.zip USING zipfil">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200824011634623.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200824011813218.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200903163744634.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200907083132163.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200907083404723.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200907092046829.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200907115230945.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200907115849015.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200907164940502.png">
+<meta property="og:image" content="https://spwpun.github.io/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200920004802260.png">
+<meta property="article:published_time" content="2020-11-09T10:28:51.000Z">
+<meta property="article:modified_time" content="2020-11-10T02:08:23.239Z">
+<meta property="article:author" content="Demen Lee">
+<meta property="article:tag" content="SQLite">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SQLite漏洞调试记录">
-<meta name="twitter:description" content="1. CVE-2019-19599源码：/ext/misc/zipfile.c，这个文件实现了一个虚拟表来读取和写入归档zip文件。">
-<meta name="twitter:image" content="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200824011634623.png">
-  <link rel="canonical" href="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/">
+<meta name="twitter:image" content="https://spwpun.github.io/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200824011634623.png">
+
+<link rel="canonical" href="https://spwpun.github.io/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
   };
 </script>
 
   <title>SQLite漏洞调试记录 | Spwpun's Blog</title>
   
-
-
 
 
 
@@ -115,7 +78,6 @@
   .use-motion .post-body,
   .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -133,19 +95,8 @@
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Spwpun's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
@@ -153,97 +104,86 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Spwpun's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-      
-      
-      
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-      
-    
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-about">
-      
-    
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-tags">
-      
-    
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-categories">
-      
-    
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-archives">
-      
-    
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
       <li class="menu-item menu-item-search">
-        <a href="javascript:;" class="popup-trigger">
-        
-          <i class="fa fa-search fa-fw"></i>Search</a>
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
       </li>
-    
   </ul>
-
 </nav>
-  <div class="site-search">
+
+
+
+  <div class="search-pop-overlay">
     <div class="popup search-popup">
-    <div class="search-header">
+        <div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+    <input autocomplete="off" autocapitalize="off"
            placeholder="Searching..." spellcheck="false"
-           type="text" id="search-input">
+           type="search" class="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
   </div>
+</div>
+
+    </div>
+  </div>
+
 </div>
     </header>
 
@@ -256,96 +196,86 @@
   <a href="https://github.com/spwpun" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
             
 
-          <div id="content" class="content">
-            
-
-  <div class="posts-expand">
-      
+    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2020/11/09/SQLite漏洞调试记录/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://spwpun.github.io/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Demen Lee">
       <meta itemprop="description" content="Sharing, Communicating more, then moving on......">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Spwpun's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">SQLite漏洞调试记录
-
-          
+        <h1 class="post-title" itemprop="name headline">
+          SQLite漏洞调试记录
         </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
               <time title="Created: 2020-11-09 18:28:51" itemprop="dateCreated datePublished" datetime="2020-11-09T18:28:51+08:00">2020-11-09</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2020-11-10 10:08:23" itemprop="dateModified" datetime="2020-11-10T10:08:23+08:00">2020-11-10</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/漏洞挖掘/" itemprop="url" rel="index"><span itemprop="name">漏洞挖掘</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98/" itemprop="url" rel="index"><span itemprop="name">漏洞挖掘</span></a>
+                </span>
             </span>
-          
 
           
-            <span id="/2020/11/09/SQLite漏洞调试记录/" class="post-meta-item leancloud_visitors" data-flag-title="SQLite漏洞调试记录" title="Views">
+            <span id="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/" class="post-meta-item leancloud_visitors" data-flag-title="SQLite漏洞调试记录" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
-          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
       <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
+        <i class="far fa-comment"></i>
       </span>
-        
-      
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2020/11/09/SQLite漏洞调试记录/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/11/09/SQLite漏洞调试记录/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/" itemprop="commentCount"></span>
+    </a>
   </span>
   
   
@@ -359,17 +289,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-CVE-2019-19599"><a href="#1-CVE-2019-19599" class="headerlink" title="1. CVE-2019-19599"></a>1. CVE-2019-19599</h2><p>源码：/ext/misc/zipfile.c，这个文件实现了一个虚拟表来读取和写入归档zip文件。</p><a id="more"></a>
+        <h2 id="1-CVE-2019-19599"><a href="#1-CVE-2019-19599" class="headerlink" title="1. CVE-2019-19599"></a>1. CVE-2019-19599</h2><p>源码：/ext/misc/zipfile.c，这个文件实现了一个虚拟表来读取和写入归档zip文件。</p>
 <p>SQLite有一个表sqlite_master,包含了数据库中所有自建表的信息。</p>
 <p>查看一个表的所有信息：<code>pragma table_info([tablename]);</code></p>
-<h3 id="常见用法："><a href="#常见用法：" class="headerlink" title="常见用法："></a>常见用法：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE VIRTUAL TABLE temp.zip USING zipfile(&apos;test.zip&apos;);</span><br><span class="line">INSERT INTO temp.zip(name, data) VALUES (&apos;dir\x00s1&apos;, NULL);</span><br></pre></td></tr></table></figure>
+<h3 id="常见用法："><a href="#常见用法：" class="headerlink" title="常见用法："></a>常见用法：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE VIRTUAL TABLE temp.zip USING zipfile(&#39;test.zip&#39;);</span><br><span class="line">INSERT INTO temp.zip(name, data) VALUES (&#39;dir\x00s1&#39;, NULL);</span><br></pre></td></tr></table></figure>
 
 <p>利用zipfile功能创建了一个虚表<code>temp.zip</code>,然后向其中插入一条数据。其中<code>name, data</code>是虚表中的两个字段，如果<code>data</code>的值为NULL的话，代表插入的数据是一个目录，否则是文件。</p>
 <h3 id="漏洞描述"><a href="#漏洞描述" class="headerlink" title="漏洞描述:"></a>漏洞描述:</h3><p>在涉及文件名中嵌入’\0’字符的情况下，SQLite 3.30.1中的ext/misc/zipfile.c会误处理INSERT INTO的某些用法，从而导致可以由（例如）valgrind检测到内存管理错误。</p>
 <h3 id="调试过程："><a href="#调试过程：" class="headerlink" title="调试过程："></a>调试过程：</h3><p>在一个终端启动sqlite3:</p>
-<p><img src="//spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200824011634623.png" alt="image-20200824011634623" title="启动sqlite3"></p>
+<p><img src="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200824011634623.png" alt="image-20200824011634623" title="启动sqlite3"></p>
 <p>再在另外一个终端查看sqlite3的进程号：48941</p>
-<p><img src="//spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200824011813218.png" alt="image-20200824011813218" title="sqlite进程信息"></p>
+<p><img src="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200824011813218.png" alt="image-20200824011813218" title="sqlite进程信息"></p>
 <p>然后使用root权限启动gdb，在编译sqlite的时候加上<code>-g</code>参数就可以在这里使用file命令载入调试符号表，然后再进行<code>attach 48941</code>就可以正常调试了。</p>
 <h3 id="调试分析："><a href="#调试分析：" class="headerlink" title="调试分析："></a>调试分析：</h3><p>当使用gdb进行附加后，原来的sqlite会进入等待状态，这个时候不能进行任何输入。找到漏洞出现的源代码处，下断点<code>break zipfileUpdate</code>，然后<code>continue</code>，就可以在sqlite的终端输入命令了。</p>
 <p>使用<code>next, print, x</code>命令可以灵活查看调试过程中的变量内容，内存信息，使用<code>set</code>可以修改内容，由于<code>\0</code>字符在终端输入的时候会导致SQL语句被截掉一半的情况，所以为了形成描述中的情况，我在调试的过程中找到变量的位置并插入了’\0’字符。</p>
@@ -378,68 +308,52 @@
 <h3 id="调试分析：-1"><a href="#调试分析：-1" class="headerlink" title="调试分析："></a>调试分析：</h3><p>调试过程和前一个漏洞一样。</p>
 <p>由于暂时未找到触发漏洞处的代码的testcase，暂时搁置，先看论文中提到的4个Bug案例分析，再回头来看这个漏洞。</p>
 <h2 id="3-case-study-1：A-11-year-Bug"><a href="#3-case-study-1：A-11-year-Bug" class="headerlink" title="3. case study 1：A 11-year Bug"></a>3. case study 1：A 11-year Bug</h2><h3 id="漏洞描述：-1"><a href="#漏洞描述：-1" class="headerlink" title="漏洞描述："></a>漏洞描述：</h3><p>在2009年的check-in中，因为SQL语法中不允许出现GroupBy字句，所以在对IN字句进行优化的函数<code>isCandidateForInOpt</code>中对这一条件进行了断言设置。</p>
-<p><img src="//spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200903163744634.png" alt="image-20200903163744634"></p>
+<p><img src="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200903163744634.png" alt="image-20200903163744634"></p>
 <p>但是在IN字句中，如果出现NATURAL JOIN连接两个DISTINCT子查询的情况的话，会内部设置GROUP BY这个属性，导致断言失败。</p>
 <h3 id="调试分析：-2"><a href="#调试分析：-2" class="headerlink" title="调试分析："></a>调试分析：</h3><p>上面会内部设置GROUP BY这个属性的话，那么在执行IN字句优化例程函数的时候，<code>p-&gt;pGroupBy</code>应该不为0.但是在调试过程中发现，无论sqlite是在添加了<code>-DNDEBUG</code>参数还是没有添加的情况下，使用论文中提到的PoC来验证均发现没有改变这个属性。</p>
-<p><img src="//spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200907083132163.png" alt="image-20200907083132163" title="Makefile中的Debug参数设置"></p>
+<p><img src="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200907083132163.png" alt="image-20200907083132163" title="Makefile中的Debug参数设置"></p>
 <p>下图为调试过程中的截图：</p>
-<p><img src="//spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200907083404723.png" alt="image-20200907083404723"></p>
+<p><img src="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200907083404723.png" alt="image-20200907083404723"></p>
 <h2 id="4-case-study-2：Database-leakage"><a href="#4-case-study-2：Database-leakage" class="headerlink" title="4. case study 2：Database leakage"></a>4. case study 2：Database leakage</h2><p>原来这个就是CVE-2019-19959，怪我没有仔细看。</p>
 <p>按照论文中给出的PoC来验证，感觉没有什么异常啊，只是单纯的把经过zipfile函数生成的一个zip用hex的方式显示出来了而已，而且调试过程中并没有走到漏洞的源代码处。</p>
-<p><img src="//spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200907092046829.png" alt="image-20200907092046829" title="CVE-2019-19959 PoC验证"></p>
+<p><img src="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200907092046829.png" alt="image-20200907092046829" title="CVE-2019-19959 PoC验证"></p>
 <h2 id="5-case-study-3：UAF-from-Assertion"><a href="#5-case-study-3：UAF-from-Assertion" class="headerlink" title="5. case study 3：UAF from Assertion"></a>5. case study 3：UAF from Assertion</h2><p>这个bug获得了CVE编号：CVE-2019-20218。</p>
 <p>使用PoC验证时，sqlite直接爆语法错误。第二条sql语句需要和第三条同时输入，然后再测试第三条SQL语句。</p>
-<p><img src="//spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200907115230945.png" alt="image-20200907115230945" title="CVE-2019-20218 PoC验证"></p>
+<p><img src="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200907115230945.png" alt="image-20200907115230945" title="CVE-2019-20218 PoC验证"></p>
 <p>由于第二条语句创建的是一个循环视图（创建视图v2的数据来自要创建的视图v2），会导致其pWith指针称为一个悬空指针。</p>
-<p><img src="//spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200907115849015.png" alt="image-20200907115849015" title="悬空指针"></p>
+<p><img src="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200907115849015.png" alt="image-20200907115849015" title="悬空指针"></p>
 <p>但是调试到后面，导致程序崩溃的情况是在一个比较函数里面：</p>
-<p><img src="//spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200907164940502.png" alt="image-20200907164940502" title="sqlite3StrICmp函数"></p>
+<p><img src="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200907164940502.png" alt="image-20200907164940502" title="sqlite3StrICmp函数"></p>
 <p>而且调用这个函数的地方是在这个漏洞修补处的前面，按道理在后面修补，前面同样会出问题的吧，且还没找到关于<code>p-&gt;pWith</code>指针的断言语句。</p>
 <p>而且我在加上<code>-DNDEBUG</code>参数之后再来测试，同样的还是崩溃了。</p>
 <p>后在大佬的指导下，解决了调试不能断在assert函数的地方的问题，需要再设置<code>-DSQLITE_DEBUG</code>这个参数，<code>sqlite3.c</code>中解释了这两个参数必须是相反的，如果注释了<code>-DNDEBUG</code>且没有定义<code>-DSQLITE_DEBUG</code>那么就会再次将<code>-DNDEBUG</code>设为1，所以解决方法就是注释掉<code>-DNDEBUG</code>的同时定义<code>-DSQLITE_DEBUG</code>。</p>
-<p><img src="//spwpun.github.io/2020/11/09/SQLite漏洞调试记录/image-20200920004802260.png" alt="image-20200920004802260"></p>
+<p><img src="/2020/11/09/SQLite%E6%BC%8F%E6%B4%9E%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20200920004802260.png" alt="image-20200920004802260"></p>
 
     </div>
 
     
     
     
-        
-      
 
       <footer class="post-footer">
-          
-            
-          
           <div class="post-tags">
-            
               <a href="/tags/SQLite/" rel="tag"># SQLite</a>
-            
           </div>
-        
 
         
 
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-              
-                <a href="/2020/09/19/DASCTF8月赛：magic-number/" rel="next" title="DASCTF8月赛：magic_number">
-                  <i class="fa fa-chevron-left"></i> DASCTF8月赛：magic_number
-                </a>
-              
-            </div>
 
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2020/11/09/CollAFL阅读笔记/" rel="prev" title="CollAFL阅读笔记">
-                  CollAFL阅读笔记 <i class="fa fa-chevron-right"></i>
-                </a>
-              
-            </div>
-          </div>
         
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/09/19/DASCTF8%E6%9C%88%E8%B5%9B%EF%BC%9Amagic-number/" rel="prev" title="DASCTF8月赛：magic_number">
+      <i class="fa fa-chevron-left"></i> DASCTF8月赛：magic_number
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/11/09/CollAFL%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" rel="next" title="CollAFL阅读笔记">
+      CollAFL阅读笔记 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -447,14 +361,33 @@
   
   
 
-  </div>
 
 
           </div>
           
-    
-    <div class="comments" id="comments"></div>
-  
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -467,11 +400,6 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
-        
-        
-        
-        
-      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -484,120 +412,67 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-CVE-2019-19599"><span class="nav-text">1. CVE-2019-19599</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常见用法："><span class="nav-text">常见用法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#漏洞描述"><span class="nav-text">漏洞描述:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调试过程："><span class="nav-text">调试过程：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调试分析："><span class="nav-text">调试分析：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-CVE-2019-19317"><span class="nav-text">2. CVE-2019-19317</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#漏洞描述："><span class="nav-text">漏洞描述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调试分析：-1"><span class="nav-text">调试分析：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-case-study-1：A-11-year-Bug"><span class="nav-text">3. case study 1：A 11-year Bug</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#漏洞描述：-1"><span class="nav-text">漏洞描述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调试分析：-2"><span class="nav-text">调试分析：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-case-study-2：Database-leakage"><span class="nav-text">4. case study 2：Database leakage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-case-study-3：UAF-from-Assertion"><span class="nav-text">5. case study 3：UAF from Assertion</span></a></li></ol></div>
-        
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-CVE-2019-19599"><span class="nav-text">1. CVE-2019-19599</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95%EF%BC%9A"><span class="nav-text">常见用法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BC%8F%E6%B4%9E%E6%8F%8F%E8%BF%B0"><span class="nav-text">漏洞描述:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E8%AF%95%E8%BF%87%E7%A8%8B%EF%BC%9A"><span class="nav-text">调试过程：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E8%AF%95%E5%88%86%E6%9E%90%EF%BC%9A"><span class="nav-text">调试分析：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-CVE-2019-19317"><span class="nav-text">2. CVE-2019-19317</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BC%8F%E6%B4%9E%E6%8F%8F%E8%BF%B0%EF%BC%9A"><span class="nav-text">漏洞描述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E8%AF%95%E5%88%86%E6%9E%90%EF%BC%9A-1"><span class="nav-text">调试分析：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-case-study-1%EF%BC%9AA-11-year-Bug"><span class="nav-text">3. case study 1：A 11-year Bug</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BC%8F%E6%B4%9E%E6%8F%8F%E8%BF%B0%EF%BC%9A-1"><span class="nav-text">漏洞描述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E8%AF%95%E5%88%86%E6%9E%90%EF%BC%9A-2"><span class="nav-text">调试分析：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-case-study-2%EF%BC%9ADatabase-leakage"><span class="nav-text">4. case study 2：Database leakage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-case-study-3%EF%BC%9AUAF-from-Assertion"><span class="nav-text">5. case study 3：UAF from Assertion</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/images/avatar.gif"
-      alt="Demen Lee">
+    <img class="site-author-image" itemprop="image" alt="Demen Lee"
+      src="/images/avatar.gif">
   <p class="site-author-name" itemprop="name">Demen Lee</p>
   <div class="site-description" itemprop="description">Sharing, Communicating more, then moving on......</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
           <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
         <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">categories</span>
-        </a>
+        <span class="site-state-item-name">categories</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
         <span class="site-state-item-count">33</span>
-        <span class="site-state-item-name">tags</span>
-        </a>
+        <span class="site-state-item-name">tags</span></a>
       </div>
-    
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/spwpun" title="GitHub &rarr; https://github.com/spwpun" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/spwpun" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;spwpun" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="mailto:spwpun@gmail.com" title="E-Mail &rarr; mailto:spwpun@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="mailto:spwpun@gmail.com" title="E-Mail → mailto:spwpun@gmail.com" rel="noopener" target="_blank"><i class="fab fa-envelope fa-fw"></i>E-Mail</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://weibo.com/u/5536839794" title="Weibo &rarr; https://weibo.com/u/5536839794" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <a href="https://weibo.com/u/5536839794" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5536839794" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://music.163.com/#/user/home?id=127070793" title="Netease &rarr; https://music.163.com/#/user/home?id=127070793" rel="noopener" target="_blank"><i class="fa fa-fw fa-netease"></i>Netease</a>
+        <a href="https://music.163.com/#/user/home?id=127070793" title="Netease → https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;127070793" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Netease</a>
       </span>
-    
   </div>
 
 
   <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title">
-      <i class="fa fa-fw fa-link"></i>
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
       Links
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://whale3070.github.io" title="https://whale3070.github.io" rel="noopener" target="_blank">Whale3070</a>
+          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io" rel="noopener" target="_blank">Whale3070</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://eternalhikari.github.io" title="https://eternalhikari.github.io" rel="noopener" target="_blank">Hikari</a>
+          <a href="https://eternalhikari.github.io/" title="https:&#x2F;&#x2F;eternalhikari.github.io" rel="noopener" target="_blank">Hikari</a>
         </li>
-      
     </ul>
   </div>
 
@@ -611,17 +486,23 @@
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-flag-checkered"></i>
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="flag-checkered"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Spwpun</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a></div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
 
         
 <div class="busuanzi-count">
@@ -634,9 +515,7 @@
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-  
     <span class="post-meta-divider">|</span>
-  
     <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
@@ -645,7 +524,6 @@
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
-  
 </div>
 
 
@@ -655,51 +533,47 @@
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
 
   
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/next-boot.js?v=7.4.1"></script>
+<script src="/js/utils.js"></script>
 
-
-
-  
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/pisces.js"></script>
 
 
-
-
-
-
-  <script src="/js/local-search.js?v=7.4.1"></script>
-
-
-
-
-
-
-
-
-
-
+<script src="/js/next-boot.js"></script>
 
 
 
 
   
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 
@@ -707,29 +581,31 @@
 
 
 <script>
-NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: true,
-    notify: false,
-    appId: 'O9n8UnYXJ5M4s4QEumwRCwH9-gzGzoHsz',
-    appKey: 'qdSjFo9LUO20Ba6XRPMQGX7v',
-    placeholder: 'Leave something interesting......',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: true,
-    lang: '' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : false,
+      appId      : 'O9n8UnYXJ5M4s4QEumwRCwH9-gzGzoHsz',
+      appKey     : 'qdSjFo9LUO20Ba6XRPMQGX7v',
+      placeholder: "Leave something interesting......",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
 </script>
 
 </body>

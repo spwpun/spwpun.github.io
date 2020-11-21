@@ -29,11 +29,63 @@
     
     
     <entry>
+      <title>11月月赛记录</title>
+      <link href="2020/11/21/11%E6%9C%88%E6%9C%88%E8%B5%9B%E8%AE%B0%E5%BD%95/"/>
+      <url>2020/11/21/11%E6%9C%88%E6%9C%88%E8%B5%9B%E8%AE%B0%E5%BD%95/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-RE"><a href="#1-RE" class="headerlink" title="1. RE"></a>1. RE</h3><h4 id="1-1-卧龙和凤雏"><a href="#1-1-卧龙和凤雏" class="headerlink" title="1.1 卧龙和凤雏"></a>1.1 卧龙和凤雏</h4><p>给了一个2.rar，里面有一个需要解密的<code>enc</code>文件，一个<code>объект430</code>程序和一张图片。</p><p>分析<code>объект430</code>，逆向写出脚本获得解密需要的Key。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"></span><br><span class="line">data = [<span class="number">0x163F5</span>,<span class="number">0x6B2C0</span>,<span class="number">0x11A9F9</span>,<span class="number">0x157000</span>,<span class="number">0x1CB91</span>,<span class="number">0x1BB528</span>,<span class="number">0x1BB528</span>,<span class="number">0xDED21</span>,<span class="number">0x144F38</span>,<span class="number">0xFB89D</span>,<span class="number">0x169B48</span>,<span class="number">0xD151F</span>,<span class="number">0x8B98B</span>,<span class="number">0x17D140</span>,<span class="number">0xDED21</span>,<span class="number">0x1338C0</span>,</span><br><span class="line">    <span class="number">0x1338C0</span>,<span class="number">0x11A9F9</span>,<span class="number">0x1B000</span>,<span class="number">0x144F38</span>,<span class="number">0x13693</span>]</span><br><span class="line"></span><br><span class="line">flag = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data)):</span><br><span class="line">    tmp = <span class="built_in">pow</span>(data[i],<span class="number">1</span>/<span class="number">3</span>)</span><br><span class="line">    print(tmp)</span><br><span class="line">    ch = <span class="built_in">int</span>(tmp) + <span class="number">1</span></span><br><span class="line">    flag += <span class="built_in">chr</span>(ch)</span><br><span class="line">print(flag)</span><br><span class="line"><span class="comment"># -Lip1zzaner_Stalli0n+</span></span><br></pre></td></tr></table></figure><p>然后使用openssl解密：</p><p><code>openssl enc -d -aes256 -salt -in encry.rar.enc -out decry.rar -k -Lip1zzaner_Stalli0n+</code></p><p>打开解密后的压缩包，得到flag和下一道题的题目。</p><p><img src="/2020/11/21/11%E6%9C%88%E6%9C%88%E8%B5%9B%E8%AE%B0%E5%BD%95/image-20201121112301402.png" alt="image-20201121112301402"></p><p>参考链接：</p><ul><li><a href="https://0xrick.github.io/hack-the-box/hawk/">https://0xrick.github.io/hack-the-box/hawk/</a></li><li><a href="https://github.com/glv2/bruteforce-salted-openssl">https://github.com/glv2/bruteforce-salted-openssl</a></li></ul><h4 id="1-2-卧龙和凤雏得其一者可安天下"><a href="#1-2-卧龙和凤雏得其一者可安天下" class="headerlink" title="1.2 卧龙和凤雏得其一者可安天下"></a>1.2 卧龙和凤雏得其一者可安天下</h4><p>一个简单的crackme，写个脚本就可以：</p><p>直接写逆算法比较麻烦，就直接在<code>0,0xff</code>中爆破去找吧。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">encrypted = <span class="built_in">bytearray</span>.fromhex(<span class="string">&#x27;CA7093C80654D2D5DA6AD159DE45F9B5A68719A5566E63&#x27;</span>)</span><br><span class="line">lst = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">23</span>):</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">0xff</span>):</span><br><span class="line">        n1 = (x ^ i) &lt;&lt; ((i ^ <span class="number">9</span>) &amp; <span class="number">3</span>)</span><br><span class="line">        n2 = (x ^ i) &gt;&gt; (<span class="number">8</span> - ((i ^ <span class="number">9</span>) &amp; <span class="number">3</span>))</span><br><span class="line">        <span class="keyword">if</span> (((n1 | n2) + <span class="number">8</span>)%<span class="number">256</span>)  == encrypted[i]:</span><br><span class="line">            lst.append(<span class="built_in">chr</span>(x))</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">print(<span class="string">&#x27;&#x27;</span>.join(lst))</span><br></pre></td></tr></table></figure><p>参考链接：</p><ul><li><a href="https://github.com/andreafioraldi/angrgdb">https://github.com/andreafioraldi/angrgdb</a></li></ul><h4 id="1-3-re-Project1-exe"><a href="#1-3-re-Project1-exe" class="headerlink" title="1.3 re-Project1.exe"></a>1.3 re-Project1.exe</h4><p>base64魔改的一个算法，到这个网站去可以修改base64 table进行解码：魔改的表是<code>+\-0-9A-Za-z</code></p><ul><li><a href="https://gchq.github.io/CyberChef/#recipe=From_Hex('Space'/disabled)To_Base64('%2B%5C%5C-0-9A-Za-z'/disabled)From_Base64('%2B%5C%5C-0-9A-Za-z',true)To_Hex('Space',0/disabled)&input=RW9KMkFZNmtFSUoxQjJJbkYxTjJBMjZ0Rlky">CyberChef</a></li></ul><p><img src="/2020/11/21/11%E6%9C%88%E6%9C%88%E8%B5%9B%E8%AE%B0%E5%BD%95/image-20201121154100603.png" alt="image-20201121154100603"></p><p>关键的几个点，程序将你输入的flag进行两次魔改的base64，但实际上比较的时候就只比较了第一次的结果。通过分析和OllyDbg调试，整理出下面的可能情况：</p><p>IDA中发现两个用于比较的编码后的字符串：<code>EoJ2AY6kEIJ1B2InF1N2A26tFY2</code>, <code>FawqPI3iAaosB3NYI473N+</code></p><p>分别解码后得到：</p><p><code>EoJ2AY6kEIJ1B2InF1N2A26tFY2</code>–&gt;<code>CED2B0AEC4E3D6D0B9FA</code>–&gt;<code>9.Ä4#.8d.&lt;.Â4´L</code></p><p><code>FawqPI3iAaosB3NYI473N+</code>–&gt;<code>Fo6mAn2m84VdPbEd</code>–&gt;<code>GB2312(hint)</code></p><p>由于比较的都是第一次编码后的结果，所以我们如果输入<code>CED2B0AEC4E3D6D0B9FA</code>和<code>Fo6mAn2m84VdPbEd</code>,就都会比较成功。根据给出的提示内容：</p><p><img src="/2020/11/21/11%E6%9C%88%E6%9C%88%E8%B5%9B%E8%AE%B0%E5%BD%95/image-20201121155046612.png" alt="image-20201121155046612"></p><p>可以知道应该就是将<code>CED2B0AEC4E3D6D0B9FA</code>通过GB2312解码吧，但是好难找在线的解码工具，于是直接Google这串字符，原来就是“我爱你中国”啊！</p><p><img src="/2020/11/21/11%E6%9C%88%E6%9C%88%E8%B5%9B%E8%AE%B0%E5%BD%95/image-20201121155332297.png" alt="image-20201121155332297"></p><p>其实Python可以解码的，只是自己太菜了。</p><p><img src="/2020/11/21/11%E6%9C%88%E6%9C%88%E8%B5%9B%E8%AE%B0%E5%BD%95/image-20201121161053191.png" alt="image-20201121161053191"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Writeups </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 月赛 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>qiling And retdec</title>
+      <link href="2020/11/20/qiling-And-retdec/"/>
+      <url>2020/11/20/qiling-And-retdec/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-qiling"><a href="#1-qiling" class="headerlink" title="1. qiling"></a>1. qiling</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具使用 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> qiling </tag>
+            
+            <tag> retdec </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CVE-2019-6339分析记录</title>
       <link href="2020/11/19/CVE-2019-6339%E5%88%86%E6%9E%90%E8%AE%B0%E5%BD%95/"/>
       <url>2020/11/19/CVE-2019-6339%E5%88%86%E6%9E%90%E8%AE%B0%E5%BD%95/</url>
       
-        <content type="html"><![CDATA[<h3 id="1-漏洞原理："><a href="#1-漏洞原理：" class="headerlink" title="1. 漏洞原理："></a>1. 漏洞原理：</h3><h4 id="1-1-描述"><a href="#1-1-描述" class="headerlink" title="1.1 描述"></a>1.1 描述</h4><p>在Drupal Core版本7.62之前的7.x、8.6.6之前的8.6.x和8.5.9之前的8.5.x； 在不受信任的<code>phar：// URI</code>上执行文件操作时，PHP的内置<code>phar流包装器</code>中存在一个远程执行代码漏洞。某些Drupal代码（核心代码，贡献代码和自定义代码）可能会在未经充分验证的用户输入上执行文件操作，从而容易受到此漏洞的影响。此类代码路径通常需要访问管理权限或非典型配置，从而缓解了此漏洞。</p><h4 id="1-2-phar流包装器"><a href="#1-2-phar流包装器" class="headerlink" title="1.2 phar流包装器"></a>1.2 phar流包装器</h4>]]></content>
+        <content type="html"><![CDATA[<h3 id="1-漏洞原理："><a href="#1-漏洞原理：" class="headerlink" title="1. 漏洞原理："></a>1. 漏洞原理：</h3><h4 id="1-1-描述"><a href="#1-1-描述" class="headerlink" title="1.1 描述"></a>1.1 描述</h4><p>在Drupal Core版本7.62之前的7.x、8.6.6之前的8.6.x和8.5.9之前的8.5.x； 在不受信任的<code>phar：// URI</code>上执行文件操作时，PHP的内置<code>phar流包装器</code>中存在一个远程执行代码漏洞。某些Drupal代码（核心代码，贡献代码和自定义代码）可能会在未经充分验证的用户输入上执行文件操作，从而容易受到此漏洞的影响。但是此类代码路径通常需要访问管理权限或非典型配置，所以这个漏洞的影响不是太大。</p><h4 id="1-2-Drupal"><a href="#1-2-Drupal" class="headerlink" title="1.2 Drupal"></a>1.2 Drupal</h4><p>Drupal是使用PHP语言编写的开源内容管理框架（CMF），它由<a href="https://baike.baidu.com/item/%E5%86%85%E5%AE%B9%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/2683135">内容管理系统</a>（CMS）和PHP开发框架（Framework）共同构成。</p><h4 id="1-3-phar反序列化"><a href="#1-3-phar反序列化" class="headerlink" title="1.3 phar反序列化"></a>1.3 phar反序列化</h4><p>phar提供了一种将整个PHP应用程序放入称为“ phar”（PHP存档）的单个文件中的方法，以便于分发和安装。</p><p>Phar文件结构主要包含三至四个部分：</p><ul><li><p>A stub：可以理解为一个标志，格式为<code>xxx&lt;?php xxx; __HALT_COMPILER();?&gt;</code>，前面内容不限，但必须以<code>__HALT_COMPILER();?&gt;</code>来结尾，否则phar扩展将无法识别这个文件为phar文件。</p><p><img src="/2020/11/19/CVE-2019-6339%E5%88%86%E6%9E%90%E8%AE%B0%E5%BD%95/image-20201120190344828.png" alt="image-20201120190344828"></p></li><li><p>a <strong>manifest</strong> describing the contents：phar文件本质上是一种压缩文件，其中每个被压缩文件的权限、属性等信息都放在这部分。这部分还会以序列化的形式存储用户自定义的meta-data，这是上述攻击手法最核心的地方。</p><p><img src="/2020/11/19/CVE-2019-6339%E5%88%86%E6%9E%90%E8%AE%B0%E5%BD%95/24388aaa-6ea4-4856-8fb1-fbf29deb5dca.png-w331s" alt="img"></p></li><li><p>the file <strong>contents</strong></p><p>被压缩文件的内容。</p></li><li><p>a <strong>signature</strong> for verifying Phar integrity </p><p><img src="/2020/11/19/CVE-2019-6339%E5%88%86%E6%9E%90%E8%AE%B0%E5%BD%95/image-20201120190436599.png" alt="image-20201120190436599"></p></li></ul>]]></content>
       
       
       <categories>

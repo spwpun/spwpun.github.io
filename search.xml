@@ -29,6 +29,33 @@
     
     
     <entry>
+      <title>bgpd和bird程序分析</title>
+      <link href="2020/11/22/bgpd%E5%92%8Cbird%E7%A8%8B%E5%BA%8F%E5%88%86%E6%9E%90/"/>
+      <url>2020/11/22/bgpd%E5%92%8Cbird%E7%A8%8B%E5%BA%8F%E5%88%86%E6%9E%90/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-BGP协议规则提取"><a href="#1-BGP协议规则提取" class="headerlink" title="1. BGP协议规则提取"></a>1. BGP协议规则提取</h3><p>可以从RFC文档中提取，搜索关键词（MUST、MUST NOT、REQUIRED、SHALL、SHOULD、RECOMMAND、MAY、OPTIONAL）,查看关键的描述信息。</p><p><img src="/2020/11/22/bgpd%E5%92%8Cbird%E7%A8%8B%E5%BA%8F%E5%88%86%E6%9E%90/image-20201123011933414.png" alt="image-20201123011933414"></p><p>上面的例子就是对Path Atrribute中的Attribute Flags的设置规则的描述。</p><p>提取了相应的协议规则就需要到二进制程序中去寻找对应的部分，但这部分现阶段还是比较困难的，尤其是在二进制程序没有符号表的情况下。</p><h3 id="2-Bird程序："><a href="#2-Bird程序：" class="headerlink" title="2. Bird程序："></a>2. Bird程序：</h3><p>实际上协议规则的提取还是比较抽象的，到二进制程序中来分析又是另外一回事了，常见的是根据二进制程序中的字符串信息来定位规则实现的部分。</p><p>例如：</p><p>1）对IBGP和EBGP的判断，以及响应的ASN号的要求：</p><p><img src="/2020/11/22/bgpd%E5%92%8Cbird%E7%A8%8B%E5%BA%8F%E5%88%86%E6%9E%90/image-20201123012525214.png" alt="image-20201123012525214"></p><p>2）对AS number号的检查：</p><p><img src="/2020/11/22/bgpd%E5%92%8Cbird%E7%A8%8B%E5%BA%8F%E5%88%86%E6%9E%90/image-20201123013111395.png" alt="image-20201123013111395"></p><p>备注：一般字符串都是输出的调试信息，所以其调用的函数大致是一个printf类函数，可以将这个函数重命名，然后交叉引用查看整体程序的引用情况。</p><p><img src="/2020/11/22/bgpd%E5%92%8Cbird%E7%A8%8B%E5%BA%8F%E5%88%86%E6%9E%90/image-20201123013240120.png" alt="image-20201123013240120"></p><h3 id="3-Bgpd程序："><a href="#3-Bgpd程序：" class="headerlink" title="3. Bgpd程序："></a>3. Bgpd程序：</h3><p>Bgpd程序是Frrouting中实现BGP协议部分的程序，导入IDA后的Imports表中有很多Frr的外部函数，单独查看这个二进制文件是没法看到这些函数的具体实现的。</p><p>1）对Receive Length的检查：</p><p><img src="/2020/11/22/bgpd%E5%92%8Cbird%E7%A8%8B%E5%BA%8F%E5%88%86%E6%9E%90/image-20201123020352475.png" alt="image-20201123020352475"></p><p><img src="/2020/11/22/bgpd%E5%92%8Cbird%E7%A8%8B%E5%BA%8F%E5%88%86%E6%9E%90/image-20201123020444709.png" alt="image-20201123020444709"></p><p>2）对CapabilityCode的检查：</p><p><img src="/2020/11/22/bgpd%E5%92%8Cbird%E7%A8%8B%E5%BA%8F%E5%88%86%E6%9E%90/image-20201123021159932.png" alt="image-20201123021159932"></p><p>RFC 2842中对CapabilityCode的描述：</p><p><img src="/2020/11/22/bgpd%E5%92%8Cbird%E7%A8%8B%E5%BA%8F%E5%88%86%E6%9E%90/image-20201123021334758.png" alt="image-20201123021334758"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 漏洞挖掘 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Frrouting </tag>
+            
+            <tag> Bird </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>11月月赛记录</title>
       <link href="2020/11/21/11%E6%9C%88%E6%9C%88%E8%B5%9B%E8%AE%B0%E5%BD%95/"/>
       <url>2020/11/21/11%E6%9C%88%E6%9C%88%E8%B5%9B%E8%AE%B0%E5%BD%95/</url>
@@ -58,7 +85,7 @@
       <link href="2020/11/20/qiling-And-retdec/"/>
       <url>2020/11/20/qiling-And-retdec/</url>
       
-        <content type="html"><![CDATA[<h3 id="1-qiling"><a href="#1-qiling" class="headerlink" title="1. qiling"></a>1. qiling</h3>]]></content>
+        <content type="html"><![CDATA[<h3 id="1-qiling"><a href="#1-qiling" class="headerlink" title="1. qiling"></a>1. qiling</h3><p>一个强大的二进制分析框架，可以跨架构、跨平台，使用Python3实现。</p><ul><li>跨平台：Windows, MacOS, Linux, BSD, UEFI, DOS。</li><li>跨架构：X86, X86_64, Arm, Arm64, MIPS, 8086。</li><li>多文件格式支持：PE, MachO, ELF, COM。</li><li>在隔离的环境（sandbox）里模拟执行机器代码</li><li>支持跨架构跨平台的调试功能，主要是GDBserver远程调试。</li><li>提供了高层次的API来自定义沙箱代码，用于分析恶意程序。</li><li>允许在各个级别执行钩子（instruction/basic-block/memory-access/exception/syscall/IO/etc）.</li></ul><p>在Unicorn engine的基础上开发.</p><p>有意思的几个点：</p><ul><li>支持去控制流平展化：<a href="https://docs.qiling.io/en/latest/ida/#ollvm-de-flatten%EF%BC%8C%E4%BD%BF%E7%94%A8%E8%B5%B7%E6%9D%A5%E7%9C%8B%E4%B8%8A%E5%8E%BB%E5%BE%88%E7%AE%80%E5%8D%95%E3%80%82">https://docs.qiling.io/en/latest/ida/#ollvm-de-flatten，使用起来看上去很简单。</a></li><li>有一个IDAPro插件，通过自定义python脚本来调试程序，不需要远程调试。</li><li>支持各个平台的二进制文件，每个平台都需要设置一个配置文件，这里是以<code>.ql</code>为后缀来命名的。</li></ul><p>模拟执行的基本流程：</p><ul><li>初始化：<code>ql = QiLing()</code>，针对执行的二进制程序类型（Binary，Shellcode），有不同的参数。</li><li>配置：一些属性的设置（fs_mapper、debug_stop、debugger、multithread、ipv6、bindtolocalhost、root）</li><li>执行：<code>ql.run()</code></li></ul><p>需要注意的是，远程调试功能支持的是IDAPro7.4+，且调试时qiling需要在Linux上运行（由于unicorn的原因在Windows上不行），支持Python3.5+，我的配置还没这么好。</p><p>参考链接：</p><ul><li><a href="https://docs.qiling.io/en/latest/howto/">https://docs.qiling.io/en/latest/howto/</a></li><li><a href="https://docs.qiling.io/en/latest/ida/#ollvm-de-flatten">https://docs.qiling.io/en/latest/ida/#ollvm-de-flatten</a></li><li><a href="https://www.youtube.com/watch?v=xf0i9kfHKDI&amp;ab_channel=ZeroNights">https://www.youtube.com/watch?v=xf0i9kfHKDI&amp;ab_channel=ZeroNights</a></li><li><a href="https://kabeor.cn/%E4%BD%BF%E7%94%A8Qiling%20IDA%E6%8F%92%E4%BB%B6%E8%A7%A3%E5%AF%86Mirai%E7%97%85%E6%AF%92%E6%95%B0%E6%8D%AE/#%E5%88%9D%E5%A7%8B%E5%8C%96%E6%8F%92%E4%BB%B6">https://kabeor.cn/%E4%BD%BF%E7%94%A8Qiling%20IDA%E6%8F%92%E4%BB%B6%E8%A7%A3%E5%AF%86Mirai%E7%97%85%E6%AF%92%E6%95%B0%E6%8D%AE/#%E5%88%9D%E5%A7%8B%E5%8C%96%E6%8F%92%E4%BB%B6</a></li></ul><h3 id="2-retdec"><a href="#2-retdec" class="headerlink" title="2. retdec"></a>2. retdec</h3><p>这是一个基于LLVM的可重定向的机器码反编译器，不受平台结构、操作系统、二进制执行文件格式限制。</p><ul><li>支持的文件格式：ELF, PE, Mach-O, COFF, AR (archive), Intel HEX, and raw machine code</li><li>支持的架构：<ul><li>32位：ntel x86, ARM, MIPS, PIC32, and PowerPC</li><li>64位：x86-64, ARM64 (AArch64)</li></ul></li></ul><p>怎么使用：</p><ul><li><p>在线反编译服务：</p><ul><li><a href="https://retdec.com/decompilation/">https://retdec.com/decompilation/</a></li></ul></li><li><p><img src="/2020/11/20/qiling-And-retdec/image-20201122220439265.png" alt="image-20201122220439265"></p></li><li><p>RetDec IDA Plugin：</p><p><img src="/2020/11/20/qiling-And-retdec/image-20201122220556268.png" alt="image-20201122220556268"></p><p>例子：</p><p><img src="/2020/11/20/qiling-And-retdec/image-20201122220745260.png" alt="image-20201122220745260"></p><p>看上去RetDec反编译出来的源代码要更亲切得一点。</p></li></ul><p>参考链接：</p><ul><li><a href="https://www.youtube.com/watch?v=HHFvtt5b6yY&amp;ab_channel=botconfeu">https://www.youtube.com/watch?v=HHFvtt5b6yY&amp;ab_channel=botconfeu</a></li><li><a href="https://github.com/avast/retdec">https://github.com/avast/retdec</a></li></ul>]]></content>
       
       
       <categories>

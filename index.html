@@ -536,7 +536,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-22 22:48:47" itemprop="dateModified" datetime="2020-11-22T22:48:47+08:00">2020-11-22</time>
+                <time title="Modified: 2020-11-25 15:55:48" itemprop="dateModified" datetime="2020-11-25T15:55:48+08:00">2020-11-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -580,68 +580,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="1-qiling"><a href="#1-qiling" class="headerlink" title="1. qiling"></a>1. qiling</h3><p>一个强大的二进制分析框架，可以跨架构、跨平台，使用Python3实现。</p>
-<ul>
-<li>跨平台：Windows, MacOS, Linux, BSD, UEFI, DOS。</li>
-<li>跨架构：X86, X86_64, Arm, Arm64, MIPS, 8086。</li>
-<li>多文件格式支持：PE, MachO, ELF, COM。</li>
-<li>在隔离的环境（sandbox）里模拟执行机器代码</li>
-<li>支持跨架构跨平台的调试功能，主要是GDBserver远程调试。</li>
-<li>提供了高层次的API来自定义沙箱代码，用于分析恶意程序。</li>
-<li>允许在各个级别执行钩子（instruction/basic-block/memory-access/exception/syscall/IO/etc）.</li>
-</ul>
-<p>在Unicorn engine的基础上开发.</p>
-<p>有意思的几个点：</p>
-<ul>
-<li>支持去控制流平展化：<a target="_blank" rel="noopener" href="https://docs.qiling.io/en/latest/ida/#ollvm-de-flatten%EF%BC%8C%E4%BD%BF%E7%94%A8%E8%B5%B7%E6%9D%A5%E7%9C%8B%E4%B8%8A%E5%8E%BB%E5%BE%88%E7%AE%80%E5%8D%95%E3%80%82">https://docs.qiling.io/en/latest/ida/#ollvm-de-flatten，使用起来看上去很简单。</a></li>
-<li>有一个IDAPro插件，通过自定义python脚本来调试程序，不需要远程调试。</li>
-<li>支持各个平台的二进制文件，每个平台都需要设置一个配置文件，这里是以<code>.ql</code>为后缀来命名的。</li>
-</ul>
-<p>模拟执行的基本流程：</p>
-<ul>
-<li>初始化：<code>ql = QiLing()</code>，针对执行的二进制程序类型（Binary，Shellcode），有不同的参数。</li>
-<li>配置：一些属性的设置（fs_mapper、debug_stop、debugger、multithread、ipv6、bindtolocalhost、root）</li>
-<li>执行：<code>ql.run()</code></li>
-</ul>
-<p>需要注意的是，远程调试功能支持的是IDAPro7.4+，且调试时qiling需要在Linux上运行（由于unicorn的原因在Windows上不行），支持Python3.5+，我的配置还没这么好。</p>
-<p>参考链接：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://docs.qiling.io/en/latest/howto/">https://docs.qiling.io/en/latest/howto/</a></li>
-<li><a target="_blank" rel="noopener" href="https://docs.qiling.io/en/latest/ida/#ollvm-de-flatten">https://docs.qiling.io/en/latest/ida/#ollvm-de-flatten</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=xf0i9kfHKDI&amp;ab_channel=ZeroNights">https://www.youtube.com/watch?v=xf0i9kfHKDI&amp;ab_channel=ZeroNights</a></li>
-<li><a target="_blank" rel="noopener" href="https://kabeor.cn/%E4%BD%BF%E7%94%A8Qiling%20IDA%E6%8F%92%E4%BB%B6%E8%A7%A3%E5%AF%86Mirai%E7%97%85%E6%AF%92%E6%95%B0%E6%8D%AE/#%E5%88%9D%E5%A7%8B%E5%8C%96%E6%8F%92%E4%BB%B6">https://kabeor.cn/%E4%BD%BF%E7%94%A8Qiling%20IDA%E6%8F%92%E4%BB%B6%E8%A7%A3%E5%AF%86Mirai%E7%97%85%E6%AF%92%E6%95%B0%E6%8D%AE/#%E5%88%9D%E5%A7%8B%E5%8C%96%E6%8F%92%E4%BB%B6</a></li>
-</ul>
-<h3 id="2-retdec"><a href="#2-retdec" class="headerlink" title="2. retdec"></a>2. retdec</h3><p>这是一个基于LLVM的可重定向的机器码反编译器，不受平台结构、操作系统、二进制执行文件格式限制。</p>
-<ul>
-<li>支持的文件格式：ELF, PE, Mach-O, COFF, AR (archive), Intel HEX, and raw machine code</li>
-<li>支持的架构：<ul>
-<li>32位：ntel x86, ARM, MIPS, PIC32, and PowerPC</li>
-<li>64位：x86-64, ARM64 (AArch64)</li>
-</ul>
-</li>
-</ul>
-<p>怎么使用：</p>
-<ul>
-<li><p>在线反编译服务：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://retdec.com/decompilation/">https://retdec.com/decompilation/</a></li>
-</ul>
-</li>
-<li><p><img src="/2020/11/20/qiling-And-retdec/image-20201122220439265.png" alt="image-20201122220439265"></p>
-</li>
-<li><p>RetDec IDA Plugin：</p>
-<p><img src="/2020/11/20/qiling-And-retdec/image-20201122220556268.png" alt="image-20201122220556268"></p>
-<p>例子：</p>
-<p><img src="/2020/11/20/qiling-And-retdec/image-20201122220745260.png" alt="image-20201122220745260"></p>
-<p>看上去RetDec反编译出来的源代码要更亲切得一点。</p>
-</li>
-</ul>
-<p>参考链接：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HHFvtt5b6yY&amp;ab_channel=botconfeu">https://www.youtube.com/watch?v=HHFvtt5b6yY&amp;ab_channel=botconfeu</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/avast/retdec">https://github.com/avast/retdec</a></li>
-</ul>
-
+          qiling是一个国产的二进制分析框架，retdec是一个支持多个架构llvm-IR的工具。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/20/qiling-And-retdec/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

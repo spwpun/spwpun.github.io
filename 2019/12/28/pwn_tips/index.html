@@ -29,7 +29,7 @@
 <meta property="og:description" content="基本的gdb调试命令，也是备忘性质的，哈哈哈哈。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-12-28T13:34:54.084Z">
-<meta property="article:modified_time" content="2020-11-18T18:22:09.527Z">
+<meta property="article:modified_time" content="2021-03-18T13:48:40.637Z">
 <meta property="article:author" content="Demen Lee">
 <meta property="article:tag" content="gdb">
 <meta name="twitter:card" content="summary">
@@ -232,7 +232,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-19 02:22:09" itemprop="dateModified" datetime="2020-11-19T02:22:09+08:00">2020-11-19</time>
+                <time title="Modified: 2021-03-18 21:48:40" itemprop="dateModified" datetime="2021-03-18T21:48:40+08:00">2021-03-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -301,8 +301,8 @@
 <li>p * 0xffffebac 查看某个地址处的值</li>
 </ul>
 <h5 id="x系列"><a href="#x系列" class="headerlink" title="x系列"></a>x系列</h5><ul>
-<li>x/xw addr 显示某个地址处开始的16进制内容，如果有符号表会加载符号表</li>
-<li>x/x $esp 查看esp寄存器中的值</li>
+<li>x/ [n] &lt;b|w|g|s|i&gt; addr 显示某个地址处开始的16进制内容，如果有符号表会加载符号表,其中b代表一个字符为一组，w代表4个字节为一组，g代表8个字节为一组，s代表“\x00”结尾的字符串，i代表指令。</li>
+<li>x/w $esp 查看esp寄存器中的值</li>
 <li>x/s addr 查看addr处的字符串</li>
 <li>x/b addr 查看addr处的字符</li>
 <li>x/i addr 查看addr处的反汇编结果</li>
@@ -386,6 +386,9 @@
 <li>执行./pwn &amp;，这个时候会将pwn程序放入后台，而且你能快速知道这个程序的PID，这个时候cat /proc/pwn的PID/maps，就能找到对应的执行时地址。之后kill -9 pwn的PID</li>
 <li>编写一个小脚本，任意放置一个断点，并开启gdb调试，这个时候断点会崩溃，但是gdb-peda中使用vmmap仍能找到对应地址</li>
 </ul>
+<h3 id="7-One-gadget的安装"><a href="#7-One-gadget的安装" class="headerlink" title="7.One_gadget的安装"></a>7.One_gadget的安装</h3><p>现在one_gadget需要ruby2.4及以上，而apt安装的是2.3，所以需要到ruby官网去下载源码来安装。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ruby/</span><br><span class="line">./configure</span><br><span class="line">make -j4</span><br><span class="line">sudo make install</span><br><span class="line">ruby -v <span class="comment">#查看ruby版本信息</span></span><br><span class="line">gem install one_gadget <span class="comment">#通过gem包管理工具安装one_gadget</span></span><br><span class="line">one_gadget &lt;libc.so&gt; <span class="comment"># 使用方式</span></span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -470,7 +473,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%B0%83%E8%AF%95%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-text">1. 调试的快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E5%9F%BA%E7%A1%80%E7%9A%84%E8%B0%83%E8%AF%95%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-text">1.1 基础的调试快捷键</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E6%98%BE%E7%A4%BA%E6%95%B0%E6%8D%AE"><span class="nav-text">1.2 显示数据</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#p-%E7%B3%BB%E5%88%97"><span class="nav-text">p 系列</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#x%E7%B3%BB%E5%88%97"><span class="nav-text">x系列</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#info%E7%B3%BB%E5%88%97"><span class="nav-text">info系列</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-%E6%9F%A5%E6%89%BE%E6%95%B0%E6%8D%AE"><span class="nav-text">1.3 查找数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE"><span class="nav-text">1.4 修改数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-peda%E6%8F%92%E4%BB%B6"><span class="nav-text">1.5 peda插件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%9F%A5%E6%89%BE%E6%9F%90%E4%B8%AAplt%E3%80%81got%E3%80%81plt-2"><span class="nav-text">2.查找某个plt、got、plt_2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%9F%A5%E6%89%BE%E7%A8%8B%E5%BA%8F%E6%89%80%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E7%9A%84%E5%BA%93"><span class="nav-text">3.查找程序所动态链接的库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E7%BC%96%E8%AF%9132%E4%BD%8D%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6"><span class="nav-text">4.编译32位可执行文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%BC%80%E5%90%AFPIE%E4%B9%8B%E5%90%8E%E7%9A%84%E8%B0%83%E8%AF%95"><span class="nav-text">5.开启PIE之后的调试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E6%89%A7%E8%A1%8C"><span class="nav-text">6.运行时查看文件执行</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%B0%83%E8%AF%95%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-text">1. 调试的快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E5%9F%BA%E7%A1%80%E7%9A%84%E8%B0%83%E8%AF%95%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-text">1.1 基础的调试快捷键</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E6%98%BE%E7%A4%BA%E6%95%B0%E6%8D%AE"><span class="nav-text">1.2 显示数据</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#p-%E7%B3%BB%E5%88%97"><span class="nav-text">p 系列</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#x%E7%B3%BB%E5%88%97"><span class="nav-text">x系列</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#info%E7%B3%BB%E5%88%97"><span class="nav-text">info系列</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-%E6%9F%A5%E6%89%BE%E6%95%B0%E6%8D%AE"><span class="nav-text">1.3 查找数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE"><span class="nav-text">1.4 修改数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-peda%E6%8F%92%E4%BB%B6"><span class="nav-text">1.5 peda插件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%9F%A5%E6%89%BE%E6%9F%90%E4%B8%AAplt%E3%80%81got%E3%80%81plt-2"><span class="nav-text">2.查找某个plt、got、plt_2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%9F%A5%E6%89%BE%E7%A8%8B%E5%BA%8F%E6%89%80%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E7%9A%84%E5%BA%93"><span class="nav-text">3.查找程序所动态链接的库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E7%BC%96%E8%AF%9132%E4%BD%8D%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6"><span class="nav-text">4.编译32位可执行文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%BC%80%E5%90%AFPIE%E4%B9%8B%E5%90%8E%E7%9A%84%E8%B0%83%E8%AF%95"><span class="nav-text">5.开启PIE之后的调试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E6%89%A7%E8%A1%8C"><span class="nav-text">6.运行时查看文件执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-One-gadget%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-text">7.One_gadget的安装</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

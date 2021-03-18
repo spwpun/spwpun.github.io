@@ -30,7 +30,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://spwpun.github.io/2020/06/24/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%EF%BC%88%E6%9B%B4%E6%96%B0%EF%BC%89/image-20200920003523225.png">
 <meta property="article:published_time" content="2020-06-24T08:21:50.000Z">
-<meta property="article:modified_time" content="2021-03-15T17:37:15.836Z">
+<meta property="article:modified_time" content="2021-03-15T17:46:14.850Z">
 <meta property="article:author" content="Demen Lee">
 <meta property="article:tag" content="备忘">
 <meta name="twitter:card" content="summary">
@@ -234,7 +234,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-16 01:37:15" itemprop="dateModified" datetime="2021-03-16T01:37:15+08:00">2021-03-16</time>
+                <time title="Modified: 2021-03-16 01:46:14" itemprop="dateModified" datetime="2021-03-16T01:46:14+08:00">2021-03-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -302,11 +302,12 @@
 <h3 id="7-永久添加环境变量"><a href="#7-永久添加环境变量" class="headerlink" title="7. 永久添加环境变量"></a>7. 永久添加环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/profile</span><br><span class="line"><span class="comment"># 在最后一行添加：</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;/home/spwpun/.local/bin:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"><span class="comment"># 退出后使用source命令生效</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
 
 <h3 id="8-查看一个目录下各个文件的大小"><a href="#8-查看一个目录下各个文件的大小" class="headerlink" title="8. 查看一个目录下各个文件的大小"></a>8. 查看一个目录下各个文件的大小</h3><p><code>du -h --max-depth=1 /var/lib/docker</code></p>
-<h3 id="9-docker与主机之间复制文件"><a href="#9-docker与主机之间复制文件" class="headerlink" title="9. docker与主机之间复制文件"></a>9. docker与主机之间复制文件</h3><p><code>sudo  docker ps -a</code>，查看docker的所有容器，包含现在的和过去的</p>
+<h3 id="9-docker与主机之间复制文件"><a href="#9-docker与主机之间复制文件" class="headerlink" title="9. docker与主机之间复制文件"></a>9. docker与主机之间复制文件</h3><p><code>sudo  docker ps -a</code>，查看docker的所有容器实例，包含运行的和停止的</p>
 <p><code>sudo docker cp host_path containerID:container_path</code></p>
 <p><code>sudo docker cp containerID:container_path host_path</code></p>
 <h3 id="10-docker启动容器命令"><a href="#10-docker启动容器命令" class="headerlink" title="10. docker启动容器命令"></a>10. docker启动容器命令</h3><p><code>sudo docker run -i(image) -t(tag) Ubuntu:16.04 &quot;/bin/bash&quot;</code>，不输入tag的时候会自动设为<code>latest</code>.</p>
 <h3 id="11-docker容器重命名"><a href="#11-docker容器重命名" class="headerlink" title="11. docker容器重命名"></a>11. docker容器重命名</h3><p><code>docker rename [旧容器名] [新容器名]</code></p>
+<p>docker中的容器和镜像是两个概念，适当看一下是否创建了很多无用的容器，那样会很占内存的。</p>
 
     </div>
 

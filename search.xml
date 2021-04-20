@@ -29,6 +29,31 @@
     
     
     <entry>
+      <title>常见的漏洞利用与缓解机制</title>
+      <link href="2021/04/08/%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E4%B8%8E%E7%BC%93%E8%A7%A3%E6%9C%BA%E5%88%B6/"/>
+      <url>2021/04/08/%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E4%B8%8E%E7%BC%93%E8%A7%A3%E6%9C%BA%E5%88%B6/</url>
+      
+        <content type="html"><![CDATA[<h3 id="新坑"><a href="#新坑" class="headerlink" title="新坑"></a>新坑</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 基础概念 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ret2usr </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>污点分析</title>
       <link href="2021/04/07/%E6%B1%A1%E7%82%B9%E4%BC%A0%E6%92%AD%E5%88%86%E6%9E%90%E4%BB%8B%E7%BB%8D/"/>
       <url>2021/04/07/%E6%B1%A1%E7%82%B9%E4%BC%A0%E6%92%AD%E5%88%86%E6%9E%90%E4%BB%8B%E7%BB%8D/</url>

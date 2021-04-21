@@ -29,6 +29,35 @@
     
     
     <entry>
+      <title>htb:Oopsie</title>
+      <link href="2021/04/21/htb-Oopsie/"/>
+      <url>2021/04/21/htb-Oopsie/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-信息收集"><a href="#1-信息收集" class="headerlink" title="1. 信息收集"></a>1. 信息收集</h3><p><code>nmap -sC -sV 10.10.10.28</code>: 得到开放端口22、80。搭建了一个http服务在80端口，浏览器查看，</p><p><img src="/2021/04/21/htb-Oopsie/image-20210421142723931.png" alt="image-20210421142723931"></p><p>查看网页元素，发现有个<code>/cdn-cgi/login/</code>比较奇怪：</p><p><img src="/2021/04/21/htb-Oopsie/image-20210421142758084.png" alt="image-20210421142758084"></p><p>访问<code>http://10.10.10.28/cdn-cgi/login/</code>，是一个登录页面：</p><p><img src="/2021/04/21/htb-Oopsie/image-20210421142842221.png" alt="image-20210421142842221"></p><h3 id="2-切入"><a href="#2-切入" class="headerlink" title="2. 切入"></a>2. 切入</h3><p>使用上一台机器获得的管理员密码尝试：<code>admin/MEGACORP_4dm1n!!</code>，成功！</p><p>发先有个upload页面，但是提示需要super admin，当前是admin；发现Account页面显示了当前账户的ACCESS ID = 34322, 而请求头中的id=1：</p><p><img src="/2021/04/21/htb-Oopsie/image-20210421153539293.png" alt="image-20210421153539293"></p><p>爆破这个ID，从1-100，爆破时要选择这个重定向选项：</p><p><img src="/2021/04/21/htb-Oopsie/image-20210421153731920.png" alt="image-20210421153731920"></p><p>得到super admin的user为：86575; super admin</p><p><img src="/2021/04/21/htb-Oopsie/image-20210421153847781.png" alt="image-20210421153847781"></p><h3 id="3-获取shell"><a href="#3-获取shell" class="headerlink" title="3. 获取shell"></a>3. 获取shell</h3><p>上传功能并没有做什么限制，直接就可以上传php，上传一个php-reverse-shell：</p><p><img src="/2021/04/21/htb-Oopsie/image-20210421143011292.png" alt="image-20210421143011292"></p><p>本机监听443，执行<code>curl  http://10.10.10.28/uploads/shell.php</code>，得到www-data的一个shell，可以直接查看robert目录下的user.txt：</p><p><img src="/2021/04/21/htb-Oopsie/image-20210421143033802.png" alt="image-20210421143033802"></p><p>发现login目录下存在一个db.php，查看内容可以发现mysql的连接用户名和密码：</p><p><img src="/2021/04/21/htb-Oopsie/image-20210421145245678.png" alt="image-20210421145245678"></p><p>robert: M3g4C0rpUs3r!</p><h3 id="4-提权"><a href="#4-提权" class="headerlink" title="4. 提权"></a>4. 提权</h3><p>用php反弹得到的shell无法切换用户，限制很多，本来以为没有办法了。</p><p>尝试用ssh连接，用上面的用户名密码登录，成功！</p><p><code>ssh robert@10.10.10.28 -p22</code></p><p>id命令查看当前用户，发现robert属于bugtracker这个组的。</p><p><code>find / -type f -group bugtracker 2&gt;/dev/null</code>用这个命令查看属于bugtracker组的文件:</p><p><img src="/2021/04/21/htb-Oopsie/image-20210421152515975.png" alt="image-20210421152515975"></p><p>查看文件属性，发现只能root修改，bugtracker组的用户可以执行：</p><p><img src="/2021/04/21/htb-Oopsie/image-20210421152443256.png" alt="image-20210421152443256"></p><p>执行查看效果，是根据ID来调用cat命令查看/root/reports/id下的文件，在Robert用户下尝试查看这个目录的内容发现权限被限制了，也就是在bugtracker中执行cat命令的权限是root级别的，可以通过这个来提权：</p><p>在tmp目录下创建一个cat文件，内容为”/bin/sh”，加上可执行权限，然后修改环境变量，用tmp下的cat覆盖/bin/cat。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=/tmp:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">cd</span> /tmp</span><br><span class="line">touch cat</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;/bin/sh&quot;</span> &gt; cat</span><br><span class="line">chmod +x cat</span><br></pre></td></tr></table></figure><p>然后执行bugtracker，调用cat命令的时候就会去调用tmp目录下的cat，这样就获取到了root shell，然后在里面使用/bin/cat 查看root.txt的内容。</p><p><img src="/2021/04/21/htb-Oopsie/image-20210421151400819.png" alt="image-20210421151400819"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Writeups </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hack the box </tag>
+            
+            <tag> burpsuite </tag>
+            
+            <tag> bruteforce </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>htb:ArcheType</title>
       <link href="2021/04/20/htb-ArcheType/"/>
       <url>2021/04/20/htb-ArcheType/</url>

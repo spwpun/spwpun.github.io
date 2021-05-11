@@ -29,6 +29,35 @@
     
     
     <entry>
+      <title>JuniperOS BGP协议配置</title>
+      <link href="2021/05/11/JuniperOS-BGP%E5%8D%8F%E8%AE%AE%E9%85%8D%E7%BD%AE/"/>
+      <url>2021/05/11/JuniperOS-BGP%E5%8D%8F%E8%AE%AE%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<h3 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h3><p>JuniperOS是美国瞻博网络（Juniper Networks）公司的一套专用于该公司的硬件设备的网络操作系统。这儿介绍如何在命令行下配置bgp协议。</p><h3 id="1-配置过程"><a href="#1-配置过程" class="headerlink" title="1. 配置过程"></a>1. 配置过程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@:~ $ cli </span><br><span class="line">root&gt; configure </span><br><span class="line">root# edit protocols bgp</span><br></pre></td></tr></table></figure><p>然后就进入了配置模式：</p><p><img src="/2021/05/11/JuniperOS-BGP%E5%8D%8F%E8%AE%AE%E9%85%8D%E7%BD%AE/image-20210511161142621.png" alt="image-20210511161142621"></p><p>键入”?”，可以查看可用的配置命令：</p><p><img src="/2021/05/11/JuniperOS-BGP%E5%8D%8F%E8%AE%AE%E9%85%8D%E7%BD%AE/image-20210511161224829.png" alt="image-20210511161224829"></p><p><img src="/2021/05/11/JuniperOS-BGP%E5%8D%8F%E8%AE%AE%E9%85%8D%E7%BD%AE/image-20210511161442572.png" alt="image-20210511161442572"></p><p>查看bgp协议配置下的项：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[edit protocls bgp]</span><br><span class="line">root# edit ?</span><br></pre></td></tr></table></figure><p><img src="/2021/05/11/JuniperOS-BGP%E5%8D%8F%E8%AE%AE%E9%85%8D%E7%BD%AE/image-20210511170415367.png" alt="image-20210511170415367"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[edit protocols bgp]</span><br><span class="line">root# show</span><br></pre></td></tr></table></figure><p><img src="/2021/05/11/JuniperOS-BGP%E5%8D%8F%E8%AE%AE%E9%85%8D%E7%BD%AE/image-20210511170519360.png" alt="image-20210511170519360"></p><p>删除ebgp1中的neighbor配置：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[edit protocols bgp]</span><br><span class="line">root# delete group ebgp1 neighbor 192.168.233.145[Enter]</span><br></pre></td></tr></table></figure><p>增加ebgp1中的neighbor配置：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[edit protocols bgp]</span><br><span class="line">root# edit group ebgp1 neighbor 192.168.233.141[Enter]</span><br></pre></td></tr></table></figure><p><img src="/2021/05/11/JuniperOS-BGP%E5%8D%8F%E8%AE%AE%E9%85%8D%E7%BD%AE/image-20210511171306548.png" alt="image-20210511171306548"></p><p>修改完成之后需要提交修改，有点类似git:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[edit]</span><br><span class="line">root# commit</span><br></pre></td></tr></table></figure><p><img src="/2021/05/11/JuniperOS-BGP%E5%8D%8F%E8%AE%AE%E9%85%8D%E7%BD%AE/image-20210511172223276.png" alt="image-20210511172223276"></p><h3 id="2-总结"><a href="#2-总结" class="headerlink" title="2. 总结"></a>2. 总结</h3><p>结合上面分配置过程和JuniperOS官方文档，edit命令操作的时候控制的是一个statment，这个是一个层次结构，cli上面的[edit protocols bgp]就代表现在正在修改的是bgp协议的配置，使用up可以往上一层走，然后就变成了[edit protocols]，这个时候show看到的又是另外的情况了。”?”命令可以查看当前的层次结构的内容，比如”edit ？”就会列出当前可编辑的项。</p><p>至此！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> BGP </tag>
+            
+            <tag> JuniperOS </tag>
+            
+            <tag> FreeBSD </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>htb:Oopsie</title>
       <link href="2021/04/21/htb-Oopsie/"/>
       <url>2021/04/21/htb-Oopsie/</url>
@@ -137,7 +166,7 @@
       <link href="2021/04/01/%E8%B4%A2%E5%8A%A1%E6%8A%A5%E8%A1%A8%E5%88%86%E6%9E%90/"/>
       <url>2021/04/01/%E8%B4%A2%E5%8A%A1%E6%8A%A5%E8%A1%A8%E5%88%86%E6%9E%90/</url>
       
-        <content type="html"><![CDATA[<h3 id="第一次课"><a href="#第一次课" class="headerlink" title="第一次课"></a>第一次课</h3><p>“己之所欲施之于人”。</p><p>比较优势：指一个生产者以低于另一个生产者的机会成本生产一种物品的行为。</p><p>绝对优势：在某一商品的生产上，一国所耗费的劳动成本绝对低于另一国所产生的在该产品生产上的优势。</p><p>竞争优势：是相对于竞争对手拥有的可持续性优势，分为<a href="https://baike.baidu.com/item/%E6%88%90%E6%9C%AC%E4%BC%98%E5%8A%BF/7635815">成本优势</a>、<a href="https://baike.baidu.com/item/%E5%B7%AE%E5%BC%82%E4%BC%98%E5%8A%BF/24380453">差异优势</a>及聚焦优势。</p><p>跳出理论框架，具体问题具体分析。</p><p>会计报表，时间越短，越没有代表性。</p><h3 id="第二次课"><a href="#第二次课" class="headerlink" title="第二次课"></a>第二次课</h3><p>左：资产</p><p>右：负债</p><p>资本公积：指企业在经营过程中由于接受<a href="https://baike.baidu.com/item/%E6%8D%90%E8%B5%A0/465417">捐赠</a>、<a href="https://baike.baidu.com/item/%E8%82%A1%E6%9C%AC%E6%BA%A2%E4%BB%B7/8236498">股本溢价</a>以及<a href="https://baike.baidu.com/item/%E6%B3%95%E5%AE%9A%E8%B4%A2%E4%BA%A7/5901764">法定财产</a>重估<a href="https://baike.baidu.com/item/%E5%A2%9E%E5%80%BC">增值</a>等原因所形成的<a href="https://baike.baidu.com/item/%E5%85%AC%E7%A7%AF%E9%87%91/1329924">公积金</a>。</p><p>账户分类：</p><ul><li><p>资产 = 负债 + 权益。 </p></li><li><p>利润 = 收入 - 费用。</p></li></ul><h3 id="第三次课"><a href="#第三次课" class="headerlink" title="第三次课"></a>第三次课</h3><p>累计折旧：指价值随使用降低的费用。例：房屋使用磨碎、掉漆。</p><p>坏账：指企业无法收回或收回的可能性极小的<a href="https://baike.so.com/doc/6134472-6347633.html">应收款项</a>。</p><p>坏账准备：指企业的应收款项（含应收账款、其他应收款等）计提的，是备抵账户。</p><p>应付票据、应付账款概念不一样，应该向别人要应付票据。</p><p>应付票据又分为银行承兑（对本人来说更好）、银行非承兑。</p><p>销售利润率：利润/销售额*100%。</p><p>成本加成率：成本/销售额*100%。</p><p>财会分录：指一笔资金变化，分别记在不同的种类下。</p><h3 id="第四次课"><a href="#第四次课" class="headerlink" title="第四次课"></a>第四次课</h3><p>现金流分三类：筹资、经营所得、投资。</p><p>利润 = 收入 - 费用（成本*销售/产量 + 其他期间性费用&amp;管理费用）</p><p>18000*100 - 258800 - 1350000（CGS）- 100000 = 91200。</p><p>成本加成率：指售价相比成本加成的百分率。</p><ul><li>150000 / 20000 = 75/件，售价=100/件。25/75*100% = 33%.</li></ul><p>毛利率：毛利润/营业收入, 成本加成/售价</p><ul><li>45/180*100% = 25%.</li><li>25/100。</li></ul><p>成本：获取资产的代价，没有时间。</p><p>费用：在获取收入的一个时间段内，经营所耗的代价。</p>]]></content>
+        <content type="html"><![CDATA[<h3 id="第一次课"><a href="#第一次课" class="headerlink" title="第一次课"></a>第一次课</h3><p>“己之所欲施之于人”。</p><p>比较优势：指一个生产者以低于另一个生产者的机会成本生产一种物品的行为。</p><p>绝对优势：在某一商品的生产上，一国所耗费的劳动成本绝对低于另一国所产生的在该产品生产上的优势。</p><p>竞争优势：是相对于竞争对手拥有的可持续性优势，分为<a href="https://baike.baidu.com/item/%E6%88%90%E6%9C%AC%E4%BC%98%E5%8A%BF/7635815">成本优势</a>、<a href="https://baike.baidu.com/item/%E5%B7%AE%E5%BC%82%E4%BC%98%E5%8A%BF/24380453">差异优势</a>及聚焦优势。</p><p>跳出理论框架，具体问题具体分析。</p><p>会计报表，时间越短，越没有代表性。</p><h3 id="第二次课"><a href="#第二次课" class="headerlink" title="第二次课"></a>第二次课</h3><p>左：资产</p><p>右：负债</p><p>资本公积：指企业在经营过程中由于接受<a href="https://baike.baidu.com/item/%E6%8D%90%E8%B5%A0/465417">捐赠</a>、<a href="https://baike.baidu.com/item/%E8%82%A1%E6%9C%AC%E6%BA%A2%E4%BB%B7/8236498">股本溢价</a>以及<a href="https://baike.baidu.com/item/%E6%B3%95%E5%AE%9A%E8%B4%A2%E4%BA%A7/5901764">法定财产</a>重估<a href="https://baike.baidu.com/item/%E5%A2%9E%E5%80%BC">增值</a>等原因所形成的<a href="https://baike.baidu.com/item/%E5%85%AC%E7%A7%AF%E9%87%91/1329924">公积金</a>。</p><p>账户分类：</p><ul><li><p>资产 = 负债 + 权益。 </p></li><li><p>利润 = 收入 - 费用。</p></li></ul><h3 id="第三次课"><a href="#第三次课" class="headerlink" title="第三次课"></a>第三次课</h3><p>累计折旧：指价值随使用降低的费用。例：房屋使用磨碎、掉漆。</p><p>坏账：指企业无法收回或收回的可能性极小的<a href="https://baike.so.com/doc/6134472-6347633.html">应收款项</a>。</p><p>坏账准备：指企业的应收款项（含应收账款、其他应收款等）计提的，是备抵账户。</p><p>应付票据、应付账款概念不一样，应该向别人要应付票据。</p><p>应付票据又分为银行承兑（对本人来说更好）、银行非承兑。</p><p>销售利润率：利润/销售额*100%。</p><p>成本加成率：成本/销售额*100%。</p><p>财会分录：指一笔资金变化，分别记在不同的种类下。</p><h3 id="第四次课"><a href="#第四次课" class="headerlink" title="第四次课"></a>第四次课</h3><p>现金流分三类：筹资、经营所得、投资。</p><p>利润 = 收入 - 费用（成本*销售/产量 + 其他期间性费用&amp;管理费用）</p><p>18000*100 - 258800 - 1350000（CGS）- 100000 = 91200。</p><p>成本加成率：指售价相比成本加成的百分率。</p><ul><li>150000 / 20000 = 75/件，售价=100/件。25/75*100% = 33%.</li></ul><p>毛利率：毛利润/营业收入, 成本加成/售价</p><ul><li>45/180*100% = 25%.</li><li>25/100。</li></ul><p>成本：获取资产的代价，没有时间。</p><p>费用：在获取收入的一个时间段内，经营所耗的代价。</p><h3 id="第五次课"><a href="#第五次课" class="headerlink" title="第五次课"></a>第五次课</h3><p>2021-05-10</p><p>划水了一次课，太困。</p>]]></content>
       
       
       <categories>

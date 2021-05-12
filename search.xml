@@ -29,6 +29,33 @@
     
     
     <entry>
+      <title>Ubuntu 修改默认ssh端口</title>
+      <link href="2021/05/12/Ubuntu-%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4ssh%E7%AB%AF%E5%8F%A3/"/>
+      <url>2021/05/12/Ubuntu-%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4ssh%E7%AB%AF%E5%8F%A3/</url>
+      
+        <content type="html"><![CDATA[<h3 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h3><p>最近服务器又被ssh爆破了，原来的端口改过，这里记录一下修改ssh默认端口，看来这个方法只能稍微缓解一下，过段时间还是会有人爆出你的ssh端口的，后续可能自己会在服务器布置一个蜜罐吧，现在对蜜罐一窍不通。</p><h3 id="1-过程"><a href="#1-过程" class="headerlink" title="1. 过程"></a>1. 过程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure><p>利用vim默认模式查找原来的port，然后修改，顺便也可以把root登录关了。</p><p><img src="/2021/05/12/Ubuntu-%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4ssh%E7%AB%AF%E5%8F%A3/image-20210512185336780.png" alt="image-20210512185336780"></p><p>保存之后，重启ssh服务就可以了。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service ssh restart</span><br></pre></td></tr></table></figure><p>然后使用root远程登录ssh，即使密码输对了也会提示Permission Denied：</p><p><img src="/2021/05/12/Ubuntu-%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4ssh%E7%AB%AF%E5%8F%A3/image-20210512190233112.png" alt="image-20210512190233112"></p><p>这样，在脚本小子爆破你ssh的时候root账户就永远不会被爆出，同时也要注意自己的用户名不要泄露。</p><p>至此！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ssh </tag>
+            
+            <tag> Ubuntu </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JuniperOS BGP协议配置</title>
       <link href="2021/05/11/JuniperOS-BGP%E5%8D%8F%E8%AE%AE%E9%85%8D%E7%BD%AE/"/>
       <url>2021/05/11/JuniperOS-BGP%E5%8D%8F%E8%AE%AE%E9%85%8D%E7%BD%AE/</url>

@@ -29,33 +29,6 @@
     
     
     <entry>
-      <title>House_of_botcake</title>
-      <link href="2021/09/19/House-of-botcake/"/>
-      <url>2021/09/19/House-of-botcake/</url>
-      
-        <content type="html"><![CDATA[<h3 id="攻击原理"><a href="#攻击原理" class="headerlink" title="攻击原理"></a>攻击原理</h3><h4 id="利用条件"><a href="#利用条件" class="headerlink" title="利用条件"></a>利用条件</h4><h3 id="关键部分"><a href="#关键部分" class="headerlink" title="关键部分"></a>关键部分</h3><h3 id="exp"><a href="#exp" class="headerlink" title="exp"></a>exp</h3><h3 id="坑："><a href="#坑：" class="headerlink" title="坑："></a>坑：</h3>]]></content>
-      
-      
-      <categories>
-          
-          <category> Writeups </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> pwn </tag>
-            
-            <tag> house_of_botcake </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Ubuntu 修改默认ssh端口</title>
       <link href="2021/05/12/Ubuntu-%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4ssh%E7%AB%AF%E5%8F%A3/"/>
       <url>2021/05/12/Ubuntu-%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4ssh%E7%AB%AF%E5%8F%A3/</url>

@@ -29,7 +29,7 @@
 <meta property="og:description" content="基本的gdb调试命令，也是备忘性质的，哈哈哈哈。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-12-28T13:34:54.084Z">
-<meta property="article:modified_time" content="2021-03-18T13:48:40.637Z">
+<meta property="article:modified_time" content="2021-10-28T07:58:55.984Z">
 <meta property="article:author" content="Demen Lee">
 <meta property="article:tag" content="gdb">
 <meta name="twitter:card" content="summary">
@@ -232,7 +232,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-18 21:48:40" itemprop="dateModified" datetime="2021-03-18T21:48:40+08:00">2021-03-18</time>
+                <time title="Modified: 2021-10-28 15:58:55" itemprop="dateModified" datetime="2021-10-28T15:58:55+08:00">2021-10-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -280,7 +280,7 @@
 <h3 id="1-调试的快捷键"><a href="#1-调试的快捷键" class="headerlink" title="1. 调试的快捷键"></a>1. 调试的快捷键</h3><p>peda带有的功能，直接输入命令，其就会给予提示（如果不是这样，基本上也是该命令就可以不带参数）。这儿就不多做介绍</p>
 <h4 id="1-1-基础的调试快捷键"><a href="#1-1-基础的调试快捷键" class="headerlink" title="1.1 基础的调试快捷键"></a>1.1 基础的调试快捷键</h4><ul>
 <li>s step，si步入</li>
-<li>n 执行下一条指令 ni步入</li>
+<li>n 执行下一条指令 ni步入（n 在有源码调试的情况下是单步下一条代码语句，ni是next instruction 汇编代码指令）</li>
 <li>b 在某处下断点，可以用<ul>
 <li>b * adrress</li>
 <li>b function_name</li>
@@ -299,9 +299,11 @@
 <li>p 0xff - 0xea 计算器</li>
 <li>print &amp;VarName 查看变量地址</li>
 <li>p * 0xffffebac 查看某个地址处的值</li>
+<li>p/d (int|char)$rax   输出有符号数 <code>p/d (char)0xff ===&gt; -1, p/d (char)0x80 ====&gt; -128</code></li>
+<li>p/u ….. 输出无符号数</li>
 </ul>
 <h5 id="x系列"><a href="#x系列" class="headerlink" title="x系列"></a>x系列</h5><ul>
-<li>x/ [n] &lt;b|w|g|s|i&gt; addr 显示某个地址处开始的16进制内容，如果有符号表会加载符号表,其中b代表一个字符为一组，w代表4个字节为一组，g代表8个字节为一组，s代表“\x00”结尾的字符串，i代表指令。</li>
+<li>x/ <code>&lt;n&gt;</code> [b|w|g|s|i] addr 显示某个地址处开始的16进制内容，如果有符号表会加载符号表,其中b代表一个字符为一组，w代表4个字节为一组，g代表8个字节为一组，s代表“\x00”结尾的字符串，i代表指令。</li>
 <li>x/w $esp 查看esp寄存器中的值</li>
 <li>x/s addr 查看addr处的字符串</li>
 <li>x/b addr 查看addr处的字符</li>
@@ -320,6 +322,8 @@
 <p>vmmap 查看映射状况 peda带有</p>
 <p>readelf 查看elf文件中各个段的起始地址 peda带有</p>
 <p>parseheap 显示堆状况 peda带有</p>
+<p>heap chunk addr 查看addr地址处的堆块情况 gef插件带有</p>
+<p>heap bins 查看当前的bins链表情况，也是gef带有</p>
 <h4 id="1-3-查找数据"><a href="#1-3-查找数据" class="headerlink" title="1.3 查找数据"></a>1.3 查找数据</h4><ul>
 <li>find 查找字符串 peda带有</li>
 <li>searchmem 查找字符串 peda带有</li>
@@ -489,7 +493,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -502,7 +506,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-count">59</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

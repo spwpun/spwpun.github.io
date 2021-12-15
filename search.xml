@@ -29,6 +29,31 @@
     
     
     <entry>
+      <title>WASM pwn环境准备</title>
+      <link href="2021/12/12/WASM%20pwn%E7%8E%AF%E5%A2%83/"/>
+      <url>2021/12/12/WASM%20pwn%E7%8E%AF%E5%A2%83/</url>
+      
+        <content type="html"><![CDATA[<h1 id="WASM-pwn环境"><a href="#WASM-pwn环境" class="headerlink" title="WASM pwn环境"></a>WASM pwn环境</h1><ul><li>教程：<a href="https://www.pianshen.com/article/52531465182/">https://www.pianshen.com/article/52531465182/</a></li><li>idawasm：<a href="https://github.com/mandiant/idawasm">https://github.com/mandiant/idawasm</a></li><li>wasm编译环境</li><li>wabt工具包</li><li>wasmtime运行wasm文件</li></ul><h2 id="wasm编译环境"><a href="#wasm编译环境" class="headerlink" title="wasm编译环境"></a>wasm编译环境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/emscripten-core/emsdk.git</span><br><span class="line"><span class="built_in">cd</span> emsdk</span><br><span class="line">./emsdk install latest</span><br><span class="line">./emsdk activate latest</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;source &quot;/mnt/c/Users/17360/Desktop/emsdk/emsdk_env.sh&quot;&#x27;</span> &gt;&gt; <span class="variable">$HOME</span>/.zprofile</span><br><span class="line"><span class="built_in">source</span> ~/.zprofile</span><br></pre></td></tr></table></figure><p>安装成功：</p><p>![image-20211212021225243](WASM pwn环境/image-20211212021225243.png)</p><h2 id="wabt工具包"><a href="#wabt工具包" class="headerlink" title="wabt工具包"></a>wabt工具包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --recursive https://github.com/WebAssembly/wabt</span><br><span class="line"><span class="built_in">cd</span> wabt</span><br><span class="line">mkdir build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">cmake ../</span><br><span class="line">cmake --build .</span><br></pre></td></tr></table></figure><p>编译成功：</p><p>![image-20211212023400563](WASM pwn环境/image-20211212023400563.png)</p><p>![image-20211212023531138](WASM pwn环境/image-20211212023531138.png)</p><p>将wabt工具包路径加入环境变量：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/mnt/c/Users/17360/Desktop/wabt/build/</span><br></pre></td></tr></table></figure><p>![image-20211212024435269](WASM pwn环境/image-20211212024435269.png)</p><h2 id="wasmtime（JIT-runtime）"><a href="#wasmtime（JIT-runtime）" class="headerlink" title="wasmtime（JIT-runtime）"></a>wasmtime（JIT-runtime）</h2><ul><li><a href="https://github.com/bytecodealliance/wasmtime">https://github.com/bytecodealliance/wasmtime</a></li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://wasmtime.dev/install.sh -sSf | bash</span><br></pre></td></tr></table></figure><p><code>wasmtime</code></p><p>![image-20211212030241113](WASM pwn环境/image-20211212030241113.png)</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 环境搭建 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> wasm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>htb:Devzat</title>
       <link href="2021/11/03/htb-Devzat/"/>
       <url>2021/11/03/htb-Devzat/</url>
